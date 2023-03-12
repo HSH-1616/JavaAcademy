@@ -1,0 +1,12 @@
+package com.obj.model.vo;
+
+public class Student {
+	public String name;
+	public int age;
+	public int grade;
+	public int clas;
+	public double height;
+	public String adress;
+	
+
+}

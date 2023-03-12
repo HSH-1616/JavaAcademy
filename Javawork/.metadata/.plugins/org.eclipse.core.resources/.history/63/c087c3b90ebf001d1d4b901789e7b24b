@@ -1,0 +1,14 @@
+package com.obj.model.vo;
+
+public class InitblockTest {
+	//초기화 블록 테스트하기
+	public String test;
+	public int testnum;
+	
+	//초기화 블록 선언하기
+	{
+		System.out.println("InitblockTest 클래스 생성!!");
+		
+	}
+
+}

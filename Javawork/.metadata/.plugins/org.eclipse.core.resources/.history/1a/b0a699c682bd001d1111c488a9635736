@@ -1,0 +1,20 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class RSP {
+	
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	Random r=new Random();
+	System.out.println("입력(가위,바위,보) : ");
+	String rsp=sc.next();
+	System.out.println(Math.random()*10);
+	int rand=0;
+	rand+=sc.nextInt();
+	
+	for(int i=0;i<2;i++) {
+		System.out.println(rand);
+	}
+	
+}
+}

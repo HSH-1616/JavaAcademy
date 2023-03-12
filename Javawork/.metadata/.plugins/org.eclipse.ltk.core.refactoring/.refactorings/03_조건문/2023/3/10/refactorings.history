@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.control.run.main&apos; to &apos;Main&apos;&#x0D;&#x0A;- Original project: &apos;03_조건문&apos;&#x0D;&#x0A;- Original element: &apos;com.control.run.main&apos;&#x0D;&#x0A;- Renamed element: &apos;com.control.run.Main&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;main&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.control.run{main.java[main" matchStrategy="1" name="Main" qualified="false" references="true" similarDeclarations="false" stamp="1678063484807" textual="true" version="1.0"/>
+</session>

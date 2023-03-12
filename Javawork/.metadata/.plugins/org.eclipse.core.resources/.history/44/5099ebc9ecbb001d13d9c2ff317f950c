@@ -1,0 +1,29 @@
+package com.repeate.controller;
+
+public class RepeatController {
+	
+	public void basicRepeat() {
+		//기본 for문 이용하기
+		//특정코드를 원하는 만큼 반복 실행하게 하는 명령어
+		//for(초기식;조건식;증감식) { 반복할 코드를 작성 }
+		//초기식 : 변수선언, 반복한 횟수에 대해 저장하는 공간
+		//조건식 : 반복을 더 실행할지 말지 결정하는 조건(true 실행, false 중단)
+		//증감식 : 초기식에 선언한 변수의 값을 수정하는 연산 -> 조건식의 결과가 변경
+		//반갑습니다! 100번 출력
+		for(int i=1;i<=100;i++) {
+			System.out.println("반갑습니다!");
+		}
+		
+		//1~10까지 수를 출력하기
+		for(int i=1;i<=10000000000000;i++) {
+			System.out.print(i+" ");
+		}
+		
+		
+		
+		
+	}
+		
+
+
+}

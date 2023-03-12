@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class RSP {
+	
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	Random r=new Random();
+	r.nextInt(3);
+	String result="";	
+	
+	
+	while(!result.equals("exit")) {
+		System.out.println("==== 가위 바위 보 게임 ====\n1.가위\n2.바위\n3.보");
+		System.out.print("입력 : ");
+		String rsp=sc.next();
+		int i=Integer.parseInt(rsp)
+		if(i>r.nextInt(3)) {
+			System.out.println("사용자가 이겼습니다.");
+			System.out.println("다시 하겠습니다.");
+		
+		}else if(i<r.nextInt(3)) {
+			System.out.println("컴퓨터가 이겼습니다.");
+			System.out.println("다시 하겠습니다.");
+	
+		}else if(i==r.nextInt(3)) {
+			System.out.println("비겼습니다.");
+		}else if(rsp.equals("exit")) {
+			result="exit";
+		}
+	}
+	
+	
+}
+}

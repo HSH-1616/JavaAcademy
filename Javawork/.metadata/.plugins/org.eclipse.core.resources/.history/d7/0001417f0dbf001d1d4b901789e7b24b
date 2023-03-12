@@ -1,0 +1,9 @@
+package com.obj.model.vo;
+
+public class InitblockTest {
+	//초기화 블록 테스트하기
+	public String test;
+	public int testnum;
+	
+
+}

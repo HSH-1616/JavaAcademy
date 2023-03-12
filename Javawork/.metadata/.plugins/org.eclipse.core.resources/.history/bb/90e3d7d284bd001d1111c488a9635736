@@ -1,0 +1,19 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class RSP {
+	
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	Random r=new Random();
+	System.out.println("==== 가위 바위 보 게임 ====\n1.가위\n2.바위\n3.보");
+	System.out.print("입력 : ");
+	String rsp=sc.next();
+	
+	
+	for(int i=0;i<1;i++) {
+		System.out.println((int)(r.nextInt(3)));
+	}
+	
+}
+}
