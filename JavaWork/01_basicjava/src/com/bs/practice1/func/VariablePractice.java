@@ -16,7 +16,7 @@ public class VariablePractice {
 		String height=sc.nextLine();
 		
 		System.out.print("키 "+height+"cm"+"인 "+age+"살 "+gender+"자 "+name+"님 반갑습니다 ^^");
-		
+	
 	}
 	
 	public void practice2() {
