@@ -2,7 +2,7 @@ package com.baseball;
 
 import java.util.Random;
 import java.util.Scanner;
-
+//ㅇㅇㅇㅇㅇ
 public class BaseBall {
 	public static void main(String[] args) {
 //		1. 야구게임
