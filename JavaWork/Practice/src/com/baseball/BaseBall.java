@@ -54,9 +54,10 @@ public class BaseBall {
 		while (win != true) {
 
 			System.out.println();
-			for (int i = 0; i < 3; i++) {
-				System.out.print("입력 : ");
-				user[i] = sc.nextInt();
+			System.out.print("입력 : ");
+			String num= sc.next();
+			for (int i = 0; i <num.length(); i++) {
+				user[i]=(num.charAt(i)-'0');
 				for (int j = 0; j < i; j++) {
 					if (user[i] == user[j]) {
 						System.out.println("중복입니다.");
