@@ -1,0 +1,210 @@
+package com.bs.practice.array;
+
+import java.util.Scanner;
+
+public class ArrayPractice {
+	Scanner sc = new Scanner(System.in);
+
+	public void practice1() {
+
+		int arr[] = new int[10];
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i + 1;
+		}
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
+
+	public void practice2() {
+
+		int arr[] = new int[10];
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i + 1;
+		}
+		for (int i = arr.length - 1; i >= 0; i--) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
+
+	public void practice3() {
+
+		System.out.print("양의 정수 : ");
+		int num = sc.nextInt();
+
+		int arr[] = new int[num];
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i + 1;
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+
+	public void practice4() {
+
+		String fruit[] = { "사과", "귤", "포도", "복숭아", "참외" };
+		System.out.println(fruit[1]);
+	}
+
+	public void practice5() {
+		int count = 0;
+		String chNum = "";
+
+		System.out.print("문자열 : ");
+		String str = sc.nextLine();
+		System.out.print("문자 : ");
+		char ch = sc.next().charAt(0);
+		
+
+		for (int i = 0; i < str.length(); i++) {
+			String msg[] = { "str.charAt(i)" };
+			if (str.charAt(i) == ch) {
+				chNum += i+" ";
+				count++;
+			}
+		}
+
+		System.out.println(str + "에 " + ch + "가 존재하는 위치(인덱스) : "+chNum);
+		System.out.println(ch + " 개수 : " + count);
+	}
+
+	public void practice6() {
+		int num = 0;
+		while (num > 7 || num < 1) {
+			String day[] = { "월", "화", "수", "목", "금", "토", "일" };
+			System.out.print("1 ~ 7 사이 숫자 입력 : ");
+			num = sc.nextInt();
+			if (num > 0 && num < 8) {
+				System.out.println(day[num - 1]);
+			} else if (num > 7 || num < 1) {
+				System.out.println("잘못 입력하셨습니다.");
+			}
+		}
+	}
+
+	public void practice7() {
+		int total = 0;
+		System.out.print("정수 : ");
+		int num = sc.nextInt();
+
+		int arr[] = new int[num];
+		for (int i = 0; i < num; i++) {
+			System.out.print("배열 " + i + "번째 인덱스에 넣을 값 : ");
+			int num1 = sc.nextInt();
+			arr[i] = num1;
+			total += num1;
+		}
+		for (int i = 0; i < num; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+		System.out.println("총합 : " + total);
+	}
+
+	public void practice8() {
+		int num = 0;
+
+		while (num < 3 || num % 2 != 1) {
+			System.out.print("정수 : ");
+			num = sc.nextInt();
+			if (num > 3 && num % 2 == 0) {
+				System.out.println("홀수를 입력하세요.");
+			}
+			if (num < 3) {
+				System.out.println("3이상의 수를 입력하세요.");
+			}
+		}
+		int arr[] = new int[num];
+
+		for (int i = 0; i < num / 2 + 0.5; i++) {
+			arr[i] = i + 1;
+			System.out.print(arr[i] + ", ");
+		}
+		for (int i = num - 1; i > num / 2 + 1.5; i--) {
+			arr[i] = i - num / 2;
+			System.out.print(arr[i] + ", ");
+		}
+		System.out.println(arr[0]);
+
+	}
+
+	public void practice9() {
+		boolean good = false;
+		String chicken[] = { "후라이드", "양념", "간장", "파닭", "한방", "마늘" };
+		System.out.print("치킨 이름을 입력하세요 : ");
+		String name = sc.next();
+		for (int i = 0; i < chicken.length; i++) {
+			if (chicken[i].equals(name)) {
+				good = true;
+			}
+		}
+		if (good == true) {
+			System.out.println(name + "치킨 배달 가능");
+		} else {
+			System.out.println(name + "치킨은 없는 메뉴입니다.");
+		}
+	}
+
+	public void practice10() {
+		char arr[] = new char[14];
+		char arr1[] = arr;
+		
+		System.out.print("주민등록번호(-포함) : ");
+		String ssn = sc.next();
+		for (int i = 0; i < arr1.length; i++) {
+			arr1[i] = ssn.charAt(i);
+		}
+
+		for (int i = 0; i < 8; i++) {
+			System.out.print(arr1[i]);
+		}
+		for (int i = 9; i < arr1.length; i++) {
+			System.out.print('*');
+		}
+	}
+
+	public void practice11() {
+		int arr[] = new int[10];
+		
+		for (int i = 0; i < arr.length; i++) {
+			int r = (int) (Math.random() * 10) + 1;
+			arr[i] = r;
+		}
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}		
+	}
+	
+	public void practice12() {
+		int arr[]=new int[10];
+		
+		
+		for(int i=0;i<arr.length;i++) {
+			int rand=(int)(Math.random()*10)+1;
+			arr[i]+=rand;
+			System.out.print(arr[i]+" ");
+		}
+		
+		int max=arr[0];
+		int min=arr[0];
+		
+		for(int i=0;i<arr.length;i++) {				
+			if(arr[i]>max) {
+				max=arr[i];
+			}
+			if(arr[i]<min) {
+				min=arr[i];
+			}						
+		}
+		System.out.println();
+		System.out.println("최대값 : "+max);
+		System.out.println("최소값 : "+min);
+	}
+}
