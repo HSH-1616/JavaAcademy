@@ -8,16 +8,16 @@ public class MyMethodRun {
 		
 		MyMethod mm=new MyMethod();
 		
-		mm.lunch();
+		mm.printMsg();
 		
-		int result=mm.calc();
+		int result=mm.sumNumber();
 		System.out.println(result);
 		
-		System.out.println(mm.msg());
+		System.out.println(mm.printMsgSum());
 		
-		mm.calc1(1,2,'-');
+		mm.calculator(1,2,'-');
 		
-		double result1=mm.calcReturn(1,2,'+');
+		double result1=mm.calculator2(1,2,'+');
 		System.out.println(result1);
 		
 		boolean flag=mm.checkStr("apple");
