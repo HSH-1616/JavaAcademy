@@ -9,7 +9,7 @@ public class Main {
 		//new OperatorController().singleOp();
 		//new OperatorController().calculatorOp();
 		//new OperatorController().calc();
-		new OperatorController().compareOp();
+		//new OperatorController().compareOp();
 		//new OperatorController().testStr();
 		//new OperatorController().check();
 		//new OperatorController().logic();
@@ -17,6 +17,7 @@ public class Main {
 		//new OperatorController().calcGrade();
 		//new OperatorController().inputMsg();
 		//new OperatorController().thirdOp();
+		new OperatorController().bitOperator();
 	}
 	
 }

@@ -17,8 +17,12 @@ public class ConstructorMain {
 		Person p1=new Person("허성현",25,173.5,'남');
 		Person p2=new Person("허성현",24,173.5,'남');
 		
+		
 		System.out.println(p1.name+p1.age+p1.height+p1.gender);
 		System.out.println(p2.name+p2.age+p2.height+p2.gender);
+		
+		Person p3=new Person("허성현",'남');
+		Person p4=new Person("허성현",27);
 		
 		//Animal				
 		Animal a1=new Animal("강아지","뽀삐",5,50,"우리집");

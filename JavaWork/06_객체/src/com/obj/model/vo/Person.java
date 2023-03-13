@@ -5,6 +5,8 @@ public class Person {
 	public int age;
 	public char gender;
 	public double height;
+	public String address;
+	
 	{
 		System.out.println("Person 기본생성자 실행");
 	}
@@ -31,6 +33,30 @@ public class Person {
 		
 		System.out.println(paramName+" "+paramAge+" "+paramHeight+" "+paramGender);
 		
+	}
+	//생성과 동시에 초기화할 값만 선언해도 된다.
+	public Person(String paramName, char paramGender) {
+		this.name=paramName;
+		this.gender=paramGender;
+	}
+	
+	public Person(String name, int age) {
+		this.name=name;
+		this.age=age;
+	}
+	
+	public Person(char gender, String adress) {
+		this.address=address;
+		this.gender=gender;
+	}
+	
+	//this() 생성자를 이용하면 추가로직을 작성하지 않고 활용할 수 있다.
+	//생성자 내부에서 다른 생성자를 호출할때 사용
+	
+	public Person(String name, int age, char gender, String address) {
+		this(name,age);
+		this.address=address;
+		this.gender=gender;
 	}
 	
 }

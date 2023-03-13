@@ -15,13 +15,14 @@ public class Animal {
 	public double weight;
 	public int height;
 	public String house;
+	public Animal() {}
 	
-	public Animal(String paraJong,String paraName,double paraWeight,int paraHeight,String paraHouse){
-		jong=paraJong;
-		name=paraName;
-		weight=paraWeight;
-		height=paraHeight;
-		house=paraHouse;
+	public Animal(String jong,String name,double weight,int height,String house){
+		this.jong=jong;
+		this.name=name;
+		this.weight=weight;
+		this.height=height;
+		this.house=house;
 		
 	}
 	

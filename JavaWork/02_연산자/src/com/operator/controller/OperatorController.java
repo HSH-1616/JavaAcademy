@@ -403,5 +403,48 @@ public class OperatorController {
         System.out.println("결과 : "+result);
     }
     
+    public void bitOperator() {
+    	//비트연산자
+    	//저장소에있는 비트끼리 연산을 하는것
+    	//A & B : 두개 모두 1일때 1값을 출력 아니면 모두 0
+    	//A | B : 두개 중 한개가 1일때 1값을 출력 두값 모두 0일때 0을 출력
+    	//A ^ B (XOR) : 두비트가 다른값을 가질때 1 출력 같은 값일때 0을 출력
+    	//~A : 부속 *값을 반전 1->0, 0->1로 변경
+    	
+    	int a=10,b=22;
+    	String basic="";
+    	for(int i=0;i<32;i++) {
+    		basic+=0;
+    	}
+    	String bit=basic+Integer.toBinaryString(a);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> a비트값");
+    	bit=basic+Integer.toBinaryString(b);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> b비트값");
+    	bit=basic+Integer.toBinaryString(a&b);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> a&b비트값");
+    	bit=basic+Integer.toBinaryString(a|b);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> a|b비트값");
+    	bit=basic+Integer.toBinaryString(a^b);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> a^b비트값");
+    	bit=basic+Integer.toBinaryString(~a);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> ~a비트값");
+    	bit=basic+Integer.toBinaryString(a<<1);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> a<<1비트값");
+    	bit=basic+Integer.toBinaryString(a>>1);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> a>>1비트값");
+    	bit=basic+Integer.toBinaryString(a>>>2);
+    	bit=bit.substring(bit.length()-32);
+    	System.out.println(bit+" -> a>>>2비트값");
+
+    	
+    }
     
 }
