@@ -13,8 +13,6 @@ public class InitMain {
 			InitblockTest t=new InitblockTest();
 			System.out.println(t.test);
 		}
-		
-
 	}
 
 }

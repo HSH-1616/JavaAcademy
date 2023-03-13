@@ -7,31 +7,39 @@ public class ConstructorMain {
 
 	public static void main(String[] args) {
 		//클래스의 생성자 활용하기
-		//클래스는 생성해서 이용을 해야한다.
-		//클래스를 생성할때 이용하는 것이 생성자다!
-		//모든 클래스 선언에는 반드시 생성자선언 코드가 있어야한다.!
-		
+		//클래스는 생성해서 이용을 해야한다. 
+		// 클래스를 생성할때 이용하는것이 생성자다!
+		// 모든 클래스선언에는 반드시 생성자선언 코드가 있어야한다.!
 		Person p=new Person();//기본생성자를 호출한 구문
-		System.out.println(p.name+" "+p.age+" "+p.height+" "+p.gender);
-		//매개변수 있는 생성자 호출하기
-		Person p1=new Person("허성현",25,173.5,'남');
-		Person p2=new Person("허성현",24,173.5,'남');
-		
+		System.out.println(p.name+" "+p.age+" "+p.height
+				+" "+p.gender);
+		//매개변수있는 생성자 호출하기
+		Person p1=new Person("최주영",26,178.4,'여');
+		Person p2=new Person("김중근",28,177.3,'여');
 		
 		System.out.println(p1.name+p1.age+p1.height+p1.gender);
 		System.out.println(p2.name+p2.age+p2.height+p2.gender);
 		
-		Person p3=new Person("허성현",'남');
-		Person p4=new Person("허성현",27);
+		Person p3=new Person("윤지환",'남');
+		Person p4=new Person("윤준호",26);
 		
-		//Animal				
-		Animal a1=new Animal("강아지","뽀삐",5,50,"우리집");
-		Animal a2=new Animal("고양이","야옹이",3,40,"짬통");
-		Animal a3=new Animal("거북이","꼬북이",1.2,5,"어항속");
 		
-		System.out.println(a1.jong+" "+a1.name+" "+a1.weight+"kg "+a1.height+"cm "+a1.house);
-		System.out.println(a2.jong+" "+a2.name+" "+a2.weight+"kg "+a2.height+"cm "+a2.house);
-		System.out.println(a3.jong+" "+a3.name+" "+a3.weight+"kg "+a3.height+"cm "+a3.house);
+		
+		
+		//매개변수있는 생성자 이용하기
+		//동물정보를 저장할 수 있는 클래스만들기 com.obj.model.vo
+		//종류, 이름, 몸무게, 길이, 서식지
+		//개 뽀삐 5kg 50cm 우리집
+		//고양이 야옹이 3kg 40cm 짬통
+		//거북이 꼬북이 1.2kg 5cm 어항속
+		//객체를 생성할때 모든값이 세팅되어서 생성될 수 있게 하고
+		//해당내용 출력하기
+		
+		Animal dog=new Animal();
+		Animal cat=new Animal("고양이","엉",4.5,40,"솔이집");
+		
+		
+		
 	}
 
 }

@@ -8,6 +8,4 @@ public class BaseBallPlayer {
 	public int number;
 	public String position;
 	public int accuracy;
-	
-	
 }
