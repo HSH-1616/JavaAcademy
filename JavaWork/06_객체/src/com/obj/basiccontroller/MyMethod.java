@@ -2,6 +2,8 @@ package com.obj.basiccontroller;
 
 import java.util.Scanner;
 
+import com.obj.model.vo.Employee;
+
 public class MyMethod {
 	
 	public MyMethod() {}
@@ -73,8 +75,25 @@ public class MyMethod {
 		return false;
 	}
 	
+	//Employee객체를 생성해주는 메소드 만들기
 	
+	public void makeEmployee(Employee e, String name,
+			String department, int salary, double bonus) {		
+		e.setName(name);
+		e.setDepartment(department);
+		e.setSalary(salary);
+		e.setBonus(bonus);		
+	}
 	
+	public Employee makeEmployee2(String name, String department, 
+			int salary, double bonus) {
+		Employee e=new Employee();
+		e.setName(name);
+		e.setDepartment(department);
+		e.setSalary(salary);
+		e.setBonus(bonus);
+		return e;
+	}
 	
 	
 	
