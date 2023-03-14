@@ -1,0 +1,12 @@
+package bs.studnet.dto;
+
+public class StudentDto {
+	private String name;
+	private String studentNO;
+	private String major;
+	private int grade;
+	private String address;
+	
+	
+
+}

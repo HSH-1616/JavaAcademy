@@ -1,0 +1,33 @@
+package bs.student.dao;
+
+import bs.studnet.dto.Student;
+
+public class StudentDao {
+	
+	private Student s1;
+	private Student s2;
+	private Student s3;
+	private Student s4;
+	
+	public StudentDao() {}
+	
+	//학생을 저장소에 저장하는 기능
+	public boolean insertStudent(Student s) {
+		boolean result=true;
+		if(s1==null) {
+			//s1은 비었다.
+			s1=s;
+		}else if(s2==null) {
+			s2=s;
+		}else if(s3==null) {
+			s3=s;
+		}else if(s4==null) {
+			s4=s;
+		}else {
+			//입력실패
+			result=false;
+		}
+		return true;
+	}
+
+}

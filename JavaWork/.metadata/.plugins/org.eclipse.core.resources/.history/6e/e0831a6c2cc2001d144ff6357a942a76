@@ -1,0 +1,5 @@
+package bs.student.dao;
+
+public class StudentDao {
+
+}
