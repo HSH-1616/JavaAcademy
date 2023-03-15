@@ -5,5 +5,5 @@
  * @author GDJ64
  *
  */
-module studentmanage {
+module 객체배열07 {
 }
