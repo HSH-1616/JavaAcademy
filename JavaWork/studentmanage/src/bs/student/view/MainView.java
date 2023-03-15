@@ -7,11 +7,18 @@ import bs.studnet.dto.Student;
 
 //사용자에게 보여주는 화면을 제공하는 역할을 하는 클래스
 public class MainView {
+//	private StudentController s=new StudentController();//양쪽에서 서로 호출하고 있어서 무한루프
+	private static MainView mainview;
+	public static MainView getMainView() {
+		if(mainview==null) mainview=new MainView();
+		return mainview;
+	}
+	private MainView() {}
 	// 주 메뉴화면을 출력해주는 기능
 
 	public void mainMenu() {
 		Scanner sc = new Scanner(System.in);
-		StudentController s=new StudentController();
+		StudentController s=StudentController.getStudentController();
 		while (true) {
 			System.out.println("====== 학생관리 프로그램 ======");
 			System.out.println("1. 학생 등록");
@@ -28,7 +35,7 @@ public class MainView {
 				s.insertStudent();
 				break;
 			case 2:
-				System.out.println("학생 수정 개발중....");
+				s.updateStudent();
 				break;
 			case 3:
 				System.out.println("학생 삭제 개발중....");
@@ -37,7 +44,7 @@ public class MainView {
 				s.searchAll();
 				break;
 			case 5:
-				System.out.println("이름으로 조회 개발중....");
+				s.searchByName();
 				break;
 			case 0:
 				System.out.println("프로그램을 종료합니다.");
@@ -52,8 +59,8 @@ public class MainView {
 		System.out.println("====== 학생등록 화면 ======");
 		System.out.print("학생 이름 : ");
 		String name = sc.nextLine();
-		System.out.print("학생 번호 : ");
-		String studentNo = sc.nextLine();
+//		System.out.print("학생 번호 : ");
+//		String studentNo = sc.nextLine();
 		System.out.print("학년 : ");
 		int grade = sc.nextInt();
 		sc.nextLine();
@@ -64,11 +71,10 @@ public class MainView {
 		System.out.print("성별(남/여) : ");
 		char gender = sc.next().charAt(0);
 		
-		Student s=new Student(name,studentNo,major,grade,address,gender);
-		return s;
-				
-	}
-	
+		Student s=new Student(name,major,grade,address,gender);
+		return s;				
+	}	
+
 	public void printMsg(String msg) {
 		System.out.println("===== 시스템 메시지 =====");
 		System.out.println(msg);
@@ -80,4 +86,35 @@ public class MainView {
 		System.out.println(infoStudent);
 		System.out.println("====================");
 	}
+	
+	//이름을 입력받고 반환해주는 메소드
+	public String inputName() {
+		
+		Scanner sc=new Scanner(System.in);	
+		System.out.println("====== 검색할 이름 =======");
+		System.out.print("입력 : \n");
+		return sc.nextLine();			
+	}
+	
+	public Student updateStudentView() {
+		Scanner sc=new Scanner(System.in);
+		Student s=new Student();
+		System.out.println("====== 학생 정보 수정 ======");
+		System.out.print("수정할 학생 학번 : ");
+		String studentNo=sc.nextLine();
+		s.setStudentNo(studentNo);
+		System.out.print("수정할 학생 학년 : ");
+		int grade=sc.nextInt();	
+		s.setGrade(grade);
+		System.out.print("수정할 전공 : ");
+		sc.nextLine();
+		String major=sc.nextLine();
+		s.setMajor(major);
+		System.out.print("수정할 주소 : ");
+		String address=sc.nextLine();		
+		s.setAddress(address);
+		return s;
+	}
+	
+	
 }

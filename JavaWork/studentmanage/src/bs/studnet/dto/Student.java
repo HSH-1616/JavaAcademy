@@ -1,7 +1,10 @@
 package bs.studnet.dto;
 
+import java.text.SimpleDateFormat;
+
 public class Student {
 	
+	private static int count;
 	private String name;
 	private String studentNo;
 	private String major;
@@ -9,11 +12,19 @@ public class Student {
 	private String address;
 	private char gender;
 	
+	{
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
+		studentNo=
+			sdf.format(System.currentTimeMillis())+"_"+(++count);
+	}
+	
+	
 	public Student() {}
 	
-	public Student(String name, String studentNo, String major, int grade, String address, char gender) {
+	public Student(String name, //String studentNo, 
+			String major, int grade, String address, char gender) {
 		this.name=name;
-		this.studentNo=studentNo;
+//		this.studentNo=studentNo;
 		this.major=major;
 		this.grade=grade;
 		this.address=address;
@@ -52,11 +63,11 @@ public class Student {
 		this.grade=grade;
 	}
 	
-	public String getAdress() {
+	public String getAddress() {
 		return this.address;
 	}
 	
-	public void setAdress(String address) {
+	public void setAddress(String address) {
 		this.address=address;
 	}
 	
