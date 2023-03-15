@@ -30,7 +30,7 @@ public class Employee {
 	}
 
 	// 필드를 조작할 수 있는 setter/getter선언하기
-	// name필듯
+	// name필드
 	public void setName(String name) {
 		if (name.length() >= 2)
 			this.name = name;

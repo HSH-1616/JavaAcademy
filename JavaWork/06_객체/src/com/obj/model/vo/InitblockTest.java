@@ -24,8 +24,8 @@ public class InitblockTest {
 		
 		testnum+=count;
 		
-		Date today=new Date();
-		SimpleDateFormat sdf=new SimpleDateFormat("YYYYMMdd_HHmmss");
-		test=sdf.format(today)+(int)(Math.random()*10000)+1;		
+//		Date today=new Date();
+//		SimpleDateFormat sdf=new SimpleDateFormat("YYYYMMdd_HHmmss");
+//		test=sdf.format(today)+(int)(Math.random()*10000)+1;		
 	}
 }
