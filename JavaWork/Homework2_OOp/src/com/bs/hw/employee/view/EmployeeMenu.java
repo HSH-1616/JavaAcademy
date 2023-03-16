@@ -8,7 +8,7 @@ import com.bs.hw.employee.model.vo.Employee;
 public class EmployeeMenu {
 	Scanner sc = new Scanner(System.in);
 	Employee e = new Employee();
-	EmployeeController ec= new EmployeeController();
+	EmployeeController ec = new EmployeeController();
 
 	public EmployeeMenu() {
 
@@ -101,22 +101,19 @@ public class EmployeeMenu {
 
 	public void deleteEmp() {
 		System.out.print("정말 삭제 하시겠습니까?(y/n) : ");
-		char delete=sc.next().charAt(0);
-		if(delete=='y') {
+		char delete = sc.next().charAt(0);
+		if (delete == 'y') {
 			ec.remove();
 			System.out.println("삭제에 성공했습니다.");
 		}
-
 	}
 
 	public void printEmp() {
-		if(ec.inform().equals("true")) {
-			System.out.println("==== 사원정보 출력 =====\n"+e.printEmployee());
-		}else {
+		if (ec.inform().equals("true")) {
+			System.out.println("==== 사원정보 출력 =====\n" + e.printEmployee());
+		} else {
 			System.out.println("사원정보가 없습니다.");
 		}
-		
-
 	}
 
 }
