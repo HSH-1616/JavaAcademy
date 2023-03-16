@@ -39,7 +39,7 @@ public class Main {
 		Book b=new Book("책","작가","저자",10000,30.0);
 		b.inform();
 		Book b1=new Book("이","작가","저자");
-		b.inform();
+		b1.inform1();
 		
 		
 	}
