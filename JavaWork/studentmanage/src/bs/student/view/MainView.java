@@ -76,6 +76,14 @@ public class MainView {
 		System.out.println("====================");
 	}
 	
+	public void printStudent(Student[] infoStudent) {
+		System.out.println("==== 저장된 학생정보 출력 ====");
+		for(Student s : infoStudent) {
+			System.out.println(s.infoStudent());
+		}
+		System.out.println("====================");
+	}
+	
 	//이름을 입력받고 반환해주는 메소드
 	public String inputName() {
 		Scanner sc=new Scanner(System.in);

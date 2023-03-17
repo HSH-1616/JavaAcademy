@@ -74,6 +74,23 @@ public class Student {
 				+" "+this.address+" "+this.gender;
 	}
 	
+	public String toString() {
+		return getName()+" "+getMajor()+" "+getGrade()+" "+
+	getAddress()+" "+getGender();
+	}
+	
+	public boolean equals(Object o) {
+		Student s=(Student)o;
+		if(getName()==s.getName()
+			&&getMajor()==s.getMajor()
+			&&getGrade()==s.getGrade()
+			&&getAddress()==s.getAddress()
+			&&getGender()==s.getGender()				
+		  )return true;	
+		
+	return false;
+	}
+	
 	
 	
 	

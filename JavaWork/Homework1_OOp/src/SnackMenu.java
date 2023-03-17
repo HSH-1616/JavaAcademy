@@ -17,9 +17,9 @@ public class SnackMenu {
 		int numOf = sc.nextInt();
 		System.out.print("가격 : ");
 		int price = sc.nextInt();
-		
-		Snack s = new Snack("빵","케이크","블루베리",1,15000);
-		System.out.println(s.information());
+	
+//		Snack s = new Snack("빵","케이크","블루베리",1,15000);
+//		System.out.println(s.information());
 	
 		System.out.println(Sc.saveData(kind, name, flavor, numOf, price));
 		System.out.print("저장한 정보를 확인하시겠습니까?(y/n) : ");

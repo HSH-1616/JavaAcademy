@@ -38,12 +38,12 @@ public class MemberMenu {
 		}		
 	}
 	
-	public void insertMemeber() {
-		
-		for (int i=0;i<)
-		System.out.println("새 회원을 등록합니다.");
-		System.out.print("아이디 : ");
-		m[].setId(sc.next());
-	}
+//	public void insertMemeber() {
+//		
+//		for (int i=0;i<)
+//		System.out.println("새 회원을 등록합니다.");
+//		System.out.print("아이디 : ");
+//		m[].setId(sc.next());
+//	}
 
 }
