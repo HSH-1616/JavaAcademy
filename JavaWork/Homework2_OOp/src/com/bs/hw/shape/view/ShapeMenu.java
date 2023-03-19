@@ -142,7 +142,7 @@ public class ShapeMenu {
 				double height1 = sc.nextDouble();
 				System.out.print("너비 : ");
 				double weight1 = sc.nextDouble();
-				double cp1 = scr.calcPerimeter(height1, weight1);
+				double cp1 = scr.calcArea(height1, weight1);
 				System.out.println(cp1);
 				break;
 

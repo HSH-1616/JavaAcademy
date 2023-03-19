@@ -8,10 +8,10 @@ public class Member {
 	private char gender;
 	private int age;
 
-	Member() {
+	public Member() {
 	}
 	
-	Member(String id,String name,String password,String email,char gender,int age){
+	public Member(String id,String name,String password,String email,char gender,int age){
 		this.id=id;
 		this.name=name;
 		this.password=password;
@@ -58,7 +58,7 @@ public class Member {
 	}
 	
 	public String inform() {
-		return this.id+" "+this.name+" "+this.password+" "+this.email+" "+this.gender+" "+this.age;
+		return getId()+" "+getName()+" "+getPassword()+" "+getEmail()+" "+getGender()+" "+getAge();
 	}
 
 
