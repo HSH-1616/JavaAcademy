@@ -11,5 +11,9 @@ public class OverrideChild extends OverrideParent{
 	public void printMsg() {
 		System.out.println("어노테이션으로 오버라이드");
 	}
-	
+//	@Override
+//	public void pritnMsg() {
+//		System.out.println("자식 클래스에서 재정의");
+//	}
+//	
 }
