@@ -2,15 +2,18 @@ package com.inter.model.vo;
 
 import java.util.Objects;
 
-public abstract class  Animal {
+
+public abstract class Animal{
 	private String name;
 	private String type;
 	private double height;
 	private double weight;
 	private String area;
-public Animal() {
-	// TODO Auto-generated constructor stub
-}
+	
+	public Animal() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Animal(String name, String type, double height, double weight, String area) {
 		super();
 		this.name = name;
@@ -65,7 +68,7 @@ public Animal() {
 		return "Animal [name=" + name + ", type=" + type + ", height=" + height + ", weight=" + weight + ", area="
 				+ area + "]";
 	}
-	//alt s h h enter
+	//alt+s+h+h enter
 	@Override
 	public int hashCode() {
 		return Objects.hash(area, height, name, type, weight);
@@ -85,6 +88,5 @@ public Animal() {
 				&& Objects.equals(name, other.name) && Objects.equals(type, other.type)
 				&& Double.doubleToLongBits(weight) == Double.doubleToLongBits(other.weight);
 	}
-	
 	
 }

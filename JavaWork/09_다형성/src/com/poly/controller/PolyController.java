@@ -199,8 +199,7 @@ public class PolyController {
 		
 		for(int i=0;i<animals.length;i++) {
 			if(animals[i]!=null)animals[i].bark();
-		}
-		
+		}		
 	}
 	
 	public void abstractClasstest() {

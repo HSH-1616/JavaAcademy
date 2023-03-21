@@ -1,10 +1,10 @@
 package com.inter.common;
 
-public interface MotionAble {
-	
+public interface Motionable {
+
 	void bark();
-	void foward();
+	void forward();
 	void back();
 	void jump();
-
+	
 }

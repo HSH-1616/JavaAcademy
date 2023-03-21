@@ -1,5 +1,5 @@
 package com.inter.model.vo;
 
-public class Dolphin extends Animal {
-
+public class Dolphin extends Animal{
+	
 }
