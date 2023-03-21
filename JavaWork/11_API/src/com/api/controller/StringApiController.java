@@ -121,7 +121,7 @@ public class StringApiController {
 		testStr = test.trim();
 		System.out.println(testStr);
 
-		// valueOf() : 기본 자려형을 String으로 변환해주는 기능
+		// valueOf() : 기본 자료형을 String으로 변환해주는 기능
 		int age = 19;
 		// test=(String)age;
 		test = String.valueOf(age);
