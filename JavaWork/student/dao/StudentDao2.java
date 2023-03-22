@@ -1,12 +1,12 @@
 package bs.student.dao;
 
+import bs.student.common.StudentFilter;
 import bs.student.dto.Student;
 
 public class StudentDao2 {
-	
 	private static StudentDao2 dao;
-	
-	private Student[] students=new Student[10];
+
+	private Student[] students=new Student[10]; 
 	
 	private StudentDao2() {}
 	
@@ -16,42 +16,58 @@ public class StudentDao2 {
 	}
 	
 	public boolean insertStudent(Student s) {
-//		boolean result=false;
+		//boolean result=false;
 		for(int i=0;i<students.length;i++) {
 			if(students[i]==null) {
 				students[i]=s;
 				return true;
-//				result=true;
-//				break;
+				//result=true;
+				//break;
 			}
 		}
 		return false;
-//		return result;
+		//return result;
 	}
 	
 	public Student[] infoStudentAll() {
-//		String info="";
+		//String info="";
 		Student[] searchStudent;
 		int searchdata=0;
- 		for(Student s : students) {
+		for(Student s : students) {
 			if(s!=null) searchdata++;
 		}
- 		searchStudent=new Student[searchdata];
- 		int index=0;
- 		for(Student s : students) {
- 			if(s!=null) searchStudent[index++]=s;
- 		}
+		searchStudent=new Student[searchdata];
+		int index=0;
+		for(Student s : students) {
+			if(s!=null) searchStudent[index++]=s;
+		}
 		return searchStudent;
 	}
 	
 	public String searchByName(String name) {
 		String result="";
 		for(Student s : students) {
-			if(s!=null&&s.getName().equals(name)) {
+			if(s!=null&&s.getName().contains(name)) {
 				result+=s.infoStudent()+"\n";
 			}
 		}
-		return result;
+		return result;		
+	}
+	
+	public Student[] searchStudent(Object data, 
+			StudentFilter sf) {
+		Student[] resultStudent=new Student[students.length];
+		int index=0;
+		for(int i=0;i<students.length;i++) {
+			if(students[i]!=null
+					&&sf.check(students[i], data)) {
+				resultStudent[index++]=students[i];
+			}
+		}
+		Student[] temp=new Student[index];
+		System.arraycopy(resultStudent, 0, temp, 0, index);
+		resultStudent=temp;
+		return resultStudent;
 	}
 	
 	public boolean updateStudent(Student s) {
@@ -67,3 +83,7 @@ public class StudentDao2 {
 		return false;
 	}
 }
+
+
+
+

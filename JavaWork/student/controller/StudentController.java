@@ -1,6 +1,6 @@
 package bs.student.controller;
 
-import bs.student.dao.StudentDao;
+import bs.student.common.StudentFilter;
 import bs.student.dao.StudentDao2;
 import bs.student.dto.Student;
 import bs.student.view.MainView;
@@ -52,7 +52,7 @@ public class StudentController {
 //		}else {
 //			data=infoStudent;
 //		}
-//		view.printStudent(data);
+		//view.printStudent(data);
 		view.printStudent(infoStudent);
 		//new MainView().printStudent
 		//(infoStudent.equals("")?"저장된 학생이 없습니다":infoStudent);
@@ -79,13 +79,25 @@ public class StudentController {
 				StudentDao2.getStudentDao().updateStudent(s);
 		view.printMsg(result?s.getStudentNo()+" 학생수정완료 :)"
 							:s.getStudentNo()+" 학생수정실패 :( ");
-		
-		
-		
-		
 	}
 	
-	
+	public void searchStudent() {
+		int type=view.selectType();
+		Object data=null;
+		StudentFilter filter=null;
+		switch(type) {
+			//이름
+			case 1 : data=view.inputData("이름");filter=(s,d)-> s.getName().contains((String)d);break;
+			//전공
+			case 2 : data=view.inputData("전공");filter=(s,d)-> s.getMajor().contains((String)d);break;
+			//학년
+			case 3 : data=view.inputData("학년");filter=(s,d)-> s.getGrade()==(int)d;break;
+		}
+		Student[] result=StudentDao2.getStudentDao().searchStudent(
+				data,filter);
+		
+		view.printStudent(result);
+	}
 	
 	
 }
