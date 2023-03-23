@@ -29,7 +29,7 @@ public class Cat extends Animal {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	@Override
+	
 	public void speak() {
 		System.out.println(toString()+location+"에 서식하며, 색상은 "+color+" 입니다.");
 		

@@ -1,6 +1,5 @@
 package package3.model.vo;
-
-abstract public class Animal {
+public abstract class Animal {
 	private String name;
 	private String kinds;
 	
@@ -18,7 +17,7 @@ abstract public class Animal {
 		return "저의 이름은 "+name+"이고, 종류는 "+kinds+" 입니다.";
 	}
 	
-	 abstract public void speak();
+	public abstract void speak();
 		
 	
 }
