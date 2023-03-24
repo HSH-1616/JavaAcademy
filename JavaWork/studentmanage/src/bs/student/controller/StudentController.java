@@ -23,6 +23,7 @@ public class StudentController {
 	
 	//프로그램을 시작하는 기능
 	public void startProgram() {
+		StudentDao2.getStudentDao().loadStudent();
 		MainView.getMainView().mainMenu();
 	}
 	
@@ -97,6 +98,17 @@ public class StudentController {
 				data,filter);
 		
 		view.printStudent(result);
+	}
+	
+	public void saveStudent() {
+	boolean result=StudentDao2.getStudentDao().saveStudent();
+	view.printMsg(result?"저장완료하였습니다.":"저장실패하였습니다.");
+	
+	}
+	
+	public void loadStudent() {
+		boolean result=StudentDao2.getStudentDao().loadStudent();
+		view.printMsg(result?"불러오기 성공":"불러오기 싫패");
 	}
 	
 	

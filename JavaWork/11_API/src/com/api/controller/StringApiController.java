@@ -179,7 +179,7 @@ public class StringApiController {
 		testSb.reverse();
 		System.out.println(testSb);
 
-		// StringBuffer==StringBuller동일함. 스레드세이프티
+		// StringBuffer==StringBuilder동일함. 스레드세이프티
 		StringBuilder testSb2 = new StringBuilder();
 		testSb2.append("테스트");
 		System.out.println(testSb2);
