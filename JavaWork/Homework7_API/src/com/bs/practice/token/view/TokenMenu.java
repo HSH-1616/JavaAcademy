@@ -38,7 +38,7 @@ public class TokenMenu {
 		System.out.println("토큰 처리 전 개수 : "+str.length());		
 		System.out.println("토큰 처리 후 글자 : "+tc.afterToken(str));
 		System.out.println("토큰 처리 후 개수 : "+tc.afterToken(str).length());
-		System.out.println("모두 대문자로 변환 : "+tc.afterToken(str).toUpperCase());		
+		System.out.println("모두 대문자로 변환 : "+tc.afterToken(str).toUpperCase()+"\n");		
 	}
 	
 	public void inputMenu() {
@@ -49,7 +49,7 @@ public class TokenMenu {
 		char ch=sc.next().charAt(0);
 		
 		System.out.println("첫 글자 대문자 : "+tc.firstCap(str));						
-		System.out.println(ch+" 문자가 들어간 개수 : "+tc.findChar(str, ch));
+		System.out.println(ch+" 문자가 들어간 개수 : "+tc.findChar(str, ch)+"\n");
 		
 		
 	}

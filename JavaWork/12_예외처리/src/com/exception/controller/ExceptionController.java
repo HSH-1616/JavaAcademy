@@ -187,10 +187,10 @@ public class ExceptionController {
 		try {
 			throw new MyException("나의 예외발생!!");
 		} catch (MyException e) {
-
+			e.printStackTrace();
 		}
-		//unchecked 익셉션
-		throw new MyException2("runtimeexceptoin상속받은 나의 익셉션");
+		// unchecked 익셉션
+//		throw new MyException2("runtimeexceptoin상속받은 나의 익셉션");
 	}
 
 }
