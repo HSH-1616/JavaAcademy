@@ -19,9 +19,7 @@ public class NumberController {
 		}
 		else if (num1 > 100 || num2 > 100) {
 			throw new NumRangeException("1부터 100 사이의 값이 아닙니다.");
-		}
-		
+		}		
 		return flag;
 	}
-
 }
