@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -356,7 +357,24 @@ public class ListController {
 		names2.add("유병승");
 		names2.add("유병승");
 		names2.add("유병승");
-		names2.forEach((o)->System.out.println(o));
+		names2.forEach((o)->System.out.println(o));	
+		
+		//LinkedList클래스 이용하기
+		//List인터페이스를 구현한 클래스
+		//사용법은 ArrayList클래스와 유사
+		LinkedList linkList=new LinkedList();
+		//LinkedList에 값을 대입, 출력, 순회 방법은 ArrayList와 동일함.
+		linkList.add("유병승1");
+		linkList.add("이동제");
+		linkList.add("최인호");
+		System.out.println(linkList.get(0));
+		linkList.forEach((e)->System.out.println(e));
+		
+		System.out.println(linkList.getFirst());
+		System.out.println(linkList.getLast());
+		
+		//기본적으로 데이터를 저장, 출력 : ArrayList사용
+		//저장된 데이터를 조작이 많을때 : LinkedList를 사용
 		
 
 	}
