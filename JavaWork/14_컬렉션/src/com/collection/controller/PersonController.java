@@ -1,5 +1,6 @@
 package com.collection.controller;
 
+import java.nio.file.spi.FileSystemProvider;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -62,11 +63,52 @@ public class PersonController {
 		p.forEach(o->System.out.println(o));
 		
 		System.out.println("5번");
-		p.sort((o,o2)->((Person)o).getHeight().compareTo(((Person)o2).getHeight()));
+		p.sort((o,o2)->{
+			int result=1;
+			if(((Person)o).getWeight()>=((Person)o2).getWeight()) {
+				result=-1;
+			}
+			return result;
+		});
 		
-	
+		p.forEach(o->System.out.println(o));
 		
-
+		System.out.println("6번");
+		p.add(2,new Person("최주영",26,'남',177.3,70.5));
+		p.forEach(o->System.out.println(o));
+		
+		System.out.println("7번");
+		p.set(3,new Person("이동제",25,'남',175.3,68.3));
+		p.forEach(o->System.out.println(o));
+		
+		System.out.println("8번");
+		boolean result=p.contains(new Person("고길동",20,'남',175.5,70.5));
+		if(result==false) {
+			p.add(new Person("고길동",20,'남',175.5,70.5));
+		}
+		p.forEach(o->System.out.println(o));
+		
+		System.out.println("9번");
+		int count=0;
+		for(int i=0;i<p.size();i++) {
+		count=p.indexOf(((Person)p.get(i)).getName().equals("선덕여왕"));							
+		}		
+		System.out.println(count);
+		
+		System.out.println("10번");
+		p.remove(4);
+		p.forEach(o->System.out.println(o));
+		
+		System.out.println("11번");
+		p.remove(new Person("김두환",42,'남',188.2,95.5));
+		p.forEach(o->System.out.println(o));
+		
+		System.out.println("12번");		
+		System.out.println(p.isEmpty()?"사람없어요~~":"사람있어요~");
+		
+		System.out.println("13번");
+		p.removeAll(p);
+		p.forEach(o->System.out.println(o));
 	}
 
 }
