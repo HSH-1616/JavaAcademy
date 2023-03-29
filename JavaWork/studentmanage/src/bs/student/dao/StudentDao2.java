@@ -24,13 +24,35 @@ public class StudentDao2 {
 	}
 
 	public boolean insertStudent(Student s) {
+		boolean duplicateResult = false;
 		// boolean result=false;
-		for (int i = 0; i < students.length; i++) {
-			if (students[i] == null) {
-				students[i] = s;
-				return true;
-				// result=true;
-				// break;
+		// 중복값 확인하기
+
+		for (Student temp : this.students) {
+			if (temp != null && temp.equals(s)) {
+				duplicateResult = true;
+				break;
+			}
+		}
+		if (!duplicateResult) {
+//			for (int i = 0; i < students.length; i++) {
+			int i = 0;
+			while (true) {
+				try {
+					if (students[i] == null) {
+						students[i] = s;
+						return true;
+						// result=true;
+						// break;
+					}
+					i++;
+				} catch (ArrayIndexOutOfBoundsException e) {
+					Student[] temp = new Student[students.length + 5];
+					System.arraycopy(students, 0, temp, 0, students.length);
+					temp[students.length] = s;
+					students = temp;
+					return true;
+				}
 			}
 		}
 		return false;

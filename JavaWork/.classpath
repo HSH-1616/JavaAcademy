@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="01_basicjava/src"/>
+	<classpathentry kind="src" path="02_연산자/src"/>
+	<classpathentry kind="src" path="03_조건문/src"/>
+	<classpathentry kind="src" path="04_반복문/src"/>
+	<classpathentry kind="src" path="05_배열/src"/>
+	<classpathentry kind="src" path="06_객체/src"/>
+	<classpathentry kind="src" path="07_객체배열/src"/>
+	<classpathentry kind="src" path="08_상속/src"/>
+	<classpathentry kind="src" path="09_다형성/src"/>
+	<classpathentry kind="src" path="10_인터페이스/src"/>
+	<classpathentry kind="src" path="11_API/src"/>
+	<classpathentry kind="src" path="12_예외처리/src"/>
+	<classpathentry kind="src" path="13_파일입출력/src"/>
+	<classpathentry kind="src" path="14_컬렉션/src"/>
+	<classpathentry kind="src" path="Homework1_OOp/src"/>
+	<classpathentry kind="src" path="Homework2_OOp/src"/>
+	<classpathentry kind="src" path="Homework3_ObjectArray/src"/>
+	<classpathentry kind="src" path="Homework4_ObjectArray/src"/>
+	<classpathentry kind="src" path="Homework5_Polymorphism/src"/>
+	<classpathentry kind="src" path="Homework6_Inheritance/src"/>
+	<classpathentry kind="src" path="Homework7_API/src"/>
+	<classpathentry kind="src" path="Homework8_Exception/src"/>
+	<classpathentry kind="src" path="Homework9_IO/src"/>
+	<classpathentry kind="src" path="Practice/src"/>
+	<classpathentry kind="src" path="studentmanage/src"/>
+	<classpathentry kind="output" path="01_basicjava/bin"/>
+</classpath>
