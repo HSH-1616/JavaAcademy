@@ -89,11 +89,14 @@ public class PersonController {
 		p.forEach(o->System.out.println(o));
 		
 		System.out.println("9번");
-		int count=0;
-		for(int i=0;i<p.size();i++) {
-		count=p.indexOf(((Person)p.get(i)).getName().equals("선덕여왕"));							
-		}		
-		System.out.println(count);
+		int index=p.size();
+		for(int i=0;i<index;i++) {
+			if(((Person)p.get(i)).getName().equals("선덕여왕")) {
+				index=i;
+			}					
+		}	
+		p.set(index,new Person("주몽",58,'남',189.4,90.3));
+		p.forEach(o->System.out.println(o));
 		
 		System.out.println("10번");
 		p.remove(4);
@@ -108,7 +111,7 @@ public class PersonController {
 		
 		System.out.println("13번");
 		p.removeAll(p);
-		p.forEach(o->System.out.println(o));
+		System.out.println(p);
 	}
 
 }
