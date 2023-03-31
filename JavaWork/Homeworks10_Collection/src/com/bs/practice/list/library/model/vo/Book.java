@@ -1,8 +1,9 @@
 package com.bs.practice.list.library.model.vo;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable {
 	public String title;
 	public String author;
 	public String category;
@@ -74,6 +75,15 @@ public class Book {
 		return Objects.equals(author, other.author) && Objects.equals(category, other.category) && price == other.price
 				&& Objects.equals(title, other.title);
 	}
+	
+	@Override
+	public int compareTo(Object o) {
+		return this.title.compareTo(((Book)o).title);
+		
+	}
+
+	
+
 
 	
 }

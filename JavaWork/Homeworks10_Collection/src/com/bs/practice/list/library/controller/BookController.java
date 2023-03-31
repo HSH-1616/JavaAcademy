@@ -1,8 +1,8 @@
 package com.bs.practice.list.library.controller;
 
 import java.util.ArrayList;
-
-import javax.xml.validation.Validator;
+import java.util.Collections;
+import java.util.Comparator;
 
 import com.bs.practice.list.library.model.vo.Book;
 
@@ -29,17 +29,38 @@ public class BookController {
 		ArrayList searchList=new ArrayList();
 		
 		for(int i=0;i<list.size();i++) {
-			for(int j=0;j<=((Book)list.get(i)).getTitle().length();j++){
-				if(String.valueOf(((Book)list.get(i)).getTitle().charAt(j)).equals(keyword)) {
-					searchList.add(list.get(i));
-				}
+		boolean result= ((Book)list.get(i)).getTitle().contains(keyword);
+			if(result) {
+				searchList.add(list.get(i));
 			}
-									
-		}
-		
-		
-		
+		}								
 		return searchList;
 	}
+	
+	public Book deleteBook(String title, String author) {
+		Book removeBook=new Book();
+		removeBook=null;
+		int count=0;
+		for(int i=0;i<list.size();i++) {
+			
+			if(((Book)list.get(i)).getTitle().equals(title)
+					&&((Book)list.get(i)).getAuthor().equals(author)) {				
+				removeBook=(Book)list.get(i);
+				list.remove(i);	
+				break;
+			}					
+		}
+		return removeBook;		
+	}
+	
+	public int ascBook() {
+		Collections.sort(list);
+		for(Object o : list) {
+			System.out.println(o);
+		}
+		return 1;
+	}
+	
+
 	
 }

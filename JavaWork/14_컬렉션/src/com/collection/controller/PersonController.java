@@ -10,7 +10,7 @@ import com.collection.model.vo.Person;
 public class PersonController {
 
 	public static void main(String[] args) {
-		ArrayList p = new ArrayList();
+		ArrayList<Person> p = new ArrayList();
 		Scanner sc = new Scanner(System.in);
 		
 //		for (int i = 0; i < 5; i++) {
@@ -59,7 +59,7 @@ public class PersonController {
 		}
 		
 		System.out.println("4번");
-		p.sort((o,o2)->((Person)o).getName().compareTo(((Person)o2).getName()));		
+		p.sort((o,o2)->(o).getName().compareTo((o2).getName()));		
 		p.forEach(o->System.out.println(o));
 		
 		System.out.println("5번");

@@ -19,7 +19,7 @@ public class BookMenu {
 			System.out.println("******* 메인 메뉴 *******");
 			System.out.println("1. 새 도서 추가\n2. 도서 전체 조회\n3. 도서 검색 조회\n4. 도서 삭제\n5 .도서 명 오름차순 정렬\n9. 종료");
 			System.out.print("메뉴 번호 선택 : ");
-			
+
 			menuNum = sc.nextInt();
 			sc.nextLine();
 			switch (menuNum) {
@@ -32,7 +32,12 @@ public class BookMenu {
 			case 3:
 				searchBook();
 				break;
-
+			case 4:
+				deleteBook();
+				break;
+			case 5:
+				ascBook();
+				break;	
 			case 9:
 				System.out.println("프로그램을 종료합니다.");
 				break;
@@ -82,16 +87,39 @@ public class BookMenu {
 			booklist.forEach(o -> System.out.println(o));
 		}
 	}
-	
+
 	public void searchBook() {
 		System.out.print("검색 키워드 : ");
-		String keyword=sc.nextLine();
-		
-		if(bc.searchBook(keyword).isEmpty()) {
+		String keyword = sc.nextLine();
+
+		if (bc.searchBook(keyword).isEmpty()) {
 			System.out.println("검색 결과가 없습니다.");
-		}else {
-			bc.searchBook(keyword).forEach(o->System.out.println(o));
+		} else {
+			bc.searchBook(keyword).forEach(o -> System.out.println(o));
 		}
 	}
+
+	public void deleteBook() {
+		System.out.print("삭제할 도서 명 : ");
+		String title = sc.nextLine();
+		System.out.print("삭제할 저자 명 : ");
+		String author = sc.next();		
+		
+		if (bc.deleteBook(title, author)!=null) {
+			System.out.println("성공적으로 삭제되었습니다.");
+		} else if(bc.deleteBook(title, author) == null){
+			System.out.println("삭제할 도서를 찾지 못했습니다.");
+		}					
+	}
+	
+	public void ascBook() {
+		if(bc.ascBook()==1) {
+			System.out.println("정렬에 성공하였습니다.");
+		}else {
+			System.out.println("정렬에 실패하였습니다.");
+		}
+		
+	}
+	
 
 }
