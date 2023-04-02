@@ -311,9 +311,7 @@ public class ListController {
 		// 가~하 순으로 정렬
 		System.out.println("이름 오름차 순으로 정렬");
 		foods.sort(new FoodNameAscending());
-		for (Object o : foods) {
-			System.out.println(o);
-		}
+	
 		System.out.println("이름 내림차 순으로 정렬");
 		foods.sort(new FoodNameDecending());
 		for (Object o : foods) {

@@ -40,9 +40,8 @@ public class BookController {
 	public Book deleteBook(String title, String author) {
 		Book removeBook=new Book();
 		removeBook=null;
-		int count=0;
-		for(int i=0;i<list.size();i++) {
-			
+		
+		for(int i=0;i<list.size();i++) {		
 			if(((Book)list.get(i)).getTitle().equals(title)
 					&&((Book)list.get(i)).getAuthor().equals(author)) {				
 				removeBook=(Book)list.get(i);
