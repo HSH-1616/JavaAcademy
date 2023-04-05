@@ -858,7 +858,7 @@ SELECT DEPT_CODE, MANAGER_ID, AVG(SALARY) FROM EMPLOYEE
 GROUP BY GROUPING SETS((DEPT_CODE,JOB_CODE,MANAGER_ID),(DEPT_CODE,JOB_CODE),(DEPT_CODE,MANAGER_ID));
 
 --JOIN에 대해 알아보기
---두개이상의 테이블을 특정컬럼을 기준으로 연갤해주는 기능
+--두개이상의 테이블을 특정컬럼을 기준으로 연결해주는 기능
 --JOIN은 두 종류가 있음
 --1.INNER JOIN : 기준되는 값이 일치하는 ROW만 가져오는 JOIN
 --2.OUTER JOIN : 기준이되는 값이 일치하지 않은 ROW도 가져오는 JOIN * 기준이 필요
