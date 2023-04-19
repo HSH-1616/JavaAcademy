@@ -1,22 +1,40 @@
 package com.jdbc.model.dao;
 
-import java.sql.Connection;
+import static com.jdbc.common.JDBCTemplate.close;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.
+sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import com.jdbc.common.JDBCTemplate;
 import com.jdbc.model.dto.MemberDTO;
 
 public class MemberDao {
+	private Properties sql=new Properties(); 
 	
+	{
+		try {
+			String path=MemberDao.class.getResource("/sql/member/member_sql.properties").getPath();
+			sql.load(new FileReader(path));
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+			
 	public List<MemberDTO> selectAllMember(Connection conn){
 		Statement stmt=null;
 		ResultSet rs=null;
-		String sql="SELECT * FROM MEMBER";
+		//String sql="SELECT * FROM MEMBER";
+		String sql=this.sql.getProperty("selectMemberAll");
 		List<MemberDTO> members=new ArrayList();
 		try {
 			stmt=conn.createStatement();
@@ -42,7 +60,8 @@ public class MemberDao {
 		//statement : SELECT * FROM MEMBER WHERE MEMBER_ID='"+변수명+"'";
 		//PreparedStatement : 외부값을 ?표시해서 쿼리문을 작성한다.
 		// : "SELECT * FROM MEMBER WHERE MEMBER_ID=?"
-		String sql="SELECT * FROM MEMBER WHERE MEMBER_ID=?";
+//		String sql="SELECT * FROM MEMBER WHERE MEMBER_ID=?";
+		String sql=this.sql.getProperty("selectMemberById");
 		try {
 			//PreparedStatement는 conn.preapreStatement()메소드를 이용
 			//인수로 sql문을 대입해줌.
@@ -64,6 +83,76 @@ public class MemberDao {
 			JDBCTemplate.close(rs);
 			JDBCTemplate.close(pstmt);
 		}return m;
+	}
+	
+	public List<MemberDTO> selectMemberByName(Connection conn,String name){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<MemberDTO> m=new ArrayList();
+//		String sql="SELECT * FROM MEMBER WHERE MEMBER_NAME LIKE ?";
+			//"SELECT * FROM MEMBER WHERE MEMBER_NAME LIKE '%'||?||'%'";
+		String sql=this.sql.getProperty("selectMemberByName");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,"%"+name+"%");
+			rs=pstmt.executeQuery();
+			while(rs.next()) m.add(getMember(rs));
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return m;		
+	}
+	
+	public int insertMember(Connection conn,MemberDTO m) {
+		PreparedStatement pstmt=null;
+		int result=0;
+//		String sql="INSERT INTO MEMBER VALUES(?,?,?,?,?,?,?,?,?,SYSDATE)";
+		String sql=this.sql.getProperty("insertMember");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, m.getMemberId());
+			pstmt.setString(2, m.getMemberPwd());
+			pstmt.setString(3, m.getMemberName());
+			pstmt.setString(4, String.valueOf(m.getGender()));
+			pstmt.setInt(5, m.getAge());
+			pstmt.setString(6, m.getEmail());
+			pstmt.setString(7, m.getPhone());
+			pstmt.setString(8, m.getAddress());
+			pstmt.setString(9, String.join(",",m.getHobby()));			
+			
+			result=pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);			
+		}return result;		
+	}
+	
+	public int updateMember(Connection conn, MemberDTO m) {
+		PreparedStatement pstmt=null;
+		int result=0;
+//		String sql="UPDATE MEMBER SET "
+//				+ "MEMBER_NAME=?,AGE=?,EMAIL=?,ADDRESS=? "
+//				+ "WHERE MEMBER_ID=?";
+		String sql=this.sql.getProperty("updateMember");
+		try {
+			pstmt=conn.prepareStatement(sql);			
+			pstmt.setString(1, m.getMemberName());			
+			pstmt.setInt(2, m.getAge());
+			pstmt.setString(3, m.getEmail());			
+			pstmt.setString(4, m.getAddress());						
+			pstmt.setString(5, m.getMemberId());
+			
+			result=pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);			
+		}return result;
 	}
 	
 	private MemberDTO getMember(ResultSet rs) throws SQLException {

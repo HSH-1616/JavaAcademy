@@ -1,0 +1,52 @@
+CLI환경에서 게시판과 회원관리를 만들어보자
+
+DB구성
+
+member table
+idx number 시퀀스를 이용하여 100부터 1증가하게 하여 부여 primary key 
+member_id varchar2(10) not null
+member_pwd varchar2(10) not null
+member_name varchar2(20) not null
+email varchar2(30)
+address varchar2(100)
+phone varchar2(10)
+enroll_date date
+
+board
+idx number 시퀀스를 이용 1부터 1증가하여 부여 primary key
+div varchar2(10) '공지' '일반' '비밀' 세개의 값만 넣을수있게 설정
+title varchar2(50) not null
+contents varchar2(3000) not null
+writer number member테이블의 idx컬럼을 참조(제약조건)
+write_date date 디폴트값 오늘 날짜
+
+
+
+메인메뉴 
+   1. 회원관리
+   2. 게시판관리
+   3. 프로그램 종료
+
+회원관리 서브메뉴
+  1. 전체회원조회
+  2. 회원 아이디로 조회
+  3. 회원 이름으로 조회
+  4. 회원가입
+  5. 회원정보수정(주소, 전화번호, 이메일)
+  6. 회원탈퇴
+  7. 메인메뉴로
+
+게시판 서브메뉴
+  1. 게시판전체 검색
+  2. 게시물 등록
+  3. 작성자로 검색
+  4. 제목으로 검색
+  5. 게시물 수정(제목, 내용) idx로 수정
+  6. 게시물 삭제
+  7. 메인메뉴로
+
+
+MVC패턴(템플릿 클래스를 이용, model, view, controller, service)으로 작성하고 
+proprties를 이용하여 드라이버 등록 및 쿼리문을 불러와서 실행할것.
+
+ 

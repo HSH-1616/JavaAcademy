@@ -36,19 +36,25 @@ public class MemberControllerImpl implements MemberController {
 
 	@Override
 	public void insertMember() {
-		// TODO Auto-generated method stub
+		MemberDTO m=new MainView().insertMember();
+		int result=service.insertMember(m);
+		new MainView().printMsg(result>0?"회원가입 성공":"회원가입 실패");
 		
 	}
 
 	@Override
 	public void updateMember() {
-		// TODO Auto-generated method stub
+		MemberDTO m=new MainView().updateData();
+		int result=service.updateMember(m);
+		new MainView().printMsg(result>0?"업데이트 성공":"업데이트 실패");
 		
 	}
 
 	@Override
 	public void selectMemberByName() {
-		// TODO Auto-generated method stub
+		String name=new MainView().inputData("이름");
+		List<MemberDTO> m=service.selectMemberByName(name);
+		new MainView().printMembers(m);
 		
 	}
 	

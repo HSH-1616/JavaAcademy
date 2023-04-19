@@ -1,26 +1,39 @@
 package com.jdbc.common;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 public class JDBCTemplate {
 	//Connection객체를 생성해주는 기능을 제공
 	public static Connection getConnection() {
 		Connection conn=null;
+		//파일연동을 위해서는 절대경로가 필요함.
+		String path=JDBCTemplate.class.getResource("/driver.properties").getPath();
+
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",
-					"student","student");
+			Properties driver=new Properties();
+			driver.load(new FileReader(path));
+			
+			Class.forName(driver.getProperty("drivername"));
+			conn=DriverManager.getConnection(driver.getProperty("url"),
+					driver.getProperty("user"),
+					driver.getProperty("pw"));
 			conn.setAutoCommit(false);
 			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}catch(SQLException e) {
 			e.printStackTrace();
-		}return conn;
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		return conn;
 	}
 	
 	//Connection,Statement,Result 객체를 닫아주는(반환) 기능제공
