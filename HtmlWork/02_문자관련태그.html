@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>문자열태그에 대해 알아보자</h1>
+    <h2>h태그 사용하기</h2>
+    <p>페이지에서 제목부분을 작성할때 사용하는 태그</p>
+    <h1>h1태그입니다.</h1>
+    <h2>h2태그입니다.</h2>
+    <h3>h3태그입니다.</h3>
+    <h4>h4태그입니다.</h4>
+    <h5>h5태그입니다.</h5>
+    <h6>h6태그입니다.</h6>
+
+    <h2>수평으로 선을 표시해보자</h2>
+    <hr />
+    <h3 align="center">ㅁㄴㅇㅁㄴㅇ</h3>
+    <hr />
+
+    <h2>일반적인 문구를 작성할때 사용하는 태그</h2>
+    <p>p태그를 사용함.</p>
+    <p>일반적인 문구를 사용해서 출력하기</p>
+    <p>개행후 다음라인에 출력이 된다.</p>
+
+    <h2>띄어쓰기 출력하기</h2>
+    <p>
+      안녕하세요
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㅇㅇ&nbsp;&nbsp;&nbsp;&nbsp;dd
+    </p>
+
+    <h2>개행처리하기</h2>
+    <p>br태그 이용해서 개행처리</p>
+    <p>
+      안녕하세요 <br />
+      안녕하세요
+    </p>
+
+    <h2>문자를 강조해주는 태그들</h2>
+    <p>
+      strong : 태그문자를 굵게 표시해주는 태그 * 강하게 처리 <br />
+      b : 태그문자를 굵게 표시해주는 태그 <br />
+      mark : 태그문자에 형광색 표시를 해주는 태그 <br />
+      u : 태그문자에 밑줄을 표시해주는 태그 <br />
+      s : 태그문자에 삭선을 표시해주는 태그 <br />
+      i : 태그문자를 기울여 표시해주는 태그 <br />
+      em : 태그문자를 기울여 표시해주는 태그 <br />
+      * css에서 적용을 함
+    </p>
+
+    <p>
+      html은 <b>너무 너무 재미있다.</b> 쓰는대로 즉시 보이고 <br />
+      <s>생각없이</s> 사용가능 <strong>기분이 좋다.</strong><br />
+      <mark>하지만 <i>중요</i>하니까 잘 들어야 합니다.</mark><br />
+      <em>오늘 수업 화이팅.!!!</em>
+    </p>
+
+    <h2>
+      태그안에 다른 태그를 사용하는것도 가능하다.<br />
+      ->부모자식관의 관계가 된다.
+    </h2>
+
+    <h2>인용문구 태그로 표시하기</h2>
+    <p>
+      <!-- <blockquote>git은 merge</blockquote> ㅇㅇ<br> -->
+      <q>늦었다고 생각할때가 진짜 늦었다</q> ㅇㅇ
+    </p>
+
+    <h2>문자를 꾸며주는 태그</h2>
+    <p>
+      한국은 <small>KOR</small> 술을 <sup>정말</sup> 좋아하는 나라입니다.<br />
+      당신의 키는 180.5<sub>cm</sub>입니다.!<br />
+    </p>
+
+    <p>
+      javascript 함수선언은
+      <code>function(){}</code>로 작성한다. 브라우저의 개발자도구를 실행하려면
+      <kbd>F12</kbd>를 누른다. <br />
+      <abbr title="World Wide Web">WWW</abbr>는 월드와이드웹이다.<br />
+      <cite>http://www.w3schools.com</cite>를 이용해서 html공부하면 좋아요!<br />
+    </p>
+
+    <h2>html페이지에 작성대로 출력하기</h2>
+    <pre>
+    안녕 html 너 너무 좋다.. 그냥 태그쓰면 나오는구나 
+    호호호호                ㅇㅇㅇㅇㅇㅇ 
+    불금            ㅎㅎㅎㅎ
+    </pre>
+
+    <h2>태그의 속성</h2>
+    <p>
+      공통속성 : html의 모든태그에 작성하는 것 id, class 개별속성 : 특정태그에서
+      사용하는 속성 type, src,
+    </p>
+    <h2 class="test1">공통속성</h2>
+    <p>
+      id : 페이지내에서 유일한 값을 설정하는 것, 태그를 지칭할때 사용하는 속성
+      중복되면 안됨! <br />
+      class : 페이지내에서 태그들을 한개 그룹으로 묶을때 지정하는 속성 *
+      중복허용함. <br />
+      style : 태그에 css속성을 설정할수 있게 하는 속성. css를 적용 <br />
+    </p>
+
+    <h3 id="test">나는 h1 id가 test야</h3>
+    <p id="test">나는 p id가 test야</p>
+
+    <h4 class="test1">클래스가 test1인 h4</h4>
+    <p class="test1">클래스가 test1인 p</p>
+
+    <p>안녕 나를 <mark class="test1">클릭</mark>해봐</p>
+    <style>
+      .test1 {
+        background-color: lightcyan;
+      }
+      #test {
+        background-color: red;
+        color: yellow;
+      }
+    </style>
+
+    <script>
+      document.getElementById("test").addEventListener("click", (e) => {
+        alert("클릭함");
+      });
+      document.querySelectorAll(".test1").forEach((e) => {
+        e.addEventListener("click", (event) => alert("test1클릭"));
+      });
+    </script>
+
+    <h3>
+      <mark>
+        <strong>
+          속성을 설정할때는 속성값은 반드시 ""이나 ''으로 표시해준다.
+        </strong>
+      </mark>
+    </h3>
+
+    <p style="font: size 20px; font-weight: bolder">
+      스타일을 style 속성으로 적용할 수 도 있다.
+    </p>
+  </body>
+</html>
