@@ -150,17 +150,19 @@ public class ModelDao {
 			pstmt = conn.prepareStatement(sql);
 			switch (num) {
 			case 1:
+				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, m.getDeptId());
 				pstmt.setString(2, m.getDeptTitle());
 				pstmt.setString(3, m.getLocationId());
 				break;
 			case 2:
+				
 				pstmt.setString(1, m.getDeptTitle());
 				pstmt.setString(2, m.getLocationId());
 				pstmt.setString(3, m.getDeptId());
 				break;
 			case 3:
-				pstmt.setString(1, m.getDeptId());
+				pstmt.setString(1, "1");
 				break;
 			}
 			result = pstmt.executeUpdate();
@@ -171,7 +173,7 @@ public class ModelDao {
 		}
 		System.out.println(num);
 		System.out.println(m.getDeptId());
-		System.out.println(sql);
+		System.out.println(result);
 		return result;
 	}
 
