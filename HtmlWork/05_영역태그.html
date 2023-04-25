@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영역태그</title>
+    <style>
+      div {
+        background-color: aliceblue;
+      }
+      #testdiv {
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>영역태그</h2>
+    <p>
+      div : block형식을 갖는 태그로 페이지의 한개라인의 전체를 차지한다. <br />
+      span : inline형식을 갖는 태그로 페이지의 한개라인의 일부를 차지하는 영역
+    </p>
+    <h3>div 태그 이용하기</h3>
+    <div id="testdiv">
+      div태그
+      <p>태그</p>
+      <h1>h1태그</h1>
+    </div>
+    <div id="testdiv">
+      div태그2
+      <p>태그</p>
+      <h1>h1태그</h1>
+    </div>
+    <div id="loginform">
+      <table>
+        <tr>
+          <td>아이디</td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td>패스워드</td>
+          <td><input type="password" /></td>
+        </tr>
+      </table>
+    </div>
+
+    <style>
+      div#header,
+      div#section,
+      div#footer {
+        /* border:1px solid red; */
+      }
+      div#header {
+        height: 100px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      div#logo > h4 {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+    </style>
+    <div id="header">
+      <div id="logo">
+        <img src="" width="200" height="50" />
+        <h4>귀여운 회사</h4>
+      </div>
+      <div id="title">
+        <h1>BS Company</h1>
+      </div>
+      <div id="loginForm">
+        <table>
+          <tr>
+            <td>아이디</td>
+            <td><input type="text" /></td>
+            <td rowspan="2"><button>로그인</button></td>
+          </tr>
+          <tr>
+            <td>패스워드</td>
+            <td><input type="password" /></td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <a href="">회원가입</a>
+              <a href="">아이디찾기</a>
+              <a href="">비밀번호찾기</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="section"></div>
+    <div id="footer"></div>
+
+    <h3>span</h3>
+    <p>라인안에 특정태그를 지정하여 style,script를 적용할떄 사용</p>
+    <p>태그에 width,height값 적용이 안됨</p>
+    <h3>
+      여러분 영역을 잘 나눠야지 나중에 <span class="strong">고생</span>을
+      안합니다.
+    </h3>
+    <style>
+      .strong {
+        color: white;
+        background-color: black;
+        width: 200px;
+        height: 300px;
+      }
+    </style>
+    <script>
+      document.querySelector(".strong").addEventListener("click", (e) => {
+        alert("개고생!!");
+      });
+    </script>
+
+    <header>
+      <div id="mainMenu">
+        <nav>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section>
+      <aside>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </aside>
+      <article></article>
+    </section>
+    <footer></footer>
+
+    <h2>iframe태그 이용하기</h2>
+    <p>iframe태그는 속성들을 이용해서 설정</p>
+    <p>속성 : width, height, src</p>
+    <iframe src="./04_테이블태그.html" width="900" height="800"></iframe>
+    <iframe src="https://gdu.co.kr/" width="100%" height="900"></iframe>
+    <iframe
+      width="1268"
+      height="713"
+      src="https://www.youtube.com/embed/WfW6dJHKtIA"
+      title="BREAKING NEWS: A STRANGE PHENOMENON SPOTTED | MY WORLD NEWS"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼태그</title>
+</head>
+<body>
+    <h2>form태그 활용하기</h2>
+    <p>프론트(html페이지)에서 작성한 다수의 데이터를 서버에 전송할때 사용하는 태그<br>
+        form태그는 데이터를 받을 수 있는 input태그를 자식태그로 사용<br>
+        form태그는 속성으로 action, method를 필수적으로 설정한다.<br>
+        action : 요청을 보낼 주소값을 설정<br>
+        method : 데이터를 전송하는 방식을 설정(GET(default)/POST)<br>
+        <dl>
+            <dt>method속성</dt>
+            <dd>
+                GET : 데이터를 url주소에 넣어서 전달하는 방식<br>
+                전송되는 데이터에 제한이 있음<br>
+                간단한 조회할때 사용, 게시글 조회, 회원 조회, 조건검색<br>
+                *전송되는 데이터에 보안이 필요하다면 부적합함. <br>
+            </dd>
+            <dd>
+                POST : 데이터를 request body에 넣어서 전달하는 방식<br>
+                전송되는 데이터가 외부로 노출되지 않음, 전송되는 데이터에 제한이 없음
+                보안이 필요한 데이터를 전송하거나, 파일자체를 서버에 전송할때 사용
+            </dd>
+        </dl>
+    </p>
+<div id="methtest">
+    <h2>get방식으로 전송하기</h2>
+    <form action="07_하이퍼링크태그.html" method="get">
+        <input type="text" name="userId"><br>
+        <input type="password" name="password"><br>
+        <input type="submit" name="로그인"><br>
+    </form>
+    <p>
+        input에 작성된 데이터는 주소의 ?뒤에 key=value형식으로 전송된다 <br>
+        예시) http://서버주소 : 포트번호 / 서비스맵핑주소?name속성값=value속성값&name속성값=value속성값....
+    </p>
+    <h2>post방식으로 전송하기</h2>
+    <form action="07_하이퍼링크태그.html" method="post">
+        <input type="text" name="userId"><br>
+        <input type="password" name="password"><br>
+        <input type="submit" name="로그인"><br>
+    </form>
+    <a href="http://search.naver.com/search.naver?query=토카토카">검색하기</a>
+</div>
+<h2>입력형식에 대해 알아보자</h2>
+<p>
+    사용자에게 데이터를 입력받을때는 input태그를 이용한다.<br>
+    input태그의 type속성에 따라 입력받는 UI가 달라진다.<br>
+    일반적으로 input태그는 form태그의 자식태그로 사용함<br>
+    type에 따라 value를 값을 고정으로 지정해줘야하는 input태그도 있다.<br>
+    input태그의 내용은 서버에 key(name속성)=value형식으로 전달이됨<br>
+    form태그와 같이 사용한 input태그는 반드시 name속성을 작성해줘야한다.    
+</p>
+    <h4>한문장을 입력받는 형식</h4>
+    <p>type : test * 기본문자를 입력받을때 사용, 가장 많이 사용</p>
+    <p>type : password * 보안 필요한 문자를 입력받을때 사용</p>
+    <form action="#" method="get">
+        <p>
+            <span style="color :red; font-size:25px">*</span>
+        <input type="text" name="testMsg" placeholder="메세지입력"
+        size="3" maxlength="3" minlength="2" required>        
+        </p>
+        <p><input type="password" name="password" minlength="8"></p>
+        <input type="submit" value="전송">
+    </form>
+
+    <h4>사용자에게 출력되지 않는 input 태그</h4>
+    <p>
+        type:hidden
+    </p>
+    <p>
+        클라이언트에게 보여주지 않지만 내부적으로 서버에서 필요한 데이터를 전송할때 사용
+        반드시 input내부에 name, value속성을 설정한다.
+    </p>
+    <h3>비밀번호 변경</h3>
+    <form action="" method="get">
+        <p>
+            <input type="hidden" name="userId" value="admin">
+        </p>
+        <p>
+            <input type="password" name="password">
+        </p>
+        <p>
+            <input type="passwowrd" name="chpassword">
+        </p>
+        <p>
+            <input type="submit" value="비밀번호변경">
+        </p>
+    </form>
+
+</body>
+</html>

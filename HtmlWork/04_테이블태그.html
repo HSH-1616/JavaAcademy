@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>테이블태그</title>
+  </head>
+  <body>
+    <table border="1" width="300" height="300">
+      <tr>
+        <!-- 1개행 -->
+        <td>유병승</td>
+        <td>19</td>
+        <td>경기도 시흥시</td>
+      </tr>
+      <tr>
+        <!-- 2번째행 -->
+        <td>김현영</td>
+        <td>26</td>
+        <td>서울시 구로구</td>
+      </tr>
+      <tr>
+        <!-- 3번째행 -->
+        <td>최주영</td>
+        <td>26</td>
+        <td>경기도 안양시</td>
+      </tr>
+    </table>
+    <h3>
+      테이블 태그는 웹페이지에서 DB에 저장된 데이터를 가져와 출력할때 많이 사용
+    </h3>
+    <table border="1" width="500" height="300">
+      <tr>
+        <td>번호</td>
+        <td>제목</td>
+        <td>작성자</td>
+        <td>작성일</td>
+        <td>조회수</td>
+      </tr>
+      <tr>
+        <td align="center">1</td>
+        <td>게시글1</td>
+        <td>유병승</td>
+        <td>23/04/25</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><h2>게시글2</h2></td>
+        <td>유병승</td>
+        <td>23/04/25</td>
+        <td>Best<sup>3</sup></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>게시글3</td>
+        <td>유병승</td>
+        <td>23/04/25</td>
+        <td>3</td>
+      </tr>
+    </table>
+    <h3>테이블 구조에 맞는 태그 활용하기</h3>
+    <p>
+      테이블을 3가지 구역으로 나눌수 있음 <br />
+      헤더 : thead -> 셀에 대해서는 th태그를 이용할수 있음 <br />
+      바디 : tbody <br />
+      푸터 : tfoot <br />
+    </p>
+
+    <table border="1" witdh="300" height="300">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>메뉴이름</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>양식</td>
+          <td>돈까스</td>
+          <td>10,000</td>
+        </tr>
+        <tr>
+          <td>중식</td>
+          <td>짜장면</td>
+          <td>9,000</td>
+        </tr>
+        <tr>
+          <td>한식</td>
+          <td>윤셰프</td>
+          <td>7,000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>합계</td>
+          <td>3종류</td>
+          <td>26,000</td>
+        </tr>
+      </tfoot>
+    </table>
+    <p>테이블 구역별로 스타일을 설정할 수 있다.</p>
+    <style>
+      thead {
+        background-color: rgb(121, 146, 214);
+      }
+      tbody {
+        /* background-color: lightskyblue; */
+      }
+      tfoot {
+        background-color: aliceblue;
+      }
+    </style>
+
+    <h3>테이블에 캡션을 설정하는 태그</h3>
+    <table border="1" witdh="300" height="300">
+      <caption>
+        오늘의 점심메뉴
+      </caption>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>메뉴이름</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>양식</td>
+          <td>돈까스</td>
+          <td>10,000</td>
+        </tr>
+        <tr>
+          <td>중식</td>
+          <td>짜장면</td>
+          <td>9,000</td>
+        </tr>
+        <tr>
+          <td>한식</td>
+          <td>윤셰프</td>
+          <td>7,000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>합계</td>
+          <td>3종류</td>
+          <td>26,000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <table border="1" width="100" height="100">
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>테이블의 셀 병합하기</h3>
+    <p>
+      셀(td)를 합치는 속성이 있다. * td태그에 작성한다. <br />
+      rowspan : 행을 합칠때 사용하는 속성 <br />
+      colspan : 열을 합칠때 사용하는 속성<br />
+    </p>
+
+    <figure>
+      <figcaption>계산서</figcaption>
+      <table>
+        <tbody>
+          <tr>
+            <th rowspan="4">구분</th>
+            <th>이름</th>
+            <th>가격</th>
+          </tr>
+          <!-- tbody>(tr>td*3)*3 -->
+          <tr>
+            <!-- <td>양식</td> -->
+            <td>스파게티</td>
+            <td>12,000</td>
+          </tr>
+          <tr>
+            <!-- <td>한식</td> -->
+            <td>참치김밥</td>
+            <td>4500</td>
+          </tr>
+          <tr>
+            <!-- <td>일식</td> -->
+            <td>초밥</td>
+            <td>12,000</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>합계</td>
+            <td colspan="2" aling="right">28,500</td>
+          </tr>
+        </tfoot>
+      </table>
+    </figure>
+    <table>
+      <tr>
+        <td><input type="text" placeholder="아이디 입력" /></td>
+        <td><input type="password" placeholder="비밀번호 입력" /></td>
+        <td rowspan="2"><button>로그인</button></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right">
+          <button>회원가입</button>
+          <button>아이디찾기</button>
+          <button>비밀번호찾기</button>
+        </td>
+      </tr>
+    </table>
+    <h3>컬럼을 기준으로 영역을 분할하기</h3>
+    <p>colgroup 태그를 이용함</p>
+    <table width="400" height="400">
+      <colgroup>
+        <col style="background-color: greenyellow" />
+        <col style="background-color: lightgoldenrodyellow" />
+        <col />
+      </colgroup>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

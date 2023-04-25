@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>하이퍼링크태그</title>
+  </head>
+  <body>
+    <h2>하이퍼링크태그</h2>
+    <p>
+      a태그로 클릭시 지정한 주소로 요청을 보내 화면을 전환해주는 태그<br />
+      속성,문자(이미지)작성해서 사용<br />
+      href : 요청할 주소값을 설정하는것, http://www.naver.com <br />
+      target : 응답받을 방식에 대해 설정<br />
+      _self : 현재 보고있는 창에서 응답을 받기(default)<br />
+      _blank : 새창을 열어서 응답을 받기<br />
+    </p>
+    <p>태그를 이용해서, 메뉴, 광고 등의 링크를 연결할때 사용</p>
+    <div id="menu">
+      <nav>
+        <a href="http://www.naver.com">네이버</a>
+        <a href="http://www.gdu.co.kr">구디아카데미</a>
+        <a href="http://www.op.gg" target="_blank">op.gg</a>
+        <h3>내부 페이지 요청하기</h3>
+        <a href="./06_멀티미디어태그.html">멀티미디어태그</a>
+        <h3>링크를 이미지로 표현하기</h3>
+        <a href="http://newjeans.info/">
+          <img src="./images/26143997-b32f-4219-ac1c-e03d8e4948ba.jpg" />
+        </a>
+      </nav>
+    </div>
+    <h3>메뉴만들기</h3>
+    <div id="aside">
+      <aside>
+        <nav>
+          <ul>
+            <li><a href="http://www.instagram.com">인스타그램</a></li>
+            <li><a href="http://www.facebook.com">페이스북</a></li>
+            <li><a href="http://story.kakao.com">카카오스토리</a></li>
+            <li><a href="http://cyworld.com">싸이월드</a></li>
+            <li><a href="/myproject/enrollMember.do">회원가입</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+    <style>
+      ul > li {
+        list-style-type: none;
+        margin-bottom: 10px;
+      }
+      li > a {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 30px;
+        font-weight: bolder;
+        text-align: center;
+        width: 200px;
+        color: lime;
+      }
+      li > a:hover {
+        color: blue;
+      }
+    </style>
+    <h1>페이지내부에 있는 특정 문구로 이동시키기</h1>
+    <ul>
+      <li>
+        <a href="#track1">hype boy</a>
+      </li>
+      <li>
+        <a href="#track2">ditto</a>
+      </li>
+      <li>
+        <a href="#track3">OMG</a>
+      </li>
+      <li>
+        <a href="#track4">토카토카</a>
+      </li>
+    </ul>
+    <div id="lylic">
+      <h2 id="track1">
+        <pre>
+            뉴진스 -hypeboy-
+            (1,2,3,4)
+            Baby, got me looking so crazy
+            빠져버리는 daydream
+            Got me feeling you
+            너도 말해줄래
+            누가 내게 뭐라든
+            남들과는 달라 넌
+            Maybe you could be the one
+            날 믿어봐 한번
+            I'm not looking for just fun
+            Maybe I could be the one
+            Oh baby
+            예민하대 나 lately
+            너 없이는 매일 매일이 yeah
+            재미없어 어쩌지
+            I just want you
+            Call my phone right now
+            I just wanna hear you're mine
+            'Cause I know what you like boy
+            You're my chemical hype boy
+            내 지난날들은
+            눈 뜨면 잊는 꿈
+            Hype boy 너만 원해
+            Hype boy 내가 전해
+            And we can go high
+            말해봐 yeah
+            느껴봐 mm mm
+            Take him to the sky
+            You know I hype you boy
+            눈을 감아
+            말해봐 yeah
+            느껴봐 mm mm
+            Take him to the sky
+            You know I hype you boy
+            잠에 들려고 잠에 들려 해도
+            네 생각에 또 새벽 세 시 uh-oh
+            알려줄 거야 they can't have you no more
+            봐봐 여기 내 이름 써있다고
+            누가 내게 뭐라든
+            남들과는 달라 넌
+            Maybe you could be the one
+            날 믿어봐 한번
+            I'm not looking for just fun
+            Maybe I could be the one
+            Oh baby
+            예민하대 나 lately
+            너 없이는 매일 매일이 yeah
+            재미없어 어쩌지
+            I just want you
+            Call my phone right now
+            I just wanna hear you're mine
+            'Cause I know what you like boy
+            You're my chemical hype boy
+            내 지난날들은
+            눈 뜨면 잊는 꿈
+            Hype boy 너만 원해
+            Hype boy 내가 전해
+            And we can go high
+            말해봐 yeah
+            느껴봐 mm mm
+            Take him to the sky
+            You know I hype you boy
+            눈을 감아
+            말해봐 yeah
+            느껴봐 mm mm
+            Take him to the sky
+            You know I hype you boy
+    </pre
+        >
+      </h2>
+      <h2 id="track2">
+        <pre>
+        뉴진스 -ditto-
+        Woo woo woo woo ooh
+        Woo woo woo woo
+        Stay in the middle
+        Like you a little
+        Don't want no riddle
+        말해줘 say it back
+        Oh say it ditto
+        아침은 너무 멀어
+        So say it ditto
+        훌쩍 커버렸어
+        함께한 기억처럼
+        널 보는 내 마음은
+        어느새 여름 지나 가을
+        기다렸지 all this time
+        Do you want somebody
+        Like I want somebody
+        날 보고 웃었지만
+        Do you think about me now yeah
+        All the time yeah
+        All the time
+        I got no time to lose
+        내 길었던 하루
+        난 보고 싶어
+        Ra-ta-ta-ta 울린 심장 (Ra-ta-ta-ta)
+        I got nothing to lose
+        널 좋아한다고 wooah wooah wooah
+        Ra-ta-ta-ta 울린 심장 (Ra-ta-ta-ta)
+        But I don't want to
+        Stay in the middle
+        Like you a little
+        Don't want no riddle
+        말해줘 say it back
+        Oh say it ditto
+        아침은 너무 멀어
+        So say it ditto
+        I don't want to
+        Walk in this 미로
+        다 아는 건 아니어도
+        바라던 대로
+        말해줘 Say it back
+        Oh say it ditto
+        I want you so, want you
+        So say it ditto
+        Not just anybody
+        너를 상상했지
+        항상 닿아있던
+        처음 느낌 그대로 난
+        기다렸지 all this time
+        I got nothing to lose
+        널 좋아한다고 wooah wooah wooah
+        Ra-ta-ta-ta 울린 심장 (Ra-ta-ta-ta)
+        But I don't want to
+        Stay in the middle
+        Like you a little
+        Don't want no riddle
+        말해줘 say it back
+        Oh say it ditto
+        아침은 너무 멀어
+        So say it ditto
+        I don't want to
+        Walk in this 미로
+        다 아는 건 아니어도
+        바라던 대로
+        말해줘 Say it back
+        Oh say it ditto
+        I want you so, want you
+        So say it ditto
+        Woo woo woo woo ooh
+        Woo woo woo woo
+      </pre
+        >
+      </h2>
+      <h2 id="track3">
+        <pre>
+        뉴진스 -OMG-
+    이 노래는 it's about you baby
+    Only you
+    You you you
+    You you you you
+    내가 힘들 때
+    울 것 같을 때
+    기운도 이젠
+    나지 않을 때
+    It's you 날 걱정하네
+    It's you 날 웃게하네
+    말 안 해도 돼
+    Boy what do you say
+    (They keep on asking me, “who is he?”)
+    멀리든 언제든지 달려와
+    (They keep on asking me, “who is he?”)
+    바쁜 척도 없이 넌 나타나
+    (They keep on asking me, “who is he?”)
+    이게 말이 되니 난 물어봐
+    (They keep on asking me, “who is he?”)
+    너는 말야
+    He's the one that's living in my system baby
+    Oh my oh my God
+    예상했어 나
+    I was really hoping
+    That he will come through
+    Oh my oh my God
+    단 너뿐이야
+    Asking all the time about what I should do
+    No I can never let him go
+    너만 생각나 24
+    난 행운아야 정말로 I know, I know
+    널 알기 전까지는 나
+    의미 없었어 전부 다
+    내 맘이 끝이 없는 걸 I know, I know
+    I'm going crazy right?
+    어디서든
+    몇 번이든
+    There ain't nothing else that I would hold on to
+    I hear his voice
+    Through all the noise
+    잠시라도 내 손 놓지 마 no, no
+    걱정 없잖아
+    'Cause I got someone
+    혼자라도 괜찮아
+    'Cause I love someone
+    (They keep on asking me, “who is he?”)
+    멀리든 언제든지 달려와
+    (They keep on asking me, “who is he?”)
+    바쁜 척도 없이 넌 나타나
+    (They keep on asking me, “who is he?”)
+    이게 말이 되니 난 물어봐
+    (They keep on asking me, “who is he?”)
+    너는 말야
+    He's the one that's living in my system baby
+    Oh my oh my God
+    예상했어 나
+    I was really hoping
+    That he will come through
+    Oh my oh my God
+    단 너뿐이야
+    Asking all the time about what I should do
+    No I can never let him go
+    너만 생각나 24
+    난 행운아야 정말로 I know, I know
+    널 알기 전까지는 나
+    의미 없었어 전부 다
+    내 맘이 끝이 없는 걸 I know, I know
+    너와 나
+    My heart is glowing
+    It's glowing up
+    너랑만 있으면 무서울 게 없어
+    가득 메워진, 다 메워진 (붉어진)
+    My heart is glowing, it'd be glowing
+    'Cause he
+    Oh my oh my God
+    예상했어 나
+    I was really hoping
+    That he will come through
+    Oh my oh my God
+    단 너뿐이야
+    Asking all the time about what I should do
+    No I can never let him go
+    He's right there for me 24
+    난 행운아야 정말로 I know, I know
+    널 알기 전까지는 나
+    의미 없었어 전부 다
+    어떡해
+    My heart is glowing, it's glowing
+    My heart is glowing up
+    So I can't sleep at night
+      </pre
+        >
+      </h2>
+      <h2 id="track4">
+        <pre>
+        flyproject -tocatoca-
+    Oh you say no no no
+
+    I say no, no, no, no
+
+    You say take me home
+
+    I say Dom Perignon
+
+    You say no no no
+
+    I say no, no, no, no
+
+    No no no
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    Oh I wanna say rain on me forever
+
+    Rivers of champaigne
+
+    Celebrate together
+
+    Oh I wanna say rain on me forever
+
+    Rivers of champaigne
+
+    Celebrate together
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    Te Toca toca toca
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    I see your eyes every day and every night
+
+    And I, I wanna hold you
+
+    Love you till the end of time
+
+    Stay over night
+
+    Cause I want you in my life
+
+    And I, I wanna love you
+
+    I will never make you cry
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    Hasta la vida loca loca loca
+
+    Te encanta la musica
+
+    Te toca toca toca
+
+    Te Toca toca toca
+
+    Te Toca toca toca.
+      </pre
+        >
+      </h2>
+    </div>
+  </body>
+</html>
