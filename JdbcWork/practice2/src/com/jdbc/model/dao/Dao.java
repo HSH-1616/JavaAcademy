@@ -87,6 +87,27 @@ public class Dao {
 			close(pstmt);
 		}return m;		
 	}
+	
+	public int insertMember(Connection conn,MemberDTO m) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		String sql=this.sql.getProperty("insertMember");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,m.getMemberId());
+			pstmt.setString(2,m.getMemberPwd());
+			pstmt.setString(3,m.getMemberName());
+			pstmt.setString(4,m.getEmail());
+			pstmt.setString(5,m.getAddress());
+			pstmt.setString(6,m.getPhone());
+			
+			result=pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return result;
+	}
 
 	private MemberDTO getMember(ResultSet rs) throws SQLException {
 		MemberDTO m = new MemberDTO();

@@ -34,5 +34,12 @@ public class Controller {
 		String name=v.inputMember("이름");
 		List<MemberDTO> m=s.selectMemberName(name);
 		v.printMembers(m);
-	}		
+	}
+	
+	public void insertMember() {
+		v=new MainView();
+		MemberDTO m=v.insertMember();
+		int result=s.insertMember(m);
+		v.printMsg(result>0?"회원 등록 성공":"회원 등록 실패");
+	}
 }

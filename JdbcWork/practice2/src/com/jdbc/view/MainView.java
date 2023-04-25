@@ -76,6 +76,9 @@ public class MainView {
 		case 3:
 			c.selectMemberName();
 			break;
+		case 4:
+			c.insertMember();
+			break;
 		}
 	}
 
@@ -83,7 +86,34 @@ public class MainView {
 		System.out.println("==== 회원 " + title + " 조회 ====");
 		System.out.print("입력 : ");
 		return sc.next();
-	}		
+	}
+	
+	public MemberDTO insertMember() {
+		MemberDTO m=new MemberDTO();
+		
+		System.out.println("==== 등록할 회원 입력 ====");
+		System.out.print("아이디 : ");		
+		m.setMemberId(sc.next());
+		System.out.print("비밀번호 : ");
+		m.setMemberPwd(sc.next());
+		System.out.print("이름 : ");
+		m.setMemberName(sc.next());
+		System.out.print("이메일 : ");
+		m.setEmail(sc.next());
+		System.out.print("주소 : ");
+		m.setAddress(sc.nextLine());
+		sc.nextLine();
+		System.out.print("전화번호 : ");
+		m.setPhone(sc.next());
+		
+		return m;
+	}
+	
+	public void printMsg(String msg) {
+		System.out.println("==== 시스템 메세지 ====");
+		System.out.println(msg);
+		System.out.println("===================");
+	}
 
 	public void printMembers(List<MemberDTO> m) {
 		System.out.println("====== 조회된 회원 ======");
