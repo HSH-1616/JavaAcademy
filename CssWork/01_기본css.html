@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기본 css 적용하기</title>
+    <style>
+      /* 내부 스타일 적용하기 */
+      p {
+        color: darkslateblue;
+        background-color: lavender;
+      }
+    </style>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <h2>css 적용하기</h2>
+    <h3>내부스타일 적용하기</h3>
+    <p>
+      html태그내부에 style태그를 이용해서 스타일을 설정하는 방식<br />
+      일반적으로 현재페이지에만 적용할 스타일 내용에 대해설정할때 사용<br />
+    </p>
+    <h3>외부스타일 적용하기</h3>
+    <p>
+      css파일로 적용할 스타일을 작성하고 link로 파일을 불러와 페이지에 적용하는
+      방식<br />
+      일반적으로 공통 스타일에 대해서 스타일 내용을 설정할때 사용<br />
+    </p>
+
+    <h3>inline으로 스타일 설정</h3>
+    <p>태그에 style 속성에 style을 적용</p>
+    <span style="font-size: 25px; background-color: plum">
+      inline으로 설정한 style
+    </span>
+  </body>
+</html>
