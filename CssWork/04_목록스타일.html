@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>목록에 표시되는 기호, 숫자를 변경</title>
+  </head>
+  <body>
+    <h2>목록에 표시되는 기호, 숫자를 변경</h2>
+    <p>
+      list-style-type속성 이용 <br />
+      ul : disc,circle,square,none <br />
+      ol : decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha,
+      upper-alpha <br />
+    </p>
+    <style>
+      .disc {
+        list-style-type: decimal-leading-zero;
+      }
+      .none {
+        list-style-type: none;
+      }
+      .listimage {
+        list-style-image: url("./images/qk.png");
+      }
+    </style>
+    <ul>
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+      <li>jquery</li>
+    </ul>
+    <ul class="disc">
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+      <li>jquery</li>
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+      <li>jquery</li>
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+      <li>jquery</li>
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+      <li>jquery</li>
+    </ul>
+    <ul class="none">
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+      <li>jquery</li>
+    </ul>
+    <ul class="listimage">
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+      <li>jquery</li>
+    </ul>
+  </body>
+</html>

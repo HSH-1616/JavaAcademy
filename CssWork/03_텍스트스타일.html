@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>텍스트스타일</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h2>글꼴 설정하기</h2>
+    <p>
+      font-family속성을 이용 -> 페이지를 이용하는 운영체제가 가지고 있는 글꼴을
+      사용<br />
+      *설정한 글꼴이 없으면 브라우저가 제공하는 기본글꼴을 사용<br />
+      크롬 : 맑은 고딕<br />
+      글꼴은 다수 설정이 가능함<br />
+    </p>
+    <p>글꼴확인하기</p>
+    <h3 class="fontfamily">원하는 글꼴 적용하기</h3>
+    <h3 class="webfont">웹폰트 적용하기</h3>
+    <style>
+      .fontfamily {
+        font-family: "휴먼둥근헤드라인", "궁서";
+      }
+      .webfont {
+        font-family: "Black Han Sans";
+        font-size: 50px;
+      }
+      /* * {
+        font-family: "Dokdo";
+      } */
+    </style>
+    <h3>글자크기 설정하기</h3>
+    <div id="sizecontainer">
+      <h4>상대크기로 글꼴 설정하기</h4>
+      <p class="emsize">em으로 크기 설정하기</p>
+      <p class="remsize">rem으로 크기 설정하기</p>
+      <p class="percentsize">%로 크기 설정하기</p>
+    </div>
+    <p class="emsize">div밖에 있는 emsize</p>
+    <style>
+      div#sizecontainer {
+        /* font-size: 25px; */
+        font-size: 25pt;
+      }
+      .emsize {
+        font-size: 0.5em;
+      }
+      .remsize {
+        font-size: 0.5rem;
+      }
+      .percentsize {
+        font-size: 200%;
+      }
+    </style>
+
+    <h3>문자 굵기변경하기</h3>
+    <p>font-weight : normal,lighter, bold, bolder, 슛자(100~900);</p>
+    <div id="fontweight">
+      <p>기본 normal</p>
+      <p class="lighter">기본 lighter</p>
+      <p class="bold">기본 bold</p>
+      <p class="bolder">기본 bolder</p>
+      <p class="weight">숫자값</p>
+    </div>
+    <style>
+      .lighter {
+        font-weight: lighter;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .bolder {
+        font-weight: bolder;
+      }
+      .weight {
+        font-weight: 900;
+      }
+    </style>
+    <h3>영대문자 작게 표시하기</h3>
+    <p>기본 member-level MEMBER-LEVEL</p>
+    <p class="variant">회원수준 <sup>member-level</sup> MEMBER-LEVEL</p>
+    <p class="variant">
+      <ruby>회원수준 <rt>member-level</rt></ruby> MEMBER-LEVEL
+    </p>
+    <style>
+      .variant {
+        font-size: 30px;
+        font-variant: small-caps;
+      }
+    </style>
+    <h3>글자 기울임 표시하기</h3>
+    <p>기본글자</p>
+    <p class="italic">
+      글자 기울여 표시하기 <span class="italic">testtest</span>
+    </p>
+    <style>
+      .italic {
+        font-style: italic;
+      }
+    </style>
+    <h3>전체 글자설정을 한번에...</h3>
+    <p class="all">기본 글자 스타일 전체 적용하기 font속성이용</p>
+    <style>
+      .all {
+        font: small-caps lighter 20px "Dokdo";
+      }
+    </style>
+
+    <h3>글자색상설정하기</h3>
+    <p class="textcolor">글자색설정하기</p>
+    <style>
+      .textcolor {
+        /* color: lightgreen; */
+        /* color: rgb(235, 123, 43); */
+        color: #ff13ff;
+      }
+    </style>
+    <h3>단어,문장에 스타일 적용하기</h3>
+    <p>
+      test-decoration 속성을 이용<br />
+      none : 단어 문자에 적용된 설정을 없앰 -> a태그의 밑줄 없앨때 사용<br />
+      underline : 밑줄<br />
+      overline : 윗줄<br />
+      line-through : 삭선<br />
+    </p>
+    <style>
+      .under {
+        text-decoration: underline;
+      }
+      .over {
+        text-decoration: overline;
+      }
+      .none {
+        text-decoration: none;
+      }
+      .through {
+        text-decoration: line-through;
+      }
+    </style>
+    <p>
+      여러분 <span class="over">오늘의 점심</span>은 정했나요? 어떤거 드실래요?
+      짜장면? 햄버거? <span class="through">고추짬뽕?</span>
+      <span class="under">이따가 맛있게 먹어요!</span> <br />
+      <a href="" class="none webfont percentsize">점심추천 lunchmenu</a>
+    </p>
+
+    <h3>영문자를 변경해주는 속성</h3>
+    <ul>
+      <li>Hello css how are you? fine thank you. and you?</li>
+      <li class="cap">Hello css how are you? fine thank you. and you?</li>
+      <li class="upper">Hello css how are you? fine thank you. and you?</li>
+      <li class="lower">Hello css how are you? fine thank you. and you?</li>
+    </ul>
+    <input type="text" name="msg" class="lower" />
+    <style>
+      .cap {
+        text-transform: capitalize;
+      }
+      .upper {
+        text-transform: uppercase;
+      }
+      .lower {
+        text-transform: lowercase;
+      }
+    </style>
+
+    <h3>공백을 처리하는 속성</h3>
+    <p>
+      white-space속성을 이용한다. <br />
+      normal : 기본표시 방법<br />
+      nowrap : 한줄로 표시해주는 기능 * 지정한 영역을 벗어나 표시<br />
+      pre : pre태그와 동일, 작성된대로 표시하기<br />
+      pre-line : 공백을 하나만 표시, 영역을 벗어나면 개행처리<br />
+      pre-wrap : 공백을 있는대로 표시, 영역을 벗어나면 개행처리<br />
+    </p>
+    <div class="container1">
+      건물 사이에 피어난 장미 제발 살아남아 줬으면 꺾이지 마 잘 자라줘 온몸을
+      덮고 있는 가시 얼마나 힘 이 들었으면 견뎌내줘서 고마워
+    </div>
+    <div class="container1 nowrap">
+      건물 사이에 피어난 장미 제발 살아남아 줬으면 꺾이지 마 잘 자라줘 온몸을
+      덮고 있는 가시 얼마나 힘 이 들었으면 견뎌내줘서 고마워
+    </div>
+    <div class="container1 pre">
+      건 물 사 이 에 피 어 난 장미 제 발 살 아 남아 줬으 면 꺾 이지 마 잘 자
+      라줘 온몸을 덮고 있 는 가 시 얼마나 힘 이 들었으면 견뎌내 줘 서 고마워
+    </div>
+    <div class="container1 preline">
+      건 물 사 이 에 피 어 난 장미 제 발 살 아 남아 줬으 면 꺾 이지 마 잘 자
+      라줘 온몸을 덮고 있 는 가 시 얼마나 힘 이 들었으면 견뎌내 줘 서 고마워
+    </div>
+    <div class="container1 prewrap">
+      건 물 사 이 에 피 어 난 장미 제 발 살 아 남아 줬으 면 꺾 이지 마 잘 자
+      라줘 온몸을 덮고 있 는 가 시 얼마나 힘 이 들었으면 견뎌내 줘 서 고마워
+    </div>
+
+    <style>
+      .container1 {
+        border: 1px solid greenyellow;
+        width: 200px;
+        height: 40px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+      .nowrap {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .pre {
+        white-space: pre;
+      }
+      .preline {
+        white-space: pre-line;
+      }
+      .prewrap {
+        white-space: pre-wrap;
+      }
+    </style>
+    <h3>문자간거리, 단어사이 거리설정</h3>
+    <p>
+      letter-spacing : 문자사이의 거리를 설정 <br />
+      word-spacing : 띄어쓰기(공백) 거리를 설정 <br />
+    </p>
+    <div>
+      <h3>재미있는 css 우리는 할 수 있다. 그럼그럼 디자인은 어렵지 않다.</h3>
+      <h3 class="letter" style="letter-spacing: -25px">
+        재미있는 css 우리는 할 수 있다. 그럼그럼 디자인은 어렵지 않다.
+      </h3>
+      <h3 class="word">
+        재미있는 css 우리는 할 수 있다. 그럼그럼 디자인은 어렵지 않다.
+      </h3>
+    </div>
+    <style>
+      .letter {
+        letter-spacing: -25px;
+      }
+      .word {
+        word-spacing: 30px;
+      }
+    </style>
+    <script>
+      setInterval(() => {
+        const $taget = document.querySelector(".letter");
+        const length = parseInt($target.style.letterSpacing);
+        console.log(length);
+        size = 0;
+        if (length > 25 && length > 0) size = length - 5;
+        else size = length + 5;
+        $target.style.letterSpacing = size + "px";
+      }, 1000);
+    </script>
+    <h3>문단스타일 적용하기</h3>
+    <p>문장의 정렬, 들여쓰기, 문자의 높이를 조정하기</p>
+    <div class="container2 justify indent">
+다른 문을 열어 따라갈 필요는 없어
+넌 너의 길로, 난 나의 길로 음
+하루하루마다 색이 달라진 느낌
+밝게 빛이 나는 길을 찾아
+I'm on my way
+넌 그냥 믿으면 돼
+I'm on my way
+보이는 그대로야
+너는 누군가의 dreams come true
+제일 좋은 어느 날의 데자뷰
+머물고픈 어딘가의 낯선 뷰
+I'll be far away
+That's my
+Life is 아름다운 갤럭시
+Be a writer 장르로는 판타지
+내일 내게 열리는 건 big, big 스테이지
+So that is who I am
+Look at me, look at me
+Look at me now
+어제랑 또 다른 짜릿한 나
+두려운 모든 게 설레이게
+I'm in sky high, OMG
+사소한 건 다 아득해져 와
+Oh, look at me now, look at me now
+I'm on fire
+I'm on my way
+넌 그냥 믿으면 돼
+I'm on my way
+보이는 그대로야
+너는 누군가의 dreams come true
+제일 좋은 어느 날의 데자뷰
+머물고픈 어딘가의 낯선 뷰
+I'll be far away
+    </div>
+    <p><p><p></p</p>
+    <style>
+        .container2{
+            border:1px solid magenta;
+        }
+        .left{
+            text-align: left;
+        }
+        .center{
+            text-align: center;
+        }
+        .right{
+            text-align: right;
+        }
+        .justify{
+            text-align: justify;
+        }
+        .indent{
+            text-indent: 30px;
+        }
+        .lineheight{
+            line-height: 30px;
+        }
+    </style>
+  </body>
+</html>

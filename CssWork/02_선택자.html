@@ -46,7 +46,7 @@
         font-size: 25px;
       }
       p {
-        font-family: "궁서체";
+        font-family: "맑은고딕";
       }
     </style>
 
@@ -234,10 +234,10 @@
         background-color: beige;
         color: black;
       }
-      table > tbody > tr {
+      /* table > tbody > tr {
         background-color: chartreuse;
         color: lightslategray;
-      }
+      } */
     </style>
     <div class="container">
       <p>div p태그</p>
@@ -324,6 +324,183 @@
       }
       #container5 > #hover:hover {
         color: blueviolet;
+      }
+    </style>
+
+    <h3>문자 선택자</h3>
+    <p>
+      ::first-letter : 문자의 첫글자에만 style을 적용할때 사용<br />
+      ::first-line : 첫 문장에만 style을 적용할때 사용<br />
+      ::after : 문장의 마지막에 특정 문자를 추가할때 사용<br />
+      ::before : 문장의 시작에 특정 문자를 추가할때 사용<br />
+      ::selection : 문장을 드래그했을때 style적용
+    </p>
+    <div id="container6">
+      <p>CSS선택자 수업 너무 재미있다. ㅎㅎㅎㅎ 하지만 졸면안돼</p>
+      <p>세미프로젝트 주제 선정하기</p>
+    </div>
+    <style>
+      div#container6 {
+        width: 300px;
+      }
+
+      div#container6 > p::first-letter {
+        font-size: 30px;
+        color: lime;
+        font-weight: bolder;
+      }
+      div#container6 > p::first-line {
+        background-color: purple;
+      }
+      div#container6 > p::before {
+        content: "start ->";
+      }
+      div#container6 > p::after {
+        content: "- BS -";
+      }
+      div#container6 > p::selection {
+        background-color: thistle;
+        color: black;
+      }
+    </style>
+
+    <h3>구조 선택자</h3>
+    <p>
+      선택자 : first-child : 선택자로 선택된 태그 중 첫번째 태그 <br />
+      선택자 : last-child : 선택자로 선택된 태그 중 마지막 태그 <br />
+      선택자 : nth-child : 선택자로 선택된 태그 중 n번째 태그 <br />
+    </p>
+    <div id="container7">
+      <span>span</span>
+      <h5>1</h5>
+      <h5>2</h5>
+      <h5>3</h5>
+      <h5>4</h5>
+      <h5>5</h5>
+      <div>
+        <h5>inner 1</h5>
+        <h5>inner 2</h5>
+        <h5>inner 3</h5>
+        <h5>inner 4</h5>
+      </div>
+      <h5>6</h5>
+      <h5>7</h5>
+      <a href="">테스트</a>
+    </div>
+    <style>
+      div#container7 h5:first-child {
+        background-color: aqua;
+      }
+      div#container7 h5:last-child {
+        background-color: yellow;
+      }
+      div#container7 h5:nth-child(3) {
+        background-color: green;
+      }
+    </style>
+    <p>
+      선택자:first-of-type : 선택자로 선택된 태그 중 첫번째<br />
+      선택자:last-of-type : 선택자로 선택된 태그 중 마지막<br />
+      선택자:nth-of-type : 선택자로 선택된 태그 중 n번째<br />
+      * 선택된 태그를 기준
+    </p>
+    <style>
+      div#container7 h5:first-of-type {
+        background-color: cornflowerblue;
+      }
+
+      div#container7 h5:last-of-type {
+        background-color: palegreen;
+      }
+
+      div#container7 h5:nth-of-type(3) {
+        background-color: lightgoldenrodyellow;
+      }
+    </style>
+
+    <h2>오늘의 점심</h2>
+    <div id="container8">
+      <table>
+        <tr>
+          <th>구분</th>
+          <th>메뉴</th>
+          <th>가격</th>
+        </tr>
+        <tr>
+          <td>양식</td>
+          <td>돈까스</td>
+          <td>9,000</td>
+        </tr>
+        <tr>
+          <td>한식</td>
+          <td>수제비</td>
+          <td>8,500</td>
+        </tr>
+        <tr>
+          <td>일식</td>
+          <td>우동</td>
+          <td>7,500</td>
+        </tr>
+        <tr>
+          <td colspan="2">합계</td>
+          <td>25,000</td>
+        </tr>
+      </table>
+    </div>
+    <style>
+      div#container8 > table tr:first-child {
+        background-color: bisque;
+        color: black;
+      }
+      div#container8 > table tr:last-child {
+        background-color: red;
+        color: yellow;
+      }
+      div#container8 > table tr:nth-child(2n) {
+        background-color: bisque;
+        color: black;
+      }
+    </style>
+    <h3>부정 선택자</h3>
+    <p>선택자 :not(선택자)</p>
+    <div id="container9">
+      <p>p1</p>
+      <div>div1</div>
+      <p>p2</p>
+      <div class="n">div claa n</div>
+      <p>p3</p>
+      <span class="n">span class n</span>
+      <div>div2</div>
+      <p class="n">p4</p>
+    </div>
+    <style>
+      div#container9 > *:not(.n) {
+        background-color: palevioletred;
+      }
+      div#container9 > .n:not(div) {
+        color: lightpink;
+      }
+    </style>
+    <div id="container10">
+      <input type="checkbox" value="운동" /><span>운동</span>
+      <input type="checkbox" value="코딩" /><span>코딩</span>
+      <input type="checkbox" value="산책" /><span>산책</span>
+    </div>
+    <style>
+      div#container10 > input:checked + span {
+        color: blue;
+        background-color: white;
+      }
+    </style>
+
+    <h2>동일한 스타일에 여러태그 선정하기</h2>
+    <style>
+      div#container2,
+      div#container3,
+      div#container10 {
+        border: 5px solid greenyellow;
+        width: 400px;
+        height: 500px;
       }
     </style>
   </body>

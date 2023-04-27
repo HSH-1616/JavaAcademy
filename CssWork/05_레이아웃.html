@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>레이아웃</title>
+  </head>
+  <body>
+    <h2>태그의 크기를 설정하기</h2>
+    <p>
+      height : 높이에 대한 설정<br />
+      width : 높이에 대한 설정<br />
+      *절대크기(px), 상대크기(%)로 설정 height값 %로 설정하지 않음
+    </p>
+    <style>
+      .container {
+        border: 1px solid red;
+      }
+      .absize {
+        /* width: 800px; */
+        /* height: 30px; */
+        /* min-height: 30px; */
+        max-height: 30px;
+      }
+      .resize {
+        width: 50%;
+        height: 200px;
+      }
+    </style>
+    <div class="container absize">
+      absize <br />
+      absize <br />
+      absize <br />
+      absize <br />
+      absize <br />
+    </div>
+    <div class="container resize">resize</div>
+
+    <h3>태그별 배치속성 알아보기</h3>
+    <p>
+      display속성을 이용해서 설정<br />
+      none : 화면상에 출력하지 않는 태그에 설정 -> javascript이벤트와 연결해서
+      구현 <br />
+      inline : 라인안에서 출력되게하는 속성 -> width, height속성설정을 무시함.
+      <br />
+      block : 한개라인을 모두 차지하는 속성 -> width, height속성을 설정할 수
+      있음. <br />
+      inline-block : 라인안에 출력되는 속성으로 width, height속성을 설정할 수
+      있음. <br />
+    </p>
+    <div class="container">
+      <a href="">goodee academy 1</a>
+      <a href="">goodee academy 2</a>
+      <a href="">goodee academy 3</a>
+      <a href="">goodee academy 4</a>
+      <a href="">goodee academy 5</a>
+    </div>
+    <style>
+      div.container > a {
+        display: block;
+      }
+      div.container > div {
+        border: 1px solid blue;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+      }
+      div.container > div + p {
+        display: none;
+      }
+      div.container > div:hover + p {
+        display: inline-block;
+      }
+    </style>
+    <div class="container">
+      <div>1</div>
+      <p>서브메뉴1</p>
+      <div>2</div>
+      <p>서브메뉴2</p>
+      <div>3</div>
+      <p>서브메뉴3</p>
+      <div>4</div>
+      <p>서브메뉴4</p>
+    </div>
+    <script>
+      const $menu = document.querySelectorAll("div.container>div");
+      $menu.forEach((e) => {
+        e.addEventListener("click", (event) => {
+          event.target.nextElementSibling.style.display = "inline-block";
+        });
+      });
+    </script>
+    <style>
+      div#enrollForm * {
+        /* border: 1px solid lime; */
+      }
+      div#inputForm > form > input {
+        display: block;
+      }
+      div#enrollForm > div {
+        display: inline-block;
+      }
+      div#inputForm input {
+        margin-top: 20px;
+      }
+    </style>
+    <div id="enrollForm">
+      <div id="inputForm">
+        <form action="">
+          <input type="text" name="userId" placeholder="아이디입력" />
+          <input type="password" name="password" placeholder="패스워드" />
+          <input type="password" placeholder="패스워드확인" />
+          <input type="text" name="username" placeholder="이름" />
+          <input type="submit" value="회원가입" />
+        </form>
+      </div>
+      <div id="memberStatus">
+        <ul>
+          <li>회원수 : 1000</li>
+          <li>현재 접속자수 : 2</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>여백을 설정하기</h3>
+    <p>
+      padding : border와 content사이의 여백을 의미함. <br />
+      margin : page와 태그, 태그와 태그사이의 여백을 의미함. <br />
+    </p>
+    <style>
+      div.container2 {
+        border: 1px solid maroon;
+        width: 400px;
+        height: 200px;
+        display: inline block;
+      }
+      .margin {
+        /* 4면의 여백을 50px로 설정 */
+        /* margin: 50px; */
+        /* 원하는 면에 여백을 설정할 수 있다. */
+        /* top, right, bottom, left*/
+        /* margin-left: 100px;
+        margin-bottom: 50px; */
+        /* margin: 10px 50px; 앞의값 : 위,아래  뒤의값 : 좌, 우 */
+        /* margin: 5px 10px 20px 30px; */
+        margin-right: 10%;
+      }
+      .padding {
+        /* padding: 100px; */
+        /* padding-left: 50px; */
+      }
+      div.container2:last-of-type {
+        margin-top: -30px;
+      }
+    </style>
+    <div class="container2 margin padding">
+      <div>
+        <h2>내용입니다.</h2>
+        <p>어떤 내용을 입력할까요?</p>
+      </div>
+    </div>
+    <div class="container2">두번째 컨테이너</div>
+    <h3>display flex를 사용하면 태그들의 정렬을 편리하게 할 수 있다.</h3>
+    <p>display flex를 설정하는 위치는 container태그에 설정</p>
+    <style>
+      div.container3 {
+        width: 100%;
+        height: 100px;
+        border: 1px solid greenyellow;
+        display: flex;
+        justify-content: space-between;
+      }
+      div.container3 > div {
+        border: 1px solid red;
+        width: 100px;
+        height: 80px;
+      }
+    </style>
+    <div class="container3">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </div>
+  </body>
+</html>
