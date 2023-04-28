@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dokdo&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      @keyframes mainMenu {
+        to {
+          transform: translateX(3px);
+          color: aqua;
+          text-decoration: overline;
+        }
+        from {
+          transform: translateX(-3px);
+          color: lightblue;
+          text-decoration: overline;
+        }
+      }
+      nav > ul {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+        width: 100%;
+      }
+      nav > ul > li {
+        font-family: "Black Han Sans";
+        font-size: 40px;
+        font-weight: bolder;
+        color: lightblue;
+        letter-spacing: 5px;
+        cursor: pointer;
+      }
+      nav {
+        background-color: beige;
+        height: 80px;
+        display: flex;
+        align-items: center;
+      }
+      nav > ul > li:hover {
+        animation: mainMenu 0.5s infinite alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>애니메이션메뉴</h1>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Board</li>
+          <li>Gallary</li>
+          <li>WareHouse</li>
+        </ul>
+      </nav>
+    </header>
+    <section></section>
+    <footer></footer>
+  </body>
+</html>

@@ -166,15 +166,18 @@
     <style>
       div.container3 {
         width: 100%;
-        height: 100px;
-        border: 1px solid greenyellow;
+        height: 500px;
+        border: 1px solid slateblue;
         display: flex;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
       }
       div.container3 > div {
         border: 1px solid red;
         width: 100px;
         height: 80px;
+        /* margin-left: 20px; */
       }
     </style>
     <div class="container3">
@@ -182,6 +185,166 @@
       <div>2</div>
       <div>3</div>
       <div>4</div>
+      <div>5</div>
     </div>
+    <br /><br /><br /><br /><br /><br />
+    <style>
+      .container4 > * {
+        width: 100%;
+        border: 1px solid red;
+      }
+      div.container4 > header {
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+      }
+      div.container4 > section {
+        min-height: 600px;
+        display: flex;
+      }
+      div.container4 > section > aside {
+        border: 1px solid blue;
+        height: 600px;
+        width: 20%;
+      }
+      div.container4 > section > div {
+        border: 1px solid green;
+        height: 600px;
+        width: 80%;
+      }
+      div#loginform > form > div:first-child {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2%;
+      }
+      div#loginform > form > div:last-child {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      div#loginform {
+        display: flex;
+        align-items: center;
+        margin-right: 5%;
+      }
+      aside {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      aside > ul a {
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bolder;
+        color: cornflowerblue;
+      }
+      aside > ul a:hover {
+        color: lavender;
+      }
+      aside > ul {
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 600px;
+      }
+      aside > ul > li {
+        margin-bottom: 10%;
+      }
+      div.content {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+      div.content > div {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      div.content > div > h4 {
+        text-align: center;
+      }
+      div.content > div > h5:last-child {
+        text-align: right;
+      }
+      div.product > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      div.product > div > img {
+        cursor: pointer;
+      }
+    </style>
+    <div class="container4">
+      <header>
+        <div id="logo">
+          <img src="./images/qk.png" alt="" width="100" height="100" />
+        </div>
+        <div id="title">
+          <h1>레이아웃 설정하기</h1>
+        </div>
+        <div id="loginform">
+          <form action="">
+            <div>
+              <input type="text" name="userId" />
+              <input type="password" name="password" />
+            </div>
+            <div>
+              <input type="submit" value="로그인" />
+              <input type="reset" value="취소" />
+            </div>
+          </form>
+        </div>
+      </header>
+      <section>
+        <aside>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Board</a></li>
+            <li><a href="">Product</a></li>
+            <li><a href="">Q&A</a></li>
+            <li><a href="">Gallary</a></li>
+          </ul>
+        </aside>
+        <div class="content">
+          <div class="product">
+            <img src="./images/qk.png" width="150" height="150" />
+            <h4>쿼카</h4>
+            <h5>귀여운 쿼카 인형</h5>
+            <div>
+              <img src="./images/qk.png" alt="" width="30" height="30" /
+              onclick="alert('좋아요')">
+              <h5>10,000</h5>
+            </div>
+          </div>
+          <div class="product">
+            <img src="./images/qk.png" alt="" width="150" height="150" />
+            <h4>쿼카</h4>
+            <h5>귀여운 쿼카 인형</h5>
+            <h5>10,000</h5>
+          </div>
+          <div class="product">
+            <img src="./images/qk.png" alt="" width="150" height="150" />
+            <h4>쿼카</h4>
+            <h5>귀여운 쿼카 인형</h5>
+            <h5>10,000</h5>
+          </div>
+          <div class="product">
+            <img src="./images/qk.png" alt="" width="150" height="150" />
+            <h4>쿼카</h4>
+            <h5>귀여운 쿼카 인형</h5>
+            <h5>10,000</h5>
+          </div>
+          <div class="product">
+            <img src="./images/qk.png" alt="" width="150" height="150" />
+            <h4>쿼카</h4>
+            <h5>귀여운 쿼카 인형</h5>
+            <h5>10,000</h5>
+          </div>
+        </div>
+      </section>
+    </div>
+    <br /><br /><br /><br /><br /><br />
   </body>
 </html>

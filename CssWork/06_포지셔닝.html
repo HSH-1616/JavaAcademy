@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포지셔닝</title>
+  </head>
+  <body>
+    <h3>posiotion속성</h3>
+    <p>
+      태그를 페이지에서 워하는 위치에 배치할때 사용하는 속성<br />
+      위치를 지정하는 속성과 같이 사용 : top, left, right, bottom <br />
+      static : default값, 작성된 테그의 순서대로 배치하는 속성 <br />
+      absolute : 부모의 posiotion이 static일때 페이지의 왼쪽 상단 좌표가 0,0으로
+      설정<br />
+      realative : 부모의 position이 static일때 부모의 왼쪽 상단 좌표가 0,0으로
+      설정<br />
+      * 부모의 position이 absolute이나, realative로 설정이 되면 두 속성 모두
+      부모의 왼쪽상단 좌표가 0,0으로 설정<br />
+      fixed : 태그의 위치를 특정 위치로 고정하는 속성 <br />
+      * 페이지를 스크롤해도 따라다님 <br />
+    </p>
+    <div class="parent container">
+      <div class="child absolute">child absolute</div>
+      <div class="child relative">child relative</div>
+      <img
+        src="./images/qk.png"
+        alt=""
+        width="300"
+        height="300"
+        class="fixed"
+      />
+    </div>
+    <div class="parent container">
+      <div class="child absolute">child absolute</div>
+      <div class="child relative">child relative</div>
+    </div>
+    <div class="parent container">
+      <div class="child absolute">child absolute</div>
+      <div class="child relative">child relative</div>
+    </div>
+    <div class="parent container">
+      <div class="child absolute">child absolute</div>
+      <div class="child relative">child relative</div>
+    </div>
+    <div class="parent container">
+      <div class="child absolute">child absolute</div>
+      <div class="child relative">child relative</div>
+    </div>
+    <div class="parent container">
+      <div class="child absolute">child absolute</div>
+      <div class="child relative">child relative</div>
+    </div>
+    <style>
+      .parent {
+        width: 300px;
+        height: 300px;
+        border: 1px solid crimson;
+        margin-left: 100px;
+        margin-top: 100px;
+        /* position: relative; */
+      }
+      .child {
+        width: 200px;
+        height: 100px;
+        border: 1px solid blue;
+      }
+      .absolute {
+        position: absolute;
+        top: 10px;
+        left: 200px;
+      }
+      .relative {
+        position: relative;
+        top: 20px;
+        left: 100px;
+      }
+      .fixed {
+        position: fixed;
+        top: 100px;
+        left: 100px;
+      }
+    </style>
+
+    <h3>z-index</h3>
+    <p>
+      태그가 중첩되어 있을때 우선순위를 설정하는 속성 같이 크면 우선출력한다.
+    </p>
+    <div class="zindex-con">
+      <div class="z1">z1</div>
+      <div class="z2">z2</div>
+      <div class="z3">z3</div>
+    </div>
+    <style>
+      .zindex-con {
+        position: relative;
+        height: 800px;
+      }
+      .zindex-con > div {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+      }
+      .z1 {
+        background-color: turquoise;
+        top: 10px;
+        left: 10px;
+        z-index: 900;
+      }
+      .z2 {
+        background-color: lightblue;
+        top: 30px;
+        left: 30px;
+        z-index: 950;
+      }
+      .z3 {
+        background-color: lightcyan;
+        top: 50px;
+        left: 50px;
+      }
+    </style>
+    <h3>float</h3>
+    <p>태그를 왼쪽이나 오른쪽으로 배치해주는 속성 수평정렬 할때 많이 사용</p>
+    <div class="float-container">
+      <div class="left">left</div>
+      <div class="left">basic</div>
+      <div class="right">right</div>
+      <div class="right">right2</div>
+      <div class="clear">아니야</div>
+    </div>
+    <style>
+      .float-container {
+        width: 600px;
+        height: 400px;
+        border: 1px solid gray;
+      }
+      .float-container > div {
+        width: 100px;
+        height: 100px;
+        border: 3px dotted palevioletred;
+        margin: 10px;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+      .clear {
+        clear: both;
+      }
+    </style>
+  </body>
+</html>

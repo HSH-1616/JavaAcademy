@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변형 애니메이션</title>
+  </head>
+  <body>
+    <h1>변형 이용하기</h1>
+    <p>
+      태그가 특정이빈에 의해 변경되는것을 말함<br />
+      변형 -> 이동, 확대 회전 등<br />
+      transform 속성을 이용 <br />
+      transform 속성에는 css에서 제공하는 함수를 대입<br />
+    </p>
+    <h4>태그 이동시키기</h4>
+    <p>
+      translate() : xy축으로 이동하는 것<br />
+      translateX() : x축으로 이동<br />
+      translateY() : y축으로 이동<br />
+    </p>
+    <p>
+      <img
+        src="./images/qk.png"
+        alt=""
+        width="200"
+        height="200"
+        class="translate"
+      />
+    </p>
+    <p>
+      <img
+        src="./images/qk.png"
+        alt=""
+        width="200"
+        height="200"
+        class="translateX"
+      />
+    </p>
+    <p>
+      <img
+        src="./images/qk.png"
+        alt=""
+        width="200"
+        height="200"
+        class="translateY"
+      />
+    </p>
+    <style>
+      .translate:active {
+        transform: translate(200px, 200px);
+      }
+      .translateX:active {
+        transform: translateX(200px);
+      }
+      .translateY:active {
+        transform: translateY(200px);
+      }
+    </style>
+
+    <h2>확대하기</h2>
+    <div class="container">
+      <p class="scale transition">
+        여러분 이제 css 거의 다 끝났어요.. 우와 신난다.
+      </p>
+      <p class="scaleX transition">
+        여러분 이제 css 거의 다 끝났어요.. 우와 신난다.
+      </p>
+      <p class="scaleY">여러분 이제 css 거의 다 끝났어요.. 우와 신난다.</p>
+    </div>
+
+    <style>
+      .container {
+        margin: 50px;
+      }
+      .scale:active {
+        transform: scale(3);
+        color: magenta;
+      }
+      .scaleX:active {
+        transform: scaleX(1.5);
+      }
+      .scaleY:active {
+        transform: scaleY(1.5);
+      }
+    </style>
+
+    <h3>skew적용하기</h3>
+    <div class="container">
+      <img src="./images/qk.png" alt="" width="200" height="200" class="skew" />
+      <h3 class="skew">이것도 적용되니</h3>
+    </div>
+    <style>
+      .skew:active {
+        /* transform: skew(45deg); */
+        /* transform: skewx(45deg); */
+        transform: skewy(45deg);
+      }
+    </style>
+
+    <h3>회전시키기</h3>
+    <div class="container">
+      <img
+        src="./images/qk.png"
+        alt=""
+        width="200"
+        height="200"
+        class="rotate transition"
+      />
+      <img
+        src="./images/qk.png"
+        alt=""
+        width="200"
+        height="200"
+        class="rotateX transition"
+      />
+      <img
+        src="./images/qk.png"
+        alt=""
+        width="200"
+        height="200"
+        class="rotateY transition"
+      />
+    </div>
+    <style>
+      .container > img {
+        border: 2px solid rgb(118, 80, 255);
+      }
+      .rotate:active {
+        transform: perspective(200px) rotate(45deg);
+      }
+      .rotateX:active {
+        transform: perspective(200px) rotateX(45deg);
+      }
+      .rotateY:active {
+        transform: perspective(200px) rotateY(45deg);
+      }
+    </style>
+    <h3>트렌지션 적용하기</h3>
+    <p>
+      변형이 순차적으로 천천히 발생하게 하는 속성 transition-property :
+      트렌지션이 발생하는 css속성설정<br />
+      transition-duration : 트렌지션이 발생시간 설정<br />
+    </p>
+    <style>
+      .transition {
+        transition-property: color, transform, height, width;
+        transition-duration: 2s;
+      }
+    </style>
+    <nav class="menu">
+      <ul>
+        <li><a href="">메인화면</a></li>
+        <li><a href="">게시판</a></li>
+        <li><a href="">갤러리</a></li>
+        <li><a href="">자료실</a></li>
+      </ul>
+    </nav>
+    <br /><br /><br /><br />
+    <style>
+      .menu > ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-evenly;
+      }
+      .menu > ul > li > a {
+        text-decoration: none;
+        font-size: 30px;
+        font-weight: bolder;
+        color: lightgreen;
+        letter-spacing: 10px;
+      }
+      .menu > ul > li,
+      .menu > ul > li > a {
+        transition-property: color, transform;
+        transition-duration: 1s;
+      }
+      .menu > ul > li:hover {
+        transform: scale(1.5);
+      }
+      .menu > ul > li > a:hover {
+        color: lime;
+      }
+    </style>
+
+    <h3>애니메이션</h3>
+    <p>
+      실행할 애니메이션을 먼저 설정 <br />
+      @keyframes 이름{ <br />
+      동작내용 설정 <br />
+      1. 시작~끝 to ~ from <br />
+      2. 0% ~ 100% 퍼센트 단위로 끊어서 처리할 수 있다.<br />
+      }<br />
+      css속성에 <br />
+      animation-name : 적용할 애니메이션 이름<br />
+      animation-duration : 지속 시간<br />
+      animation-iteration-count : 반복 횟수<br />
+      anumation-direction : 실행 순서<br />
+    </p>
+    <style>
+      @keyframes ani {
+        to {
+          background-color: salmon;
+          font-size: 80px;
+          transform: translate(200px 200px);
+        }
+        from {
+          background-color: darkmagenta;
+          font-size: 25px;
+          border: 10px solid lime;
+          border-radius: 100px;
+          transform: rotate(180deg);
+        }
+      }
+      .ani {
+        animation-name: ani;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      @keyframes ani2 {
+        0% {
+          transform: translate(300px, 300px);
+          background-color: aqua;
+          font-size: 5px;
+        }
+        20% {
+          background-color: darkblue;
+          font-size: 30px;
+          transform: rotate(360deg);
+        }
+        40% {
+          background-color: red;
+          font-size: 10px;
+          transform: perspective(200px) rotateX(45deg);
+        }
+        60% {
+          background-color: yellow;
+          font-size: 40px;
+          transform: scale(2);
+        }
+        80% {
+          background-color: magenta;
+          font-size: 20px;
+          transform: translate(-100px, -100px);
+        }
+        100% {
+          background-color: lime;
+          font-size: 60px;
+          transform: rotate(360deg);
+        }
+      }
+      .ani2 {
+        animation-name: ani2;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    </style>
+    <h3 class="ani">여러분 이게 마지막 css적용이에요!! 아자아자 화이팅!!</h3>
+    <p class="ani2">이제 정말 끝</p>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </body>
+</html>
