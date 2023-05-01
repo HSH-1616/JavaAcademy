@@ -1,0 +1,217 @@
+body {
+  background-color: ghostwhite;
+  font-family: "Archivo";
+}
+
+.menu {
+  font-size: 2em;
+  align-items: center;
+  text-align: right;
+  padding-top: 40px;
+  color: black;
+}
+.menu * {
+  display: inline;
+}
+.menu li {
+  margin: 35px;
+}
+nav > ul > li:hover {
+  animation: 0.5s infinite alternate;
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: gray;
+}
+.title {
+  font-size: 5.5rem;
+  padding-top: 5%;
+  padding-left: 5%;
+}
+.title h1 {
+  float: left;
+}
+.title h6 {
+  font-size: 3rem;
+  clear: left;
+}
+.title img {
+  width: 10rem;
+  position: relative;
+  float: left;
+  margin-top: 7%;
+  left: -2%;
+}
+.box {
+  display: flex;
+  width: 100%;
+
+  justify-content: center;
+  position: relative;
+  top: 50px;
+  margin-bottom: 15%;
+}
+.image {
+  width: 50%;
+  background: linear-gradient(to right, #aa4b6b, #6b6b83, #3b8d99);
+}
+.image img {
+  width: 40%;
+  height: 700px;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 5%;
+}
+.profile {
+  width: 50%;
+  height: 800px;
+  background-color: #212121;
+  color: white;
+}
+.profile h1 {
+  margin-left: 5%;
+  font-size: 5rem;
+  margin-top: 10%;
+}
+.profile p {
+  font-size: 1.5rem;
+  margin-left: 5%;
+}
+.foot {
+  width: 50%;
+  justify-content: center;
+  margin: auto;
+  margin-top: -7%;
+}
+.git {
+  width: 50%;
+  margin-bottom: 10%;
+}
+
+.git img {
+  position: relative;
+  width: 30%;
+  left: 85%;
+  top: -20%;
+}
+.photo {
+  padding-top: 10%;
+  width: 70%;
+  margin: auto;
+  overflow: hidden;
+}
+.gimage {
+  width: 100%;
+  height: auto;
+}
+.gimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.photo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  grid-auto-flow: row dense;
+}
+.imageFlex1 {
+  display: grid;
+  row-gap: 20px;
+}
+.imageFlex2 {
+  display: grid;
+  row-gap: 20px;
+}
+.imageFlex3 {
+  display: grid;
+  row-gap: 20px;
+}
+.youtube {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+.playlist {
+  position: relative;
+  max-width: 730px;
+  width: 100%;
+  height: 850px;
+  border: 8px solid #212121;
+  background-color: #0f0f0f;
+  border-radius: 5%;
+  padding-top: 100px;
+}
+.tb {
+  max-width: 630px;
+  width: 100%;
+  height: 600px;
+  font-size: 120%;
+  color: white;
+  /* text-align: center; */
+  float: left;
+  margin-left: 2%;
+  margin-top: 2%;
+
+  border-collapse: collapse;
+}
+.tb td {
+  font-weight: bold;
+  /* border: 3px solid bisque; */
+  padding: 30px;
+}
+.tb p {
+  color: gray;
+  font-size: 90%;
+}
+.tb td:first-child {
+  border: none;
+  padding-right: 30px;
+}
+.music {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  float: left;
+  margin-right: 3%;
+}
+.music iframe {
+  position: relative;
+}
+@keyframes ani {
+  0% {
+    color: red;
+  }
+  20% {
+    color: orange;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: yellowgreen;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: white;
+  }
+}
+.icon {
+  animation-name: ani;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

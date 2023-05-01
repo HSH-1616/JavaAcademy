@@ -199,64 +199,45 @@
       anumation-direction : 실행 순서<br />
     </p>
     <style>
-      @keyframes ani {
-        to {
-          background-color: salmon;
-          font-size: 80px;
-          transform: translate(200px 200px);
-        }
-        from {
-          background-color: darkmagenta;
-          font-size: 25px;
-          border: 10px solid lime;
-          border-radius: 100px;
-          transform: rotate(180deg);
-        }
-      }
-      .ani {
-        animation-name: ani;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-      @keyframes ani2 {
-        0% {
-          transform: translate(300px, 300px);
-          background-color: aqua;
-          font-size: 5px;
-        }
-        20% {
-          background-color: darkblue;
-          font-size: 30px;
-          transform: rotate(360deg);
-        }
-        40% {
-          background-color: red;
-          font-size: 10px;
-          transform: perspective(200px) rotateX(45deg);
-        }
-        60% {
-          background-color: yellow;
-          font-size: 40px;
-          transform: scale(2);
-        }
-        80% {
-          background-color: magenta;
-          font-size: 20px;
-          transform: translate(-100px, -100px);
-        }
-        100% {
-          background-color: lime;
-          font-size: 60px;
-          transform: rotate(360deg);
-        }
-      }
-      .ani2 {
-        animation-name: ani2;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
+      @
+       @keyframes ani2 {
+         0% {
+           transform: translate(300px, 300px);
+           background-color: aqua;
+           font-size: 5px;
+         }
+         20% {
+           background-color: darkblue;
+           font-size: 30px;
+           transform: rotate(360deg);
+         }
+         40% {
+           background-color: red;
+           font-size: 10px;
+           transform: perspective(200px) rotateX(45deg);
+         }
+         60% {
+           background-color: yellow;
+           font-size: 40px;
+           transform: scale(2);
+         }
+         80% {
+           background-color: magenta;
+           font-size: 20px;
+           transform: translate(-100px, -100px);
+         }
+         100% {
+           background-color: lime;
+           font-size: 60px;
+           transform: rotate(360deg);
+         }
+       }
+       .ani2 {
+         animation-name: ani2;
+         animation-duration: 4s;
+         animation-iteration-count: infinite;
+         animation-direction: alternate;
+       }
     </style>
     <h3 class="ani">여러분 이게 마지막 css적용이에요!! 아자아자 화이팅!!</h3>
     <p class="ani2">이제 정말 끝</p>

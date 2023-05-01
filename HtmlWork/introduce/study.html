@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./images/icon/favstudy.png" />
+    <title>HSH-Study</title>
+  </head>
+  <body link="black" vlink="black">
+    <header id="header">
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="./introduce.html">Main</a>
+          </li>
+          <li><a href="./photo.html">Gallery</a></li>
+          <li><a href="./Music1.html">Music</a></li>
+          <li><a href="./study.html"> Study</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <form
+      action="./photo.html"
+      method="get
+    "
+    >
+      <label>이름</label><input type="text" /><br />
+      <label>비밀번호</label><input type="password" /><br />
+      <label>생일</label><input type="date" /><br />
+      <label>나이</label><input type="number" /><br />
+      <label>파일</label><input type="file" /><br />
+      <label>성별</label> <input type="radio" />남
+      <input type="radio" />여<br />
+      <label>관심분야</label>
+      <input type="checkbox" />게임 <input type="checkbox" />코딩
+      <input type="checkbox" />운동 <input type="checkbox" />음악
+      <input type="submit" />
+      <input type="reset" />
+    </form>
+    <style>
+      body {
+        background: white;
+        font-family: "Archivo";
+      }
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        color: gray;
+      }
+      nav > ul > li:hover {
+        animation: 0.5s infinite alternate;
+        color: gray;
+        text-decoration: underline;
+      }
+      nav > ul > li {
+        cursor: pointer;
+      }
+      .menu {
+        font-size: 2rem;
+        align-items: center;
+        text-align: right;
+        padding-top: 40px;
+
+        color: black;
+      }
+      .menu * {
+        display: inline;
+      }
+      .menu li {
+        margin: 35px;
+      }
+    </style>
+  </body>
+</html>
