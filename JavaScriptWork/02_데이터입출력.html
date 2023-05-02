@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>데이터입출력하기</title>
+  </head>
+  <body>
+    <h2>데이터 출력하기</h2>
+    <ul>
+      <li>js에서 데이터 출력하기</li>
+      <li>
+        페이지 내부에 원하는 내용을 출력->동적으로 페이지의 출력내용을 변경할때
+        사용
+      </li>
+      <li>
+        알람창으로 데이터를 출력하는 방법->주요정보를 알려줄때 사용, 디버깅
+        할때도 사용
+      </li>
+      <li>
+        console창에 출력하는 방법->데이터(변수)를 확인, 로직에 댛나 디버깅할때
+        사용
+      </li>
+    </ul>
+    <h3>console객체를 이용해서 데이터 출력하기</h3>
+    <p>
+      javascript도 객체지향언어로 기본제공하는 클래스들이 많이 있다. <br />
+      데이터출력용 객체를 제공->console객체임. <br />
+      console객체는 데이터를 출력하는 많은 함수(메소드)를 제공
+      log(),error(),warn(),dir,table() <br />
+      * 변수에 저장된 데이터를 확인할때 많이 사용 <br />
+      *에러, 경고 로그를 출력할때 사용<br />
+    </p>
+    <p id="target">나야나!! 나야나 p태그</p>
+    <script>
+      console.log("나의 첫 로그");
+      //변수를 출력하기
+      var data = "유병승";
+      console.log(data);
+      //태그를 가져와 출력할떄
+      console.log(document.getElementById("target"));
+
+      //에러나, 경고메세지를 출력할때
+      //error(), warn()함수 이용
+      console.error("나이는 음수를 사용할수 없습니다. :(");
+      console.warn("동등비교는 === 연산자를 이용해주세요. :)");
+      //
+      var obj = {
+        name: "유병승",
+        age: 19,
+        height: 180.5,
+        address: "경기도시흥시",
+      };
+      console.dir(document.getElementById("target"));
+      console.table(obj);
+    </script>
+    <h3>알림창으로 출력하기</h3>
+    <p>javascript의 window객체가 제공하는 alert함수 이용하기</p>
+    <script>
+      //   console.log(window);
+      //   window.alert("안녕");
+      //   //윈도우는 브라우저에서 기본객체이기 때문에 명칭 생략이 가능함
+      //   alert("난 윈도우 없이 호출");
+      //   var age = 19;
+      //   alert(age);
+      //   var obj2 = { name: "test", num: 19 };
+      //   alert(obj2);
+      //   alert은 사용자에게 보여줄 간단한 메세지를 출력하는 용도
+    </script>
+    <h3>페이지에 원하는 내용 출력하기</h3>
+    <ul>
+      <li>document객체의 메소드를 이용하는 방법 : write()함수이용</li>
+      <li>
+        document객체의 속성을 이용하는 방법 : innerHtml/innerText속성에 값을
+        대입
+      </li>
+    </ul>
+    <h3>document.write()함수 이용하기</h3>
+    <button onclick="document.write('<h2>이건 버튼으로 추가한 태그</h2>');">
+      태그추가하기
+    </button>
+    <script>
+      document.write("이거는 js가 추가한 문구다");
+      document.write(19);
+      //태그를 추가하기
+      document.write("<p>윤진씨가 좋아하는 p태그</p>");
+    </script>
+
+    <h3>특정 태그에 원하는 문구 출력하기</h3>
+    <div id="target1"></div>
+    <button
+      onclick="document.getElementById('target1').innerHTML='버튼으로 문구추가'"
+    >
+      추가하기
+    </button>
+    <script>
+      document.getElementById("target1").innerHTML = "이건 내가 넣은 값!!";
+      document.getElementById("target1").innerHTML += "이것도 추가하자!";
+      //태그내부에 태그 추가하기
+      document.getElementById("target1").innerHTML = "<h3>태그 추가하기</h3>";
+      //innerText : 지정태그의 텍스트노드 값을 대입, html코드를 한글로 처리함.
+      document.getElementById("target1").innerText = "<p>p태그 추가하기</p>";
+    </script>
+    <h2>데이터 입력받기</h2>
+    <ul>
+      <li>
+        window객체가 제공하는 함수 이용 하기
+        <ul>
+          <li>
+            confirm('출력할 메세지') : 메세지내용을 확인해주는 함수 확인을
+            누르면 true, 취소를 누르면 false가 반환되는 함수
+          </li>
+          <li>
+            prompt('출력할 메시지') : 사용자가 입력할 수 있는 입력창을 출력하고
+            입력한 메세지를 반환해주는 함수
+          </li>
+        </ul>
+      </li>
+      <li>input태그를 이용해서 데이터 입력받기 ****</li>
+    </ul>
+    <h3>window함수로 데이터 받기</h3>
+    <script>
+      //   console.log(window.confirm("당신은 미성년 입니까?"));
+      //   var result = window.confirm("당신은 개발자 입니까?");
+      //   console.log(result);
+      //   if (window.confirm("당신은 개발자 입니까?")) {
+      //     alert("우와~멋지다!!");
+      //   }
+      //   console.log(window.prompt("당신의 이름은?"));
+    </script>
+    <h3>태그로 데이터 받기</h3>
+    <p>
+      input태그를 script에 객체로 가져와서 처리함 input객체에는 input작성된
+      데이터를 저장하는 value속성이 있음.
+    </p>
+    <input type="text" id="inputtest" />
+    <button onclick="checkData();">입력값 가져오기</button>
+    <script>
+      function checkData() {
+        console.dir(document.getElementById("inputtest"));
+        console.log(document.getElementById("inputtest").value);
+      }
+    </script>
+  </body>
+</html>

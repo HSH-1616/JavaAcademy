@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기본js적용하기</title>
+    <!-- 외부js파일 불러오기 -->
+    <script>
+      alert("internal로 적용");
+      //   document.querySelector("h3").style.color = "magenta";
+      testfunc();
+    </script>
+    <script src="./js/test.js"></script>
+  </head>
+  <body>
+    <!-- 스크립트가 실행되지 않는 브라우저에 경고출력하기 -->
+    <noscript style="color: red">
+      <h1>
+        이 브라우저에서는 페이지가 정상적으로 실행되지 않습니다. <br />
+        브라우저를 업데이트 하거나 다른 브라우저를 이용하세요!
+      </h1>
+    </noscript>
+    <h2>자바 스크립트 적용하기</h2>
+    <ol>
+      <li>inline 방식 : 태그의 이벤트속성에 javascript코드를 작성하는 방식</li>
+      <li>
+        internal 방식 : script태그 내부에 필요한 javascript코드를 작성하는 방식
+      </li>
+      <li>
+        extarnal 방식 : js파일에 javascript코드를 작성하고 script태그로 불러와서
+        적용하는 방식
+      </li>
+    </ol>
+    <h3>inline방식으로 적용하기</h3>
+    <button onclick="alert('클릭했니>?');">이거 눌러봐!</button>
+
+    <h3>internal방식으로 적용하기</h3>
+    <!-- <script>
+      alert("internal로 적용");
+      document.querySelector("h3").style.color = "magenta";
+      testfunc();
+    </script> -->
+    <h3>external방식으로 적용하기</h3>
+    <p>
+      외부 라이브러리 파일이나 공통으로 적용할 자체 js파일을 적용할때 많이 사용
+    </p>
+  </body>
+</html>
