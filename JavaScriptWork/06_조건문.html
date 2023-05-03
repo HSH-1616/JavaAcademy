@@ -1,0 +1,250 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문활용하기</title>
+  </head>
+  <body>
+    <h2>조건문활용하기</h2>
+    <p>if문 if~else, if ~ else if ~ else if else switch문</p>
+    <h3>if문 활용하기</h3>
+    <div id="monthCheck">
+      <input type="text" id="month" placeholder="1 ~ 12입력" />
+      <button onclick="monthCheck()">계절확인</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      function monthCheck() {
+        //12월, 1월, 2월 : 겨울
+        //3 ~ 5월 : 봄
+        //6 ~ 8월 : 여름
+        //9 ~ 11월 : 가을
+        const $container = document.getElementById("result");
+        const month = document.getElementById("month").value;
+        let season = "";
+        if (month == 12 || month == 1 || month == 2) {
+          season = "겨울";
+        } else if (month >= 3 && month <= 5) {
+          season = "봄";
+        } else if (month >= 6 && month <= 8) {
+          season = "여름";
+        } else if (month >= 9 && month <= 11) {
+          season = "가을";
+        } else {
+          season = "없는 월입니다. 1~12를 입력하세요!";
+        }
+        $container.innerHTML = "<h3>" + season + "</h3>";
+      }
+    </script>
+    <h3>switch문이용하기</h3>
+    <script>
+      let num = 180.5;
+      switch (
+        num
+        // case 100:
+        //   alert("100이야");
+        //   break;
+        // case 200:
+        //   alert("200이야");
+        //   break;
+        // case 300:
+        //   alert("300이야");
+        //   break;
+        // case 180.5:
+        //   alert("키가 크네요");
+        //   break;
+      ) {
+      }
+      let str = "유병승";
+      switch (str) {
+        case "유병승":
+          console.log("아쉽네요");
+          break;
+        case "최주영":
+          console.log("바보네요");
+          break;
+        case "김현영":
+          console.log("화이팅");
+          break;
+      }
+      switch (str == "유병승") {
+        case true:
+          console.log("우와 아쉬운 유병승이네.");
+          break;
+        case false:
+          console.log("유병승 아니네");
+          break;
+      }
+      let choice = 1;
+      switch (
+        choice //===
+      ) {
+        case "1":
+          console.log("1번이네요");
+          break;
+        case "2":
+          console.log("2번이네요");
+          break;
+        case 1:
+          console.log("숫자 1이네요!");
+          break;
+        default:
+          console.log("동일한게 없네요");
+          break;
+      }
+      switch (choice % 3) {
+      }
+    </script>
+
+    <div>
+      <h2>계산기</h2>
+      <input type="number" id="su" />
+      <input type="text" id="op" size="3" />
+      <input type="number" id="su2" />
+      <button onclick="calc();">계산하기</button>
+      <div id="calcResult"></div>
+    </div>
+    <div>
+      <h2>로그인</h2>
+      <input type="text" id="userId" />
+      <input type="password" id="password" />
+      <button onclick="login();">로그인</button>
+      <!-- 알람창으로 아이디가 user01/user01, admin/1234면 로그인성공 출력 아니면 실패 출력 -->
+    </div>
+    <div>
+      <h3>패스워드확인</h3>
+      <input type="password" id="password2" />
+      <input type="password" id="passwordcheck" />
+      <button onclick="checkPwd();">패스워드확인</button>
+      <div id="passwordCheckResult"></div>
+    </div>
+    <div>
+      <h2>선택한 이미지 출력하기</h2>
+      <select id="imageChoice" onchange="changeImage2();">
+        <option value="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E">
+          강아지
+        </option>
+        <option
+          value="https://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+        >
+          라이언
+        </option>
+        <option
+          value="https://cdn.aitimes.kr/news/photo/202303/27617_41603_044.jpg"
+        >
+          고양이
+        </option>
+        <option
+          selected
+          value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5c6VkPCiNvUmomb-iGTLqP76uu9FOsJWRpg&usqp=CAU"
+        >
+          병아리
+        </option>
+      </select>
+      <img src="" alt="" id="choiceImage" width="200" height="200" />
+    </div>
+    <div>
+      <h3>클릭할때마다 이미지가 변경되는 기능</h3>
+      <div>
+        <img src="" alt="" id="rollImage" />
+        <button onclick="changeImage();">이미지변경하기</button>
+      </div>
+    </div>
+    <script>
+      function calc() {
+        const su = Number(document.getElementById("su").value);
+        const su2 = Number(document.getElementById("su2").value);
+        const op = document.getElementById("op").value;
+        let result = 0;
+        switch (op) {
+          case "+":
+            result = su + su2;
+            break;
+          case "-":
+            result = su - su2;
+            break;
+          case "/":
+            result = su / su2;
+            break;
+          case "*":
+            result = su * su2;
+            break;
+        }
+        document.getElementById("calcResult").innerHTML =
+          "<h4>" + result + "</h4>";
+      }
+      function login() {
+        const userId = document.getElementById("userId").value;
+        const password = document.getElementById("password").value;
+        if (
+          (userId == "admin" && password == "1234") ||
+          (userId == "user01" && password == "user01")
+        ) {
+          alert("로그인성공");
+        } else {
+          alert("로그인실패");
+        }
+      }
+      function checkPwd() {
+        const pwd = document.getElementById("password2").value;
+        const pwdCk = document.getElementById("passwordcheck").value;
+        console.log(pwd == "", pwdCk == "", pwd.length);
+        let msg;
+
+        if (pwd != "" && pwdCk != "") {
+          if (pwd == pwdCk) {
+            msg = "패스워드가 일치합니다.";
+          } else {
+            msg = "패스워드가 일치하지 않습니다.";
+          }
+        } else {
+          msg = "패스워드 값을 입력하세요!";
+        }
+        document.getElementById("passwordCheckResult").innerHTML =
+          "<h4 style='color:" +
+          (msg.includes("않") ? "red" : "green") +
+          ";'>" +
+          msg +
+          "</h4>";
+      }
+      let count = 0;
+      function changeImage() {
+        //이미지는 본인이 원하는 이미지 3개를 선택하여 클릭할때마다 순환하여 출력하기
+        // Element에 src속성이 있다.
+        const $img = document.getElementById("rollImage");
+
+        let rollsrc = "";
+        switch (count % 3) {
+          case 0:
+            rollsrc = "https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E";
+            break;
+          case 1:
+            rollsrc =
+              "https://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg";
+            break;
+          case 2:
+            rollsrc =
+              "https://cdn.aitimes.kr/news/photo/202303/27617_41603_044.jpg";
+            break;
+        }
+        $img.style.width = "200px";
+        $img.style.height = "200px";
+        $img.src = rollsrc;
+        count++;
+      }
+      function changeImage2() {
+        //https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E 강아지
+        //https://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg 라이언
+        //https://cdn.aitimes.kr/news/photo/202303/27617_41603_044.jpg 고양이
+        //https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5c6VkPCiNvUmomb-iGTLqP76uu9FOsJWRpg&usqp=CAU 병아리
+
+        const imgSrc = document.getElementById("imageChoice").value;
+        console.log(imgSrc);
+        const $img = document.getElementById("choiceImage");
+        $img.src = imgSrc;
+      }
+      changeImage2();
+    </script>
+  </body>
+</html>
