@@ -85,5 +85,19 @@
       }
     </script>
     <h2>배열객체가 제공하는 함수 활용하기</h2>
+    <h3>
+      indexOf("찾을값") : 매개변수로 전달된 값과 일치하는 요소를 찾아
+      인덱스번호를 반환
+    </h3>
+    <script>
+      let names = ["유병승", "최주영", "김현영", "이은지", "허성현", "김찬은"];
+      console.log(names.indexOf("이은지"));
+      console.log(names.indexOf("최인호"));
+      if (names.indexOf("최인호") != -1) {
+        console.log("git을 무리없이 사용할 수 있다");
+      } else {
+        console.log("git하지말자");
+      }
+    </script>
   </body>
 </html>
