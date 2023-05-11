@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "NEXON Lv2 Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: "NEXON Lv2 Gothic";
+}
+.header {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.loginSerivce {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding-top: 30px;
+}
+#login {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.44);
+  position: relative;
+  right: 30px;
+}
+#service {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.44);
+  position: relative;
+  right: 7px;
+}
+
+.logoSearch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#logo {
+  width: 220px;
+  height: 100px;
+}
+#search {
+  box-sizing: border-box;
+  width: 600px;
+  height: 50px;
+  background: lightgray;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+}
+#search::placeholder {
+  text-align: center;
+  font-size: 18px;
+}
+
+.userIcon {
+  display: flex;
+  justify-content: right;
+}
+#sell {
+  width: 100px;
+  height: 40px;
+}
+#myInfo {
+  width: 100px;
+  height: 40px;
+}
+#loveProduct {
+  width: 100px;
+  height: 40px;
+}
+
+.menuRanking {
+  position: relative;
+  top: 65px;
+}
+#menu {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  left: 20px;
+}
+#ranking {
+  width: 280px;
+  height: 60px;
+  float: right;
+  position: relative;
+  bottom: 2px;
+}
+hr {
+  position: relative;
+  left: 15px;
+  top: 20px;
+  border: solid 1px lightgrey;
+}
