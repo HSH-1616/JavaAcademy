@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrowserObjectModel</title>
+  </head>
+  <body>
+    <h2>BOM : Browser에 대한 정보를 가지고 있는 객체들...</h2>
+    <p>
+      화면 : screen 객체 <br />
+      url : location 객체 <br />
+      브라우저정보 : navigator 객체 <br />
+      페이지이동이력 : history 객체 <br />
+    </p>
+    <h2>screen</h2>
+    <p>client의 화면에 대한 정보를 저장하는 객체</p>
+    <button onclick="screenInfo();">screen 정보확인</button>
+    <div id="screenInfo"></div>
+    <script>
+      const screenInfo = () => {
+        console.log(screen);
+        printData("screenInfo", screen);
+        console.log(screen.width);
+      };
+      const printData = (id, obj) => {
+        const container = document.getElementById(id);
+        for (key in obj) {
+          container.innerHTML += `${key} : ${obj[key]}<br>`;
+          console.log(`${key} : ${obj[key]}`);
+        }
+      };
+    </script>
+    <h2>navigator 객체</h2>
+    <button onclick="naviInfo()">navigator 정보확인하기</button>
+    <div id="naviinfo"></div>
+    <p>클라이언트의 위치정보를 가져오는 기능을 제공 -> 좌표</p>
+    <button onclick="positionPrint()">나의 위치정보 가져오기</button>
+    <div id="myPosition"></div>
+    <script>
+      const positionPrint = () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+          console.log(position);
+          document.getElementById(
+            "myPosition"
+          ).innerHTML = `<h2> 위도 : ${position.coords.latitude}, 경도 : ${position.coords.longitude}</h2>`;
+        });
+      };
+      const naviInfo = () => {
+        console.log(navigator);
+        printData("naviinfo", navigator);
+      };
+    </script>
+    <h2>history</h2>
+    <button onclick="historyInfo();">페이지이동이력확인</button>
+    <div id="historyInfo"></div>
+    <script>
+      const historyInfo = () => {
+        printDate("historyInfo", history);
+      };
+    </script>
+    <h2>location</h2>
+    <p>
+      url창에 대한 정보를 관리하는 객체<br />
+      페이지를 이동(요청)시키거나, 갱신하는 기능을 제공함. <br />
+      페이지를 이동하는 방식<br />
+      1. location.href속성을 변경하기 -> url주소 <br />
+      2. location.assign("url주소"); -> 이전페이지로 이동할수있음 <br />
+      3. location.replace("url주소"); -> 이전페이지로 이동을 못함. <br />
+
+      4. location.reload(); -> 페이지를 새로고침 (F5, ctrl+r);
+    </p>
+    <button onclick="locationInfo();">이동하기</button>
+    <div id="locationInfo"></div>
+    <h3>메뉴</h3>
+    <nav>
+      <ul>
+        <li onclick="location.href=`http://youtube.com`"><h4>유튜브</h4></li>
+        <li onclick="location.assign(`http://google.com`)"><h4>구글</h4></li>
+        <li onclick="location.replace(`http://tmon.co.kr`)"><h4>티몬</h4></li>
+        <li onclick="location.href=`http://naver.com`"><h4>네이버</h4></li>
+        <li>
+          네이버 <input type="search" id="keyword" /><button
+            onclick="searchNaver()"
+          >
+            검색하기
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <script>
+      const searchNaver = () => {
+        const value = document.getElementById("keyword").value;
+        location.assign(`http://search.naver.com/search.naver?query=${value}`);
+      };
+
+      const locationInfo = () => {
+        printData("locationInfo", location);
+      };
+    </script>
+    <style>
+      nav > ul > li > h4,
+      nav > ul > li:hover {
+        cursor: pointer;
+      }
+    </style>
+    <button onclick="location.reload();">새로고침</button>
+    <!-- location.assing("http://localhost:9090/semiproject/boarddetail.do?no=1") -->
+  </body>
+</html>

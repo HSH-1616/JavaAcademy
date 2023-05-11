@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장함수</title>
+  </head>
+  <body>
+    <h2>javascript에서 제공하는 객체의 함수이용하기</h2>
+    <p>String, Number, Math, Date, Element, Document, Event....</p>
+    <h3>String객체가 제공하는 함수 활용하기</h3>
+    <div id="container"></div>
+    <button onclick="alpha();">대소문자</button>
+    <script>
+      const $container = document.getElementById("container");
+      function alpha() {
+        //1. 영문자를 대문자, 소문자로 변경해주는 함수 -> toUpperCase(), toLowerCase();
+        let temp = "AbcdeFg";
+        $container.innerHTML = "<p>" + temp + "</p>";
+        $container.innerHTML += "<p>" + temp.toUpperCase() + "</p>";
+        $container.innerHTML += "<p>" + temp.toLowerCase() + "</p>";
+
+        //2. 문자열의 길이를 확인하는 속성 : length
+        $container.innerHTML += "<p>" + temp.length + "</p>";
+
+        //3. 문자열의 각 문자를 출력해주는 함수 : charAt(인덱스)
+        for (let i = 0; i < temp.length; i++) {
+          $container.innerHTML += "<p>" + temp.charAt(i) + "</p>";
+        }
+
+        //4. 문자열의 특정문자의 인덱스 번호 출력하기 : indexOf/lastIndexOf
+        $container.innerHTML += "<p>" + temp.indexOf("c") + "</p>";
+
+        //5. 문자열에서 특정문자를 잘라내는 함수 : substring();
+        $container.innerHTML += "<p>" + temp.substring(2, 6) + "</p>";
+
+        //6. 문자열을 특정구분자를 기준으로 배열로 만들어주는 함수 : split();
+        temp = "김치찌개,국수,국밥,피자,햄버거,치킨,주물럭";
+        let arrLunch = temp.split(",");
+        $container.innerHTML +=
+          "<p>" + arrLunch + " " + typeof arrLunch + "</p>";
+
+        let menu = "<ul>";
+        arrLunch.forEach((e) => (menu += "<li>" + e + "</li>"));
+        menu += "</ul>";
+        $container.innerHTML += menu;
+
+        temp = "유병승,19,경기도시흥시\n최주영,26,안양시\n김현영,26,구로구";
+        let persons = temp.split("\n");
+        console.log(persons);
+        persons.forEach((e) => {
+          let person = e.split(",");
+          console.log(person[0], person[1], person[2]);
+        });
+
+        //7. 문자열에 특정문자가 있는지 확인해주는 기능 : includes()
+        temp = "javascript 너무너무너무너무 재미있다. 너무 쉬워";
+        console.log(temp.includes("노잼"));
+
+        //8. 문자열을 변경해주는 기능 : replace();
+        temp = temp.replace("재미", "노잼");
+        temp = temp.replaceAll("너무", "");
+        $container.innerHTML += "<p>" + temp + "</p>";
+
+        //9. 문자열 양쪽 공백을 제거해주는 기능 : trim()
+        temp = "         유병승           ";
+        $container.innerHTML +=
+          "<p>" + temp + (temp.trim() == "유병승") + "</p>";
+      }
+    </script>
+    <h3>숫자처리함수</h3>
+    <script>
+      //Number객체 함수 이용하기
+      console.log(Number.MAX_VALUE);
+      console.log(Number.MIN_VALUE);
+
+      //값이 정수인지 확인해주는 함수
+      temp = 180;
+      console.log(Number.isInteger(temp));
+      temp = 180.5;
+      console.log(Number.isInteger(temp));
+      //숫자연산이 가능한 값인지 확인해주는 함수
+      //isNaN함수
+      temp2 = "100원";
+      temp3 = "100";
+      console.log(Number.isNaN(temp - temp2));
+      console.log(Number.isNaN(temp - temp3));
+
+      //수학적으로 계산하는 함수를 제공하는 Math
+      //랜덤값, 소수점처리....
+      console.log(Math.random() * 10 + 1);
+      temp = 123.4567;
+      console.log(Math.round(temp)); //반올림
+      console.log(Math.ceil(temp)); //올림
+      console.log(Math.floor(temp)); //소수점 버림
+
+      console.log(Math.floor(Math.random() * 3 + 1));
+    </script>
+
+    <h3>날짜를 처리하는 객체 Date</h3>
+    <input type="date" id="birthDay" />
+    <button onclick="checkDay()">확인</button>
+    <script>
+      let today = new Date();
+      const checkDay = () => {
+        const day = document.getElementById("birthDay").value;
+        console.log(day, typeof day);
+        const dayArr = day.split("-");
+        const date = new Date(dayArr[0], dayArr[1], dayArr[2]);
+        console.log(date);
+      };
+      console.log(today);
+      //날짜의 년, 월, 일, 시, 분, 초 출력하기
+      console.log(today.getFullYear()); //년
+      console.log(today.getMonth() + 1); //월
+      console.log(today.getDate()); //일
+      console.log(today.getHours()); //시
+      console.log(today.getMinutes()); //분
+      console.log(today.getSeconds()); //초
+
+      //원하는 날짜로 출력하기
+      let birthDay = new Date(1998, 8 - 1, 3);
+      console.log(birthDay);
+    </script>
+    <h3>문자열 인코딩 처리하기</h3>
+    <p>
+      escape/unescape : 영문자, 숫자, 일부특수기호(@*-_,/)제외한 문자열 인코딩
+      처리<br />
+      encodeURI/decodeURI : escape에서 일부 특수기호를 제외(: ; = &) <br />
+      encodeURIComponent/decodeURIComponent : 알파벳, 숫자를 제외한 모든
+      문자열에 대해 인코딩처리<br />
+    </p>
+    <button onclick="encodeTest()">인코딩결과확인</button>
+    <div id="container2"></div>
+    <script>
+      const encodeTest = () => {
+        const url = "http://www.naver.com?test=한글입니다.123!@#$%^&*()";
+        let es = escape(url);
+        let encode = encodeURI(url);
+        let encodeComponent = encodeURIComponent(url);
+        const $container2 = document.getElementById("container2");
+        $container2.innerHTML = "원본 " + url + "<br>";
+        $container2.innerHTML += "escape " + es + "<br>";
+        $container2.innerHTML += "encodeURI " + encode + "<br>";
+        $container2.innerHTML +=
+          "encodeURIComponent " + encodeComponent + "<br>";
+        $container2.innerHTML += "unescape " + unescape(es) + "<br>";
+        $container2.innerHTML += "decodeURI " + decodeURI(encode) + "<br>";
+        $container2.innerHTML +=
+          "decodeURIComponent " + decodeURIComponent(encodeComponent) + "<br>";
+      };
+    </script>
+    <h2>eval() : 문자열 작성된 js코드를 실행해주는 함수</h2>
+    <textarea cols="30" rows="10" id="code"> </textarea>
+    <button onclick="execTest();">실행</button>
+    <script>
+      const execTest = () => {
+        const value = document.getElementById("code").value;
+        console.log(value);
+        eval(value);
+      };
+    </script>
+  </body>
+</html>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>변수활용하기</title>
+    <script src="./js/test.js"></script>
   </head>
   <body>
     <h2>변수선언하기</h2>
@@ -87,6 +88,7 @@
       됨. <br />
       2. 지역변수 구분은 function으로 함 -> function내부에서 선언한 변수는
       함수에서만 사용이 가능<br />
+      3. var로 선언한 변수는 중복선언을 허용한다.
     </p>
     <script>
       if (typeof data2 == "function") {
@@ -99,15 +101,162 @@
       console.log(i);
       console.log(window);
       //   console.log(tt);
+      test = "유병승";
       function scopeTest() {
         var funcVar = 100;
         console.log(funcVar);
+        // test11 = 200;
       }
       console.log(funcVar);
-      scopeTest();
+      //scopeTest();
     </script>
     <script>
+      console.log(data);
       scopeTest();
+      var data = [1, 2, 3, 4, 5];
+      console.log(data);
+      console.log(typeof data3);
+      console.log(typeof data2);
+    </script>
+    <h2>ES6에서 해결해줌....</h2>
+    <p>
+      1. 변수의 중복선언을 해결<br />
+      2. 변수의 scope영역을 블록으로 처리되는<br />
+      3. 고정값(상수)에 대해 처리<br />
+    </p>
+    <p>
+      변수를 선언하는 두개의 예약어를 추가<br />
+      1. let : 일반변수를 선언할때 사용 -> 가변의 변수 <br />
+      2. const : 상수변수를 선언할때 사용 - 불변의 변수 -> java의 final예약어를
+      사용한것과 동일 *블록 범위를 가짐, 중복 선언에 대해 error처리를 해줌
+    </p>
+    <script>
+      let letTest;
+      console.log(letTest);
+      letTest = "유병승";
+      console.log(letTest);
+      letTest = 19;
+      console.log(letTest);
+
+      const constTest = "ㅇㅇ";
+      console.log(constTest);
+      // constTest = "ㅁㅁ";
+      //let, const로 선언한 변수는 중복선언이 불가능하다
+      // let letTest = 180.5;
+      // let constTest = "d";
+      // const constTest = "d";
+
+      //블록범위를 가진다.
+      if (letTest == 19) {
+        let localTest = 19;
+        var localVar = 200;
+      }
+      console.log(localVar);
+      console.log(localTest);
+    </script>
+    <script>
+      console.log(outerTest);
+      console.log(outerTest2);
+      // let outerTest;
+      console.log(outerTest3);
+      var outerTest3 = "안녕";
+    </script>
+    <h3>자료형 변환하기</h3>
+    <p>자동형변환, 강제형변환</p>
+    <h4>자동형변환</h4>
+    <script>
+      let num1 = 100; //Number
+      let num2 = "200"; //String
+      let num3 = "100";
+      let num4 = "100원";
+      console.log(num1 + num2);
+      console.log(typeof (num1 + num2));
+      console.log(num1 - num2);
+      console.log(num1 / num2);
+      console.log(num1 == num2);
+      console.log(num1 == num3);
+      console.log(num1 - num4);
+    </script>
+    <h4>강제형변환하기</h4>
+    <p>
+      숫자 -> 문자 : .toString()호출하면 변경<br />
+      문자 -> 숫자 : Number(), parseInt()함수
+    </p>
+    <script>
+      console.log(num1, typeof num1);
+      let strNum = num1.toString();
+      console.log(strNum, typeof strNum);
+      strNum = "" + num1;
+      console.log(strNum, typeof strNum);
+      let su = "100";
+      let su2 = "200";
+      console.log(su + su2);
+      console.log(Number(su) + Number(su2));
+      console.log(parseInt(su) + parseInt(su2));
+      //Number는 숫자로 변경이 가능한 형태의 값만 처리가능
+      let su3 = "20px";
+      console.log(Number(su3));
+      //parseInt()를 이용하면 숫자값만 숫자형태로 변경을 한다.
+      console.log(parseInt(su3) + 20);
+      let su4 = "20cm20";
+      console.log(parseInt(su4));
+      let su5 = "$2.5";
+      console.log(parseInt(su5));
+    </script>
+    <input type="number" id="su" />
+    <input type="number" id="su2" />
+    <button onclick="fn_calc();">+계산</button>
+    <div id="result"></div>
+
+    <img
+      id="wk"
+      src="https://thescreen.co.kr/thescreen/wp-content/uploads/2019/12/20191203-%E1%84%80%E1%85%A7%E1%84%8B%E1%85%AE%E1%86%AF%E1%84%8B%E1%85%AA%E1%86%BC%E1%84%80%E1%85%AE%E1%86%A82-%E1%84%89%E1%85%B3%E1%84%90%E1%85%B5%E1%86%AF-002-1.jpg"
+      style="width: 10px; height: 10px"
+    />
+    <button onclick="fn_imageSize();">+</button>
+    <script>
+      function fn_imageSize() {
+        //크기가 50x50으로 증가하게, Element로 가져오면 style 속성, style속성에 width,height가 있음
+        const $img = document.getElementById("wk");
+        const width = $img.style.width;
+        const height = $img.style.height;
+        const incrementWidth = parseInt(width) + 50;
+        const incrementHeight = parseInt(height) + 50;
+        $img.style.width = incrementWidth + "px";
+        $img.style.height = incrementHeight + "px";
+      }
+
+      function fn_calc() {
+        const su = document.getElementById("su").value;
+        const su2 = document.getElementById("su2").value;
+        console.log(Number(su) + Number(su2));
+        const total = Number(su) + Number(su2);
+        document.getElementById("result").innerHTML = "<h3>" + total + "</h3>";
+      }
+    </script>
+
+    <h2>호이스팅</h2>
+    <p>
+      js코드에 선언된 변수, 함수를 먼저 올리는 현상(선언된 위치에 상관 없이
+      준비하는 것)
+    </p>
+    <script>
+      test();
+      console.log(hoistingTest);
+
+      var hoistingTest = 100;
+      console.log(hoistingTest);
+
+      // console.log(hoistingTest2);
+      let hoistingTest2;
+      console.log(hoistingTest2);
+
+      function test() {
+        console.log("test함수실행");
+      }
+      const test2 = function () {
+        console.log(test2);
+      };
     </script>
   </body>
 </html>

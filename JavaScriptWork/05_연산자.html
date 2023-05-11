@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자</title>
+  </head>
+  <body>
+    <h2>연산자 활용하기</h2>
+    <p>js에서 사용하는 연산자는 java와 동일하다</p>
+    <h3>산술연산</h3>
+    <script>
+      let su = 10;
+      let su2 = 20;
+      console.log(su + su2);
+      console.log(su - su2);
+      console.log(su * su2);
+      console.log(su / su2);
+      console.log(su % su2);
+    </script>
+    <h3>단항연산자</h3>
+    <p>
+      증가, 감소연산자 -> ++,-- <br />
+      1. 반복문 <br />
+      2. 특정로직의 숫자를 셀때
+    </p>
+    <script>
+      let count = 0;
+      count++;
+      count++;
+      count++;
+      count++;
+      console.log(count);
+      count--;
+      count--;
+      console.log(count);
+      console.log(count++);
+      console.log(count);
+    </script>
+
+    <h3>비교논리연산자</h3>
+    <p>
+      == : 일치여부를 확인 하는것. Stirng도 적용이 가능하다. <br />
+      != : 불일치여부를 확인하는 것 <br />
+      * 두연산 대상의 자료형이 다를때 자료형을 자동으로 변환해서 비교함<br />
+      === : 일치여부를 확인하는데 자료형까지 확인함.<br />
+      !== : 불일치 여부를 확인하는데 자료형까지 확인함.<br />
+      > : 수가 크다.<br />
+      < : 수가 작다.<br />
+      <= : 수가 작거나 작다.<br />
+      >= : 수가 크거나 같다.<br />
+    </p>
+    &&, ||
+    <script>
+      let num = 200;
+      let strNum = "200";
+      let num2 = 100;
+      let strNum2 = "300";
+      let price = "300원";
+      let price2 = "200원";
+      let str = "가나다";
+      let str2 = "하카타";
+      console.log(num == strNum);
+      console.log(num === strNum);
+      console.log(num != strNum2);
+      console.log(num !== strNum2);
+      console.log(num > strNum);
+      console.log(strNum > strNum2);
+      console.log(price > price2);
+      console.log(str < str2); //사전순으로 비교
+      console.log(str < str2 && num == strNum);
+    </script>
+
+    <h3>복합대입연산자</h3>
+    <p>+=, -= : 문자열을 연결해서 하나의 html태그를 만들때 많이 사용 <br /></p>
+    <input type="text" id="msg" /><button onclick="addMsg();">추가</button>
+    <div id="msgContainer"></div>
+    <table id="tbl">
+      <tr>
+        <th>이름</th>
+        <th>나이</th>
+        <th>성별</th>
+        <th></th>
+      </tr>
+    </table>
+    <button onclick="addTr();">추가</button>
+    <script>
+      function addTr() {
+        const $table = document.getElementById("tbl");
+        let tr = "<tr>";
+        tr += "<td>유병승</td>";
+        tr += "<td>19</td>";
+        tr += "<td>남</td>";
+        tr += "</tr>";
+        $table.innerHTML += tr;
+      }
+      function addMsg() {
+        const msg = document.getElementById("msg").value;
+        const $container = document.getElementById("msgContainer");
+        $container.innerHTML += "<p>" + msg + "</p>";
+      }
+    </script>
+
+    <h3>삼항연산자</h3>
+    <p>조건식?true일때 :false일때</p>
+    <script>
+      let height = 170.5;
+      let msg = height > 180 ? "키가크네요" : "아쉽네요...";
+      // alert(msg);
+      //   height > 180 ? alert("키가크네요") : alert("아쉽네요");
+    </script>
+  </body>
+</html>
