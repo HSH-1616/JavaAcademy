@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>윈도우객체 이용하기</title>
+  </head>
+  <body onload="alert('test')">
+    <h2>윈도우객체 이용하기</h2>
+    <p>
+      브라우저(창)가 실행되면 기본적으로 생성되는 객체<br />
+      한개 창마다 한개의 window객체가 생성된다.<br />
+      window는 최상위객체<br />
+      자식으로 BOM객체, DOM객체를 가진다.<br />
+      BOM : 브라우저를 다루는 객체들 -> location,navigator,history,screen DOM :
+      html문저를 다루는 객체 -> document, (Element)객체를 이용
+    </p>
+    <script>
+      console.log(window);
+    </script>
+    <h2>새창만들기 : window.open()</h2>
+    <p>
+      [window.]open(param1,param2,param3);<br />
+      1. : 창으로 열었을때 연결될 url주소를 설정<br />
+      2. : 창으로 여는 방법(새창,기존창을 이용) -> _self,_blank, 명칭<br />
+      3. : 창에 대한 옵션(크기,위치,창 메뉴설정 등)<br />
+      return : 생성된 창의 window객체를 반환
+    </p>
+    <button onclick="createWin();">새창</button>
+    <script>
+      const createWin = () => {
+        // window.open();
+        //open();
+        //원하는 주소로 새창열기
+        //open("http://www.gdu.co.kr");
+        // open("http://gdu.co.kr","_self");
+        // open("http://www.naver.com","_blank","width=300,height=300, top=500,left=500");
+        const childWin = open(
+          "12_ES6문법.html",
+          "_blank",
+          "width=500,height=900"
+        );
+        // /프로젝트명/서비스주소.do
+        //open함수는 window객체를 반환한다.
+        console.log(childWin);
+        //childWin.document.write("<h1>우하하하 내가 쓴 문구</h1>");
+        let temp = "<script>";
+        temp += "function sendData(){";
+        temp += "let parentElement=opener.document.getElementById('target');";
+        temp += "let val=document.getElementById('data').value;";
+        temp += "parentElement.innerHTML='<h2>'+val+'</h2>';";
+        temp += "}";
+        temp += "</";
+        temp += "script>";
+        childWin.document.write(
+          "<html><body><h2>부모태그수정하기</h2>" +
+            "<input type='text' id='data'><button onclick='sendData();'>변경하기</button>" +
+            temp +
+            "</body></html>"
+        );
+      };
+    </script>
+    <div id="target"></div>
+    <h3>윈도우창 닫기</h3>
+    <button onclick="createWin1()">윈도우생성하기</button>
+    <button onclick="closeWin()">윈도우닫기</button>
+    <button onclick="thisClose()">자체 윈도우닫기</button>
+    <script>
+      let childWindow;
+      const createWin1 = () => {
+        childWindow = open("", "_blank", "width=200,height=200");
+      };
+      const closeWin = () => {
+        childWindow = close();
+      };
+      const thisClose = () => {
+        // window.close();
+        close();
+      };
+    </script>
+    <h2>setTimeout(), setInterval()</h2>
+    <p>
+      setTimeout() : 일정시간 이후에 특정 로직이 실행되는 기능을 구현할때<br />
+      setInterval() : 일정시간 간격으로 특정 로직을 실행하는 기능 구현할때<br />
+
+      두개의 매개변수를 실행<br />
+      1. 함수를 매개변수로 대입 -> 수행할 기능<br />
+      2. 특정시간 number형 ms초 -> 1/1000 -> 1s 1000 <br />
+    </p>
+    <div id="container">
+      <h3>3초 후에 변경된 페이지로 이동합니다.</h3>
+    </div>
+    <script>
+      //   setTimeout(() => {
+      //     document.getElementById("container").innerHTML =
+      //       "<h3>일정시간 후 추가한 내용</h3>";
+      //   }, 3000);
+
+      //   setTimeout(() => {
+      //     location.href = "http://gdu.co.kr";
+      //   }, 3000);
+
+      let count = 0;
+      setInterval(() => {
+        document.getElementById("container").innerHTML = ++count;
+        const time = new Date();
+        document.getElementById(
+          "container"
+        ).innerHTML += `<p>${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}</p>`;
+      }, 1000);
+    </script>
+    <div id="test">
+      <div id="time"></div>
+      <p>
+        1. js에서 태그의 정보를 가져올때 사용하는 객체는?<small
+          >제한시간 : <span id="d">10</span></small
+        >
+      </p>
+      <p>
+        1. <label for=""><input type="radio" value="window" />window</label>
+      </p>
+      <p>
+        2.
+        <label for=""><input type="radio" value="navigator" />navigator</label>
+      </p>
+      <p>
+        3. <label for=""><input type="radio" value="document" />document</label>
+      </p>
+      <p>
+        4. <label for=""><input type="radio" value="location" />location</label>
+      </p>
+      <button onclick="stopQz();">제출</button>
+    </div>
+    <h3>setTimeout,setInterval함수를 중단시키기</h3>
+    <p>
+      clearInterval(), claerTimeout()함수를 이용한다. <br />
+      clearInterval(중단할 setInterval함수 id);<br />
+      claerTimeout(중단할 setTimeout함수 id);<br />
+      setTimeout, setInterval을 실행하면 id값을 반환함.
+    </p>
+    <script>
+      time = 10;
+      const timecheck = setInterval(() => {
+        let value = document.querySelector("div#test>p>small>span").innerHTML;
+        document.querySelector("div#test>p>small>span").innerHTML = --value;
+
+        // if (value == 0) {
+        //   clearInterval(timecheck);
+        //   alert("제한시간이 종료되었습니다");
+        // }
+
+        // document.getElementById("d").innerHTML = time--;
+      }, 1000);
+      const stopQz = () => {
+        clearInterval(timecheck);
+      };
+    </script>
+    <h2 id="change">여러분 자바스크립트 재미있죠?</h2>
+    <script>
+      (() => {
+        let flag = true;
+        setInterval(() => {
+          const target = document.getElementById("change");
+          if (flag) {
+            target.style.backgroundColor = "magenta";
+          } else {
+            target.style.backgroundColor = "lime";
+          }
+          flag = !flag;
+        }, 500);
+      })();
+    </script>
+
+    <h3>창에 대한 위치, 크기를 변경하는 함수</h3>
+    <p>
+      moveTo(x,y) : 윈도우창의 위치를 변경하는 함수 <br />
+      resizeTo(w,h) : 윈도우창의 크기를 변경하는 함수<br />
+    </p>
+    <button onclick="moveWindow();">창 위치 변경</button>
+    <button onclick="sizeWindow();">창 크기 변경</button>
+    <button onclick="autoMove()">자동변경</button>
+    <script>
+      const moveWindow = () => {
+        // childWindow.moveTo(300, 300);
+        const x = Math.floor(Math.random() * 2000 + 1);
+        const y = Math.floor(Math.random() * 2000 + 1);
+        childWindow.moveTo(x, y);
+      };
+      const sizeWindow = () => {
+        // childWindow.resizeTo(500, 200);
+        const width = Math.floor(Math.random() * 2000 + 1);
+        const height = Math.floor(Math.random() * 2000 + 1);
+        childWindow.resizeTo(width, height);
+      };
+      const autoMove = () => {
+        setInterval(() => {
+          moveWindow();
+          sizeWindow();
+        }, 100);
+      };
+    </script>
+    <h3>윈도우 속성 onload 이용하기</h3>
+    <p>페이지의 내용을 모두 읽어오면 실행되는 함수를 지정</p>
+    <script>
+      //   window.onload = function () {
+      //     document.getElementById("loadTest").innerHTML = "<h1>내용추가해라</h1>";
+      //   };
+    </script>
+    <div id="loadTest"></div>
+  </body>
+</html>

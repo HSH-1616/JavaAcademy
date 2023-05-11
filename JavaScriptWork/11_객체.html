@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체활용하기</title>
+</head>
+<body>
+    <h2>객체의 선언과 호출</h2>
+    <p>
+        js에서 객체는 key:value형식의 구조를 가진다<br>
+        객체에 선언된 key는 객체에 속한 하나의 변수(속성)다. 모든자료형값을 저장할 수 있다.<br>
+        key에 함수가 저장이되면 멤버메소드로 보면 된다.<br>
+        key값은 중복이 불가능하다.
+    </p>
+    <h3>객체 생성하기</h3>
+    <p>
+        1. 리터럴로 생성하기 : {key:value,key:value,key:value....}<br>
+        2. 함수(생성자함수, 일반함수)를 이용해서 생성하기 <br>
+            - 일반함수 : 객체를 반환하는 함수<br>
+            - 생성자함수 : new연산자로 생성할 수 있게 해주는 함수<br>
+    </p>
+    <h4>리터럴로 생성하기</h4>
+    <script>
+        let obj={};//객체
+        console.log(obj,typeof obj);
+        //생성과 동시에 초기화한 객체
+        obj={name:"유병승",
+            age:19,
+            gender:"남",
+            hobby:["독서","코딩"],
+            item:{
+                name:"컴퓨터",
+                price:150
+            },
+            getString:function(){
+            return this.name+" "+this.age+" "+this.gender+" "+this.hobby;
+        }};
+        console.log(obj);
+        //생성된 객체의 데이터에 접근하기
+        //객체의 값에 접근할때는 key값을 이용해서 접근한다.
+        // 객체명. / 객체명["키값"]
+        console.log(obj.name);
+        console.log(obj["age"]);
+        let key="name";
+        console.log(obj.key);
+        console.log(obj[key]);
+
+
+        //객체속성 중 배열, 객체에 접근하기
+        console.log(obj.hobby[0]);
+        console.log(obj["hobby"][1]);
+
+        console.log(obj.item.name);
+        console.log(obj["item"].price);
+        console.log(obj["item"]["name"]);
+
+        //객체속성 중 함수에 접근하기
+        let result=obj.getString();
+        console.log(result);
+
+
+        //객체에 있는 데이터 순회하기
+        //for in 구문사용 객체의 key값을 가져오는 for문
+        for(k in obj){
+            console.log(k);
+            console.log(obj[k]);
+        }
+    </script>
+    <h2>함수를 이용해서 객체를 생성하기</h2>
+    <script>
+        //이름, 나이, 학년, 반, 번호를 갖는 학생 3명을 저장하기
+        // let s={name:"유병승",age:19,grade:1,classNum:3,number:3};
+        // let s1={name:"최주영",age:26,grade:3,classNum:1,number:1};
+        // let s2={name:"이은지",age:26,grade:3,classNum:1,number:2};
+        let s=getStudent("유병승",19,1,3,3);
+        let s1=getStudent("최주영",26,3,1,1);
+        let s2=getStudent("이은지",26,3,1,2);
+        console.log(s.toString());
+        console.log(s1.toString());
+        console.log(s2.toString());
+        console.log(s.name);
+        console.log(s["age"]);
+        for(k in s){
+            console.log(k,s[k]);
+        }
+        function getStudent(name,age,grade,classNum,number){
+            let s={name:name,age:age,
+                    grade:grade,classNum:classNum,
+                    number:number,
+                    toString:function(){
+                        return this.name+this.age+this.grade
+                            +this.classNum+this.number;
+                    }
+                };
+            return s;
+        }
+    </script>
+
+    <h3>생성자함수를 이용해서 객체를 생성하기</h3>
+    <p>
+        자바의 생성자와 동일한 기능을 한다고 생각!<br>
+        생성자 함수는 자바의 클래스와 유사함<br>
+        생성자함수로 선언된 객체는 new 연산자를 이용해서 생성함.<br>
+        생성자함수의 명칭을 첫글자를 대문자로 명명함.<br>
+        prototype을 이용할 수 있다.(원본형)
+    </p>
+
+    <script>
+        function Person(name,age,gender,height,address){
+            //생성자함수에서 속성을 설정할때는 this예약어를 사용함.
+            this.name=name;
+            this.age=age;
+            this.gender=gender;
+            this.height=height;
+            this.address=address;
+            // this.toString=function(){
+            //     return this.name+this.age+this.gender+this.height+this.address;
+            // }
+        }
+        //공통으로 사용하는 함수에 대해 prototype을 이용해서 선언할 수 있다
+        Person.prototype.toString=function(){
+            return this.name+this.age+this.gender+this.height+this.address;s
+        }
+        Person.prototype.testId="1231412";
+        let p=new Person("김재훈",29,"남",188.3,"인천시");
+        console.log(p);
+        console.log(p.name);
+        console.log(p['age']);
+        console.log(p.toString());
+        let p1=new Person("김",2,"남",18.3,"인천시");
+        console.log(p1.toString());
+        // for(k in p){
+        //     console.log(k);
+        // }
+    </script>
+
+    <h3>객체속성에 값대입하기</h3>
+    <script>
+        //속성을 지정하고 대입연산을 사용하면 된다.
+        p.age=22;
+        console.log(p);
+        p["height"]=173.2;
+        console.log(p);
+    </script>
+
+
+    <h3>객체에 속성(멤버변수)을 추가하고, 삭제하기</h3>
+    <script>
+        let objTest={};
+        console.log(objTest);
+        objTest.title="오늘은 여기까지만!";
+        console.log(objTest);
+        objTest.calc=(su,su2)=>su+su2;
+        console.log(objTest.calc(10,20));
+        console.log(p);
+        //Person.prototype.score=[100,10,10];
+        p.score=[100,10,10];
+        console.log(p);
+        console.log(p1);
+        objTest["content"]="전 제대로 안나와요";
+        console.log(objTest);
+
+        //속성삭제하기
+        //delete 연산자 이용
+        delete objTest.title;
+        console.log(objTest);
+        delete objTest["content"];
+        console.log(objTest);
+    </script>
+    
+    <h3>객체변경금지시키기</h3>
+    <p>
+        js에서 제공하는 Object객체의 메소드를 이용하면됨.
+        1. Object.freeze() : 추가, 삭제, 수정이 모두 안됨
+        2. Object.seal() : 수정만 가능
+        3. Object.preventExtension() : 삭제, 수정이 가능
+        * 에러메세지를 별도로 출력해주지 않음
+    </p>
+    <script>
+        let freezeObj={name:"test",content:"contentTest"};
+        let sealObj={name:"test",content:"contentTest"};
+        let preventObj={name:"test",content:"contentTest"};
+
+        Object.freeze(freezeObj);
+        freezeObj.name="유병승";
+        freezeObj.count=100;
+        delete freezeObj.content;
+        console.log(freezeObj);
+
+        Object.seal(sealObj);
+        sealObj.name="seal";
+        sealObj.count=100;
+        delete sealObj.content;
+        console.log(sealObj);
+
+        Object.preventExtensions(preventObj);
+        preventObj.name="prevent";
+        preventObj.count=100;
+        delete preventObj.content;
+        console.log(preventObj);
+
+
+        //객체 freeze여부 확인하기
+        console.log(Object.isFrozen(freezeObj));
+        console.log(Object.isSealed(sealObj));
+        console.log(!Object.isExtensible(preventObj));
+        console.log(Object.isExtensible(obj));
+
+    </script>
+
+
+    <h3>객체를 배열로 관리하기</h3>
+    <script>
+        let persons=[
+            new Person("유병승",19,"남",180.5,"경기도 시흥시"),
+            new Person("최주영",26,"남",176.3,"경기도 안양시"),
+            new Person("김현영",26,"여",163.5,"서울시 구로구"),
+            new Person("최인호",26,"남",179.6,"서울시 금천구"),
+            new Person("이동제",26,"남",178.6,"경기도 군포시")
+        ];
+        console.log(persons);
+        console.log(persons[0].name);
+        console.log(persons[1].name);
+
+        persons.forEach(e=>{
+            console.log(e.name+" "+e.age);
+        });
+
+        //경기도에 사는 사람만 출력하기
+        persons.filter(e=>e.address.includes("경기도")).forEach(e=>console.log(e));
+    </script>
+    <h3>person데이터 출력하기</h3>
+    <div id="personContainer">
+        <button onclick="printPerson();">사람정보확인</button>
+        <button onclick="searchPerson();">나이가 20대인 사람</button>
+        <input type="text" id="heightValue"><button onclick="checkHeight();">이상 조회</button>
+        <table>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>키</th>
+                <th>주소</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const searchPerson=()=>{
+            const table=document.querySelector("div#personContainer>table");
+            persons.filter(e=>e.age>=20&&e.age<30)
+            .forEach(e=>table.innerHTML+=makeTr(e));
+        }
+        const printPerson=()=>{
+            const table=document.querySelector("div#personContainer>table");
+            // for(let i=0;i<persons.length;i++){
+            //     let person=persons[i];
+            persons.forEach(person=>{
+                table.innerHTML+=makeTr(person);
+            });
+            console.log(table);
+
+        }
+        const makeTr=(person)=>{
+            let tr="<tr>";
+                tr+="<td>"+person.name+"</td>";
+                tr+="<td>"+person.age+"</td>";
+                tr+="<td>"+person.gender+"</td>";
+                tr+="<td>"+person.height+"</td>";
+                tr+="<td>"+person.address+"</td>";
+                tr+="</tr>";
+            return tr;
+        }
+    </script>
+
+    <h3>js 속성(멤버변수) 은닉하기</h3>
+    <p>
+        생성자 함수, closure를 이용해서 정보를 은닉할 수 있다.
+    </p>
+    <script>
+        function Employee(name1, salary1, dept1){
+            // this.name=name;
+            // this.salary=salary;
+            // this.dept=dept;
+            let name=name1;
+            let salary=salary1;
+            let dept=dept1;
+            this.getName=function(){
+                return name;
+            }
+            this.setName=function(paramName){
+                if(typeof paramName=='string')
+                    name=paramName;
+                else throw new Error("잘못된 인수입니다. string형을 사용하세요");
+            }
+        }
+        let e=new Employee("유병승",150,"강사부");
+        console.log(e);
+        console.log(e.getName());
+        e.setName("최하리");
+        console.log(e.getName());
+        e.setName(""+200);
+        // e.name="이성진";
+        // e.salary=300;
+        // console.log(e);
+    </script>
+
+    <h4>회원가입정보를 받아서 객체로 저장하는 화면 만들기</h4>
+    <p>
+        아이디,패스워드, 이름, 나이, 이메일, 성별(남,여 선택), 
+        취미(운동, 독서, 코딩 영화 중복선택가능하게)<br>
+        회원가입버튼을 누르면 Member객체에 데이터를 저장하고 console에 출력하기<br>
+        *필요한 객체와 함수는 만들것.
+    </p>
+    <div id="enrollMemberContainer">
+        <fieldset>
+            <legend>기본정보</legend>
+            <label>아이디 <input type="text" name="userId"></label><br>
+            <label>패스워드 <input type="password" name="password"></label><br>
+            <label>이름 <input type="text" name="userName"></label><br>
+            <label>나이 <input type="number" name="age" min="0" size="2"></label><br>
+            <label>이메일 <input type="email" name="email"></label><br>
+        </fieldset>
+        <fieldset>
+            <legend>성별</legend>
+            <label><input type="radio" name="gender" value="남">남</label>
+            <label><input type="radio" name="gender" value="여">여</label>
+        </fieldset>
+        <fieldset>
+            <legend>취미</legend>
+            <label><input type="checkbox" name="hobby" value="운동">운동</label>
+            <label><input type="checkbox" name="hobby" value="독서">독서</label>
+            <label><input type="checkbox" name="hobby" value="코딩">코딩</label>
+            <label ><input type="checkbox" name="hobby" value="영화">영화</label>
+        </fieldset>
+        <button onclick="enrollMember();">회원가입</button>
+    </div>
+    <div id="resultcontainer">
+
+    </div>
+    <script>
+        function Member(userId,password,userName,age,email,gender,hobby){
+            this.userId=userId;
+            this.password=password;
+            this.userName=userName;
+            this.age=age;
+            this.email=email;
+            this.gender=gender;
+            this.hobby=hobby;
+            this.toString=function(){
+                return this.userId+" "+this.password+" "+this.userName
+                +" "+this.age+" "+this.email+" "+this.gender+" "+this.hobby;
+            }
+        }
+        const enrollMember=()=>{
+            // const inputs=document.querySelectorAll("div#enrollMemberContainer input");
+            // console.log(inputs);
+            const userId=document.getElementsByName("userId")[0].value;
+            const password=document.getElementsByName("password")[0].value;
+            const userName=document.getElementsByName("userName")[0].value;
+            const age=document.getElementsByName("age")[0].value;
+            const email=document.getElementsByName("email")[0].value;
+            const $gender=document.getElementsByName("gender");
+            let gender;
+            for(let i=0;i<$gender.length;i++){
+                // console.log($gender[i].checked);
+                if($gender[i].checked) gender=$gender[i].value;
+            }
+            //:checked
+            // $gender.forEach(e=>console.log(e));
+            // console.log(gender);
+            const $hobbys=document.getElementsByName("hobby");
+            let hobby=[];
+            $hobbys.forEach(e=>{
+                //console.log(e.value,e.checked);
+                if(e.checked) hobby.push(e.value);
+            });
+            console.log(hobby);
+            const member=new Member(userId,password,userName,age,email,gender,hobby);
+            console.log(member);
+
+            const gender2=document
+            //.querySelectorAll("div#enrollMemberContainer input[name=gender]:checked")[0].value;
+            .querySelector("div#enrollMemberContainer input[name=gender]:checked")?.value??"선택안함";
+            console.log(gender2);
+            let hobbys2=[];
+            document
+            .querySelectorAll("div#enrollMemberContainer input[name=hobby]:checked")
+            .forEach(e=>hobbys2.push(e.value));
+
+            console.log(hobbys2);
+
+            let content="";
+            content="<h3>입력한 회원정보</h3>";
+            content+="<p>아이디 : "+member.userId+"</p>";
+            content+="<p>패스워드 : "+member.password+"</p>";
+            content+="<p>이름 : "+member.userName+"</p>";
+            content+="<p>나이 : "+member.age+"</p>";
+            content+="<p>이메일 : "+member.email+"</p>";
+            content+="<p>성별 : "+(member.gender??"선택안함")+"</p>";
+            content+="<ul>취미";
+            hobby?.forEach(e=>{
+                content+="<li>"+e+"</li>";
+            })
+            content+="</ul>";
+            document.getElementById("resultcontainer").innerHTML=content;
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
