@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element속성 다루기</title>
+    <style>
+      .a {
+        font-size: 30px;
+        color: lime;
+      }
+      .b {
+        font-size: 20px;
+        color: magenta;
+      }
+      .test {
+        background-color: cornflowerblue;
+      }
+    </style>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <h2>class속성다루기</h2>
+    <div id="container">
+      <p class="test font text-primary">속성</p>
+      <ul>
+        <li class="text-warning">html</li>
+        <li class="a">css</li>
+        <li>javascript</li>
+      </ul>
+      <h2 class="a">h2 태그</h2>
+      <p class="test">p태그</p>
+    </div>
+    <button onclick="classChange();">변경하기</button>
+    <button onclick="classRemove();">삭제하기</button>
+    <button onclick="addAclass();">a클래스 적용하기</button>
+    <button onclick="primaryColor();">적용하기</button>
+    <script>
+      const primaryColor = () => {
+        const allChild = document.querySelectorAll("#container>*");
+        allChild.forEach((e) => {
+          e.classList.add("text-muted");
+          e.classList.add("text-center");
+        });
+      };
+      const addAclass = () => {
+        const allchild = document.querySelectorAll("#container>*");
+        console.log(allchild);
+        allchild.forEach((e) => {
+          if (e.className.includes("a")) e.classList.remove("a");
+          else e.classList.add("a");
+        });
+      };
+      const testElement = document.querySelector("#container>p");
+      console.dir(testElement);
+      const classChange = () => {
+        const $p = document.querySelector("#container>p");
+        //className변경하기 ->  기존에 설정된 클래스가 사라진다.
+        //$p.className+=" a";
+        console.log($p.classList);
+        $p.classList.add("a");
+      };
+      const classRemove = () => {
+        const $p = document.querySelector("#container>p");
+        $p.classList.remove("test");
+      };
+    </script>
+    <button onclick="loadingClick();">클릭</button><br />
+    <div id="loading"></div>
+    <script>
+      const loadingClick = () => {
+        document.querySelector("#loading").classList.add("spinner-border");
+        setTimeout(() => {
+          document.querySelector("#loading").classList.remove("spinner-border");
+        }, 5000);
+      };
+    </script>
+
+    <h3>tagName속성이용하기</h3>
+    <p>태그 이름을 저장하는 속성, 대문자로 저장</p>
+    <button onclick="tagNameTest();">태그분리하기</button>
+    <script>
+      const tagNameTest = () => {
+        const container = document.querySelectorAll("body *");
+        console.log(container);
+        container.forEach((e) => {
+          console.log(e.tagName);
+          if (e.tagName == "P" || e.tagName == "H2")
+            e.classList.add("text-danger");
+        });
+      };
+    </script>
+
+    <h3>style속성을 이용해서 태그스타일 변경하기</h3>
+    <p>
+      element의 style속성에는 CSSStyle객체가 저장되어있음. <br />
+      css속성을 설정할수 있는 객체<br />
+      css속성명은 -기준으로 구분되어있음. js 변수명 -를 사용하지 않기 때문에
+      style객체에 속성은 css명과 동일하나 -를 생략하고 낙타봉표기법을 사용했다.
+      <br />
+      예) font-size -> fontSize, text-decoration -> textDecoration br
+    </p>
+    <div id="stylecontainer">
+      <p>style속성변경하기</p>
+    </div>
+    <button onclick="changeStyle();">스타일변경하기</button>
+    <button onclick="removeStyle();">스타일삭제하기</button>
+    <script>
+      const changeStyle = () => {
+        const $p = document.querySelector("#stylecontainer>p");
+        console.dir($p);
+        $p.style.fontSize = "20px";
+        $p.style.textDecoration = "overline";
+        $p.style.backgroundColor = "magenta";
+        $p.style.color = "lime";
+      };
+      const removeStyle = () => {
+        const $p = document.querySelector("#stylecontainer>p");
+        $p.style.fontSize = "";
+        $p.style.textDecoration = "";
+        $p.style.backgroundColor = "";
+        $p.style.color = "";
+      };
+    </script>
+
+    <h3>특정태그의 주변태그확인하기</h3>
+    <p>
+      특정태그를 기준으로 원하는 태그를 가져올때 사용<br />
+      이벤트 객체와 연결해서 많이 사용함.
+    </p>
+    <p>
+      1. children : 자식태그들을 저장하고 있는 속성<br />
+      2. parentElement : 바로 위에 있는 부모 태그를 저장한 속성<br />
+      3. previousElementSibling : 같은레벨에 있는 앞(위)에 있는 태그를 저장한
+      속성<br />
+      4. nextElementSibling : 같은 레벨에 있는 뒤(밑)에 있는 태그를 저장한
+      속성<br />
+    </p>
+    <div id="searchTag">
+      <h2>난 h2야</h2>
+      <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+        <li>jquery</li>
+      </ul>
+      <h2>난 h2 2</h2>
+      <p>나는 p태그야</p>
+      <h3>난 h3야!!</h3>
+    </div>
+    <button onclick="searchTagFunc();">태그 탐색하기</button>
+    <script>
+      const searchTagFunc = () => {
+        const container = document.getElementById("searchTag");
+        console.log(container);
+        const containerChildren = container.children;
+        console.log(containerChildren);
+        // containerChildren.forEach((e) => {
+        //   console.log(e);
+        // });
+        for (let i = 0; i < containerChildren.length; i++) {
+          console.log(containerChildren[i]);
+          if (containerChildren[i].tagName == "H2") {
+            containerChildren[i].classList.add("text-danger");
+            containerChildren[i].style.textShadow = "3px 3px 5px yellow";
+          } else if (containerChildren[i].tagName == "p") {
+            containerChildren[i].classList.add("text-muted");
+            containerChildren[i].style.textShadow = "3px 3px 5px lime";
+          }
+          console.log(containerChildren[i].parentElement);
+          console.log(containerChildren[i].children);
+
+          console.log(containerChildren[i].previousElementSibling);
+          console.log(containerChildren[i].nextElementSibling);
+        }
+      };
+    </script>
+    <div id="tableContainer">
+      <table class="table" width="500">
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td><button onclick="addRow(this)">row생성1</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>4</td>
+          <td><button onclick="addRow(this)">row생성2</button></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>6</td>
+          <td><button onclick="addRow(this)">row생성3</button></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      const addRow = (e) => {
+        const $tr = document.createElement("tr");
+        for (let i = 0; i < 3; i++) {
+          const td = document.createElement("td");
+          td.innerText = "우와 신기해";
+          $tr.appendChild(td);
+        }
+        console.log(e.parentElement.parentElement);
+        e.parentElement.parentElement.insertAdjacentElement("afterend", $tr);
+      };
+    </script>
+    <div id="menu">
+      <table>
+        <tr>
+          <td>100</td>
+          <td>
+            <button onclick="changeColor(this)">변경</button>
+          </td>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            <button onclick="changeColor(this)">변경</button>
+          </td>
+        </tr>
+        <tr>
+          <td>300</td>
+          <td>
+            <button onclick="changeColor(this)">변경</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      const changeColor = (e) => {
+        const target = e.parentElement.previousElementSibling;
+        let color, background;
+        switch (target.innerText) {
+          case "100":
+            background = "red";
+            color = "white";
+            break;
+          case "200":
+            background = "orange";
+            color = "white";
+            break;
+          case "300":
+            background = "yellow";
+            color = "black";
+            break;
+        }
+        target.style.backgroundColor = background;
+        target.style.color = color;
+      };
+    </script>
+  </body>
+</html>

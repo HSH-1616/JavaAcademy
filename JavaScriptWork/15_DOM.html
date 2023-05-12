@@ -7,37 +7,35 @@
     <title>DOM객체 활용하기</title>
   </head>
   <body>
-    <h2>js를 이용해서 태그 생성 하기</h2>
+    <h2>js를 이용해서 태그생성하기</h2>
     <p>
       태그를 동적으로 생성할때는 document객체가 제공하는 createElement()메소드를
-      이용한다. <br />
+      이용한다.<br />
       생성한 태그에 출력할 문구가 필요하면 document객체가 제공하는
-      createTextNode()메소드를 이용한다. <br />
+      createTextNode()메소드를 이용한다.<br />
       생성한 태그에 출력할 문구가 없으면 태그가 가지고 있는 속성설정을 한다.
       setAttribute()메소드를 이용한다.<br />
-      생성태그를 화면에 출력하려면 화면에 출력되어있는 태그중 한개에 연결을
-      해줘야한다. <br />
-      연결할땐 appendChild()메소드를 이용한다. <br />
+      생성한 태그를 화면에 출력하려면 화면에 출력되어있는 태그 중 한개에 연결을
+      해줘야한다.<br />
+      연결할땐 appendChild()메소드를 이용한다.
     </p>
     <button onclick="addElement();">태그 추가하기</button><br />
     <input type="text" id="tagName" size="5" />
     <input type="text" id="tagContent" />
-    <button onclick="myTag()">태그 생성</button>
+    <button onclick="myTag()">태그생성</button>
     <div id="addTag"></div>
     <script>
       const myTag = () => {
-        const input = document.getElementById("tagName").value;
-        const inputText = document.getElementById("tagContent").value;
-
-        const input1 = document.createElement(input);
-        const inputText1 = document.createTextNode(inputText);
-
-        input1.appendChild(inputText1);
-
-        const $container = document.getElementById("addTag");
-        $container.appendChild(input1);
+        const tagName = document.getElementById("tagName").value;
+        const text = document.getElementById("tagContent").value;
+        console.log(tagName, text);
+        const tag = document.createElement(tagName);
+        const textNode = document.createTextNode(text);
+        console.log(tag, textNode);
+        tag.appendChild(textNode);
+        console.log(tag);
+        document.getElementById("addTag").appendChild(tag);
       };
-
       const addElement = () => {
         //태그생성하기
         const btn = document.createElement("h2");
@@ -46,8 +44,8 @@
         //텍스트노드 생성하기
         const btnText = document.createTextNode("점심먹자");
         console.log(btnText);
-        //생성된 태그와 텍스트 합치기
-        //부모객체명.appendChild(자식으로 들어갈 객체) :
+        //생성된 태그와 텍스트합치기
+        //부모객체명.appendChild(자식으로 들어갈객체)
         btn.appendChild(btnText);
         console.log(btn);
         const $container = document.getElementById("addTag");
@@ -55,47 +53,54 @@
       };
     </script>
     <h2>textNode가 없는 태그 생성하기</h2>
-    <p>img, input audio, video, br <br /></p>
-    <button onclick="addImage();">이미지 추가하기</button>
+    <p>img, input, audio, video, br</p>
+    <button onclick="addImg();">이미지 추가하기</button>
     <div id="imgcontainer"></div>
-    <br />
-    <div id="imginputcontainer2">
-      <input type="text" name="imgsrc" />
-      <button onclick="srcImage();">이미지 주소 추가</button>
-      <div class="imgcontainer"></div>
-    </div>
     <script>
-      const addImage = () => {
+      const addImg = () => {
         const img = document.createElement("img");
         console.log(img);
-        //속성값을 설정
+        //속성값을 설정.
         //속성값을 설정하는 방법
-        //1. 생성된 객체어서 직접 속성명으로 접근해서 값을 대입
+        //1. 생성된 객체에서 직접속성명으로 접근해서 값을 대입.
         //2. 생성된 객체가 제공하는 setAttribute("속성명","속성값")메소드를 이용
         console.dir(img);
         img.src =
-          "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFRgVFRUYGBgYGBoYGBgYGBgYGhgYGBgZGhgVGBgcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHhISHDQhJCQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0MTQxNDQ0NDQ0NDQ0NP/AABEIARMAtwMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIDBAUGBwj/xABDEAACAQIEAgcFBAkDAgcAAAABAgADEQQSITEFQQYiUWFxgZETobHB8DJCctEHFCNSYpKi4fEzgrIkwhVTg5Oz0uL/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIEAwX/xAAiEQEBAAICAgIDAQEAAAAAAAAAAQIRAyESMUFRBBMicTL/2gAMAwEAAhEDEQA/AN2IoRIhzE4lS5obSmWWtOoANxHjdZSntlv0ifYpfib4TI4HjFaipWm+UE3IsDrOoY3D0qthURXttm1tIr8Dw1v9FPSa8fycZNCzbBN0lxP/AJnuErcXjHqvndszWtfuEVUyhmFtmIHheMO2s1zKJmp6giYUMiKZbC/0Zzz5Mcfa8cMsvRqAypfir5jZeqCASe+/5S5wd3F7AjukXnxhzhypEBk9sGLb28YwtGzgNtfeVjy45dSllx5Y92GBErzk7HIikZZB5mdHOXYxFCJEVAxw4UVACMEO0IwBJghmCAdNAjqJHEQCGTaedjh81yy5PjEFW0Ba0bap2RF4ZZydQ8cLe8jua5lpTFxKhDLmjtIwu85t1kkmoz79DsMSSc+pJ+1269kh8Q6JYZKbuua6qSLtzA0mvMx3TfjATLh1OpGd7dl+qp8SL+QmzLPxxtGGNyykjMYfBqou2/ulLxnFFQQNByGxP9poMPquY7ch2zM8XoXY3328ydvAfG0xedyy3XpTCYzUUNKpdWAXW+YHXsNvGXnB6zWB+A+Ui0qADEgcstu7/AHrLLhCa5SNrZe/sPcfoysstljjpePVBW5HLcSFUIPMEfXpHMU5UC2x35f4lPicQVNxzG3bOdtl6XJudpDDWJI1EjUsYCR3yS3Lxno8HJ549+48/n4/DLr1RiKAiYoTs5DtBBBADhGKMSYARgj9HCO4uo08oI/GqnHlZvVdOap2RhmJhXgBnk5Z2oxwmIAwXhQ4lFpvLqjtKRZco9o8LMcpaZWIqqiM7GyqCxPYALmcV/W3xFV6jnV2LnuHIDuAsBOkdPcZkwNW275U8nYBv6c05pgFAHeT7gbW9bnyl82cyk01fi463WipAlb7dnd2aStq4TMS3IXt8Ly0wzroO7QfXlLOlg1y67afMmcdNfplhw0i2nIk+FpIwfD7qe0Ej02mqOHXTTZQPcZWK4RgeRtfz0vHZr2PapxaaWP1ymXx4tcd+k2fFUt8f7iZDiR1uOW/hFvstdKR6hUgjTUX8ZpMLVDoGH0eYmYxvav+f7yf0dxFyyHmLjxE1cOXjWfmx8ppe2hwQCbmEYioUEAUYkw7xMA0HBad6d/4jDieC1LU7W+8YJox9PZ4NfrjV3hiJgE8F45cETDgDtMDcxbVOyMKYpTHvrULXe6oumqM9BQAW/aKSACdAr6m3KY6mbEns+vnedMObOhDEa6gW1uNL90oKXAUdq+fQiq9sv7jWKiLW49DhnjjL9qbhlZQVZ77+4A39/wmhGPRkXKe2/iQB+cgIjjPkoDJRQszO5UtYEnKqqxOl+Uj8H4gmLBC0yhB3scpte9jYX8xzEPGybdvKW6Xi4ndhycemYiUzYpMoAVmOUgAC+tx+c1NHgo9mQTuNfUyB+qFCEpqpdr2Zvsrb7zEd9hbnHcbdHMp2z7NVdQj0iCLrc6XUjQ+INpmnwTs2UodcyGwvb/EuRi+IVWcv+yykBUZNHa+oXmRv1hflNHwvBVFQmqFzHXT+4iyxsolljkvEsK9Jsjix3HYe8GXtLoyKGVv1jNVyZ2pqjFAoFyvtL2zAa7crc5b8awoesAFViNg23hp4Sx4nW9lhc7IEYoyKBr1nKhfG1yfAHsj8r6gmE91Rtv9c4kGElyiN3EHxBgE9LjvljK8vkx8c7CjBeCFLQO8IwQoBoODISnmYIrgjAU/9xhzRj6e5wYz9eLT3gvEgxQngvEHDEKC8AUIoREUDAGMbiCih7Xsy3HdfW3faP0FVajFTcOquO+2h92WQ+LHqeYlbgeJqKyo5VNP2ZuTnDsq5D+6Qw0Hf3mOVu4N+LTvgVY5lurdq6E+PbF4bh6JrYdo0A17bAR3DtJDtppOk9OmRH3TGKVMMtjGX4pSVGJfa9/LfxjXBMXnBYXymxFwRvfSxgUlPrgUU3Ci8ruJVQAbS5xL6TMcVfQycnTG/bMKjPVd15Gw8RYgk9msqePY41qygNmSkLJ2FwbO1v6R59spuL8YrpiHSlUKqxVSABqSNgdxe42liECuF7B8WBMnx12LlvqLKil6P4SD5EkH32jIk/g6hlZO1LeYLW+AkEibfx8t46YfyMdZbFDiYqaGcDCvDMTALXhuLRVsxsbk7QSpMEryrXh+Zlhj46jpAiokQ547KOHEwxAFRQiIpRAK3jdSyqO039P8zNYmr1rgahTlP7pylgfLeXnHyc6r2KT+czdVtGP4gP8AajQ+XocM/iOh8Fx61qSVV2dQ1uw81PeDcHwlp7dVGpnH+gPHzQJoueozsVJ+41zcHsBtfuPjOlVKKV1s4DL2HUX7SOc677V/prE8cwpuWZWCnsDXPdBgukmGfRKiA7ZSQDfwkL9RFMZEw6lexFVR5i4EXgsBZs7U1W2wyrp5iLt1uPH49VaV8TcXmS47jQFOsseNYzIu9pjazmq1/ujbvk2okZLAr7bFMSPvlv5NB8BLqq96h/ER5BFJkHofSviHJ/jHnnWOVamWq99eu/xt8gPOPKdpxrQ8LcqQeQ3/AJiD8YrH0crnsPWHgfr3SvpYoBD428Lk/wBvSWb1s6A8xz7vq06cOWstfblz47x39IbiFAWgvN7CBibRRibwAQQXggHRhFCIDCA1AJ5ILhiRzXEVTcmP2N6SVW8k00tGkcCG2IA8Z1mMx7rlcrldYs5xl/2jt2A+4E290zdc9RR3OT5o/wCQl/itSx7b+V9JQ8S0Q23COPGyEj4n0mffb2sMdYyfTJ4VgtjrufO5P951fo1iz7MMOsqkqw3ItqCP9pGk5Rku1uQI+d/fedG/R6xyVVPJ1/8AiQfKdPkX02f/AInTtfOvqJW8U6RUUWwYE9g1McxnCEfWwv3iU1bouT9lQvnp6RXK/ELGY/NZ7F1HxL3N7E2VR85e0ODhEud7fVpZcL4B7PrPYnu2HhLHE07i0Uxt7qssp6ji+DU0KlQHRs5I70LEj5/yyFxNyGz9p+vgZ0TpF0Z9sMyWVx9k/I905txWjVRjTqIVYE94PYQeYlzdqLqQ+MVoCDv8rER6px4Uk0GZjoAdh4yjZyFtfYi/dvImINwPH4zrhxau65Z8u5qNDgOkDMRnUWP7u4/OaNWBAINwdQe0GYTDiajgVa9Ox+6xA8DY/Ema8Mr8smWM9rWIMDOInOJaChDhQQDf4ug9O9xz5a+ciJiM02mLwofx1t9GZbH8LZHzfd7u2efnxWelZdTZFKmWkxFA2iaZFoxWr8hCSYzbNbc7qHale2gkc1LX15HzjZawudu0ynwGFtWqVfa+1DgKhzBsgzXdDbQa5duQ7pzt8t2tXBhPKRKralvD5iUvED1TfsP9TZfgxlviHsr99h5i5+IEpuI6pYblgB5dX429Jxnt6nwz1Cnztu3u/wA/GbD9HeIBeuoOodRbsGRQD4XDehlBXpZB4A29Jk8DxaojmpSdqb3+0psd9j2juM7cWPla58ufjJHpBRFEThSdO+IWt+st/JRJ9SkS/TDHtviqnllX/ionf9V+3H9sd4yyp4pxnDUDlrV6aNa+QsM9vwDrH0nDqvGcSxu2IrMe+q59OtpIDuTck6nUnmT2mOcX3U3l+o3vHf0hsxZcMiqo0FRxd271TZfO/gJiMTi3rEvUdnY82Pw5AdwkeEJ0xxxnqIyyt9mq4t9cuyM1U6p8L+klVVuI26XGUeBPYPzlJN4Z7iXfBKn2l7bH0/yJULhwNoMxG/qIS6KzbWsYw1a20z6Ypxs58zf4x9MefvC/eNJfknxWjY0rDlTUrZjpCi2NPUDSNiKWYHQSWRGXvIVYyfEUKNYbfXMTHcf6T+xYpSUO40Yt9lT2abnz0mp6fY39XoF1NndsieJBJbyAPnacaqPm37R635zn+uXLdTMJEuti6uIce0dnJOi65QeQVRoJ0DhFHJSyjYdXxsLk+rEzHdHsLdy9tE2/F2/XbN1hky0x2W9bm/wtOXPdTUauHHvZjEnqjvJPv/sZCFO7j+FS3mdPnJ+IQMQPr63gVBZz+8wXyFr+8+6ZY1X0oeKJ1T9bmYDDpYWnR+JpdWPYPzM5zSZtdvS01fjfLPz/AAXkilEIM3YPU/lAWbsUepmpmKMS20L2bHdvQWhrQXnqe/X4wBIccrnwHz2i1B7LeOvuiwIcNAn2d9zfu2EWFttAYLxgDG3SKMSzRBFdsvhDDX1EKqbyNnKm484thMvbWCNq9xpDjD1ixkertH3Ej4yoApP14yDcm/Sxib1KVO/2UZ/52A/7Jz9FJNgLm4sO++k1P6Q8QXxZvyRV8tW/7pQYBQAznZfyMrfQ00vAqNgUX+BAdutUzEn+VGPmZsHSyqO3bw/wZn+idIuiORYk1KnhdQieRVmPnNLiPteAPxt8DMfNd1p4p0gfeJOwufTeGwsFB3AzN3E7/E+kdROR8PXU+7NE1h9rvIQfMepacY62qjGpdGHOxB8bsPlObIPjf8p0d62cV7fdv5EIp+Ob1nOaI0mvgx1tn5rvRy0O0OCaXAVoUVEwAxDhEwiYAGMK8SzRDPECmeJLRl6kdtpAGGjFQSQwjLRAzQqW0giANTBFs3r8mQMaoIIPZ4c9pMZtD22lZxS/fbu5HX8pIcQ6Z1S+MrHX7SgeARABK4JdVpA6uRmPYDsT2gaGWPSpf+srAm9mA052RRf195Eqg/WdhroUXvzWT/iWPlLDpXRQfsEa1s5LAfurmYovkBaWrLcnxtInR6lloU/wX8mu4v5NaTKQ+f18Jh5O8q14f8m8ttTsAT67e4GV+Ma2Vb7Aue4mygn+YmWOJGhHaQPWwt7zMzxrF5c5G7NkU9yqahB96+kMMd0ZZaiqw2IHssU5P2mf+oPb5TKiWbYjJSdR99rW7tf/ANSrtNuGOmXK7KvBEwGWkIIIIARiGMWY08QEzRp3huYwzQAJqwEmPIeG+1JdRooDDmNNFvG2gDA3ghE6wRG9dORr4Sqx9YWIvry7rbevylliBp9cpmOJG7hg1iL/ANXb3aCTacck6WORi6h70Poi/MSswwFwDte58gbEeF/dLvpwhGJDadZBawA2Zr3A2Osp+FoGqoDtmu3gN5U9F8uw4ZMqIttkA81BHlHUX4gfCFR+wCd8o18hc+6KHVHcLk+QJmOzutc9IOIqag+L+t/zB8phekNazhb2PWNvxFSTbxFvObTF6FgToqqPIKc1/VfdOX4/FF6judyfQKNQPMTpw49ufJejLVNDfa/vMZaEXhFpqZx3hgxF4Lxgu8F4m8ImABjGnMUzRljJoIcxlotzG2MKD2DGpj7xjBx54Ay0beOmNVIBH5wQl3gkm9bVj1b/AFvKXH0RvyGu9vHXlLzEjTz+OkrMZTutvEab6jv8ojcj6f0stSnffK/lYr+Zme4aOulty4A8iDr7vSar9I+HyNRPMipcf+3b5zN8BA9qG3y3PmASD6gDzlT0Xy63hf8ASTvHzP8A9RHag6h7h+QjeGFkT8Cn1BPzjtT7J8v+aj5TJfbVPTL9IsSUpVXB1VamX8RIQf8AAe+cxVtPK3oP8TddNK4WlkG7FT4gWqN/zPpMCh5dk78c1HDkvZV4YhXhgzs5jghXioAkmETDYxp2gAZoy7QO0YZogUxjbGHEPEaZhB1bx0iFhx1YsyiNsJHqyS0i1YqEdN4IKe8Ek3rl9VvbylZiXOvdqO3s2lo+n175VYoG1xvy3uba2iNyr9I9ctUpiwFg+wt+5+Uy2AqFSLbs2UeB3v8A7snvl30+r5sQvcg97Hnz2mcov1k7mBHreVPRO2ILIv4UH9P+YKrfsz5X/niWawCjllH9OnxEFc9Q8u/s1MyX21T05j0yxOaqovcK7I2txsyNp3bf7ZmBJnFcUXd3P3mJt2FiG9dJDFjreasZqM2V3RiLhAgbQDWWkcMm0Fo1UeAB3jLNCZ7wwsQNtGiI8wibQBoxBFyBHmEKit28BEaeg0EVaEoiiJRGXkSpJdSRGioKwGCeoeroBuTsO6Ca/C4YKAqiwEEzXl7T5V6Brdsq8fmCEpbvvy+rmW1QXGspeJVFAJJNibctDbu7QOydnRxbpm+bE626qKunczn5/CU+FW7oo+8yjwuRf3Xkjj9XPiaxvfrsL9ynKPcIxgP9RLb51APYSwF/K95U9F8usUcUC7rfZ0FvFEt4fZMVxd7Ub35nz6jfnM3wfFZ8XX/iqUh4ACoR59X3y16WVwtBgN1VnPcAjfkZnuP9O8y/lyeubk97M3q7W9xgUQnUhiDy09IoCaY4UBHBEgQne0ZBUeRGN4bsTHaVOIAlOGwjkQ8YMtEGLaJtECCIWHPWMUwjVNbkwC0Qw2kWkGG1/PWSC55j0jBiqZEeSahvtIjnWKhtuGYjPSRudrHxGh94glZ0bqnrJv8AeHuDfKCYeTHWQelH1B7JRcXp2BsdxpoDqNtPL3S+e/5Sj6QugpvnbICpJY6ZSOd+R37prNwLiyWxFUfxn15++8TgmyuG/dDMPFUYj32kOqWztma5LEk3vck6m/O+946jZQW7iB42uPhL+A0vRrE/9S1jfMWOn7ylhv8A+og8pa9Mq13qoNvskn900Cfc1plejbWrhebG387KdPRfSXHTKuf1msvIqLeaU7/Ezlr+ly/yyQFzFgQKLRFSpadnMp3tI7veEWJi0pRAVNI+BDVYqGgKMVDHmMju0YJAhO0Jn5CGtPtiBtry74JTpfquJaqNLqFP3s4DZcp5G5+PK8pqxkyi4OFya3NfP3WSnbftu498nKb6FR6Lsdhp2mSTc7wUqYiapI2aWEKvvpGr3McbvjRMmmtuGYtqLrUXcX8NVI19fdDkOntBJuEt3Q9WVBqCO/TuO4+EouldMvhnCW1XQ+I75eObgjlKPjtSoKR9l9odYg2FxzXXQX9NY4Hnh6BRirCxBsfKIZb6E6fVpM4rhnWo4cFTm2P14SItO8olx0VpftxUbXIcw8QGA8d/q0d4/WviKl9TovkKag/1CReGVghsNFOh7Tmstz8vwyHi8Q1Ry55m8mTvat9aR3fsiVpE7x1Vi5aU3DcNDYd61zmR0QLpY5yo1/mj+O4Z7LDo7gq7OysCykBQGIItz0HOKTjWRRTSkvscpDozEly1ruz2FiLaWGnpZVXFBMLSyMEda7uqggsoIcA257gXtrAJGB4fRZKRyh1cN7ap7TJ7EjlYGwt/EDeUoNIO2YsyAsFKFVJAPVa7AixGvnNumK6o66tmVTcOCRzsCWFjMnx3iNRcQ5VrhAAmYI5UFVJsSCAc19d4thZ0ej9J2o3NUB1LOjLcrdbqCyrlU9zbyk4XgKVUVM7VQ1NXqHIFylUOgF9cx9JoKeHCsais+X2RqfrZqFg1Qi1ip6p00y2uLDulFwzihopZEXO5vUZzmzprZAv3RqbmAT//AABFplmV1YUcRUsxUEGmyhMwXTZtbTPtpNRhcXSNBlSyZcNihkLE5S7qUQMwGYmx0Ey1SMIddpJwgOUDWxN7X0uba28APSR7ZmA85YUlinsHALCRaxkhpEqGOhHcxCbwO0FIayDSwYIQglE9U09j5/OVPF/sHvB+EOCTDca6YqBVYWFsobYXvYC995mKP2fOCCWRxdxEQQQAxFQQQAjCMOCAMPCWHBAFiOQQQAjI9WCCAM4b7R8PnLBNoIIQE1ZDqwQRUIpi6MOCSaQIIIJQf//Z";
+          "https://image.xportsnews.com/contents/images/upload/article/2022/0828/mb_1661666419641562.jpg";
         console.log(img);
         img.setAttribute("width", "200");
         img.setAttribute("height", "200");
+
         document.getElementById("imgcontainer").appendChild(img);
-      };
-      // 이미지주소를 입력받아 img태그를 출력하는 기능을 구현
-      //크기 300x300크기로 출력, div.imgcontainer에 출력하기
-      const srcImage = () => {
-        const src = document.getElementsByName("imgsrc")[0].value;
-        const img2 = document.createElement("img");
-        img2.src = src;
-        img2.setAttribute("width", "300");
-        img2.setAttribute("height", "300");
-        document.getElementsByClassName("imgcontainer")[0].appendChild(img2);
       };
     </script>
 
-    <h2>구조가 있는 태그 만들기</h2>
-    <p>table, 리스트(ul,ol,dl), fieldset, div안에 div</p>
-    <h3>리스트 태그 만들기</h3>
-    <button onclick="makeList()">리스트만들기</button>
+    <!-- 
+        이미지주소를 입력받아 img태그를 출력하는 기능을 구현 
+        크기 300X300크기로 출력, div.imgContainer에 출력하기
+    -->
+    <div id="inputaimgeconatainer">
+      <input type="text" name="img" /><button onclick="addImg2();">
+        이미지출력
+      </button>
+      <div class="imgContainer"></div>
+    </div>
+    <script>
+      const addImg2 = () => {
+        const imgSrc = document.getElementsByName("img")[0].value;
+        const $img = document.createElement("img");
+        $img.src = imgSrc;
+        $img.height = 300;
+        $img.width = 300;
+        document.getElementsByClassName("imgContainer")[0].appendChild($img);
+      };
+    </script>
+
+    <h2>구조가 있는 태그만들기</h2>
+    <p>table, 리스트(ul, ol, dl), feildset, div안에 div</p>
+
+    <h3>리스트태그 만들기</h3>
+    <button onclick="makeList();">리스트만들기</button>
     <!-- 
         - html
         - css
@@ -107,79 +112,102 @@
     <script>
       const makeList = () => {
         const ul = document.createElement("ul");
+
         const data = ["html", "css", "javascript", "jquery", "servlet/jsp"];
 
         data.forEach((e) => {
-          const li = document.createElement("li");
-          const text = document.createTextNode(e);
-          li.appendChild(text);
-          ul.appendChild(li);
+          const li1 = document.createElement("li");
+          const li1Text = document.createTextNode(e);
+          li1.appendChild(li1Text);
+          ul.appendChild(li1);
         });
-        console.log(ul);
-        document.getElementsByClassName("listTarget")[0].appendChild(ul);
-        // const li2 = document.createElement("li");
-        // const li3 = document.createElement("li");
-        // const li4 = document.createElement("li");
-        // const li5 = document.createElement("li");
-
+        // const li2=document.createElement("li");
+        // const li2Text=document.createTextNode("css");
+        // li2.appendChild(li2Text);
         // ul.appendChild(li2);
+        // const li3=document.createElement("li");
+        // const li3Text=document.createTextNode("javascript");
+        // li3.appendChild(li3Text);
         // ul.appendChild(li3);
+        // const li4=document.createElement("li");
+        // const li4Text=document.createTextNode("jquery");
+        // li4.appendChild(li4Text);
         // ul.appendChild(li4);
+        // const li5=document.createElement("li");
+        // const li5Text=document.createTextNode("servlet/jsp");
+        // li5.appendChild(li5Text);
         // ul.appendChild(li5);
 
-        // const text2 = document.createTextNode("css");
-        // const text3 = document.createTextNode("javascript");
-        // const text4 = document.createTextNode("jquery");
-        // const text5 = document.createTextNode("servlet/jsp");
-
-        // li2.appendChild(text2);
-        // li3.appendChild(text3);
-        // li4.appendChild(text4);
-        // li5.appendChild(text5);
-        // console.log(ul);
+        document.getElementsByClassName("listTarget")[0].appendChild(ul);
       };
     </script>
-    <!-- 사용자에게 , 구분된 문자열을 입력받아 ol태그로 출력하기 -->
-    <div id="listContainer2">
-      <input type="text" id="listinput" />
-      <button onclick="listinputbtn()">,구분 입력</button>
-    </div>
+
+    <!-- 
+        사용자에게 ,구분된 문자열을 입력받아 ol태그로 출력하기
+     -->
+    <input type="text" id="listText" placeholder=", 로 여러값 입력" />
+    <button onclick="addList();">리스트추가</button>
+    <div id="listContainer2"></div>
     <script>
-      const listinputbtn = () => {
-        const text = document.getElementById("listinput").value;
-        const ul = document.createElement("ul");
+      const addList = () => {
+        const values = document.getElementById("listText").value.split(",");
+        const $ol = document.createElement("ol");
+        // for(let i=0;i<values.length;i++){
 
-        const textlist = text.split(",").forEach((e) => {
-          const ol = document.createElement("ol");
-          const oltext = document.createTextNode(e);
-          ol.appendChild(oltext);
-          ul.appendChild(ol);
+        // }
+        values.forEach((e) => {
+          const $li = document.createElement("li");
+          $li.innerText = e;
+          $ol.appendChild($li);
         });
-        console.log(textlist);
-        console.log(ul);
-        document.getElementById("listContainer2").appendChild(ul);
+        document.getElementById("listContainer2").appendChild($ol);
       };
     </script>
-    <h3>테이블 생성하기</h3>
+
+    <h3>테이블생성하기</h3>
     <div id="tableContainer"></div>
-    <button onclick="addTable()">3*3 테이블 추가하기</button>
-    <br />
+    <button onclick="addTable()">3*3 테이블 추가하기</button><br />
     <input type="text" class="row" size="3" />
     <input type="text" class="row" size="3" />
     <input type="text" class="row" size="3" />
     <button onclick="addTr();">행추가하기</button>
-    <br />
     <input type="text" placeholder="행의갯수" />
     <input type="text" placeholder="열의갯수" />
     <button>추가</button>
 
+    <!-- <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+     </table> -->
     <script>
+      const addTr = () => {
+        const $inputs = document.querySelectorAll("input[size=3]");
+        console.log($inputs);
+        const tr = document.createElement("tr");
+        $inputs.forEach((e) => {
+          const td = document.createElement("td");
+          td.innerText = e.value;
+          tr.appendChild(td);
+        });
+        document.querySelector("div#tableContainer>table").appendChild(tr);
+      };
       const addTable = () => {
         const table = document.createElement("table");
-
         for (let i = 0; i < 3; i++) {
           const tr = document.createElement("tr");
-
           for (let j = 0; j < 3; j++) {
             const td = document.createElement("td");
             td.innerText = j;
@@ -187,21 +215,157 @@
           }
           table.appendChild(tr);
         }
-        document.getElementById("tableContainer").appendChild(table);
         console.log(table);
-        return table;
+        document.getElementById("tableContainer").appendChild(table);
+      };
+    </script>
+
+    <h3>생성된 태그를 원하는 위치에 넣기</h3>
+    <p>
+      Element.insertAdjacentElement("지정된예약어",element);<br />
+      beforebegin : 지정한 태그의 앞에(같은 레벨에서 위에 위치하게 하는것)<br />
+      afterend : 지정한 태그의 뒤에(같은 레벨에서 아래위치하게 하는것)<br />
+      beforeend : 지정한 태그의 맨밑 자식으로 추가 == appendChild()이용한것과
+      동일<br />
+      afterbegin : 지정한 태그의 맨위 자식으로 추가<br />
+    </p>
+    <div id="target">
+      <h1 style="color: lime; background-color: magenta">기준태그</h1>
+    </div>
+    <button onclick="beforebeginTest();">beforebeginTest</button>
+    <button onclick="afterendTest();">afterendTest</button>
+    <button onclick="beforeendTest();">beforeendTest</button>
+    <button onclick="afterbeginTest();">afterbeginTest</button>
+    <style>
+      div#target {
+        width: 400px;
+        height: 300px;
+        border: 1px solid red;
+      }
+    </style>
+    <script>
+      let count = 0;
+      const beforebeginTest = () => {
+        const $h3 = document.createElement("h3");
+        $h3.innerText = "새로추가한것" + count++;
+        const $divContainer = document.querySelector("#target");
+        $divContainer.insertAdjacentElement("beforebegin", $h3);
+      };
+      const afterendTest = () => {
+        const $h3 = document.createElement("h3");
+        $h3.innerText = "afterlike -아이브-" + count++;
+        const $divContainer = document.querySelector("#target");
+        $divContainer.insertAdjacentElement("afterend", $h3);
+      };
+      const beforeendTest = () => {
+        const $h4 = document.createElement("h4");
+        $h4.innerText = "childEnd add";
+        const $divContainer = document.querySelector("#target");
+        $divContainer.insertAdjacentElement("beforeend", $h4);
+      };
+      const afterbeginTest = () => {
+        const $h4 = document.createElement("h4");
+        $h4.innerText = "childfirst add";
+        const $divContainer = document.querySelector("#target");
+        $divContainer.insertAdjacentElement("afterbegin", $h4);
+      };
+    </script>
+
+    <h2>태그 이동시키기</h2>
+    <p>
+      페이지에 출력된 태그를 이동시킬때도 insertAdjacentElement()메소드를 이용할
+      수 있다.
+    </p>
+    <div id="moveTest">
+      <h1>h1태그</h1>
+      <p>p태그</p>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </div>
+    <button onclick="moveTest();">이동시키기</button>
+    <button onclick="moveTest2();">li순서변경하기</button>
+    <style>
+      div#moveTest {
+        width: 300px;
+        height: 300px;
+        border: 3px dotted purple;
+      }
+    </style>
+    <script>
+      const moveTest = () => {
+        const $h1 = document.querySelector("#moveTest>h1");
+        const $container = document.querySelector("#moveTest");
+        $container.insertAdjacentElement("afterend", $h1);
+      };
+      const moveTest2 = () => {
+        // const $li = document.querySelector("#moveTest>ul>li:first-child");
+        // const $ul = document.querySelector("#moveTest>ul");
+        // $ul.appendChild($li);
+        // $ul.insertAdjacentElement("beforeend", $li);
+
+        const $firstli = document.querySelector("#moveTest>ul>li:first-child");
+        const $lastli = document.querySelector("#moveTest>ul>li:last-child");
+        $lastli.insertAdjacentElement("afterend", $firstli);
+      };
+    </script>
+
+    <h3>태그를 삭제</h3>
+    <p>
+      태그를 삭제하는 방법은 2가지<br />
+      1. 자기자신을 삭제하기 : 삭제할Elemnet.remove(); <br />
+      2. 자식태그를 삭제하기 : 부모Element.removeChild(자식element);
+    </p>
+    <div id="removeContainer">
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+    </div>
+    <button onclick="selfRemove()">자기자식을 삭제하기</button>
+    <button onclick="childRemove()">자식을 삭제하기</button>
+    <script>
+      const selfRemove = () => {
+        document.querySelector("#removeContainer>p").remove();
+      };
+      const childRemove = () => {
+        const $container = document.querySelector("#removeContainer");
+        const $remove = document.querySelector("#removeContainer>p:last-child");
+        $container.removeChild($remove);
+      };
+    </script>
+
+    <fieldset>
+      <legend>첨부파일<small>* 최대 5개</small></legend>
+      <div>
+        <button onclick="addFile()">추가</button>
+        <button onclick="delFile()">삭제</button>
+      </div>
+      <div>
+        <input type="file" name="upfile" />
+      </div>
+    </fieldset>
+
+    <script>
+      const addFile = () => {
+        const length = document.querySelectorAll("fieldset input").length;
+        if (length < 5) {
+          const $input = document.createElement("input");
+          $input.type = "file";
+          $input.name = "upfile";
+          const $div = document.querySelector("fieldset>div:last-child");
+          $div.appendChild($input);
+        } else {
+          alert("5개까지만 가능합니다.");
+        }
       };
 
-      const addTr = () => {
-        const add = document.querySelectorAll(".row");
-        console.log(add);
-        const tr = document.createElement("tr");
-        add.forEach((e) => {
-          const td = document.createElement("td");
-          td.innerText = e.value;
-          tr.appendChild(td);
-        });
-        document.querySelector("div#tableContainer>table").appendChild(tr);
+      const delFile = () => {
+        const $removeInput = document.querySelectorAll("fieldset input");
+        if ($removeInput.length > 1) $removeInput[0].remove();
+        else alert("더이상 삭제할 수 없습니다.");
       };
     </script>
   </body>
