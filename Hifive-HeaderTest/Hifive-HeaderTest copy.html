@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hifive-HeaderTest</title>
+    <link rel="stylesheet" href="./css/test.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="loginSerivce">
+        <a href="http://www.naver.com" id="login">로그인</a>
+        <a href="http://www.naver.com" id="enroll">회원가입</a>
+        <a href="http://www.naver.com" id="service">고객센터</a>
+      </div>
+      <div class="headerMain">
+        <div class="logo">
+          <a href="">
+            <img src="./img/hifive로고.png" alt="" />
+          </a>
+        </div>
+        <div class="searchBar">
+          <div class="searchDetail">
+            <input
+              type="search"
+              onsearch=""
+              class="search"
+              placeholder="상품검색"
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = '상품검색'"
+              onkeypress="if( event.keyCode == 13 ){searchData();}"
+            />
+
+            <button class="search" onclick="searchData()">
+              <img src="./img/돋보기.png" alt="" />
+            </button>
+          </div>
+        </div>
+        <div class="memberIcon">
+          <a href="">
+            <ion-icon name="storefront-outline" class="storeIcon"></ion-icon>
+            판매하기
+          </a>
+          <a href="">
+            <ion-icon name="person-outline" class="myIcon"></ion-icon>
+            내정보
+          </a>
+          <a href="">
+            <ion-icon name="heart-outline" class="heartIcon"></ion-icon>
+            찜한상품
+          </a>
+        </div>
+      </div>
+      <div class="categoryNrank">
+        <input type="checkbox" id="menuIcon" />
+        <label for="menuIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <div id="menuList">
+          <ul>
+            <li><a href="#" id="category1">카테고리1</a></li>
+            <li><a href="#" id="category2">카테고리2</a></li>
+            <li><a href="#" id="category3">카테고리3</a></li>
+            <li><a href="#" id="category4">카테고리4</a></li>
+            <li><a href="#" id="category5">카테고리5</a></li>
+            <li><a href="#" id="category6">카테고리6</a></li>
+            <li><a href="#" id="category7">카테고리7</a></li>
+            <li><a href="#" id="category8">카테고리8</a></li>
+            <li><a href="#" id="category9">카테고리9</a></li>
+            <li><a href="#" id="category10">카테고리10</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu1">
+          <ul>
+            <li><a href="#">세부 카테고리1</a></li>
+            <li><a href="#">세부 카테고리2</a></li>
+            <li><a href="#">세부 카테고리3</a></li>
+            <li><a href="#">세부 카테고리4</a></li>
+            <li><a href="#">세부 카테고리5</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu2">
+          <ul>
+            <li><a href="#">세부 카테고리6</a></li>
+            <li><a href="#">세부 카테고리7</a></li>
+            <li><a href="#">세부 카테고리8</a></li>
+            <li><a href="#">세부 카테고리9</a></li>
+            <li><a href="#">세부 카테고리10</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu3">
+          <ul>
+            <li><a href="#">세부 카테고리11</a></li>
+            <li><a href="#">세부 카테고리12</a></li>
+            <li><a href="#">세부 카테고리13</a></li>
+            <li><a href="#">세부 카테고리14</a></li>
+            <li><a href="#">세부 카테고리15</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu4">
+          <ul>
+            <li><a href="#">세부 카테고리16</a></li>
+            <li><a href="#">세부 카테고리17</a></li>
+            <li><a href="#">세부 카테고리18</a></li>
+            <li><a href="#">세부 카테고리19</a></li>
+            <li><a href="#">세부 카테고리20</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu5">
+          <ul>
+            <li><a href="#">세부 카테고리21</a></li>
+            <li><a href="#">세부 카테고리22</a></li>
+            <li><a href="#">세부 카테고리23</a></li>
+            <li><a href="#">세부 카테고리24</a></li>
+            <li><a href="#">세부 카테고리25</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu6">
+          <ul>
+            <li><a href="#">세부 카테고리26</a></li>
+            <li><a href="#">세부 카테고리27</a></li>
+            <li><a href="#">세부 카테고리28</a></li>
+            <li><a href="#">세부 카테고리29</a></li>
+            <li><a href="#">세부 카테고리30</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu7">
+          <ul>
+            <li><a href="#">세부 카테고리31</a></li>
+            <li><a href="#">세부 카테고리32</a></li>
+            <li><a href="#">세부 카테고리33</a></li>
+            <li><a href="#">세부 카테고리34</a></li>
+            <li><a href="#">세부 카테고리35</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu8">
+          <ul>
+            <li><a href="#">세부 카테고리36</a></li>
+            <li><a href="#">세부 카테고리37</a></li>
+            <li><a href="#">세부 카테고리38</a></li>
+            <li><a href="#">세부 카테고리39</a></li>
+            <li><a href="#">세부 카테고리40</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu9">
+          <ul>
+            <li><a href="#">세부 카테고리41</a></li>
+            <li><a href="#">세부 카테고리42</a></li>
+            <li><a href="#">세부 카테고리43</a></li>
+            <li><a href="#">세부 카테고리44</a></li>
+            <li><a href="#">세부 카테고리45</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu10">
+          <ul>
+            <li><a href="#">세부 카테고리46</a></li>
+            <li><a href="#">세부 카테고리47</a></li>
+            <li><a href="#">세부 카테고리48</a></li>
+            <li><a href="#">세부 카테고리49</a></li>
+            <li><a href="#">세부 카테고리50</a></li>
+          </ul>
+        </div>
+        <p>카테고리</p>
+        <div>
+          <img src="./img/랭킹.png" alt="" id="ranking" height="50px" />
+        </div>
+      </div>
+      <hr width="1280px" color="#eeeeee" noshade />
+    </header>
+
+    <!-- header style태그 -->
+    <style></style>
+    <script></script>
+    <!-- body & footer -->
+    <section>
+      <div class="product">
+        <div class="imgSlide">
+          <input type="radio" name="slide" id="slide1" checked />
+          <input type="radio" name="slide" id="slide2" />
+          <input type="radio" name="slide" id="slide3" />
+          <input type="radio" name="slide" id="slide4" />
+          <ul id="imgHolder" class="imgs">
+            <li><img src="./img/아이폰.png" /></li>
+            <li><img src="./img/아이폰2.jpg" /></li>
+            <li><img src="./img/아이폰3.png" /></li>
+            <li><img src="./img/아이폰4.png" /></li>
+          </ul>
+          <div class="bullets">
+            <label for="slide1">&nbsp;</label>
+            <label for="slide2">&nbsp;</label>
+            <label for="slide3">&nbsp;</label>
+            <label for="slide4">&nbsp;</label>
+          </div>
+        </div>
+
+        <div class="productInfo">
+          <p>홈 > 디지털/가전 > 스마트폰</p>
+          <h2 id="productName">아이폰 12프로 맥스 256기가 단순개봉 풀세트</h2>
+          <h2 id="productPrice">800,000원</h2>
+          <hr width="790px" color="#eeeeee" noshade />
+          <div class="productIcon">
+            <ion-icon name="heart"></ion-icon>
+            <b> 11</b>
+            <ion-icon name="eye"></ion-icon>
+            <b> 54</b>
+            <ion-icon name="time"></ion-icon>
+            <b> 2시간전</b>
+            <a href=""
+              ><ion-icon name="ban"></ion-icon>
+              <b> 신고하기</b>
+            </a>
+          </div>
+          <div class="productDetail">
+            <table>
+              <tr>
+                <td>
+                  <ul class="productClass">
+                    <li>상품상태</li>
+                    <li>교환여부</li>
+                    <li>배송비</li>
+                    <li>거래지역</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="productId">
+                    <li>중고</li>
+                    <li>교환 불가능</li>
+                    <li style="color: #20c997">배송비 별도</li>
+                    <li>전국</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="productBtn">
+            <div id="heartBtn">
+              <button><ion-icon name="heart"></ion-icon><b> 찜하기</b></button>
+            </div>
+            <div id="talkBtn">
+              <button>
+                <ion-icon name="chatbubbles"></ion-icon><b> 하마톡톡</b>
+              </button>
+            </div>
+            <div id="fraudBtn">
+              <button><ion-icon name="call"></ion-icon><b> 사기조회</b></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr style="margin-top: 40px" color="#afafaf" noshade />
+      <div class="productIntro">
+        <div class="introContainer">
+          <h3>상품정보</h3>
+          <pre>
+아이폰12프로맥스 256기가 그래파이트 판매합니다 
+
+구성- 
+-아이폰12프로맥스 256기가 그래파이트 
+-아이폰박스 
+-멕세이프 정품 어뎁터+충전기(미개봉) 
+-신지모루 멕세이프 초슬림 케이스 
+-신지모루 2.5 강화유리 -투명케이스2개 
+-카메라 보호필름 
+
+배터리효율-82% 
+
+외관 상태 기스흡집 조차 없습니다 
+병적으로 관리해서 상태 매우좋아요 
+이구성에 이가격 어디가도 없습니다 
+
+택배거래 직거래 안전결제 다 환영 
+택배-4000 
+안전결제-10000
+            </pre
+          >
+        </div>
+        <div class="shopInfo">
+          <h3>상점정보</h3>
+          <div class="shopProfile">
+            <div id="profile">
+              <a href=""><img src="./img/프로필.png" alt="" /></a>
+            </div>
+            <div id="userInfo">
+              <a id="userName" href=""><p>user00</p></a>
+              <a id="userProduct" href=""><p>상품 34</p></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+    <!-- js호출 -->
+    <script src="js/test.js"></script>
+  </body>
+</html>
