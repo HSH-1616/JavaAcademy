@@ -100,6 +100,216 @@
     </script>
 
     <h3>input이벤트 설정하기</h3>
-    <p>다음주에ㄱㄱ</p>
+    <div id="inputEvent">
+      아이디 <input type="text" name="userId" id="userId" /><span
+        id="printMsg"
+      ></span
+      ><br />
+      패스워드 <input type="password" name="password" id="password" /><br />
+      패스워드 확인 <input type="password" id="passwordCk" /> <br />
+      <div id="passck">
+        <span class="result ok">비밀번호가 일치합니다.</span
+        ><span class="result error">비밀번호가 일치하지 않습니다.</span>
+      </div>
+      이름 <input type="text" name="userName" />
+      <select name="title" id="title">
+        <option value="title">제목</option>
+        <option value="content">내용</option>
+        <option value="writer">작성자</option>
+      </select>
+    </div>
+    <style>
+      #passck > .result {
+        display: none;
+      }
+      #passck > .ok {
+        color: green;
+        font-weight: bolder;
+      }
+      #passck > .error {
+        color: red;
+        font-weight: bolder;
+      }
+    </style>
+    <script>
+      document.getElementById("title").addEventListener("change", (e) => {
+        console.log(e.target.value);
+      });
+
+      document
+        .getElementsByName("userName")[0]
+        .addEventListener("change", (e) => {
+          console.log(e.target.value);
+        });
+      document.getElementById("userId").addEventListener("focus", (e) => {
+        document.getElementById("printMsg").innerText =
+          "아이디는 8글자 이상 입력";
+      });
+      document.getElementById("passwordCk").addEventListener("blur", (e) => {
+        const $p = document.createElement("p");
+        let msg = "";
+        const pw = document.getElementById("password").value;
+        const pwck = e.target.value;
+        document
+          .querySelectorAll(".result")
+          .forEach((e) => (e.style.display = "none"));
+        if (pw.length > 0 && pwck.length > 0 && pw == pwck) {
+          msg = "비밀번호가 일치합니다.";
+          document.getElementsByClassName("ok")[0].style.display = "inline";
+        } else {
+          msg = "비밀번호가 일치하지 않습니다.";
+          document.getElementsByClassName("error")[0].style.display = "inline";
+          document.getElementById("password").value = "";
+          e.target.value = "";
+          document.getElementById("password").focus();
+        }
+        $p.innerText = msg;
+        // e.target.insertAdjacentElement("afterend", $p);
+      });
+    </script>
+    <form
+      action=""
+      onsubmit="return fn_validate(event);"
+      onreset="fn_reset(event)"
+    >
+      <input type="text" name="test" />
+      <input type="submit" value="전송" />
+      <input type="reset" value="취소" />
+    </form>
+    <script>
+      function fn_reset(e) {
+        alert("reset함");
+        const data = target.children[0].value;
+        console.log(data);
+      }
+
+      function fn_validate(e) {
+        alert("제출함");
+        const data = e.target.children[0].value;
+        if (data.length < 3) return false;
+        else return true;
+      }
+    </script>
+
+    <h3>기본으로 설정된 이벤트 차단하기</h3>
+    <p>a태그에 설정된 이벤트 차단하기</p>
+    <a href="http://www.naver.com" id="clickTest">naver.com</a>
+
+    <script>
+      document.getElementById("clickTest").addEventListener("click", (e) => {
+        // alert("test");
+        e.preventDefault();
+      });
+    </script>
+
+    <h3>윈도우 이벤트</h3>
+    <p>윈도우창에 대한 이벤트 설정하기</p>
+    <script>
+      window.addEventListener("resize", (e) => {
+        //윈도우의 크기가 변경했을때 발생하는 이벤트
+        console.log(e);
+        console.log(e.target.innerHeight, e.target.innerWidth);
+      });
+      window.addEventListener("scroll", (e) => {
+        console.log(e);
+        console.log(window.innerHeight);
+        console.log(window.scrollX, window.scrollY);
+      });
+    </script>
+
+    <h3>버블링효과차단하기</h3>
+    <p>자식에서 발생한 이벤트를 부모에게 전달하는 현상을 버블링</p>
+    <div id="container3" class="test">
+      parent
+      <div class="test">
+        child
+        <div class="test">innerchild</div>
+      </div>
+    </div>
+
+    <style>
+      div#container3 {
+        width: 400px;
+        height: 300px;
+        border: 1px solid magenta;
+      }
+      .test {
+        padding: 20px;
+        border: 1px dotted skyblue;
+      }
+    </style>
+
+    <script>
+      const el = document.querySelectorAll(".test");
+      el.forEach((e) => {
+        e.addEventListener("click", (e) => {
+          alert(e.target.innerText);
+          e.stopPropagation(); //버블링 차단
+        });
+      });
+    </script>
+    <h3>생선된 태그에 이벤트 설정하기</h3>
+    <input type="text" />
+    <button onclick="addEventElement(event);">생성하기</button>
+
+    <script>
+      const addEventElement = (e) => {
+        const $btn = document.createElement("button");
+        $btn.innerText = "생성한 버튼";
+
+        $btn.addEventListener("click", (event) => {
+          alert("생성된 버튼을 클릭함");
+          e.target.click();
+          e.target.previousElementSibling.focus();
+        });
+        e.target.insertAdjacentElement("afterend", $btn);
+      };
+      //태그에 설정된 이벤트발생시키기
+      //element.click(); elemetn.change();
+    </script>
+    <h3>input태그에 작성한 값 초기화시키기</h3>
+    <div id="inputValue">
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+    </div>
+    <button id="btn2">초기화</button>
+    <script>
+      document.querySelector("#btn2").addEventListener("click", (e) => {
+        const inputs = document.querySelectorAll("#inputValue>input");
+        inputs.forEach((e) => (e.value = ""));
+      });
+    </script>
+
+    <h3>브라우저에 영속성 있는 값을 저장하기</h3>
+    <p>
+      localstorage,sessionstorage 객체를 이용 <br />
+      localstorage : 브라우저에서 영속성 있게(닫혀도 데이터를 유지) 저장을 해서
+      관리하는 데이터 객체<br />
+      sessionstorage : 브라우저가 닫히면 데이터를 유지하지 않음 -> 접속중에만
+      데이터를 유지하는 객체
+    </p>
+    <script>
+      console.log(localStorage);
+      console.log(sessionStorage);
+      //key:value형식으로 데이터를 저장
+      //함수를 이용해서 저장 및 출력
+      //setItem, getItem
+      localStorage.setItem("saveUserId", "admin");
+      const data = localStorage.getItem("saveUserId");
+      console.log(data);
+      //데이터 삭제하기
+      //removeItem("ket");
+      localStorage.removeItem("saveUserId");
+      localStorage.setItem("readBoard", "|1|2|3|4|");
+      localStorage.setItem("readProduct", "|1|2|3|4|");
+      localStorage.clear();
+
+      sessionStorage.setItem("loginMember", "admin");
+      sessionStorage.setItem("data", "124");
+    </script>
+    <a href="test.html">이동하기</a>
   </body>
 </html>
