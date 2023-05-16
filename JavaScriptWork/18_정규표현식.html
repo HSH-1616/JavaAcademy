@@ -302,22 +302,62 @@
     <br />
     <button onclick="adress()">주민번호 정규식</button>
     <div id="adressArea"></div>
+    <br />
+    <form action="" onsubmit="return checkData()">
+      <input type="text" id="userId" />
+      <input type="password" id="password" />
+      <input type="submit" value="회원가입" />
+    </form>
     <script>
       let phoneReg = /^010-?[0-9]{4}-?{\d}{4}/;
+      let juminReg = /^[0-9]{2}((0\d)|([1][0-2]))[0-3][\d]-?[1-4][\d]{6}/;
+      let inputData = "031203-2435784 asdfe";
+
+      console.log(juminReg.test(inputData));
+      console.log(juminReg.exec(inputData)); //일치하는 문자열을 반환
+      //배열방식의 추가데이터를 출력
+      const result = juminReg.exec(inputData);
+      console.log(result[0] == result.input, result[0], result.input);
+
+      //아이디 입력시 첫글자가 영문자 소문자이고, 4~12자로 생성하기, 영문자, 숫자만 가능
+      //반드시 한개이상의 숫자를 포함해야함.
+      const checkData = () => {
+        let userIdReg = /(?=.*[\d])^[a-z][\da-zA-Z]{3,11}/;
+        let userId = document.querySelector("#userId").value;
+        if (!userIdReg.test(userId)) {
+          alert("아이디 작성규칙에 위배됩니다.\n 다시작성하세요");
+          return false;
+        }
+        // if (userIdReg.test(userId)) {
+        //   if (!/\d/.test(userId)) {
+        //     alert("아이디에 숫자를 포함해야합니다.");
+        //     return false;
+        //   } else {
+        //     alert(
+        //       "첫글자가 영문자 소문자이고, 4~12글자, 영문소문자로만 작성해야합니다."
+        //     );
+        //     return false;
+        //   }
+        // }
+
+        //비밀번호 8글자 이상 특수기호가 반드시 포함되어야한다.
+        let pwReg = /(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}/;
+        const pw = document.querySelector("#password").value;
+        if (!pwReg.test(pw)) {
+          alert("비밀번호 규칙에 위배됩니다. \n 다시 시도하세요!");
+          return false;
+        }
+      };
+
+      console.log;
 
       const adress = () => {
         const area = getContainer("adressArea");
         let reg =
           / \d{2}(([0][1-9])|([1][0-2]))(([0][1-9])|([1-2]\d)|([3][0-1]))-?[1-4]\d{6} /;
-        area.innerHTML = `<h3>931204-1253454 : -> ${reg.test(
-          '931204-1253454'
-        )}
-        ${reg.exec(
-          '931204-1253454'
-        )}`;
+        area.innerHTML = `<h3>931204-1253454 : -> ${reg.test("931204-1253454")}
+        ${reg.exec("931204-1253454")}`;
       };
-      
     </script>
-    <p><pre></pre></p>
   </body>
 </html>
