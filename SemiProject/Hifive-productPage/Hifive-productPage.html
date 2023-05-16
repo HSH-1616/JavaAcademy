@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hifive-HeaderTest</title>
-    <link rel="stylesheet" href="./css/test.css" />
+    <title>Hifive-productPage</title>
 
+    <link rel="stylesheet" href="css/productPage.css" />
+    <link rel="icon" href="./img/header/파비콘.png" type="image/x-icon" />
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -33,7 +34,7 @@
       <div class="headerMain">
         <div class="logo">
           <a href="">
-            <img src="./img/hifive로고.png" alt="" />
+            <img src="./img/header/hifive로고.png" alt="" />
           </a>
         </div>
         <div class="searchBar">
@@ -49,7 +50,7 @@
             />
 
             <button class="search" onclick="searchData()">
-              <img src="./img/돋보기.png" alt="" />
+              <img src="./img/header/돋보기.png" alt="" />
             </button>
           </div>
         </div>
@@ -182,7 +183,7 @@
         </div>
         <p>카테고리</p>
         <div>
-          <img src="./img/랭킹.png" alt="" id="ranking" height="50px" />
+          <img src="./img/header/랭킹.png" alt="" id="ranking" height="50px" />
         </div>
       </div>
       <hr width="1280px" color="#eeeeee" noshade />
@@ -200,10 +201,10 @@
           <input type="radio" name="slide" id="slide3" />
           <input type="radio" name="slide" id="slide4" />
           <ul id="imgHolder" class="imgs">
-            <li><img src="./img/아이폰.png" /></li>
-            <li><img src="./img/아이폰2.jpg" /></li>
-            <li><img src="./img/아이폰3.png" /></li>
-            <li><img src="./img/아이폰4.png" /></li>
+            <li><img src="./img/productPage/아이폰.png" /></li>
+            <li><img src="./img/productPage/아이폰2.jpg" /></li>
+            <li><img src="./img/productPage/아이폰3.png" /></li>
+            <li><img src="./img/productPage/아이폰4.png" /></li>
           </ul>
           <div class="bullets">
             <label for="slide1">&nbsp;</label>
@@ -214,17 +215,23 @@
         </div>
 
         <div class="productInfo">
-          <p>홈 > 디지털/가전 > 스마트폰</p>
+          <div id="productCategory">
+            <a href="">홈</a>
+            <ion-icon name="chevron-forward-sharp"></ion-icon>
+            <a href="">디지털/가전</a>
+            <ion-icon name="chevron-forward-sharp"></ion-icon>
+            <a href="">스마트폰</a>
+          </div>
           <h2 id="productName">아이폰 12프로 맥스 256기가 단순개봉 풀세트</h2>
           <h2 id="productPrice">800,000원</h2>
-          <hr width="715px" color="#eeeeee" noshade />
+          <hr width="695px" color="#eeeeee" noshade />
           <div class="productIcon">
             <ion-icon name="heart"></ion-icon>
             <b> 11</b>
             <ion-icon name="eye"></ion-icon>
             <b> 54</b>
             <ion-icon name="time"></ion-icon>
-            <b> 2시간전</b>
+            <b> 2일전</b>
             <a href=""
               ><ion-icon name="ban"></ion-icon>
               <b> 신고하기</b>
@@ -246,7 +253,7 @@
                     <li>중고</li>
                     <li>교환 불가능</li>
                     <li style="color: #20c997">배송비 별도</li>
-                    <li>전국</li>
+                    <li>서울시 마포구 합정동</li>
                   </ul>
                 </td>
               </tr>
@@ -291,24 +298,155 @@
 택배거래 직거래 안전결제 다 환영 
 택배-4000 
 안전결제-10000
+
             </pre
           >
+          <div id="introTag">
+            <div class="introBox">
+              <ion-icon name="map-sharp"></ion-icon> <span>거래지역</span>
+              <p>서울시 마포구 합정동</p>
+            </div>
+            <div class="introBox">
+              <ion-icon name="apps-sharp"></ion-icon> <span>카테고리</span>
+              <p><a href="">스마트폰</a></p>
+            </div>
+            <div class="introBox">
+              <ion-icon name="pricetag-sharp"></ion-icon> <span>상품태그</span>
+              <p>
+                <a href=""> #아이폰 </a> <a href=""> #아이폰12 </a>
+                <br />
+                <a href=""> #아이폰 프로 맥스</a>
+              </p>
+            </div>
+          </div>
         </div>
         <div class="shopInfo">
           <h3>상점정보</h3>
           <div class="shopProfile">
             <div id="profile">
-              <a href=""><img src="./img/프로필.png" alt="" /></a>
+              <a href=""><img src="./img/productPage/프로필.jpg" alt="" /></a>
             </div>
             <div id="userInfo">
               <a id="userName" href=""><p>user00</p></a>
-              <a id="userProduct" href=""><p>상품 34</p></a>
+              <a id="userProduct" href=""><p>상품 6</p></a>
             </div>
             <div id="userManner">
               <ion-icon name="thermometer-outline"></ion-icon>
-              <b>63℃</b>
+              <b>43℃</b>
             </div>
           </div>
+          <div id="otherProduct">
+            <div id="opContent">
+              <p>
+                user00님의 판매 상품 <strong style="color: #20c997">6</strong>
+              </p>
+              <a href=""
+                >더보기 <ion-icon name="chevron-forward-sharp"></ion-icon>
+              </a>
+            </div>
+            <div id="opContainer">
+              <div class="opProduct">
+                <a href="">
+                  <img src="./img/productPage/추가상품1.jpg" alt="" />
+                  <p class="opPrice">40,000원</p>
+                  <p class="opName">(새제품)지방...</p>
+                </a>
+              </div>
+              <div class="opProduct">
+                <a href="">
+                  <img src="./img/productPage/추가상품2.jpg" alt="" />
+                  <p class="opPrice">12,345원</p>
+                  <p class="opName">[개인]양식,...</p>
+                </a>
+              </div>
+              <div class="opProduct">
+                <a href="">
+                  <img src="./img/productPage/추가상품3.jpg" alt="" />
+                  <p class="opPrice">12,345원</p>
+                  <p class="opName">[가격내림]그...</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="comment">
+        <h2>댓글</h2>
+        <hr />
+        <div class="cmtContainer">
+          <div class="cmtProfile">
+            <img src="img/productPage/댓글1.jpg" alt="" />
+            <a href="" class="cmtUser"><p>user02</p></a>
+          </div>
+          <p class="cmt">거래원합니다~</p>
+          <span class="time">2023.05.15 15:25</span>
+          <a href="" class="writeCmt">답글쓰기</a>
+          <hr color="#eeeeee" noshade />
+        </div>
+
+        <div class="reComment">
+          <div class="cmtProfile">
+            <img src="img/productPage/아이폰.png" alt="" />
+            <a href="" class="cmtUser"
+              >user01 <span id="rcmtWriter">작성자</span>
+            </a>
+          </div>
+          <p class="cmt">연락주세요</p>
+          <span class="time">2023.05.15 15:30</span>
+          <a href="" class="writeCmt">답글쓰기</a>
+          <hr color="#eeeeee" noshade />
+        </div>
+
+        <div class="cmtContainer">
+          <div class="cmtProfile">
+            <img src="img/productPage/댓글2.jpg" alt="" />
+            <a href="" class="cmtUser"><p>user03</p></a>
+          </div>
+          <p class="cmt">팔렸나요?</p>
+          <span class="time">2023.05.16 17:24</span>
+          <a href="" class="writeCmt">답글쓰기</a>
+          <hr color="#eeeeee" noshade />
+        </div>
+      </div>
+      <div id="relateProduct">
+        <h2>연관상품</h2>
+        <div id="rpContainer">
+          <div class="rProduct">
+            <a href=""
+              ><img src="./img/productPage/연관1.jpg" alt="" />
+              <p>갤럭시23</p></a
+            >
+          </div>
+          <div class="rProduct">
+            <a href=""
+              ><img src="./img/productPage/연관2.jpg" alt="" />
+              <p>중고폰매입 파손폰매입...</p></a
+            >
+          </div>
+          <div class="rProduct">
+            <a href=""
+              ><img src="./img/productPage/연관3.jpg" alt="" />
+              <p>아이폰 12프로맥스 128기...</p></a
+            >
+          </div>
+          <div class="rProduct">
+            <a href=""
+              ><img src="./img/productPage/연관4.jpg" alt="" />
+              <p>파손폰매입 중고폰매입...</p></a
+            >
+          </div>
+          <div class="rProduct">
+            <a href=""
+              ><img src="./img/productPage/연관5.jpg" alt="" />
+              <p>아이폰14pro 128기가</p></a
+            >
+          </div>
+          <!-- <div class="rProduct">
+            <a href=""
+              ><img src="./img/연관6.jpg" alt="" />
+              <p>중고폰매입 파손폰매입...</p></a
+            >
+          </div> -->
         </div>
       </div>
     </section>
