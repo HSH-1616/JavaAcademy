@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 생성하기</title>
+    <script src="./js/jquery-3.7.0.min.js"></script>
+  </head>
+  <body>
+    <h1>jquery를 이용해서 태그를 생성하기</h1>
+    <p>
+      $("생성할태그")->예) 버튼태그 $("&lt;button&gt;") <br />
+      html()함수이용 -> innerHTML에 값을 대입한것과 동일
+    </p>
+    <button onclick="createTag()">태그생성하기</button>
+    <div id="container"></div>
+    <script>
+      const createTag = () => {
+        // $("div#container").html("<p>나는 생성된 p태그</p>");
+        // const $h3 = $("<h3>");
+        // console.log($h3);
+        // $h3.text("jquery방식으로 생성").css("color", "olive");
+        // $("div#container").append($h3);
+        $("<h3>생성태그</h3>")
+          .css("color", "olive")
+          .appendTo($("div#container"));
+      };
+    </script>
+    <div id="inputTag">
+      <input type="text" name="tag" />
+      <input type="text" name="content" />
+      <button onclick="createTag2()">태그생성</button>
+    </div>
+    <script>
+      const createTag2 = () => {
+        const tag = $("input[name=tag]").val();
+        const content = $("input[name=content]").val();
+
+        $(`<${tag}>`).text(content).appendTo($("#container"));
+
+        // const append = $(tag).appendTo($(content));
+        // $(append).appendTo($("div#container"));
+      };
+    </script>
+    <h3>생성된 태그를 페이지에 연결해주는 함수</h3>
+    <ul>
+      <li>
+        자식태그로 연결하기
+        <p>append()||appendTo() : 맨밑에 자식으로 추가하는 함수</p>
+        <p>prepend()||prependTo() : 맨위에 자식으로 추가하는 함수</p>
+      </li>
+      <li>
+        형제태그로 연결하기
+        <p>before()||insertBefore() : 같은레벨에서 지정된 태그의 앞에 추가</p>
+        <p>after()||insertAfter() : 같은레벨에서 지정된 태그의 뒤에 추가</p>
+      </li>
+    </ul>
+    <div id="container2">
+      <h2 style="color: aquamarine">기준태그</h2>
+    </div>
+    <button onclick="appendTest()">appendTest</button>
+    <button onclick="prependTest()">prependTest</button>
+    <button onclick="beforeTest()">beforeTest</button>
+    <button onclick="afterTest()">afterTest</button>
+    <style>
+      #container2 {
+        width: 400px;
+        height: 300px;
+        border: 1px solid aqua;
+      }
+    </style>
+    <script>
+      const afterTest = () => {
+        const $p = $("<p>").text("ppp");
+        $("#container2").after($p);
+      };
+      const beforeTest = () => {
+        const $h4 = $("<h4>").text("h4태그");
+        $("#container2").before($h4);
+        const hr = $("<hr>");
+        hr.insertBefore($("#container2"));
+      };
+      const prependTest = () => {
+        const $p = $("<p>").text("p태그");
+        $("#container2").prepend($p);
+        const $p2 = $("<p>").text("p태그2");
+        $p2.prependTo($("#container2"));
+      };
+      const appendTest = () => {
+        const $h3 = $("<h3>").text("점심시간 즐겼나요?");
+        //append() : 앞에(접근한) Element에 매개변수 Element를 자식으로 추가
+        $("#container2").append($h3);
+        //appendTo() : 앞에(접근한) Element를 매개변수 Element의 자식으로 추가함.
+        const $h4 = $("<h4>").text("appendToTest");
+        $($h4).appendTo("#container2");
+      };
+    </script>
+    <h3>페이지에 출력된 태그를 append,prepend,after,before를 사용</h3>
+    <p>위치를 이동시키는 기능을 한다.</p>
+    <div id="container3">
+      <p>나는 p태그</p>
+      <p>1</p>
+      <p>2</p>
+      <h4>나는 h4태그</h4>
+    </div>
+    <button onclick="moveTag()">움직이기</button>
+    <script>
+      const moveTag = () => {
+        $("#container3>*:first").appendTo($("#container3"));
+      };
+    </script>
+    <div id="imgContainer"></div>
+    <button onclick="addImg()">추가</button>
+    <button onclick="changeImg()">변경</button>
+    <script>
+      const changeImg = () => {
+        $("#imgContainer>*:first").appendTo($("#imgContainer"));
+      };
+      const addImg = (() => {
+        let count = 0;
+        const images = [
+          "https://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg",
+          "https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg",
+          "https://blog.kakaocdn.net/dn/ckVyhP/btqCUx8S0Zr/ZL7wLO5ht5WyyURJ6Fbt2k/img.jpg",
+        ];
+        return (e) => {
+          if (count < 3) {
+            const img = $("<img>").css("width", "200px").css("height", "200px");
+            img[0].src = images[count++];
+            $("#imgContainer").append(img);
+          } else {
+            alert("이미지는 3개만 가능");
+          }
+        };
+      })();
+    </script>
+
+    <h2>태그를 삭제, 복사하기</h2>
+    <p>
+      복사하기 : $("선택자").clone(true|false) 메소드 이용 <br />
+      true : 이벤트까지 복사 <br />
+      false : 태그만 복사 <br />
+    </p>
+    <div id="clone-div">
+      <div id="item1" class="item">
+        <span>안녕</span>
+      </div>
+    </div>
+    <button onclick="cloneTest();">복사하기</button>
+    <script>
+      const cloneTest = () => {
+        const $div = $("#item1").clone(true);
+        console.log($div);
+        $("#clone-div").append($div);
+      };
+      //onload속성 -> ready()
+      $(() => {
+        $("#item1").click((e) => {
+          $(e.target).css("backgroundColor", "orangered");
+        });
+      });
+    </script>
+    <style>
+      .item {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        text-align: center;
+        background-color: yellowgreen;
+      }
+      .item > span {
+        font-size: 24px;
+        font-weight: bolder;
+        color: white;
+      }
+    </style>
+    <h3>삭제하기</h3>
+    <p>
+      $("부모태그").empty() : 모든 자식 태그를 삭제<br />
+      $("지울태그").remove() : 해당태그를 삭제(잘라내기), 설정된 이벤트는
+      삭제함. <br />
+      $("지울태그").detach() : 해당태그를 삭제(잘라내기), 설정된 이벤트는 유지함
+    </p>
+    <div id="remove-test" class="box">
+      <div id="item2" class="item">
+        <span>삭제하기</span>
+      </div>
+    </div>
+    <div id="result" class="box"></div>
+    <button onclick="deleteTest()">삭제하기</button>
+    <script>
+      const deleteTest = () => {
+        // const $delDiv = $("#item2").remove();
+        const $delDiv = $("#item2").detach();
+        console.log($delDiv);
+        $("#result").append($delDiv);
+        $("body").empty();
+        console.log($("body").empty()); //삭제한 객체
+      };
+      $(() => {
+        $("#item2").mouseenter((e) => {
+          $(e.target).css("backgroundColor", "magenta");
+        });
+      });
+    </script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        padding: 5px 10px 15px 10px;
+        margin: 10px;
+      }
+      #remove-test {
+        border: 1px solid green;
+      }
+      #result {
+        border: 1px solid orange;
+      }
+    </style>
+    <div id="uploadcontainer">
+      <fieldset>
+        <legend>첨부파일</legend>
+        <table>
+          <tr>
+            <td><input type="file" name="upload" /></td>
+            <td style="text-align: right">
+              <button onclick="add()">추가</button>
+              <button onclick="remove(event)">삭제</button>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
+    <script>
+      const add = () => {
+        const $add = $("#uploadcontainer tr:first").clone();
+        $("#uploadcontainer fieldset").append($add);
+      };
+
+      const remove = (e) => {
+        // $(e.target.parentElement.parentElement).remove();
+        $(e.target).parent().parent().remove();
+      };
+    </script>
+  </body>
+</html>

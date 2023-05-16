@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 실습문제</title>
+</head>
+<body>
+    <h2>1. 실행 button을 클릭하면 클라이언트에게 "메세지를 입력하세요"문구를 출력하고 얼럿으로 값을 입력받고 div#test1에 입력받은 내용을 출력하시오</h2>
+        <button>실행</button>
+        <div id="test1"></div>
+    <h2>2. 실행버튼 클릭시 클라이언트에게 "개인정보활용에 동의하시겠습니까?"를 출력 후 알림창으로 확인을 누르면 "당신의 개인정보가 유출되었습니다"를 출력하고 취소를 누르면 "당신의 개인정보는 이미 누출되었습니다" 출력</h2>
+     <button >실행</button>
+    <h2>3. 실행하기 button을 클릭하면 랜덤(1~100)으로 숫자를 10개 배열에 저장 후 내림차순으로 정렬하여 div#test3>ul 리스트태그로 출력 *함수명을 자율로 설정</h2>
+        <button>실행하기</button>
+        <div id="test3">
+            <ul></ul>
+        </div>
+    <h2>4. input태그에 type text name img 이미지 주소를 입력하고 출력하기 출력하기 button을 클릭하면 입력한 주소의 이미지가 div.imgcontainer태그에 200X200크기로 출력 </h2>
+        <input type="text" name="img"><button onclick="test4();">출력하기</button>
+        <div class="imgcontainer"></div>
+    <h2>5. 이미지 3개의 주소를 저장하고 img#targetImg에 첫번째 이미지(200X200) 를 출력하고 변경하기 button을 누르면 3개의 이미지가 순서대로 변경하게 출력하기 *변경하는 기준이 되는 값은 외부에서 수정이 불가능해야 한다.</h2>
+        <button >변경하기</button><br>
+        <img id="targetImg">
+    <h2>6. input.inputdata태그를 text type으로 구성하고 작성할때마다 작성된 문자를 div#textcontainer에 h2태그로 누적되어 출력 </h2>
+        <input type="text" class="inputdata">
+        <div id="textcontainer"></div>
+    <h2>7. input태그 type이 password를 두개 만들고 두번째 password input작성시 
+        두 input tag가 일치여부를 일치할때는 녹색으로 "일치합니다", 불일치할때는 빨강색으로 "일치하지않습니다." 를 input태그 밑에 출력하시오 *구조를 변경하지말고 풀것</h2>
+        <input type="password" name="password"><br>
+        <input type="password" name="passwordck"><br>
+        <span></span>
+        <h2>8. 아래 태그의 데이터를 확인하기 버튼을 클릭하면 모두 가져와 3글자 이상인 데이터만 div#checkStr에 출력하기 *구조나 속성을 추가할 수 없음</h2>
+        <div class="datacontainer">
+            <p>가나다라</p>
+            <p>abcde</p>
+            <h3>썬칩</h3>
+            <h4>홈런볼</h4>
+            <span>초코칩쿠키</span>
+            <p>칸쵸</p>
+            <h4>초코파이</h4>
+            <h2>칙촉</h2>
+        </div>
+        <div id="checkStr"></div>
+        <button >확인하기</button>
+        <h2>9. 실행하기 버튼을 누르면 아래 첫번째 리스트의 값을 가져와 순서대로 오름차순 정렬하고 다시 두번째 리스트에 내용 넣어 출력하기 *여기에 채우시오는 출력하지않음</h2>
+        <div class="datacontainer2">
+            <ul>
+                <li>300</li>
+                <li>100</li>
+                <li>400</li>
+                <li>90</li>
+                <li>200</li>
+                <li>80</li>
+                <li>500</li>
+            </ul>
+            <ul>
+                <li>여기에 채우시오</li>
+            </ul>
+        </div>
+        <button>실행하기</button>
+    <h2>10. input태그 3개를 만들어 두개는 숫자를 입력 하나는 연산자를 입력(선택하여 입력할 수 있도록 구성(+,-,*,/)) 계산한 후 div영역에 결과를 h3로 출력 </h2>
+        <div id="calContainer">
+            <input type="number" name="su">
+            <select name="op" id="op">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" name="su">
+            <button>실행</button>
+            <div></div>
+        </div>
+
+    <h2>11. 원하는 사진을 한개 출력(100X100)하고 그 사진을 클릭하면 크기가 가로세로 10px씩 증가시키기</h2>
+        <div class="imgcontainer">
+            <img src="" alt="" width="100" height="100" >
+        </div>
+
+    <h2>12. 출력하기 button을 클릭하면 유병승,홍길동,이순신,강감찬,유재석,이경규,강호동 데이터를 이름순으로 오름차순 정렬하여 div#list>ol에 list 출력하기<br>
+        출력하기2 button을 클릭하면 정렬한 데이터 중 유씨와 이씨만 동일한 위치에 리스트로 출력하기<br>
+        *출력하기, 출력하기2 눌렀을때 이전데이터는 지워지고 출력되어야함.
+    </h2>
+        <button>출력하기</button>
+        <button>출력하기2</button>
+        <div id="list">
+            <ol></ol>
+        </div>
+
+    <h2>13. 추가 button을 누르면 input type text인 태그가 div.inputcontainer에 추가하기
+    <br>
+    추가한 후 입력하는 창은 10개 까지만 추가될 수 있게 수정하기 * 추가에 대한 기준은 외부에서 수정되면 안됨. 10개이상 추가하려고하면 "10개까지만 추가할 수 있습니다" 알람출력
+    </h2>
+        <div class="inputcontainer">
+            <button>추가</button><br>
+        </div>
+        
+    <h2>14. 출력 button을 클릭하면 다음 객체로 저장된 데이터의 내용을 list로 출력<br>
+        {name:"유병승",age:19,height:180.5,weight:65.5,addr:"경기도시흥시",birthDay:02-03-24}
+    </h2>
+    <div class="listdata">
+        <button onclick="test14();">출력</button>
+        <ul></ul>
+    </div>
+
+    <h2>15. 출력하기 버튼을 클륵히면 다음의 객체배열로 저장된 데이터를 div#dataTbl에 테이블로 출력<br>
+        [{no:1,title:첫번째,writer:유저1,enrolldate:오늘날짜}
+        {no:2,title:두번째,writer:유저2,enrolldate:오늘날짜}
+        {no:3,title:세번째,writer:유저3,enrolldate:오늘날짜}
+        {no:4,title:"네번째",writer:"유저4",enrolldate:오늘날짜}] <br>
+   </h2>
+   <div id="datacontainer">
+       <button>출력하기</button>
+       <div></div>
+   </div>
+   <h2>16. input태그로 no, title, writer, enrolldate를 입력받고 추가 button을 클릭하면 15번 문제의 table에 입력같이 추가 되는기능 *input태그는 자유롭게 구현하여 사용 *15번 실행 후 실행할것</h2>
+
+   <h2>17. 취미선택하기 button을 클릭하면 배열에 저장된 내용으로 checkbox를 div#hobby에 출력하고
+    체크 후 확인하기 button을 클릭하면 check한 내용을 div#hobbyResult에 내용출력하기
+    </h2>
+    <button>취미선택하기</button>
+    <button>확인하기</button>
+    <div id="hobby"></div>
+    <div id="hobbyresult"></div>
+
+    
+
+</body>
+</html>

@@ -262,15 +262,20 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
   padding-top: 40px;
 }
 .product img {
-  width: 450px;
-  height: 450px;
+  width: 525px;
+  height: 525px;
 }
 
 .productInfo {
+  width: 715px;
   padding-left: 40px;
 }
 .productInfo h2 {
+  font-size: 25px;
   margin-top: 25px;
+}
+#productPrice {
+  font-size: 30px;
 }
 .productInfo hr {
   margin-top: 25px;
@@ -281,7 +286,7 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
   color: #afafaf;
 }
 .productIcon {
-  margin-top: 25px;
+  margin-top: 35px;
   color: #afafaf;
   display: flex;
   align-items: center;
@@ -297,11 +302,15 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
 }
 .productIcon > a {
   position: relative;
-  left: 520px;
+  left: 445px;
   color: #afafaf;
   display: flex;
   align-items: center;
   text-decoration: none;
+}
+.productDetail {
+  font-size: 17px;
+  margin-top: 10px;
 }
 .productClass li {
   list-style-type: disc;
@@ -314,23 +323,30 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
   margin-left: 35px;
 }
 .productBtn {
-  margin-top: 35px;
+  margin-top: 61px;
   display: flex;
   justify-content: space-evenly;
   /* align-items: center; */
 }
 .productBtn button {
   width: 200px;
-  height: 50px;
+  height: 65px;
   background-color: #20c997;
   border: 0;
-  border-radius: 25px;
+  /* border-radius: 10px; */
   color: white;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* margin-top: -13px; */
+}
+#heartBtn button {
+  background-color: #afafaf;
+}
+#heartBtn button:hover {
+  background-color: #20c997;
 }
 .productBtn button:hover {
   cursor: pointer;
@@ -408,8 +424,8 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
 
 /* 이미지슬라이드 */
 .imgSlide {
-  width: 450px;
-  height: 450px;
+  width: 525px;
+  height: 525px;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
@@ -424,7 +440,7 @@ ul.imgs {
 }
 ul.imgs li {
   position: absolute;
-  left: 450px;
+  left: 525px;
   transition-delay: 0.5s;
 
   padding: 0;
