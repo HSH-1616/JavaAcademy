@@ -175,7 +175,7 @@ input[id="menuIcon"] + label > span {
   border-radius: 30px;
   background: #000;
   transition: all 0.35s;
-  z-index: 2;
+  z-index: 99;
 }
 
 input[id="menuIcon"] + label > span:nth-child(1) {
@@ -207,7 +207,7 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
 
 #menuList {
   font-size: 0;
-  z-index: 1;
+  z-index: 99;
   background-color: white;
 }
 #menuIcon:checked + label + #menuList {
@@ -238,7 +238,7 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
   position: relative;
   background-color: white;
   bottom: 600px;
-  z-index: 1;
+  z-index: 99;
 }
 .sideMenu > ul > li > a {
   color: #afafaf;
