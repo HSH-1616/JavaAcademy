@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hifive-categorySearch</title>
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/categorySearch.css" />
+    <link rel="icon" href="./img/header/파비콘.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
+  </head>
+
+  <body>
+    <header>
+      <div class="loginSerivce">
+        <a href="http://www.naver.com" id="login">로그인</a>
+        <a href="http://www.naver.com" id="enroll">회원가입</a>
+        <a href="http://www.naver.com" id="service">고객센터</a>
+      </div>
+      <div class="headerMain">
+        <div class="logo">
+          <a href="">
+            <img src="./img/header/hifive로고.png" alt="" />
+          </a>
+        </div>
+        <div class="searchBar">
+          <div class="searchDetail">
+            <input
+              type="search"
+              onsearch=""
+              class="search"
+              placeholder="상품검색"
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = '상품검색'"
+              onkeypress="if( event.keyCode == 13 ){searchData();}"
+            />
+
+            <button class="search" onclick="searchData()">
+              <img src="./img/header/돋보기.png" alt="" />
+            </button>
+          </div>
+        </div>
+        <div class="memberIcon">
+          <a href="">
+            <ion-icon name="storefront-outline" class="storeIcon"></ion-icon>
+            판매하기
+          </a>
+          <a href="">
+            <ion-icon name="person-outline" class="myIcon"></ion-icon>
+            내정보
+          </a>
+          <a href="">
+            <ion-icon name="heart-outline" class="heartIcon"></ion-icon>
+            찜한상품
+          </a>
+        </div>
+      </div>
+      <div class="categoryNrank">
+        <input type="checkbox" id="menuIcon" />
+        <label for="menuIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <div id="menuList">
+          <ul>
+            <li><a href="#" id="category1">카테고리1</a></li>
+            <li><a href="#" id="category2">카테고리2</a></li>
+            <li><a href="#" id="category3">카테고리3</a></li>
+            <li><a href="#" id="category4">카테고리4</a></li>
+            <li><a href="#" id="category5">카테고리5</a></li>
+            <li><a href="#" id="category6">카테고리6</a></li>
+            <li><a href="#" id="category7">카테고리7</a></li>
+            <li><a href="#" id="category8">카테고리8</a></li>
+            <li><a href="#" id="category9">카테고리9</a></li>
+            <li><a href="#" id="category10">카테고리10</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu1">
+          <ul>
+            <li><a href="#">세부 카테고리1</a></li>
+            <li><a href="#">세부 카테고리2</a></li>
+            <li><a href="#">세부 카테고리3</a></li>
+            <li><a href="#">세부 카테고리4</a></li>
+            <li><a href="#">세부 카테고리5</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu2">
+          <ul>
+            <li><a href="#">세부 카테고리6</a></li>
+            <li><a href="#">세부 카테고리7</a></li>
+            <li><a href="#">세부 카테고리8</a></li>
+            <li><a href="#">세부 카테고리9</a></li>
+            <li><a href="#">세부 카테고리10</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu3">
+          <ul>
+            <li><a href="#">세부 카테고리11</a></li>
+            <li><a href="#">세부 카테고리12</a></li>
+            <li><a href="#">세부 카테고리13</a></li>
+            <li><a href="#">세부 카테고리14</a></li>
+            <li><a href="#">세부 카테고리15</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu4">
+          <ul>
+            <li><a href="#">세부 카테고리16</a></li>
+            <li><a href="#">세부 카테고리17</a></li>
+            <li><a href="#">세부 카테고리18</a></li>
+            <li><a href="#">세부 카테고리19</a></li>
+            <li><a href="#">세부 카테고리20</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu5">
+          <ul>
+            <li><a href="#">세부 카테고리21</a></li>
+            <li><a href="#">세부 카테고리22</a></li>
+            <li><a href="#">세부 카테고리23</a></li>
+            <li><a href="#">세부 카테고리24</a></li>
+            <li><a href="#">세부 카테고리25</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu6">
+          <ul>
+            <li><a href="#">세부 카테고리26</a></li>
+            <li><a href="#">세부 카테고리27</a></li>
+            <li><a href="#">세부 카테고리28</a></li>
+            <li><a href="#">세부 카테고리29</a></li>
+            <li><a href="#">세부 카테고리30</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu7">
+          <ul>
+            <li><a href="#">세부 카테고리31</a></li>
+            <li><a href="#">세부 카테고리32</a></li>
+            <li><a href="#">세부 카테고리33</a></li>
+            <li><a href="#">세부 카테고리34</a></li>
+            <li><a href="#">세부 카테고리35</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu8">
+          <ul>
+            <li><a href="#">세부 카테고리36</a></li>
+            <li><a href="#">세부 카테고리37</a></li>
+            <li><a href="#">세부 카테고리38</a></li>
+            <li><a href="#">세부 카테고리39</a></li>
+            <li><a href="#">세부 카테고리40</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu9">
+          <ul>
+            <li><a href="#">세부 카테고리41</a></li>
+            <li><a href="#">세부 카테고리42</a></li>
+            <li><a href="#">세부 카테고리43</a></li>
+            <li><a href="#">세부 카테고리44</a></li>
+            <li><a href="#">세부 카테고리45</a></li>
+          </ul>
+        </div>
+        <div class="sideMenu" id="sideMenu10">
+          <ul>
+            <li><a href="#">세부 카테고리46</a></li>
+            <li><a href="#">세부 카테고리47</a></li>
+            <li><a href="#">세부 카테고리48</a></li>
+            <li><a href="#">세부 카테고리49</a></li>
+            <li><a href="#">세부 카테고리50</a></li>
+          </ul>
+        </div>
+        <p>카테고리</p>
+        <div>
+          <img src="./img/header/랭킹.png" alt="" id="ranking" height="50px" />
+        </div>
+      </div>
+      <hr width="1280px" color="#eeeeee" noshade />
+    </header>
+
+    <!-- header style태그 -->
+    <style></style>
+    <script></script>
+    <!-- body & footer -->
+    <section>
+      <div id="wraperContainer">
+        <div id="leftCategory">
+          <div id="pdcContainer">
+            <div class="pdcCategoryMain">
+              <span id="categoryMain"><b>카테고리</b></span>
+              <i
+                class="bi bi-caret-down-fill"
+                data-toggle="collapse"
+                href="#pddCategory"
+                aria-expanded="false"
+                aria-controls="pddCategory"
+              ></i>
+
+              <div class="collapse" id="pddCategory">
+                <div id="pddContainer">
+                  <ul>
+                    <div class="pdcCategory">
+                      <span>카테고리1</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory1"
+                        aria-expanded="false"
+                        aria-controls="pddCategory1"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory1">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리2</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory2"
+                        aria-expanded="false"
+                        aria-controls="pddCategory2"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory2">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리3</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory3"
+                        aria-expanded="false"
+                        aria-controls="pddCategory3"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory3">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리4</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory4"
+                        aria-expanded="false"
+                        aria-controls="pddCategory4"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory4">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리5</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory5"
+                        aria-expanded="false"
+                        aria-controls="pddCategory5"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory5">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리6</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory6"
+                        aria-expanded="false"
+                        aria-controls="pddCategory6"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory6">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리7</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory7"
+                        aria-expanded="false"
+                        aria-controls="pddCategory7"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory7">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리8</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory8"
+                        aria-expanded="false"
+                        aria-controls="pddCategory8"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory8">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리9</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory9"
+                        aria-expanded="false"
+                        aria-controls="pddCategory9"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory9">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                      <hr />
+                    </div>
+                    <div class="pdcCategory">
+                      <span>카테고리10</span>
+                      <i
+                        class="fa fa-plus-square"
+                        data-toggle="collapse"
+                        href="#pddCategory10"
+                        aria-expanded="false"
+                        aria-controls="pddCategory5"
+                      ></i>
+
+                      <div class="collapse" id="pddCategory10">
+                        <ul>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                          <li><a href="">세부카테고리</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div id="productContainer">
+          <div id="selectCategory">
+            <div id="categoryName">
+              <h4>스마트폰 <span>(453)</span></h4>
+            </div>
+            <div id="categoryFunction">
+              <span>최신순</span>
+              <span>인기도순</span>
+              <span>최고가순</span>
+              <span>최저가순</span>
+            </div>
+          </div>
+          <div id="productImgContainer">
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script></script>
+    </section>
+    <footer></footer>
+    <!-- js호출 -->
+    <script src="js/test.js"></script>
+  </body>
+</html>

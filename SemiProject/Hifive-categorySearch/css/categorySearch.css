@@ -1,0 +1,123 @@
+#wraperContainer {
+  display: flex;
+}
+
+#leftCategory {
+  width: 200px;
+  height: 1000px;
+  box-sizing: border-box;
+  /* border: 1px solid #eeeeee; */
+}
+#pdcContainer {
+  /* padding-top: 5px; */
+  padding-bottom: 0px;
+  /* text-align: center; */
+}
+.pdcCategory i {
+  /* border: 1px solid #eeeeee; */
+  color: #20c997;
+  margin-left: 5px;
+}
+#pdcContainer span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#pdcContainer li {
+  margin-top: 10px;
+}
+#pdcContainer a {
+  color: #afafaf;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+#pdcContainer li :hover {
+  color: #20c997;
+  font-weight: bold;
+}
+#categoryMain b {
+  font-size: 16px;
+}
+#pddContainer {
+  padding-top: 25px;
+}
+#pdcContainer hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#productContainer {
+  margin-top: -20px;
+  width: 1080px;
+  height: 1000px;
+  /* border: 1px solid #eeeeee; */
+  border-top: 0px;
+  border-bottom: 0px;
+}
+#selectCategory {
+  /* border: 1px solid #eeeeee; */
+  width: 1080px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#selectCategory h4 {
+  margin-left: 30px;
+  /* color: #afafaf; */
+  font-weight: bold;
+}
+#selectCategory span {
+  color: #afafaf;
+}
+#categoryFunction span {
+  margin-right: 8px;
+  color: #afafaf;
+}
+#categoryFunction span:hover {
+  color: #20c997;
+  cursor: pointer;
+}
+#productImgContainer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+#pimgWraper {
+  height: 370px;
+  /* margin-top: 10px; */
+}
+#productImgContainer img {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+}
+#pimgWraper a {
+  text-decoration: none;
+}
+#pimgWraper p {
+  position: relative;
+  top: 15px;
+}
+#productName {
+  color: black;
+  font-size: 15px;
+}
+#productPrice {
+  color: black;
+  font-weight: bold;
+  font-size: 17px;
+}
+#productPrice span {
+  font-size: 14px;
+  color: #afafaf;
+  margin-left: 15px;
+}
+#productPlace {
+  color: #afafaf;
+}
+#productPlace i {
+  color: #20c997;
+}
