@@ -1,0 +1,2 @@
+selectMemberAll=SELECT * FROM MEMBER
+selectMemberId=SELECT * FROM MEMBER WHERE MEMBER_ID=?

@@ -1,0 +1,17 @@
+package com.jdbc.controller;
+
+import java.util.Map;
+
+import com.jdbc.view.MainView;
+
+public class Controller {
+	
+	MainView v=new MainView();
+	
+	public void memberControl() {
+		v.memberControl();
+	}
+	
+	
+	
+}

@@ -1,0 +1,16 @@
+package com.jdbc.controller;
+
+import java.util.List;
+
+import com.jdbc.model.dto.ModelDTO;
+import com.jdbc.model.service.Service;
+import com.jdbc.view.MainView;
+
+public class Controller {
+	private Service s=new Service();
+	
+	public void selectMemberAll() {
+		List<ModelDTO> m=s.selectAllMember();
+		new MainView.printMembers(m);
+	}
+}

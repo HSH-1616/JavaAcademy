@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.jdbc.model&apos; to &apos;com.jdbc.model.dto&apos;&#x0D;&#x0A;- Original project: &apos;practice1&apos;&#x0D;&#x0A;- Original element: &apos;practice1/src/com.jdbc.model&apos;&#x0D;&#x0A;- Renamed element: &apos;practice1/src/com.jdbc.model.dto&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.jdbc.model&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.jdbc.model" name="com.jdbc.model.dto" qualified="false" references="true" stamp="1681893830693" textual="false" version="1.0"/>
+</session>

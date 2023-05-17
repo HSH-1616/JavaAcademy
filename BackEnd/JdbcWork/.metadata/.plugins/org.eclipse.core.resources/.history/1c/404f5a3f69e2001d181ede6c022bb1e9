@@ -1,0 +1,15 @@
+package com.jdbc.model.service;
+
+import java.sql.Connection;
+import java.util.List;
+
+import com.jdbc.model.dto.MemberDTO;
+import static com.jdbc.common.JDBCTemplate.*;
+
+public class Service {
+	
+	public List<MemberDTO> selectAllMember(){
+		Connection conn=getConncection();
+		
+	}
+}

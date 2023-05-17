@@ -1,0 +1,21 @@
+package com.jdbc.model.service;
+
+import static com.jdbc.common.JDBCTemplate.*;
+
+import java.sql.Connection;
+import java.util.List;
+
+import com.jdbc.model.dao.Dao;
+import com.jdbc.model.dto.MemberDTO;
+
+public class Service {
+	
+	Dao dao=new Dao();
+	
+	public List<MemberDTO> selectAllMember(){
+		Connection conn=getConnection();
+		List<MemberDTO> m=dao.selectAllMember(conn);
+		close(conn);
+		return m;		
+	}
+}
