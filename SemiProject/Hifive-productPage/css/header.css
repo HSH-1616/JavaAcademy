@@ -12,12 +12,27 @@
   font-family: "NEXON Lv2 Gothic";
 }
 header {
-  width: 1280px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+}
+#headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#headerContainer hr {
+  margin-top: 20px;
+}
+#fixedContainer {
+  width: 1280px;
 }
 
 section {
+  padding-top: 190px;
   width: 1280px;
   height: auto;
   margin: 0 auto;

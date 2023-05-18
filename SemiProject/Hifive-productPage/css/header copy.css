@@ -12,12 +12,27 @@
   font-family: "NEXON Lv2 Gothic";
 }
 header {
-  width: 1280px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+}
+#headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#headerContainer hr {
+  margin-top: 20px;
+}
+#fixedContainer {
+  width: 1280px;
 }
 
 section {
+  padding-top: 190px;
   width: 1280px;
   height: auto;
   margin: 0 auto;
@@ -60,9 +75,10 @@ section {
   justify-content: center;
   width: 610px;
   height: 40px;
-  background-color: #eeeeee;
-  border: none;
-  border-radius: 50px;
+  background-color: white;
+  border: 4px solid #20c997;
+
+  /* border-radius: 50px; */
 }
 
 .searchDetail {
@@ -76,7 +92,7 @@ section {
 .searchDetail > input {
   width: 540px;
   border: none;
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
   outline: none;
 }
 .searchDetail > input[type="search"]::-webkit-search-cancel-button {
@@ -92,7 +108,7 @@ section {
 .searchDetail > button > img {
   width: 18px;
   height: 18px;
-  color: #afafaf;
+  /* color: white; */
   padding-top: 4px;
 }
 
@@ -121,7 +137,7 @@ section {
   font-size: 26px;
 }
 
-.memberIcon a {
+.memberIcon > a {
   font-size: 17px;
   text-decoration: none;
   color: #313030;
@@ -149,7 +165,7 @@ section {
   color: #313030;
   position: absolute;
   right: 1185px;
-  top: 4px;
+  bottom: 7px;
   font-weight: bold;
 }
 /* /categoryNrank/ */
