@@ -2,7 +2,6 @@ package com.bs.practice;
 
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class LoopPracticeEx {
 	Scanner sc = new Scanner(System.in);

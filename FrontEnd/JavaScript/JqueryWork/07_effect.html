@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>effect활용하기</title>
+    <script src="./js/jquery-3.7.0.min.js"></script>
+  </head>
+  <body>
+    <h2>animate()함수 이용하기</h2>
+    <p>animation을 간단하게 적용할 수 있는 함수</p>
+    <div id="target"></div>
+    <style>
+      #target {
+        width: 200px;
+        height: 200px;
+        background-color: violet;
+      }
+    </style>
+    <script>
+      $("#target").click((e) => {
+        $(e.target).animate(
+          {
+            width: "500px",
+            height: "500px",
+            opacity: "0.5",
+          },
+          1000,
+          () => {
+            alert("애니메이션 종료!");
+          }
+        );
+      });
+    </script>
+    <h2>슬라이딩함수</h2>
+    <p>
+      slideUp(진행시간(ms)),slideDown(진행시간(ms)),slideToggle(진행시간(ms))
+    </p>
+    <div id="menucontainer">
+      <div>첫번째 메뉴</div>
+    </div>
+    <button id="btn">slideUp</button>
+    <button id="btn2">slideDown</button>
+    <button id="btn3">slideToggle</button>
+    <style>
+      #menucontainer div {
+        width: 40%;
+        height: 300px;
+        background-color: lavender;
+      }
+    </style>
+    <script>
+      $("#btn").click((e) => {
+        $("#menucontainer>div").slideUp(500);
+      });
+      $("#btn2").on("click", (e) => {
+        $("#menucontainer>div").slideDown(1000);
+      });
+      $("#btn3").click((e) => {
+        $("#menucontainer>div").slideToggle(1000);
+      });
+    </script>
+    <h3>fade함수적용</h3>
+    <p>
+      점점 희미해지거나 점점 진해지는 느낌을 줌
+      fadeIn(),fadeOut(),fadeTo(),fadeToggle()
+    </p>
+    <img
+      src="https://cdn.pixabay.com/photo/2015/10/01/21/39/background-image-967820_960_720.jpg"
+      alt=""
+      width="200"
+      height="200"
+      id="fadeImg"
+    />
+    <br />
+    <button onclick="fadeInTest()">fadeIn</button>
+    <button onclick="fadeOutTest()">fadeOut</button>
+    <button onclick="fadeToTest()">fadeTo</button>
+    <button onclick="fadeToggleTest()">fadeToggle</button>
+    <br /><br />
+    <style>
+      #fadeimg {
+        opacity: 0.3;
+      }
+    </style>
+    <script>
+      const fadeInTest = (e) => {
+        $("#fadeImg").fadeIn(1000);
+      };
+      const fadeOutTest = (e) => {
+        $("#fadeImg").fadeOut(1000);
+      };
+      const fadeToggleTest = (e) => {
+        $("#fadeImg").fadeToggle(1000);
+      };
+      const fadeToTest = (e) => {
+        $("#fadeImg").fadeTo(1000, 0.3);
+      };
+      $("#fadeImg").hover(
+        (e) => {
+          $(e.target).fadeTo(1000, 1);
+        },
+        (e) => {
+          $(e.target).fadeTo(1000, 0.3);
+        }
+      );
+    </script>
+    <h3>show(),hide()</h3>
+    <p>display속성을 none, block으로 설정하는 함수</p>
+    <h1 id="jqueryEnd">이거까지하면 프론트끝</h1>
+    <button onclick="showTest()">show</button>
+    <button onclick="hideTest()">hide</button>
+    <script>
+      const showTest = () => {
+        $("#jqueryEnd").show(1000);
+      };
+      const hideTest = () => {
+        $("#jqueryEnd").hide(1000);
+      };
+    </script>
+    <br /><br /><br />
+    <div id="testMenu">
+      <div>첫번째 메뉴</div>
+      <p>첫번째메뉴내용</p>
+      <div>두번째 메뉴</div>
+      <p>두번째메뉴내용</p>
+      <div>세번째 메뉴</div>
+      <p>세번째메뉴내용</p>
+      <div>네번째 메뉴</div>
+      <p>네번메뉴내용</p>
+    </div>
+    <style>
+      #testMenu > div {
+        font-size: 26px;
+        font-weight: bolder;
+      }
+      #testMenu > p {
+        display: none;
+        height: 40px;
+        background-color: aqua;
+        margin-left: 20px;
+      }
+    </style>
+    <script>
+      $("#testMenu>div").click((e) => {
+        $("#testMenu>p").slideUp();
+        $(e.target).next().slideToggle();
+      });
+    </script>
+  </body>
+</html>

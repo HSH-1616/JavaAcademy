@@ -4,7 +4,6 @@ import java.nio.file.spi.FileSystemProvider;
 import java.util.Arrays;
 import java.util.Random;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class ArrayController {
 	Scanner sc=new Scanner(System.in);

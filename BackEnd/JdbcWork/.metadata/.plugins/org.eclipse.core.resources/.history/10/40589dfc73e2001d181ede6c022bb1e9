@@ -1,2 +1,0 @@
-selectMemberAll=SELECT * FROM MEMBER
-selectMemberId=SELECET * FROM MEMBER WHERE MEMBER_ID=?
