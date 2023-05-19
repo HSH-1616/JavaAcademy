@@ -94,8 +94,8 @@
   /* margin-top: 10px; */
 }
 #productImgContainer img {
-  width: 250px;
-  height: 250px;
+  width: 240px;
+  height: 240px;
   border: 1px solid #eeeeee;
   border-radius: 10px;
 }
@@ -133,7 +133,7 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  margin-left: 210px;
+  margin-left: 200px;
   margin-top: 10px;
 }
 
@@ -383,7 +383,7 @@
   width: 60px;
   height: 20px;
   background-color: #20c997;
-  margin-top: 215px;
+  margin-top: 210px;
   margin-left: 15px;
   text-align: center;
 }
@@ -424,4 +424,87 @@
   background-color: #20c997;
   color: white;
   text-decoration: none;
+}
+
+#leftCategory {
+  position: fixed;
+  width: 200px;
+  background-color: white;
+  z-index: 99;
+  margin-top: -13px;
+}
+#productContainer {
+  margin-left: 200px;
+  margin-top: -43px;
+}
+#selectCategory {
+  position: fixed;
+  height: 75px;
+  background-color: white;
+  margin-top: 0px;
+  z-index: 99;
+}
+#selectCategory * {
+  margin-top: 10px;
+}
+#productImgContainer {
+  margin-top: 90px;
+}
+.rightbox {
+  width: 90px;
+  height: 280.4px;
+  position: fixed;
+  top: 290px;
+  right: calc(50% - 750px);
+  z-index: 20;
+}
+.myfavoritebox {
+  padding: 10px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  margin-bottom: 6px;
+}
+.myfavoriteboxtext {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(102, 102, 102);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.favoriteicon {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.favoriteicon > a {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 12px;
+  color: rgb(204, 204, 204);
+  font-weight: 600;
+}
+.recentlyviwe {
+  padding: 10px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  margin-bottom: 6px;
+}
+.recentlyviwetext {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(102, 102, 102);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.recentlyviweimg {
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  color: rgb(204, 204, 204);
+  font-size: 12px;
 }

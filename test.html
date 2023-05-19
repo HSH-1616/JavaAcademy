@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <div id="test1">
+        <p>
+          버튼을 클릭하면 input태그에 입력받은 값을 리스트태그(ul)로 만들어서
+          출력하기
+        </p>
+
+        <input
+          type="text"
+          id="inputData"
+          placeholder=",으로 구분하여 값 넣기"
+        />
+
+        <button onclick="createList();">리스트 생성하기</button>
+
+        <div id="listContainer"></div>
+      </div>
+
+      <div id="test2">
+        <p>
+          버튼을 클릭하면 5*5테이블을 생성하고 테이블 각 td에는 1~25까지의 수가
+          출력
+        </p>
+
+        <div id="tableContainer"></div>
+
+        <button onclick="createTable();">테이블생성</button>
+      </div>
+
+      <div id="test3">
+        <p>ul.target의 li태그의 글자크기 20px, 색상 lightgray로 변경하기</p>
+
+        <ul>
+          <li>html</li>
+
+          <li>css</li>
+
+          <li>javascript</li>
+
+          <li>jqeury</li>
+        </ul>
+
+        <ul class="target">
+          <li>servlet</li>
+
+          <li>jsp</li>
+
+          <li>mybatis</li>
+
+          <li>spring</li>
+        </ul>
+
+        <button onclick="changeList();">변경하기</button>
+      </div>
+
+      <div id="test4">
+        <p>아래 있는 h3태그에 "우와 시험이 너무 쉽다" 문구 넣기</p>
+
+        <h3 class="target"></h3>
+
+        <button onclick="inputStr();">입력</button>
+      </div>
+
+      <div id="test5">
+        <p>버튼을 클릭하면 아래 체크박스 모두 체크될 수 있게 구성</p>
+
+        <label><input type="checkbox" value="운동" />운동</label>
+
+        <label><input type="checkbox" value="코딩" />코딩</label>
+
+        <label><input type="checkbox" value="독서" />독서</label>
+
+        <label><input type="checkbox" value="게임" />게임</label>
+
+        <button onclick="check();">전체선택</button>
+      </div>
+    </section>
+    <script>
+      const createList = () => {
+        const text = document.getElementById("inputData").value;
+        const split = text.split(",");
+        const con1 = document.querySelector("#test1");
+        console.log(text);
+        console.log(split);
+
+        split.forEach((e) => {
+          const ul = document.createElement("ul");
+          const li = document.createElement("li");
+          li.innerText = e;
+          ul.appendChild(li);
+          con1.appendChild(ul);
+        });
+      };
+      const createTable = () => {
+        const table = document.createElement("table");
+        let count = 1;
+        for (let i = 0; i < 5; i++) {
+          const tr = document.createElement("tr");
+          for (let j = 0; j < 5; j++) {
+            const td = document.createElement("td");
+            td.innerText = count++;
+            tr.appendChild(td);
+          }
+          table.appendChild(tr);
+        }
+        const con2 = document.querySelector("#tableContainer");
+        con2.appendChild(table);
+      };
+
+      const changeList = () => {
+        const li = document.querySelectorAll(".target>li");
+        console.log(li);
+        li.forEach((e) => {
+          e.style.fontSize = "20px";
+          e.style.color = "lightGray";
+        });
+      };
+
+      const inputStr = () => {
+        document.querySelector("#test4 h3").innerText = "우와 시험이 너무 쉽다";
+      };
+
+      const check = () => {
+        const check = document.querySelectorAll("#test5 input");
+        for (let i = 0; i < check.length; i++) {
+          check[i].checked = check[i].checked ? false : true;
+        }
+      };
+    </script>
+  </body>
+</html>
