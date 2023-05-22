@@ -441,6 +441,12 @@ ul.imgs li {
   text-decoration: none;
   font-size: 13px;
   color: #afafaf;
+  border: 0;
+
+  background-color: transparent;
+}
+.writeCmt:hover {
+  cursor: pointer;
 }
 /* 대댓글 영역 */
 .reComment {
