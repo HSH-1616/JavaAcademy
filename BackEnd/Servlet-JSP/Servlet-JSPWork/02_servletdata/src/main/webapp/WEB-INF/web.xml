@@ -24,4 +24,14 @@
  	<servlet-name>basicservlet</servlet-name>
  	<url-pattern>/basicrequest.do</url-pattern>
  </servlet-mapping>
+ 
+  <servlet>
+ 	<servlet-name>basicdata</servlet-name>
+ 	<servlet-class>com.servlet.controller.BasicDataServlet</servlet-class>
+ </servlet>
+ 
+  <servlet-mapping>
+ 	<servlet-name>basicdata</servlet-name>
+ 	<url-pattern>/basicdata.do</url-pattern>
+ </servlet-mapping>
 </web-app>
