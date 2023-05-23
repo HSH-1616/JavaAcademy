@@ -50,5 +50,39 @@
 
 <h3><a href="/02_servletdata/views/board/insertboard.html">게시판</a></h3> 
 
+<h3>서버에서 데이터를 저장하는 객체</h3>
+<ul>
+	<li>HttpServletRequest <br>
+		1회용 데이터를 저장하는저장소 -> 요청하고 응답이 완료될때 까지 유지
+	</li>
+	
+	<li>HttpSession <br>
+		원하는 시점에 생성해서 원하는 시점까지 저장할수 있는 저장소		
+	</li>
+	
+	<li>ServletContext <br>
+		서버가 실행되고 종료될때까지 유지하는 저장소
+	</li>	
+</ul>
+	<p>
+		각 객체 데이터를 저장하는 방법<br>
+		객체명.setAttribute("key",value:object);<br>
+		저장된 값 가져오기<br>
+		객체명.getAttribute("key"); //반환형 Object 형변환에서 사용<br>
+		저장된 값을 삭제하기<br>
+		객체명.removeAttribute("key");<br>		
+	</p>
+	
+	<h3>
+	<a href="/02_servletdata/sharedata.do">데이터 저장객체 활용하기</a> <br>
+	<a href="/02_servletdata/extraInfo.do">request객체에  추가정보 확인하기</a>
+	</h3>
+	
+	<h2>로그인 구현하기</h2>
+	<form action="/02_servletdata/loginend.do" method="post">
+		<input type="text" name="userId"> <br>
+		<input type="password" name="password"> <br>
+		<input type="submit" value="로그인"> <br>		
+	</form>
 </body>
 </html>
