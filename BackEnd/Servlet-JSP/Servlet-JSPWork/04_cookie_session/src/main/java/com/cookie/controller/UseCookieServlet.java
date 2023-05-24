@@ -48,6 +48,11 @@ public class UseCookieServlet extends HttpServlet {
 		String data=(String)session.getAttribute("data");
 		System.out.println(data);
 		
+		String contextData=getServletContext().getInitParameter("admin");
+		System.out.println(contextData);
+		
+		String servletdata=getInitParameter("servletdata");
+		System.out.println(servletdata);
 	}
 
 	/**
