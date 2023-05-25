@@ -155,5 +155,10 @@ pageEncoding="UTF-8" errorPage="views/error/500error.jsp"%>
     	서블릿에러!
     	</a>
     </h3>
+    <h3>
+    	<a href="<%=request.getContextPath() %>/memberAll.do">
+    	회원정보조회
+    	</a>
+    </h3>
   </body>
 </html>
