@@ -1,6 +1,6 @@
 package com.web.member.service;
 
-import static com.web.member.common.JDBCTemplate.close;
+import static com.web.member.common.JDBCTemplate.*;
 import static com.web.member.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -17,5 +17,21 @@ public class MemberService {
 		MemberDTO m=dao.checkMember(conn,userId,password);
 		close(conn);
 		return m;		
+	}
+	
+	public int insertMember(MemberDTO m) {
+		Connection conn=getConnection();
+		int result=dao.insertMember(conn,m);
+		if(result>0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+	}
+	
+	public MemberDTO selectByUserId(String userId) {
+		Connection conn=getConnection();
+		MemberDTO m=dao.selectByUserId(conn,userId);
+		close(conn);
+		return m;
 	}
 }

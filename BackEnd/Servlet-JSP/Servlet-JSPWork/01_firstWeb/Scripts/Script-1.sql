@@ -20,3 +20,7 @@ INSERT INTO MEMBER VALUES ('qwerty','asdf','김말년','F',30,'qwerty@naver.com'
 INSERT INTO MEMBER VALUES ('admin','1234','관리자','F',33,'admin@naver.com','01012345678','서울시 강남구','독서',DEFAULT);
 
 SELECT * FROM  "MEMBER";
+
+
+
+

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,13 +36,28 @@ public class LoginServlet extends HttpServlet {
 		String password=request.getParameter("password");
 		
 		MemberDTO loginMember=new MemberService().checkMember(userId, password);
-	
-		System.out.println(loginMember);
+		
+		//아이디저장 로직처리
+		String saveId=request.getParameter("saveId");
+		System.out.println(saveId);
+		
+		//checkbox에 check가 되면 on
+		//checkbox에 check가 안되면 null
+		if(saveId!=null) {
+			Cookie c=new Cookie("saveId",userId);
+			c.setMaxAge(60*60*24*7);
+			response.addCookie(c);
+		}else {
+			Cookie c=new Cookie("saveId","");
+			c.setMaxAge(0);
+			response.addCookie(c);
+		}
+				
+//		System.out.println(loginMember);
 		if(loginMember!=null) {
 			//로그인 성공
 			HttpSession session=request.getSession();
-			session.setAttribute("loginMember", loginMember);
-			
+			session.setAttribute("loginMember", loginMember);			
 			response.sendRedirect(request.getContextPath());
 		}else {
 			//로그인 실패
@@ -49,8 +65,7 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("msg", "아이디, 패스워드가 일치하지 않습니다.");	
 			request.setAttribute("loc", "/");
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-		}
-		
+		}		
 	}
 
 	/**

@@ -27,7 +27,6 @@ public class MemberDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		MemberDTO m=null;
-
 		
 		try {
 			pstmt=conn.prepareStatement(sql.getProperty("checkMember"));
@@ -45,10 +44,52 @@ public class MemberDao {
 		}return m;
 	}
 	
+	public int insertMember(Connection conn,MemberDTO m) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql.getProperty("insertMember"));
+			pstmt.setString(1,m.getUserId());
+			pstmt.setString(2,m.getUserPwd());
+			pstmt.setString(3,m.getUserName());
+			pstmt.setString(4,String.valueOf(m.getGender()));
+			pstmt.setInt(5,m.getAge());
+			pstmt.setString(6,m.getEmail());
+			pstmt.setString(7,m.getPhone());
+			pstmt.setString(8,m.getAddress());
+			pstmt.setString(9,String.join(",",m.getHobby()));
+			result=pstmt.executeUpdate();			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);			
+		}		
+		return result;
+	}
+	
+	public MemberDTO selectByUserId(Connection conn, String userId) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		MemberDTO m=null;
+		try {
+			pstmt=conn.prepareStatement(sql.getProperty("selectByUserId"));
+			pstmt.setString(1, userId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				m=getMember(rs);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return m;
+	}
+	
 	private MemberDTO getMember(ResultSet rs) throws SQLException{
 		return MemberDTO.builder()
 				.userId(rs.getString("userId"))
-				.userPwd(rs.getString("userPwd"))
+				.userPwd(rs.getString("password"))
 				.userName(rs.getString("userName"))
 				.age(rs.getInt("age"))
 				.gender(rs.getString("gender").charAt(0))
@@ -56,7 +97,7 @@ public class MemberDao {
 				.phone(rs.getString("phone"))
 				.address(rs.getString("address"))
 				.hobby(rs.getString("hobby").split(","))
-				.enrollDate(rs.getDate("userId"))
+				.enrollDate(rs.getDate("enrolldate"))
 				.build();
 	}
 }
