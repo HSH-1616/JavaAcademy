@@ -4,7 +4,7 @@
 		"oracle_thin-1884b526c70-6b461cc90ed0a20a": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "student",
+			"name": "web",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
@@ -19,12 +19,15 @@
 					"@dbeaver-sid-service@": "SID"
 				},
 				"auth-model": "oracle_native"
+			},
+			"custom-properties": {
+				"transaction.smart.commit": "true"
 			}
 		},
 		"oracle_thin-188516adae8-250e706b737ed9d7": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "localhost",
+			"name": "DBA",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
@@ -33,6 +36,26 @@
 				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
 				"configurationType": "MANUAL",
 				"home": "C:\\app\\User\\product\\18.0.0\\dbhomeXE",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-1886166c987-6f3b9c1d8c7df639": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "localhost",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "1522",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1522/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\app\\HSH\\product\\18.0.0\\dbhomeXE",
 				"type": "dev",
 				"provider-properties": {
 					"@dbeaver-connection-type@": "BASIC",
