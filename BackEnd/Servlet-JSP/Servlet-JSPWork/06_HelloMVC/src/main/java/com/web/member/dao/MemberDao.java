@@ -86,6 +86,44 @@ public class MemberDao {
 		}return m;
 	}
 	
+	public int updateMember(Connection conn,MemberDTO m) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql.getProperty("updateMember"));						
+			pstmt.setString(1,m.getUserName());			
+			pstmt.setInt(2,m.getAge());
+			pstmt.setString(3,String.valueOf(m.getGender()));			
+			pstmt.setString(4,m.getEmail());
+			pstmt.setString(5,m.getPhone());
+			pstmt.setString(6,m.getAddress());
+			pstmt.setString(7,String.join(",",m.getHobby()));
+			pstmt.setString(8,m.getUserId());
+			result=pstmt.executeUpdate();			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);			
+		}		
+		return result;
+	}
+	
+	public int updatePassword(Connection conn,String userId, String password) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql.getProperty("updatePassword"));
+			pstmt.setString(1,password);
+			pstmt.setString(2,userId);
+			result=pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);			
+		}		
+		return result;	
+	}
+	
 	private MemberDTO getMember(ResultSet rs) throws SQLException{
 		return MemberDTO.builder()
 				.userId(rs.getString("userId"))

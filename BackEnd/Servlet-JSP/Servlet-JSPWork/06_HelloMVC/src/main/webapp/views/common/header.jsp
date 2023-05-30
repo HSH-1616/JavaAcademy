@@ -62,7 +62,9 @@ if (cookies != null) {
 						<td colspan="2"><%=loginMember.getUserName()%>님, 환영합니다.</td>
 					</tr>
 					<tr>
-						<td><input type="button" value="내 정보보기"></td>
+						<td><input type="button" value="내 정보보기"
+							onclick="location.assign('<%=request.getContextPath()%>/member/memberView.do?userId=<%=loginMember.getUserId() %>')">
+							</td>
 						<td><input type="button" value="로그아웃"
 							onclick="location.replace('<%=request.getContextPath()%>/logout.do')">
 						</td>
