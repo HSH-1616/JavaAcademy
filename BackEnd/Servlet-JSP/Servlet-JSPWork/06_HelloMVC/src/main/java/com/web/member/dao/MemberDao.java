@@ -124,7 +124,7 @@ public class MemberDao {
 		return result;	
 	}
 	
-	private MemberDTO getMember(ResultSet rs) throws SQLException{
+	public static MemberDTO getMember(ResultSet rs) throws SQLException{
 		return MemberDTO.builder()
 				.userId(rs.getString("userId"))
 				.userPwd(rs.getString("password"))
@@ -134,7 +134,7 @@ public class MemberDao {
 				.email(rs.getString("email"))
 				.phone(rs.getString("phone"))
 				.address(rs.getString("address"))
-				.hobby(rs.getString("hobby").split(","))
+				.hobby(rs.getString("hobby")!=null?rs.getString("hobby").split(","):null)
 				.enrollDate(rs.getDate("enrolldate"))
 				.build();
 	}
