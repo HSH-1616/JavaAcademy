@@ -7,7 +7,6 @@ section {
 .product {
   width: 100%;
   display: flex;
-  padding-top: 40px;
 }
 /* 상품사진 */
 .product img {
@@ -136,11 +135,20 @@ ul.imgs li {
 }
 /* 판매중,예약중 */
 #productStatus {
-  font-size: 25px;
+  font-size: 18px;
   color: #20c997;
   margin-left: 50px;
   position: relative;
   bottom: 3px;
+  border: 2px solid;
+  display: inline-block;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+}
+#productStatus p {
+  position: relative;
+  top: 2px;
 }
 /* 찜하기수, 조회수, 시간 신고하기 상태창 영역 */
 .productIcon {
@@ -172,8 +180,8 @@ ul.imgs li {
 }
 /* 상품 세부정보 영역 */
 .productDetail {
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 18px;
+  margin-top: 13px;
 }
 .productClass li {
   list-style-type: disc;
@@ -187,7 +195,7 @@ ul.imgs li {
 }
 /*상품소개 버튼 영역 */
 .productBtn {
-  margin-top: 46px;
+  margin-top: 43px;
   display: flex;
   justify-content: space-between;
 }
@@ -207,7 +215,7 @@ ul.imgs li {
   background-color: #afafaf;
 }
 #heartBtn button:hover {
-  background-color: #f7b1ff;
+  background-color: rgba(255, 0, 0, 0.2);
 }
 #talkBtn button:hover {
   background-color: orange;
@@ -236,7 +244,7 @@ ul.imgs li {
   border-left: 1px;
   border-bottom: 0px;
   margin-right: 30px;
-  font-size: 20px;
+  font-size: 18px;
   border-collapse: collapse;
 }
 /* 상품정보 h3 */
@@ -420,13 +428,13 @@ ul.imgs li {
 .cmtUser {
   text-decoration: none;
   color: black;
-  font-size: 22px;
+  font-size: 20px;
   margin-top: 15px;
   margin-left: 20px;
 }
 /* 댓글 내용 */
 .cmt {
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 15px;
 }
@@ -450,10 +458,10 @@ ul.imgs li {
 }
 /* 대댓글 영역 */
 .reComment {
-  margin-left: 70px;
+  margin-left: 80px;
 }
 #rcmtWriter {
-  font-size: 18px;
+  font-size: 16px;
   color: #20c997;
   font-weight: bold;
   border-radius: 30%;
@@ -493,4 +501,20 @@ ul.imgs li {
 }
 .rProduct p {
   margin-top: 10px;
+}
+#arrow {
+  position: relative;
+  left: 15px;
+}
+
+#arrow::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 40px; /* 사이즈 */
+  height: 60px; /* 사이즈 */
+  border-top: 1px solid #afafaf; /* 선 두께 */
+  border-right: 1px solid #afafaf; /* 선 두께 */
+  transform: rotate(180deg); /* 각도 */
 }

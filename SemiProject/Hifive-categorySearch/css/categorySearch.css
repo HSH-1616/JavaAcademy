@@ -5,14 +5,11 @@
 
 #leftCategory {
   width: 200px;
-  height: 1000px;
+  /* height: 100px; */
   box-sizing: border-box;
   /* border: 1px solid #eeeeee; */
 }
 #pdcContainer {
-  /* padding-top: 5px; */
-  /* padding-bottom: 0px; */
-  /* text-align: center; */
 }
 .pdcCategory {
   /* margin-top: 5px; */
@@ -45,11 +42,11 @@
   font-size: 16px;
 }
 #pddContainer {
-  padding-top: 25px;
+  padding-top: 20px;
 }
-#pdcContainer > hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.pdcCategoryMain > hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #productContainer {
@@ -218,7 +215,7 @@
 }
 #productCondition hr {
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 #productCondition b {
   font-size: 16px;
@@ -283,15 +280,15 @@
 }
 /* 가격 체크박스 */
 #priceWraper {
-  margin-left: 5px;
+  /* margin-left: 5px; */
 }
 #priceWraper div:first-child {
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-top: 25px;
 }
 #priceWraper hr {
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .radio-buttons {
   display: flex;
@@ -450,61 +447,98 @@
 #productImgContainer {
   margin-top: 90px;
 }
-.rightbox {
-  width: 90px;
-  height: 280.4px;
-  position: fixed;
-  top: 290px;
-  right: calc(50% - 750px);
-  z-index: 20;
+
+.prcSearch {
+  position: relative;
+  margin-top: 15px;
 }
-.myfavoritebox {
-  padding: 10px;
-  border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
-  margin-bottom: 6px;
+
+.prcinput {
+  font-size: 1em;
+  padding: 0.6em 1em;
+  border: none;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 200px;
+  color: #333;
 }
-.myfavoriteboxtext {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgb(102, 102, 102);
-  text-align: center;
-  margin-bottom: 8px;
+
+.prcinput:hover {
+  background-color: #f2f2f2;
 }
-.favoriteicon {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
+
+.prcinput:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.favoriteicon > a {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  font-size: 12px;
-  color: rgb(204, 204, 204);
-  font-weight: 600;
+
+.prcinput::placeholder {
+  color: #999;
 }
-.recentlyviwe {
-  padding: 10px;
-  border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
-  margin-bottom: 6px;
+
+.highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #20c997;
+  transition: width 0.3s ease;
 }
-.recentlyviwetext {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgb(102, 102, 102);
-  text-align: center;
-  margin-bottom: 8px;
+.prcinput:focus + .highlight {
+  width: 91%;
 }
-.recentlyviweimg {
-  height: 140px;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: rgb(204, 204, 204);
-  font-size: 12px;
+
+/* Optional: Animation on focus */
+@keyframes prcinput-focus {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  to {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.prcinput:focus {
+  animation: input-focus 0.3s ease;
+}
+
+#prcContainer {
+  margin-top: 10px;
+}
+
+#prcBtn {
+  margin-top: 15px;
+  background-color: #20c997;
+  color: #f2f2f2;
+  border: none;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.collapse select {
+  display: block;
+  margin-top: 15px;
+  width: 110px;
+  height: 40px;
+  padding: 0.8em 0.5em;
+  font-family: inherit;
+  background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg)
+    no-repeat 95% 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #999;
+  border-radius: 0px;
+}
+.collapse select::-ms-expand {
+  /* for IE 11 */
+  display: none;
 }

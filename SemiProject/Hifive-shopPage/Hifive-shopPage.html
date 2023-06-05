@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hifive-shopPage</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/shopPage.css" />
+    <link rel="icon" href="./img/header/파비콘.png" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="headerContainer">
+        <div id="fixedContainer">
+          <div class="loginSerivce">
+            <a href="http://www.naver.com" id="login">로그인</a>
+            <a href="http://www.naver.com" id="enroll">회원가입</a>
+            <a href="http://www.naver.com" id="service">고객센터</a>
+          </div>
+          <div class="headerMain">
+            <div class="logo">
+              <a href="">
+                <img src="./img/header/hifive로고.png" alt="" />
+              </a>
+            </div>
+            <div class="searchBar">
+              <div class="searchDetail">
+                <input
+                  type="search"
+                  onsearch=""
+                  class="search"
+                  placeholder="상품검색"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = '상품검색'"
+                  onkeypress="if( event.keyCode == 13 ){searchData();}"
+                />
+
+                <button class="search" onclick="searchData()">
+                  <img src="./img/header/돋보기.png" alt="" />
+                </button>
+              </div>
+            </div>
+            <div class="memberIcon">
+              <a href="">
+                <ion-icon
+                  name="storefront-outline"
+                  class="storeIcon"
+                ></ion-icon>
+                <span> 판매하기</span>
+              </a>
+              <a href="">
+                <ion-icon name="person-outline" class="myIcon"></ion-icon>
+                내정보
+              </a>
+              <a href="">
+                <ion-icon name="heart-outline" class="heartIcon"></ion-icon>
+                찜한상품
+              </a>
+            </div>
+          </div>
+          <div class="categoryNrank">
+            <input type="checkbox" id="menuIcon" />
+            <label for="menuIcon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+
+            <div id="menuList">
+              <ul>
+                <li><a href="#" id="category0">전체</a></li>
+                <li><a href="#" id="category1">카테고리1</a></li>
+                <li><a href="#" id="category2">카테고리2</a></li>
+                <li><a href="#" id="category3">카테고리3</a></li>
+                <li><a href="#" id="category4">카테고리4</a></li>
+                <li><a href="#" id="category5">카테고리5</a></li>
+                <li><a href="#" id="category6">카테고리6</a></li>
+                <li><a href="#" id="category7">카테고리7</a></li>
+                <li><a href="#" id="category8">카테고리8</a></li>
+                <li><a href="#" id="category9">카테고리9</a></li>
+                <li><a href="#" id="category10">카테고리10</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category1">
+              <ul>
+                <li><a href="#">세부 카테고리1</a></li>
+                <li><a href="#">세부 카테고리2</a></li>
+                <li><a href="#">세부 카테고리3</a></li>
+                <li><a href="#">세부 카테고리4</a></li>
+                <li><a href="#">세부 카테고리5</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category2">
+              <ul>
+                <li><a href="#">세부 카테고리6</a></li>
+                <li><a href="#">세부 카테고리7</a></li>
+                <li><a href="#">세부 카테고리8</a></li>
+                <li><a href="#">세부 카테고리9</a></li>
+                <li><a href="#">세부 카테고리10</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category3">
+              <ul>
+                <li><a href="#">세부 카테고리11</a></li>
+                <li><a href="#">세부 카테고리12</a></li>
+                <li><a href="#">세부 카테고리13</a></li>
+                <li><a href="#">세부 카테고리14</a></li>
+                <li><a href="#">세부 카테고리15</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category4">
+              <ul>
+                <li><a href="#">세부 카테고리16</a></li>
+                <li><a href="#">세부 카테고리17</a></li>
+                <li><a href="#">세부 카테고리18</a></li>
+                <li><a href="#">세부 카테고리19</a></li>
+                <li><a href="#">세부 카테고리20</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category5">
+              <ul>
+                <li><a href="#">세부 카테고리21</a></li>
+                <li><a href="#">세부 카테고리22</a></li>
+                <li><a href="#">세부 카테고리23</a></li>
+                <li><a href="#">세부 카테고리24</a></li>
+                <li><a href="#">세부 카테고리25</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category6">
+              <ul>
+                <li><a href="#">세부 카테고리26</a></li>
+                <li><a href="#">세부 카테고리27</a></li>
+                <li><a href="#">세부 카테고리28</a></li>
+                <li><a href="#">세부 카테고리29</a></li>
+                <li><a href="#">세부 카테고리30</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category7">
+              <ul>
+                <li><a href="#">세부 카테고리31</a></li>
+                <li><a href="#">세부 카테고리32</a></li>
+                <li><a href="#">세부 카테고리33</a></li>
+                <li><a href="#">세부 카테고리34</a></li>
+                <li><a href="#">세부 카테고리35</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category8">
+              <ul>
+                <li><a href="#">세부 카테고리36</a></li>
+                <li><a href="#">세부 카테고리37</a></li>
+                <li><a href="#">세부 카테고리38</a></li>
+                <li><a href="#">세부 카테고리39</a></li>
+                <li><a href="#">세부 카테고리40</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category9">
+              <ul>
+                <li><a href="#">세부 카테고리41</a></li>
+                <li><a href="#">세부 카테고리42</a></li>
+                <li><a href="#">세부 카테고리43</a></li>
+                <li><a href="#">세부 카테고리44</a></li>
+                <li><a href="#">세부 카테고리45</a></li>
+              </ul>
+            </div>
+            <div class="sideMenu" id="sideMenu-category10">
+              <ul>
+                <li><a href="#">세부 카테고리46</a></li>
+                <li><a href="#">세부 카테고리47</a></li>
+                <li><a href="#">세부 카테고리48</a></li>
+                <li><a href="#">세부 카테고리49</a></li>
+                <li><a href="#">세부 카테고리50</a></li>
+              </ul>
+            </div>
+
+            <p>카테고리</p>
+            <div>
+              <img
+                src="./img/header/랭킹.png"
+                alt=""
+                id="ranking"
+                height="50px"
+              />
+            </div>
+          </div>
+        </div>
+        <hr width="1280px" color="#eeeeee" noshade />
+      </div>
+      <div id="itemBox">
+        <div id="recentProduct">
+          <p>최근본상품</p>
+          <div class="rpCount">0</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- header style태그 -->
+    <style></style>
+    <script></script>
+    <!-- body & footer -->
+    <section>
+      <div id="shopProfile">
+        <div
+          id="shopProfileLeft"
+          style="background-image: url(img/shopPage/댓글1.jpg)"
+        >
+          <div id="blurImg"></div>
+          <div id="userProfile">
+            <img src="img/shopPage/댓글1.jpg" alt="" />
+            <p>user01</p>
+            <b>상품 6 </b>
+            <b> 매너온도 43℃</b>
+          </div>
+        </div>
+        <div id="shopProfileRight">
+          <p>user01</p>
+          <div id="shopDetail">
+            <ion-icon name="storefront-outline" class="storeIcon"></ion-icon>
+            <span>상점개설일</span>
+            <b>154일전</b>
+            <ion-icon name="bag-handle"></ion-icon>
+            <span>상품수</span>
+            <b>6</b>
+            <ion-icon name="thermometer-outline"></ion-icon>
+            <span>매너온도</span>
+            <b>43℃</b>
+            <ion-icon name="server-outline"></ion-icon>
+            <span>거래횟수</span>
+            <b>15</b>
+          </div>
+          <div id="shopIntro">
+            <pre>
+자기소개
+입니다.
+
+            </pre>
+          </div>
+        </div>
+      </div>
+      <div id="shopMain">
+        <div id="shopBtn">
+          <div class="radio-input">
+            <label>
+              <input
+                type="radio"
+                id="value-1"
+                name="value-radio"
+                value="value-1"
+                checked
+              />
+              <span>상품 6</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="value-2"
+                name="value-radio"
+                value="value-2"
+              />
+              <span>상점후기 15</span>
+            </label>
+
+            <span class="selection"></span>
+          </div>
+        </div>
+        <hr width="1280px" color="#eeeeee" noshade />
+        <div id="shopProductContainer">
+          <div id="selectCategory">
+            <div id="categoryName">
+              <h4>전체 <span>(6)</span></h4>
+            </div>
+            <div id="categoryFunction">
+              <span>최신순</span>
+              <span>인기도순</span>
+              <span>최고가순</span>
+              <span>최저가순</span>
+            </div>
+          </div>
+          <div id="productImgContainer">
+            <div id="pimgWraper">
+              <div class="con-like">
+                <input title="like" type="checkbox" class="like" />
+                <div class="checkmark">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="outline"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="filled"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    class="celebrate"
+                    width="100"
+                    height="100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon points="10,10 20,20" class="poly"></polygon>
+                    <polygon points="10,50 20,50" class="poly"></polygon>
+                    <polygon points="20,80 30,70" class="poly"></polygon>
+                    <polygon points="90,10 80,20" class="poly"></polygon>
+                    <polygon points="90,50 80,50" class="poly"></polygon>
+                    <polygon points="80,80 70,70" class="poly"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <div class="con-like">
+                <input title="like" type="checkbox" class="like" />
+                <div class="checkmark">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="outline"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="filled"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    class="celebrate"
+                    width="100"
+                    height="100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon points="10,10 20,20" class="poly"></polygon>
+                    <polygon points="10,50 20,50" class="poly"></polygon>
+                    <polygon points="20,80 30,70" class="poly"></polygon>
+                    <polygon points="90,10 80,20" class="poly"></polygon>
+                    <polygon points="90,50 80,50" class="poly"></polygon>
+                    <polygon points="80,80 70,70" class="poly"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <div class="con-like">
+                <input title="like" type="checkbox" class="like" />
+                <div class="checkmark">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="outline"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="filled"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    class="celebrate"
+                    width="100"
+                    height="100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon points="10,10 20,20" class="poly"></polygon>
+                    <polygon points="10,50 20,50" class="poly"></polygon>
+                    <polygon points="20,80 30,70" class="poly"></polygon>
+                    <polygon points="90,10 80,20" class="poly"></polygon>
+                    <polygon points="90,50 80,50" class="poly"></polygon>
+                    <polygon points="80,80 70,70" class="poly"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <div class="con-like">
+                <input title="like" type="checkbox" class="like" />
+                <div class="checkmark">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="outline"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="filled"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    class="celebrate"
+                    width="100"
+                    height="100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon points="10,10 20,20" class="poly"></polygon>
+                    <polygon points="10,50 20,50" class="poly"></polygon>
+                    <polygon points="20,80 30,70" class="poly"></polygon>
+                    <polygon points="90,10 80,20" class="poly"></polygon>
+                    <polygon points="90,50 80,50" class="poly"></polygon>
+                    <polygon points="80,80 70,70" class="poly"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <div class="con-like">
+                <input title="like" type="checkbox" class="like" />
+                <div class="checkmark">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="outline"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="filled"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    class="celebrate"
+                    width="100"
+                    height="100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon points="10,10 20,20" class="poly"></polygon>
+                    <polygon points="10,50 20,50" class="poly"></polygon>
+                    <polygon points="20,80 30,70" class="poly"></polygon>
+                    <polygon points="90,10 80,20" class="poly"></polygon>
+                    <polygon points="90,50 80,50" class="poly"></polygon>
+                    <polygon points="80,80 70,70" class="poly"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+            <div id="pimgWraper">
+              <div class="con-like">
+                <input title="like" type="checkbox" class="like" />
+                <div class="checkmark">
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="outline"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="filled"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"
+                    ></path>
+                  </svg>
+                  <svg
+                    class="celebrate"
+                    width="100"
+                    height="100"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon points="10,10 20,20" class="poly"></polygon>
+                    <polygon points="10,50 20,50" class="poly"></polygon>
+                    <polygon points="20,80 30,70" class="poly"></polygon>
+                    <polygon points="90,10 80,20" class="poly"></polygon>
+                    <polygon points="90,50 80,50" class="poly"></polygon>
+                    <polygon points="80,80 70,70" class="poly"></polygon>
+                  </svg>
+                </div>
+              </div>
+              <a href=""
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+                  alt=""
+                />
+                <p id="productName">상품</p>
+                <p id="productPrice">1,000,000원 <span>2시간전</span></p>
+                <p id="productPlace">
+                  <i class="bi bi-geo-alt"></i>
+                  ㅁㅁ시 ㅁㅁ구 ㅁㅁ동
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="reviewContainer">
+          <div id="reviewCount">
+            <h4>상점후기 <span>(15)</span></h4>
+          </div>
+          <div class="shopReview">
+            <div class="srProfile">
+              <a href="">
+                <img src="img/shopPage/댓글1.jpg" alt="" />
+              </a>
+              <a href="" class="srUser"><p>user02</p></a>
+            </div>
+            <p class="sr">친절하세요~</p>
+            <span class="time">2023.05.15 15:25</span>
+            <hr color="#eeeeee" noshade />
+          </div>
+          <div class="shopReview">
+            <div class="srProfile">
+              <a href="">
+                <img src="img/shopPage/댓글1.jpg" alt="" />
+              </a>
+              <a href="" class="srUser"><p>user02</p></a>
+            </div>
+            <p class="sr">친절하세요~</p>
+            <span class="time">2023.05.15 15:25</span>
+            <hr color="#eeeeee" noshade />
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div id="footer">
+        <div id="teamIntro">
+          <img src="img/header/hifivefooter.png" alt="" />
+        </div>
+        <div id="memberIntro">
+          <div class="member">
+            <p>김찬은</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>김현영</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>이은지</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>최주영</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>허성현</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script></script>
+    <!-- js호출 -->
+    <script src="js/test.js"></script>
+  </body>
+</html>

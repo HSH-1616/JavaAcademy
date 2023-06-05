@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hifive-categorySearch</title>
-    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/categorySearch.css" />
     <link rel="icon" href="./img/header/파비콘.png" type="image/x-icon" />
     <link
@@ -69,7 +69,6 @@
                   onblur="this.placeholder = '상품검색'"
                   onkeypress="if( event.keyCode == 13 ){searchData();}"
                 />
-
                 <button class="search" onclick="searchData()">
                   <img src="./img/header/돋보기.png" alt="" />
                 </button>
@@ -103,6 +102,7 @@
 
             <div id="menuList">
               <ul>
+                <li><a href="#" id="category0">전체</a></li>
                 <li><a href="#" id="category1">카테고리1</a></li>
                 <li><a href="#" id="category2">카테고리2</a></li>
                 <li><a href="#" id="category3">카테고리3</a></li>
@@ -115,7 +115,7 @@
                 <li><a href="#" id="category10">카테고리10</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu1">
+            <div class="sideMenu" id="sideMenu-category1">
               <ul>
                 <li><a href="#">세부 카테고리1</a></li>
                 <li><a href="#">세부 카테고리2</a></li>
@@ -124,7 +124,7 @@
                 <li><a href="#">세부 카테고리5</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu2">
+            <div class="sideMenu" id="sideMenu-category2">
               <ul>
                 <li><a href="#">세부 카테고리6</a></li>
                 <li><a href="#">세부 카테고리7</a></li>
@@ -133,7 +133,7 @@
                 <li><a href="#">세부 카테고리10</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu3">
+            <div class="sideMenu" id="sideMenu-category3">
               <ul>
                 <li><a href="#">세부 카테고리11</a></li>
                 <li><a href="#">세부 카테고리12</a></li>
@@ -142,7 +142,7 @@
                 <li><a href="#">세부 카테고리15</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu4">
+            <div class="sideMenu" id="sideMenu-category4">
               <ul>
                 <li><a href="#">세부 카테고리16</a></li>
                 <li><a href="#">세부 카테고리17</a></li>
@@ -151,7 +151,7 @@
                 <li><a href="#">세부 카테고리20</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu5">
+            <div class="sideMenu" id="sideMenu-category5">
               <ul>
                 <li><a href="#">세부 카테고리21</a></li>
                 <li><a href="#">세부 카테고리22</a></li>
@@ -160,7 +160,7 @@
                 <li><a href="#">세부 카테고리25</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu6">
+            <div class="sideMenu" id="sideMenu-category6">
               <ul>
                 <li><a href="#">세부 카테고리26</a></li>
                 <li><a href="#">세부 카테고리27</a></li>
@@ -169,7 +169,7 @@
                 <li><a href="#">세부 카테고리30</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu7">
+            <div class="sideMenu" id="sideMenu-category7">
               <ul>
                 <li><a href="#">세부 카테고리31</a></li>
                 <li><a href="#">세부 카테고리32</a></li>
@@ -178,7 +178,7 @@
                 <li><a href="#">세부 카테고리35</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu8">
+            <div class="sideMenu" id="sideMenu-category8">
               <ul>
                 <li><a href="#">세부 카테고리36</a></li>
                 <li><a href="#">세부 카테고리37</a></li>
@@ -187,7 +187,7 @@
                 <li><a href="#">세부 카테고리40</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu9">
+            <div class="sideMenu" id="sideMenu-category9">
               <ul>
                 <li><a href="#">세부 카테고리41</a></li>
                 <li><a href="#">세부 카테고리42</a></li>
@@ -196,7 +196,7 @@
                 <li><a href="#">세부 카테고리45</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu10">
+            <div class="sideMenu" id="sideMenu-category10">
               <ul>
                 <li><a href="#">세부 카테고리46</a></li>
                 <li><a href="#">세부 카테고리47</a></li>
@@ -205,6 +205,7 @@
                 <li><a href="#">세부 카테고리50</a></li>
               </ul>
             </div>
+
             <p>카테고리</p>
             <div>
               <img
@@ -217,6 +218,12 @@
           </div>
         </div>
         <hr width="1280px" color="#eeeeee" noshade />
+      </div>
+      <div id="itemBox">
+        <div id="recentProduct">
+          <p>최근본상품</p>
+          <div class="rpCount">0</div>
+        </div>
       </div>
     </header>
 
@@ -449,64 +456,126 @@
           </div>
           <div id="productCondition">
             <b>상품상태</b>
-
-            <form>
-              <label>
-                <input type="radio" name="radio" checked="" />
-                <span>전체</span>
-              </label>
-              <label>
-                <input type="radio" name="radio" />
-                <span>미개봉</span>
-              </label>
-              <label>
-                <input type="radio" name="radio" />
-                <span>거의새것</span>
-              </label>
-              <label>
-                <input type="radio" name="radio" />
-                <span>사용감 있음</span>
-              </label>
-            </form>
+            <i
+              class="bi bi-caret-down-fill"
+              data-toggle="collapse"
+              href="#prdCategory"
+              aria-expanded="false"
+              aria-controls="pddCategory"
+            ></i>
+            <div class="collapse" id="prdCategory">
+              <form>
+                <label>
+                  <input type="radio" name="radio" checked="" />
+                  <span>전체</span>
+                </label>
+                <label>
+                  <input type="radio" name="radio" />
+                  <span>미개봉</span>
+                </label>
+                <!-- <label>
+                  <input type="radio" name="radio" />
+                  <span>거의새것</span>
+                </label> -->
+                <label>
+                  <input type="radio" name="radio" />
+                  <span>사용감 있음</span>
+                </label>
+              </form>
+            </div>
             <hr />
           </div>
           <div id="priceWraper">
-            <div><b>가격</b></div>
-            <div class="radio-buttons">
-              <label class="radio-button">
-                <input value="option1" name="option" type="radio" checked="" />
-                <div class="radio-circle"></div>
-                <span class="radio-label">전체</span>
-              </label>
-            </div>
-            <div class="radio-buttons">
-              <label class="radio-button">
-                <input value="option1" name="option" type="radio" />
-                <div class="radio-circle"></div>
-                <span class="radio-label">10만원 이하</span>
-              </label>
-              <label class="radio-button">
-                <input value="option2" name="option" type="radio" />
-                <div class="radio-circle"></div>
-                <span class="radio-label">10~30만원</span>
-              </label>
-              <label class="radio-button">
-                <input value="option3" name="option" type="radio" />
-                <div class="radio-circle"></div>
-                <span class="radio-label">30~50만원</span>
-              </label>
-              <label class="radio-button">
-                <input value="option3" name="option" type="radio" />
-                <div class="radio-circle"></div>
-                <span class="radio-label">50~100만원</span>
-              </label>
-              <label class="radio-button">
-                <input value="option3" name="option" type="radio" />
-                <div class="radio-circle"></div>
-                <span class="radio-label">100만원 이상</span>
-              </label>
+            <span id="categoryMain"><b>가격</b></span>
+            <i
+              class="bi bi-caret-down-fill"
+              data-toggle="collapse"
+              href="#priceCategory"
+              aria-expanded="false"
+              aria-controls="pddCategory"
+            ></i>
+            <div class="collapse" id="priceCategory">
+              <div class="radio-buttons">
+                <label class="radio-button">
+                  <input
+                    value="option1"
+                    name="option"
+                    type="radio"
+                    checked=""
+                  />
+                  <div class="radio-circle"></div>
+                  <span class="radio-label">전체</span>
+                </label>
+              </div>
+              <div class="radio-buttons">
+                <label class="radio-button">
+                  <input value="option1" name="option" type="radio" />
+                  <div class="radio-circle"></div>
+                  <span class="radio-label">10만원 이하</span>
+                </label>
+                <label class="radio-button">
+                  <input value="option2" name="option" type="radio" />
+                  <div class="radio-circle"></div>
+                  <span class="radio-label">10~30만원</span>
+                </label>
+                <label class="radio-button">
+                  <input value="option3" name="option" type="radio" />
+                  <div class="radio-circle"></div>
+                  <span class="radio-label">30~50만원</span>
+                </label>
+                <label class="radio-button">
+                  <input value="option3" name="option" type="radio" />
+                  <div class="radio-circle"></div>
+                  <span class="radio-label">50~100만원</span>
+                </label>
+                <label class="radio-button">
+                  <input value="option3" name="option" type="radio" />
+                  <div class="radio-circle"></div>
+                  <span class="radio-label">100만원 이상</span>
+                </label>
+              </div>
+              <div id="prcContainer">
+                <b>직접입력</b>
+                <div class="prcSearch">
+                  <input
+                    type="text"
+                    name="text"
+                    class="prcinput"
+                    placeholder="최소값"
+                    maxlength="10"
+                    onkeyup="inputNumberFormat(this);"
+                  />
+                  <div class="highlight"></div>
+                </div>
+                <div class="prcSearch">
+                  <input
+                    type="text"
+                    name="text"
+                    class="prcinput"
+                    placeholder="최대값"
+                    maxlength="10"
+                    onkeyup="inputNumberFormat(this);"
+                  />
+                  <div class="highlight"></div>
+                </div>
+                <button id="prcBtn">검색</button>
+              </div>
             </div>
             <hr />
+          </div>
+          <div id="localWraper">
+            <span id="categoryMain"><b>지역</b></span>
+            <i
+              class="bi bi-caret-down-fill"
+              data-toggle="collapse"
+              href="#localCategory"
+              aria-expanded="false"
+              aria-controls="pddCategory"
+            ></i>
+            <div class="collapse" id="localCategory">
+              <select name="sido1" id="sido1"></select>
+              <select name="gugun1" id="gugun1"></select>
+            </div>
           </div>
         </div>
         <div id="productContainer">
@@ -1343,32 +1412,49 @@
             </ul>
           </div>
         </div>
-        <div class="rightbox">
-          <div class="myfavoritebox">
-            <div class="myfavoriteboxtext">찜한상품</div>
-            <div class="favoriteicon">
-              <a href="">
-                <img
-                  src="./img/11198bb2dc24672fee03.png"
-                  width="9px"
-                  height="9px"
-                  alt=""
-                />
-              </a>
-            </div>
-          </div>
-          <div class="recentlyviwe">
-            <div class="recentlyviwetext">최근본상품</div>
-            <div class="recentlyviweimg">
-              <div class=""></div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <script></script>
     </section>
-    <footer></footer>
+    <footer>
+      <div id="footer">
+        <div id="teamIntro">
+          <img src="img/header/hifivefooter.png" alt="" />
+        </div>
+        <div id="memberIntro">
+          <div class="member">
+            <p>김찬은</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>김현영</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>이은지</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>최주영</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>허성현</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- js호출 -->
     <script src="js/test.js"></script>
   </body>

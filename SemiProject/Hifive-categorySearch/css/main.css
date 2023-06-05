@@ -19,22 +19,24 @@ header {
   z-index: 100;
   background-color: white;
 }
+
 #headerContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 #headerContainer hr {
-  margin-top: 20px;
+  margin-top: 7px;
+  margin-bottom: 0px;
 }
 #fixedContainer {
   width: 1280px;
 }
 
 section {
-  padding-top: 190px;
+  padding-top: 230px;
   width: 1280px;
-  height: auto;
+  /* height: 1500px; */
   margin: 0 auto;
 }
 
@@ -75,10 +77,9 @@ section {
   justify-content: center;
   width: 610px;
   height: 40px;
-  background-color: white;
-  border: 4px solid #20c997;
-
-  /* border-radius: 50px; */
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 50px;
 }
 
 .searchDetail {
@@ -92,7 +93,7 @@ section {
 .searchDetail > input {
   width: 540px;
   border: none;
-  /* background-color: #eeeeee; */
+  background-color: #eeeeee;
   outline: none;
 }
 .searchDetail > input[type="search"]::-webkit-search-cancel-button {
@@ -108,7 +109,7 @@ section {
 .searchDetail > button > img {
   width: 18px;
   height: 18px;
-  /* color: white; */
+  color: #afafaf;
   padding-top: 4px;
 }
 
@@ -164,8 +165,8 @@ section {
   font-size: 16px;
   color: #313030;
   position: absolute;
-  right: 1185px;
-  bottom: 7px;
+  right: 1188px;
+  bottom: 8px;
   font-weight: bold;
 }
 /* /categoryNrank/ */
@@ -178,8 +179,8 @@ input[id="menuIcon"] {
 input[id="menuIcon"] + label {
   position: relative;
   display: block;
-  width: 25px;
-  height: 20px;
+  width: 20px;
+  height: 15px;
   cursor: pointer;
 }
 
@@ -222,27 +223,26 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
 }
 
 #menuList {
-  font-size: 0;
   z-index: 99;
   background-color: white;
-}
-#menuIcon:checked + label + #menuList {
   position: absolute;
   width: 150px;
-  height: 605px;
+  height: 515px;
   top: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
   box-sizing: border-box;
   box-shadow: 0px 0px 3px 0px #eeeeee;
+  display: none;
+}
+#menuIcon:checked + label + #menuList {
+  display: block;
 }
 #menuIcon:checked + label + #menuList > ul > li > a {
   color: #afafaf;
   text-decoration: none;
   font-size: 15px;
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 20px;
 }
 #menuIcon:checked + label + #menuList > ul > li > a:hover {
@@ -250,18 +250,24 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
   color: white;
 }
 .sideMenu {
-  font-size: 0px;
-  position: relative;
   background-color: white;
-  bottom: 600px;
   z-index: 99;
+  position: absolute;
+  width: 150px;
+  height: 515px;
+  top: 50px;
+  left: 150px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 3px 0px #eeeeee;
+  font-size: 15px;
+  display: none;
 }
 .sideMenu > ul > li > a {
   color: #afafaf;
   text-decoration: none;
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 20px;
 }
 .sideMenu > ul > li > a:hover {
@@ -269,3 +275,78 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
   color: white;
 }
 /* /상단메뉴바/ */
+
+/* 아이템박스 */
+#itemBox {
+  border: 2px solid #eeeeee;
+  width: 105px;
+  height: 200px;
+  position: fixed;
+  right: calc(50% - 797px);
+  text-align: center;
+}
+#recentProduct p {
+  font-size: 13px;
+  margin-top: 15px;
+  color: dimgrey;
+  font-weight: bold;
+}
+
+.rpCount {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: #20c997;
+  font-size: 12px;
+  margin: 8px 0px;
+}
+.rpCount::before,
+.rpCount::after {
+  content: "";
+  flex-grow: 1;
+  background: #afafaf;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 13px;
+}
+
+/* /아이템박스/ */
+
+/* footer */
+footer {
+  /* width: 1280px; */
+  height: 300px;
+  background-color: ghostwhite;
+  margin-top: 100px;
+}
+#footer {
+  width: 1280px;
+  margin: 0 auto;
+}
+#teamIntro {
+  padding-top: 25px;
+  text-align: center;
+}
+#teamIntro img {
+  width: 550px;
+  margin-bottom: 10px;
+}
+#memberIntro {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.member * {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.member a > p:hover {
+  color: #20c997;
+}
+.member > p {
+  font-weight: bold;
+}
+/* /footer/ */

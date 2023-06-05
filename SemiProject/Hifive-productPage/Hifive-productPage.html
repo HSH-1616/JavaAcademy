@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hifive-productPage</title>
-    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/productPage.css" />
     <link rel="icon" href="./img/header/파비콘.png" type="image/x-icon" />
     <script
@@ -50,7 +50,6 @@
                   onblur="this.placeholder = '상품검색'"
                   onkeypress="if( event.keyCode == 13 ){searchData();}"
                 />
-
                 <button class="search" onclick="searchData()">
                   <img src="./img/header/돋보기.png" alt="" />
                 </button>
@@ -62,7 +61,7 @@
                   name="storefront-outline"
                   class="storeIcon"
                 ></ion-icon>
-                판매하기
+                <span> 판매하기</span>
               </a>
               <a href="">
                 <ion-icon name="person-outline" class="myIcon"></ion-icon>
@@ -84,6 +83,7 @@
 
             <div id="menuList">
               <ul>
+                <li><a href="#" id="category0">전체</a></li>
                 <li><a href="#" id="category1">카테고리1</a></li>
                 <li><a href="#" id="category2">카테고리2</a></li>
                 <li><a href="#" id="category3">카테고리3</a></li>
@@ -96,7 +96,7 @@
                 <li><a href="#" id="category10">카테고리10</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu1">
+            <div class="sideMenu" id="sideMenu-category1">
               <ul>
                 <li><a href="#">세부 카테고리1</a></li>
                 <li><a href="#">세부 카테고리2</a></li>
@@ -105,7 +105,7 @@
                 <li><a href="#">세부 카테고리5</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu2">
+            <div class="sideMenu" id="sideMenu-category2">
               <ul>
                 <li><a href="#">세부 카테고리6</a></li>
                 <li><a href="#">세부 카테고리7</a></li>
@@ -114,7 +114,7 @@
                 <li><a href="#">세부 카테고리10</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu3">
+            <div class="sideMenu" id="sideMenu-category3">
               <ul>
                 <li><a href="#">세부 카테고리11</a></li>
                 <li><a href="#">세부 카테고리12</a></li>
@@ -123,7 +123,7 @@
                 <li><a href="#">세부 카테고리15</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu4">
+            <div class="sideMenu" id="sideMenu-category4">
               <ul>
                 <li><a href="#">세부 카테고리16</a></li>
                 <li><a href="#">세부 카테고리17</a></li>
@@ -132,7 +132,7 @@
                 <li><a href="#">세부 카테고리20</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu5">
+            <div class="sideMenu" id="sideMenu-category5">
               <ul>
                 <li><a href="#">세부 카테고리21</a></li>
                 <li><a href="#">세부 카테고리22</a></li>
@@ -141,7 +141,7 @@
                 <li><a href="#">세부 카테고리25</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu6">
+            <div class="sideMenu" id="sideMenu-category6">
               <ul>
                 <li><a href="#">세부 카테고리26</a></li>
                 <li><a href="#">세부 카테고리27</a></li>
@@ -150,7 +150,7 @@
                 <li><a href="#">세부 카테고리30</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu7">
+            <div class="sideMenu" id="sideMenu-category7">
               <ul>
                 <li><a href="#">세부 카테고리31</a></li>
                 <li><a href="#">세부 카테고리32</a></li>
@@ -159,7 +159,7 @@
                 <li><a href="#">세부 카테고리35</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu8">
+            <div class="sideMenu" id="sideMenu-category8">
               <ul>
                 <li><a href="#">세부 카테고리36</a></li>
                 <li><a href="#">세부 카테고리37</a></li>
@@ -168,7 +168,7 @@
                 <li><a href="#">세부 카테고리40</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu9">
+            <div class="sideMenu" id="sideMenu-category9">
               <ul>
                 <li><a href="#">세부 카테고리41</a></li>
                 <li><a href="#">세부 카테고리42</a></li>
@@ -177,7 +177,7 @@
                 <li><a href="#">세부 카테고리45</a></li>
               </ul>
             </div>
-            <div class="sideMenu" id="sideMenu10">
+            <div class="sideMenu" id="sideMenu-category10">
               <ul>
                 <li><a href="#">세부 카테고리46</a></li>
                 <li><a href="#">세부 카테고리47</a></li>
@@ -186,6 +186,7 @@
                 <li><a href="#">세부 카테고리50</a></li>
               </ul>
             </div>
+
             <p>카테고리</p>
             <div>
               <img
@@ -198,6 +199,12 @@
           </div>
         </div>
         <hr width="1280px" color="#eeeeee" noshade />
+      </div>
+      <div id="itemBox">
+        <div id="recentProduct">
+          <p>최근본상품</p>
+          <div class="rpCount">0</div>
+        </div>
       </div>
     </header>
 
@@ -234,11 +241,11 @@
             <ion-icon name="chevron-forward-sharp"></ion-icon>
             <a href="">스마트폰</a>
           </div>
-          <h2 id="productName">아이폰 12프로 맥스 256기가 단순개봉 풀세트</h2>
-          <h2 id="productPrice">
-            800,000원
-            <span id="productStatus">판매중</span>
+          <h2 id="productName">
+            아이폰 12프로 맥스 256기가 단순개봉 풀세트
+            <span id="productStatus"><p>판매중</p></span>
           </h2>
+          <h2 id="productPrice">800,000원</h2>
 
           <hr width="695px" color="#eeeeee" noshade />
           <div class="productIcon">
@@ -259,16 +266,16 @@
                 <td>
                   <ul class="productClass">
                     <li>상품상태</li>
-                    <li>교환여부</li>
-                    <li>배송비</li>
+                    <li>바로결제</li>
+                    <li>거래방식</li>
                     <li>거래지역</li>
                   </ul>
                 </td>
                 <td>
                   <ul class="productId">
                     <li>중고</li>
-                    <li>교환 불가능</li>
-                    <li style="color: #20c997">배송비 별도</li>
+                    <li>가능</li>
+                    <li style="color: #20c997">직거래</li>
                     <li>서울시 마포구 합정동</li>
                   </ul>
                 </td>
@@ -281,7 +288,7 @@
             </div>
             <div id="talkBtn">
               <button>
-                <ion-icon name="chatbubbles"></ion-icon><b> 하마톡톡</b>
+                <ion-icon name="chatbubbles"></ion-icon><b> 바로결제</b>
               </button>
             </div>
             <div id="fraudBtn">
@@ -402,7 +409,7 @@
           <button class="writeCmt">답글쓰기</button>
           <hr color="#eeeeee" noshade />
         </div>
-
+        <div id="arrow"></div>
         <div class="reComment">
           <div class="cmtProfile">
             <a href="">
@@ -488,8 +495,46 @@
         </div>
       </div>
     </section>
-    <footer></footer>
+    <footer>
+      <div id="footer">
+        <div id="teamIntro">
+          <img src="img/header/hifivefooter.png" alt="" />
+        </div>
+        <div id="memberIntro">
+          <div class="member">
+            <p>김찬은</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>김현영</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>이은지</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>최주영</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+          <div class="member">
+            <p>허성현</p>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+            <a href=""><p>본인페이지</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- js호출 -->
-    <script src="js/test.js"></script>
+    <script src="js/test .js"></script>
   </body>
 </html>
