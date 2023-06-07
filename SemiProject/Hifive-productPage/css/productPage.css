@@ -1,7 +1,7 @@
 /* 상품페이지 */
 
 section {
-  height: 2500px;
+  height: auto;
 }
 /* 상품정보 영역*/
 .product {
@@ -514,7 +514,45 @@ ul.imgs li {
   content: "";
   width: 40px; /* 사이즈 */
   height: 60px; /* 사이즈 */
-  border-top: 1px solid #afafaf; /* 선 두께 */
-  border-right: 1px solid #afafaf; /* 선 두께 */
+  border-top: 2px solid #eeeeee; /* 선 두께 */
+  border-right: 2px solid #eeeeee; /* 선 두께 */
   transform: rotate(180deg); /* 각도 */
+}
+
+#cmtText {
+  margin-top: 40px;
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 1270px;
+  height: 50px;
+  resize: none;
+  border: 3px solid #eeeeee;
+  border-radius: 10px;
+  font-size: 16px;
+  overflow-y: hidden; /* prevents scroll bar flash */
+  line-height: 1.6;
+}
+
+#textContainer textarea:focus {
+  border: 3px solid white;
+  outline: 3px solid #20c997;
+}
+
+#textContainer span {
+  position: relative;
+  bottom: 35px;
+  left: 1140px;
+}
+
+#cmtBtn {
+  position: relative;
+  bottom: 55px;
+  left: 1220px;
+  background-color: #20c997;
+  color: #f2f2f2;
+  border: none;
+  border-radius: 20px;
+  width: 45px;
+  height: 25px;
+  cursor: pointer;
 }
