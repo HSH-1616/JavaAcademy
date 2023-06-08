@@ -1,6 +1,7 @@
 package com.web.admin.dao;
 
 import static com.web.member.common.JDBCTemplate.close;
+import static com.web.member.dao.MemberDao.getMember;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +15,6 @@ import java.util.Properties;
 
 import com.web.member.dao.MemberDao;
 import com.web.member.dto.MemberDTO;
-import static com.web.member.dao.MemberDao.getMember;
 public class AdminDao {
 	private final Properties sql=new Properties();
 	{
@@ -65,4 +65,47 @@ public class AdminDao {
 			}
 		return result;	
 	}		
+	
+	public List<MemberDTO> selectMemberByKeyword(Connection conn, String type, String keyword,int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String query=sql.getProperty("selectMemberByKeyword");
+		query=query.replace("#COL",type);
+		List<MemberDTO> memberList=new ArrayList();
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1,type.equals("gender")?keyword:"%"+keyword+"%");
+			pstmt.setInt(2, (cPage-1)*numPerpage+1);
+			pstmt.setInt(3, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) memberList.add(getMember(rs));
+		}catch(SQLException e) {
+			e.printStackTrace();			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return memberList;
+	}
+	
+	public int selectMemberByKeywordCount(Connection conn, String type, String keyword) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int result=0;
+		String query=sql.getProperty("selectMemberByKeywordCount").replace("#COL",type);
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1,type.equals("gender")?keyword:"%"+keyword+"%");
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result=rs.getInt(1);
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+	}
 }

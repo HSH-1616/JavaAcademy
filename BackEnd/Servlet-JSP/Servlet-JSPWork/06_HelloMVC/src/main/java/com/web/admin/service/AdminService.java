@@ -26,4 +26,17 @@ private AdminDao dao=new AdminDao();
 		close(conn);
 		return result;
 	}
+	
+	public List<MemberDTO> selectMemberByKeyword(String type, String keyword,int cPage, int numPerPage){
+		Connection conn=getConnection();
+		List<MemberDTO> memberList=dao.selectMemberByKeyword(conn,type,keyword,cPage,numPerPage);
+		close(conn);
+		return memberList;
+	}
+	public int selectMemberByKeywordCount(String type,String keyword) {
+		Connection conn=getConnection();
+		int count=dao.selectMemberByKeywordCount(conn,type,keyword);
+		close(conn);
+		return count;
+	}
 }
