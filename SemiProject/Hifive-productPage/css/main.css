@@ -9,7 +9,7 @@
   margin: 0px;
   padding: 0px;
   list-style: none;
-  font-family: "NEXON Lv2 Gothic";
+  font-family: "NEXON Lv2 Gothic" !important;
 }
 header {
   width: 100%;
@@ -18,6 +18,47 @@ header {
   position: fixed;
   z-index: 100;
   background-color: white;
+}
+
+body {
+  line-height: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  /* font-size: initial; */
+}
+dl,
+ol,
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+hr {
+  margin: 0px;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+pre {
+  font-size: inherit;
+}
+p {
+  margin: 0px;
+}
+
+img,
+svg {
+  vertical-align: unset;
 }
 
 #headerContainer {
@@ -36,7 +77,7 @@ header {
 section {
   padding-top: 230px;
   width: 1280px;
-  height: auto;
+  /* height: 1500px; */
   margin: 0 auto;
 }
 
@@ -166,6 +207,7 @@ section {
   color: #313030;
   position: absolute;
   right: 1188px;
+  margin: 0px;
   bottom: 8px;
   font-weight: bold;
 }
@@ -338,7 +380,7 @@ footer {
   justify-content: space-evenly;
 }
 .member * {
-  text-decoration: none;
+  text-decoration: none !important;
   color: black;
   text-align: center;
   margin-bottom: 15px;

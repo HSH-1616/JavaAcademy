@@ -28,20 +28,24 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//로그인한 사용자를 로그아웃 시키기!
-		//	- HttpSession에 저장된 데이터를 삭제
+		//로그인사용자를 로그아웃시키기!
+		// - HttpSession에 저장된 데이터를 삭제
 		//1. HttpSession을 가져오기
 		HttpSession session=request.getSession(false);
-		
-		//2. HttpSession을 삭제하는 메소드를 이용함
-		// -> invalidate();
+		//2. HttpSession을 삭제하는 메소드를 이용함 
+		//   -> invalidate();
 		if(session!=null)
 			session.invalidate();
 		
 		//3. 출력할 화면선택
-		// 메인화면으로 이동 -> index.jsp		
+		// 메인화면으로 이동 -> index.jsp
+		
 		response.sendRedirect(request.getContextPath());
 		
+	
+	
+	
+	
 	}
 
 	/**

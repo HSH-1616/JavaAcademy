@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.member.dto.MemberDTO;
-import com.web.member.service.MemberService;
+import com.web.member.model.service.MemberService;
+import com.web.member.model.vo.Member;
 
 /**
- * Servlet implementation class UpadtePasswordEndServlet
+ * Servlet implementation class UpdatePasswordEndServlet
  */
 @WebServlet("/updatePasswordEnd")
 public class UpdatePasswordEndServlet extends HttpServlet {
@@ -33,12 +33,12 @@ public class UpdatePasswordEndServlet extends HttpServlet {
 		String userId=request.getParameter("userId");
 		String oriPw=request.getParameter("password");
 		String newPw=request.getParameter("password_new");
-		MemberDTO m=new MemberService().checkMember(userId,oriPw);
-		String msg="",loc="";
+		Member m=new MemberService().selectByUserIdAndPw(userId, oriPw);
+		String msg="",loc="/member/updatePassword.do?userId="+userId;
 		if(m==null) {
 			//비밀번호가 일치하지 않음
 			msg="비밀번호가 일치하지 않습니다.";
-			loc="/member/passwordUpdate.do?userId="+userId;
+			
 		}else {
 			//비밀번호가 일치함.
 			int result=new MemberService().updatePassword(userId,newPw);
@@ -48,11 +48,14 @@ public class UpdatePasswordEndServlet extends HttpServlet {
 				request.setAttribute("script", "opener.location.replace('"+request.getContextPath()+"/logout.do');close();");
 			}else {
 				msg="비밀번호 수정실패";
-			}						
+			}
 		}
 		request.setAttribute("msg",msg);
-		request.setAttribute("loc",loc);
-		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+		request.setAttribute("loc", loc);
+		request.getRequestDispatcher("/views/common/msg.jsp")
+		.forward(request,response);
+		
+		
 		
 	}
 

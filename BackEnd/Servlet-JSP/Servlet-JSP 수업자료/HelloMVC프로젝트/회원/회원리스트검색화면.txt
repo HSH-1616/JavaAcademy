@@ -1,0 +1,53 @@
+        <div id="search-container">
+        	검색타입 : 
+        	<select id="searchType">
+        		<option value="userId" >아이디</option>
+        		<option value="userName" >회원이름</option>
+        		<option value="gender" >성별</option>
+        	</select>
+        	<div id="search-userId">
+        		<form action="<%=request.getContextPath()%>/admin/searchMember">
+        			<input type="hidden" name="searchType" value="userId" >
+        			<input type="text" name="searchKeyword" size="25" 
+        			placeholder="검색할 아이디를 입력하세요" >
+        			<button type="submit">검색</button>
+        		</form>
+        	</div>
+        	<div id="search-userName">
+        		<form action="<%=request.getContextPath()%>/admin/searchMember">
+        			<input type="hidden" name="searchType" value="userName">
+        			<input type="text" name="searchKeyword" size="25" 
+        			placeholder="검색할 이름을 입력하세요">
+        			<button type="submit">검색</button>
+        		</form>
+        	</div>
+        	<div id="search-gender">
+        		<form action="<%=request.getContextPath()%>/admin/searchMember">
+        			<input type="hidden" name="searchType" value="gender">
+        			<label><input type="radio" name="searchKeyword" value="M" >남</label>
+        			<label><input type="radio" name="searchKeyword" value="F" >여</label>
+        			<button type="submit">검색</button>
+        		</form>
+        	</div>
+        </div>
+        <div id="numPerpage-container">
+        	페이지당 회원수 : 
+        	<form id="numPerFrm" action="">
+        		<select name="numPerpage" id="numPerpage">
+        			<option value="10">10</option>
+        			<option value="5" >5</option>
+        			<option value="3" >3</option>
+        		</select>
+        	</form>
+        </div>
+
+
+
+/* 검색창에 대한 스타일 */
+    div#search-container {margin:0 0 10px 0; padding:3px; 
+    background-color: rgba(0, 188, 212, 0.3);}
+    div#search-userId{display:inline-block;}
+    div#search-userName{display:none;}
+    div#search-gender{display:none;}
+    div#numPerpage-container{float:right;}
+    form#numperPageFrm{display:inline;}

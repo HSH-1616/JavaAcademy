@@ -1,0 +1,11 @@
+<tr class="level1">
+						<td>
+							<sub class="comment-writer"></sub>
+							<sub class="comment-date"></sub>
+							<br>
+							
+						</td>
+						<td>
+							댓글(로그인한 사용자만), 삭제버튼만들기 (작성자, 관리자만삭제가능)
+						</td>
+					</tr>	

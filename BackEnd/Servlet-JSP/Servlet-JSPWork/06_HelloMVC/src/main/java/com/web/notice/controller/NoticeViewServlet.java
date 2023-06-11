@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.notice.dto.Notice;
-import com.web.notice.serivce.NoticeService;
+import com.web.notice.model.service.NoticeService;
+import com.web.notice.model.vo.Notice;
 
 /**
  * Servlet implementation class NoticeViewServlet
@@ -29,12 +29,13 @@ public class NoticeViewServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//클라이언트가 보낸 공지사항을 DB에서 가져와 전달해주는 기능
-		int no=Integer.parseInt(request.getParameter("no"));
-		Notice n=new NoticeService().selectNoticeByNo(no);
-		request.setAttribute("notice",n);
-		request.getRequestDispatcher("/views/notice/noticeView.jsp").forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	//클라이언트가 보낸 공지사항을 DB에서 가져와 전달해주는 기능
+    	int no=Integer.parseInt(request.getParameter("no"));
+    	Notice n=new NoticeService().selectNoticeByNo(no);
+    	request.setAttribute("notice",n);
+    	request.getRequestDispatcher("/views/notice/noticeView.jsp").
+    	forward(request,response);
 	}
 
 	/**

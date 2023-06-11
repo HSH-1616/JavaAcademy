@@ -14,7 +14,7 @@
     </style>
 
     <div id="updatePassword-container">
-		<form name="updatePwdFrm" action="<%=request.getContextPath()%>/updatePasswordEnd" method="post" >
+		<form name="updatePwdFrm" action="" method="post" >
 			<table>
 				<tr>
 					<th>현재 비밀번호</th>

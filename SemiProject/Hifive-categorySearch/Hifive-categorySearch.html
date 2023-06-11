@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hifive-categorySearch</title>
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/categorySearch.css" />
+
     <link rel="icon" href="./img/header/파비콘.png" type="image/x-icon" />
     <link
       rel="stylesheet"
@@ -24,6 +23,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/categorySearch.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -236,15 +237,16 @@
         <div id="leftCategory">
           <div id="pdcContainer">
             <div class="pdcCategoryMain">
-              <span id="categoryMain"><b>카테고리</b></span>
-              <i
-                class="bi bi-caret-down-fill"
+              <span
+                id="categoryMain"
                 data-toggle="collapse"
                 href="#pddCategory"
                 aria-expanded="false"
                 aria-controls="pddCategory"
-              ></i>
-
+              >
+                <b>카테고리</b>
+                <i class="bi bi-caret-down-fill"></i>
+              </span>
               <div class="collapse" id="pddCategory">
                 <div id="pddContainer">
                   <ul>
@@ -455,14 +457,17 @@
             </div>
           </div>
           <div id="productCondition">
-            <b>상품상태</b>
-            <i
-              class="bi bi-caret-down-fill"
+            <span
+              id="categoryMain"
               data-toggle="collapse"
               href="#prdCategory"
               aria-expanded="false"
-              aria-controls="pddCategory"
-            ></i>
+              aria-controls="prdCategory"
+            >
+              <b>상품상태</b>
+              <i class="bi bi-caret-down-fill"></i>
+            </span>
+
             <div class="collapse" id="prdCategory">
               <form>
                 <label>
@@ -486,14 +491,16 @@
             <hr />
           </div>
           <div id="priceWraper">
-            <span id="categoryMain"><b>가격</b></span>
-            <i
-              class="bi bi-caret-down-fill"
+            <span
+              id="categoryMain"
               data-toggle="collapse"
               href="#priceCategory"
               aria-expanded="false"
-              aria-controls="pddCategory"
-            ></i>
+              aria-controls="priceCategory"
+            >
+              <b>가격</b>
+              <i class="bi bi-caret-down-fill"></i>
+            </span>
             <div class="collapse" id="priceCategory">
               <div class="radio-buttons">
                 <label class="radio-button">
@@ -564,14 +571,16 @@
             <hr />
           </div>
           <div id="localWraper">
-            <span id="categoryMain"><b>지역</b></span>
-            <i
-              class="bi bi-caret-down-fill"
+            <span
+              id="categoryMain"
               data-toggle="collapse"
               href="#localCategory"
               aria-expanded="false"
-              aria-controls="pddCategory"
-            ></i>
+              aria-controls="localCategory"
+            >
+              <b>지역</b>
+              <i class="bi bi-caret-down-fill"></i>
+            </span>
             <div class="collapse" id="localCategory">
               <select name="sido1" id="sido1"></select>
               <select name="gugun1" id="gugun1"></select>

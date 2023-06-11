@@ -166,6 +166,7 @@ section {
   color: #313030;
   position: absolute;
   right: 1188px;
+  margin: 0px;
   bottom: 8px;
   font-weight: bold;
 }
@@ -338,7 +339,7 @@ footer {
   justify-content: space-evenly;
 }
 .member * {
-  text-decoration: none;
+  text-decoration: none !important;
   color: black;
   text-align: center;
   margin-bottom: 15px;

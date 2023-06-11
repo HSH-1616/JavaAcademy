@@ -9,7 +9,8 @@
   box-sizing: border-box;
   /* border: 1px solid #eeeeee; */
 }
-#pdcContainer {
+#leftCategory span:hover {
+  cursor: pointer;
 }
 .pdcCategory {
   /* margin-top: 5px; */
@@ -523,7 +524,7 @@
   cursor: pointer;
 }
 
-.collapse select {
+#localCategory select {
   display: block;
   margin-top: 15px;
   width: 110px;

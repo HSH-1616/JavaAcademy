@@ -41,22 +41,22 @@ $("section").click(function (e) {
 
 // 카테고리 사이드바
 
-$(".collapse").on("show.bs.collapse", function () {
+$(".pdcCategory> .collapse").on("show.bs.collapse", function () {
   var target = $("[href='#" + $(this).prop("id") + "']");
   target.removeClass("fa-plus-square");
   target.addClass("fa-minus-square");
 });
-$(".collapse").on("shown.bs.collapse", function () {
+$(".pdcCategory >.collapse").on("shown.bs.collapse", function () {
   var target = $("[href='#" + $(this).prop("id") + "']");
   target.removeClass("fa-plus-square");
   target.addClass("fa-minus-square");
 });
-$(".collapse").on("hide.bs.collapse", function () {
+$(".pdcCategory >.collapse").on("hide.bs.collapse", function () {
   var target = $("[href='#" + $(this).prop("id") + "']");
   target.removeClass("fa-minus-square");
   target.addClass("fa-plus-square");
 });
-$(".collapse").on("hidden.bs.collapse", function () {
+$(".pdcCategory> .collapse").on("hidden.bs.collapse", function () {
   var target = $("[href='#" + $(this).prop("id") + "']");
   target.removeClass("fa-minus-square");
   target.addClass("fa-plus-square");

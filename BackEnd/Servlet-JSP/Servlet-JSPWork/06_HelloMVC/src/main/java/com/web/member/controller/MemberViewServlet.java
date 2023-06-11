@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.member.common.AESEncryptor;
-import com.web.member.dto.MemberDTO;
-import com.web.member.service.MemberService;
+import com.web.common.AESEncryptor;
+import com.web.member.model.service.MemberService;
+import com.web.member.model.vo.Member;
 
 /**
  * Servlet implementation class MemberViewServlet
  */
-@WebServlet(name="memberView",urlPatterns ="/member/memberView.do")
+@WebServlet(name="memberView", urlPatterns = "/member/memberView.do")
 public class MemberViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,8 +34,8 @@ public class MemberViewServlet extends HttpServlet {
 		
 		//회원정보를 보여주는 화면으로 이동
 		String userId=request.getParameter("userId");
-		//1. DB에 로그인한 회원의 정보를 가져와서 화면에 전달.
-		MemberDTO m=new MemberService().selectByUserId(userId);
+		//1. DB에서 로그인한 회원의 정보를 가져와서 화면에 전달.
+		Member m=new MemberService().selectByUserId(userId);
 		
 		try {
 			m.setEmail(AESEncryptor.decryptData(m.getEmail()));
@@ -47,9 +47,14 @@ public class MemberViewServlet extends HttpServlet {
 		}catch(Exception e) {
 			
 		}
-		request.setAttribute("infoMember", m);
-		//2. 화면에서 전달받은 화면데이터 출력
-		request.getRequestDispatcher("/views/member/memberView.jsp").forward(request,response);				
+		
+		
+		request.setAttribute("infoMember",m);
+		//2. 화면에서 전달받은 회원데이터 출력
+		
+		request.getRequestDispatcher("/views/member/memberView.jsp")
+		.forward(request,response);
+	
 	}
 
 	/**

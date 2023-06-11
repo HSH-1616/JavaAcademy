@@ -1,25 +1,21 @@
 package com.web.admin.service;
 
-import static com.web.member.common.JDBCTemplate.close;
-import static com.web.member.common.JDBCTemplate.getConnection;
-
 import java.sql.Connection;
 import java.util.List;
 
 import com.web.admin.dao.AdminDao;
-import com.web.member.dto.MemberDTO;
-
+import com.web.member.model.vo.Member;
+import static com.web.common.JDBCTemplate.*;
 public class AdminService {
 	
-private AdminDao dao=new AdminDao();
+	private AdminDao dao=new AdminDao();
 	
-	public List<MemberDTO> memberList(int cPage, int numPerpage) {
+	public List<Member> selectMemberAll(int cPage,int numPerpage){
 		Connection conn=getConnection();
-		List<MemberDTO> m=dao.memberList(conn,cPage,numPerpage);
+		List<Member> result=dao.selectMemberAll(conn,cPage,numPerpage);
 		close(conn);
-		return m;		
+		return result;
 	}
-	
 	public int selectMemberCount() {
 		Connection conn=getConnection();
 		int result=dao.selectMemberCount(conn);
@@ -27,16 +23,28 @@ private AdminDao dao=new AdminDao();
 		return result;
 	}
 	
-	public List<MemberDTO> selectMemberByKeyword(String type, String keyword,int cPage, int numPerPage){
+	
+	public List<Member> selectMemberByKeyword(
+			String type, String keyword, int cPage,int numPerpage){
 		Connection conn=getConnection();
-		List<MemberDTO> memberList=dao.selectMemberByKeyword(conn,type,keyword,cPage,numPerPage);
+		List<Member> members=dao.selectMemberByKeyword(
+				conn,type,keyword,cPage,numPerpage);
 		close(conn);
-		return memberList;
+		return members;
+		
+		
 	}
-	public int selectMemberByKeywordCount(String type,String keyword) {
+	public int selectMemberByKeywordCount(String type, String keyword) {
 		Connection conn=getConnection();
 		int count=dao.selectMemberByKeywordCount(conn,type,keyword);
 		close(conn);
 		return count;
+		
 	}
 }
+
+
+
+
+
+

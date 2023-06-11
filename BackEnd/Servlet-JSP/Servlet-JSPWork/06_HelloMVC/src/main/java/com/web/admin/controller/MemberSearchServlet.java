@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.web.admin.service.AdminService;
-import com.web.member.dto.MemberDTO;
+import com.web.member.model.vo.Member;
 
 /**
  * Servlet implementation class MemberSearchServlet
@@ -31,7 +31,8 @@ public class MemberSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//클라이언트가 보낸 데이터를 기준으로 Member테이블에서 해당하는 조회해서 보내줌
+		//클라이언트가 보낸 데이터를 기준으로 Member테이블에서 
+		//해당하는 데이터를 조회해서 보내줌
 		String type=request.getParameter("searchType");
 		String keyword=request.getParameter("searchKeyword");
 		
@@ -47,15 +48,18 @@ public class MemberSearchServlet extends HttpServlet {
 			numPerpage=5;
 		}
 		
-		List<MemberDTO> memberList=new AdminService().selectMemberByKeyword(type,keyword,cPage,numPerpage);
+		List<Member> members=new AdminService()
+				.selectMemberByKeyword(type,keyword,cPage,numPerpage);
 		
-		request.setAttribute("memberList", memberList);
+		request.setAttribute("members", members);
+		
 		String pageBar="";
-		int totalData=new AdminService().selectMemberByKeywordCount(type,keyword);
+		int totalData=new AdminService()
+				.selectMemberByKeywordCount(type,keyword);
 		int totalPage=(int)Math.ceil((double)totalData/numPerpage);
 		int pageBarSize=5;
 		int pageNo=((cPage-1)/pageBarSize)*pageBarSize+1;
-		int pageEnd=pageNo+pageBarSize-1;		
+		int pageEnd=pageNo+pageBarSize-1;
 		
 		if(pageNo==1) {
 			pageBar+="<span>[이전]</span>";
@@ -79,7 +83,6 @@ public class MemberSearchServlet extends HttpServlet {
 			}
 			pageNo++;
 		}
-		
 		if(pageNo>totalPage) {
 			pageBar+="<span>[다음]</span>";
 		}else {
@@ -89,9 +92,13 @@ public class MemberSearchServlet extends HttpServlet {
 			+"&cPage="+pageNo
 			+"&numPerpage="+numPerpage+"'>[다음]</a>";
 		}
-		
 		request.setAttribute("pageBar", pageBar);
-		request.getRequestDispatcher("/views/admin/memberList.jsp").forward(request, response);;				
+		request.getRequestDispatcher("/views/admin/manageMember.jsp")
+		.forward(request, response);
+		
+	
+	
+	
 	}
 
 	/**

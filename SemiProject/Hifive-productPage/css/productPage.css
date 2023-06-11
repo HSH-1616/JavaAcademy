@@ -14,89 +14,13 @@ section {
   height: 525px;
 }
 /* 이미지슬라이드 */
-.imgSlide {
+#carouselExampleIndicators {
   width: 525px;
   height: 525px;
-  position: relative;
-  margin: 0 auto;
-  overflow: hidden;
 }
-.imgSlide input[type="radio"] {
-  display: none;
-}
-
-ul.imgs {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-ul.imgs li {
-  position: absolute;
-  left: 525px;
-  transition-delay: 0.5s;
-
-  padding: 0;
-  margin: 0;
-}
-.bullets {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 10px;
-  z-index: 2;
-}
-.bullets label {
-  display: inline-block;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.55);
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-  margin: 5px;
-}
-.imgSlide
-  input[type="radio"]:nth-child(1):checked
-  ~ .bullets
-  > label:nth-child(1) {
-  background-color: #20c997;
-}
-.imgSlide
-  input[type="radio"]:nth-child(2):checked
-  ~ .bullets
-  > label:nth-child(2) {
-  background-color: #20c997;
-}
-.imgSlide
-  input[type="radio"]:nth-child(3):checked
-  ~ .bullets
-  > label:nth-child(3) {
-  background-color: #20c997;
-}
-.imgSlide
-  input[type="radio"]:nth-child(4):checked
-  ~ .bullets
-  > label:nth-child(4) {
-  background-color: #20c997;
-}
-.imgSlide input[type="radio"]:nth-child(1):checked ~ ul.imgs > li:nth-child(1) {
-  left: 0;
-  transition: 0.5s;
-  z-index: 1;
-}
-.imgSlide input[type="radio"]:nth-child(2):checked ~ ul.imgs > li:nth-child(2) {
-  left: 0;
-  transition: 0.5s;
-  z-index: 1;
-}
-.imgSlide input[type="radio"]:nth-child(3):checked ~ ul.imgs > li:nth-child(3) {
-  left: 0;
-  transition: 0.5s;
-  z-index: 1;
-}
-.imgSlide input[type="radio"]:nth-child(4):checked ~ ul.imgs > li:nth-child(4) {
-  left: 0;
-  transition: 0.5s;
-  z-index: 1;
+#carouselExampleIndicators img {
+  width: 525px;
+  height: 525px;
 }
 
 /* 상품정보 오른쪽 영역 */
@@ -128,6 +52,7 @@ ul.imgs li {
 /* 상품제목 */
 #productName {
   font-size: 25px;
+  font-weight: 600px !important;
 }
 /* 상품가격 */
 #productPrice {
@@ -407,6 +332,9 @@ ul.imgs li {
 #comment {
   padding-top: 40px;
 }
+#comment a {
+  text-decoration: none;
+}
 #comment hr {
   margin-top: 30px;
 }
@@ -481,6 +409,9 @@ ul.imgs li {
 #relateProduct {
   width: 1280px;
   padding-top: 60px;
+}
+#relateProduct h2 {
+  font-size: 25px;
 }
 #rpContainer {
   display: flex;

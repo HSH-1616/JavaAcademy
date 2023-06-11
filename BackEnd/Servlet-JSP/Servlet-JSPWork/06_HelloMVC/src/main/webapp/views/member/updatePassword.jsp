@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>패스워드변경</title>
 </head>
 <body>
-	<style>
+ <style>
     div#updatePassword-container{
         background:red;
     }
@@ -18,7 +18,7 @@
     div#updatePassword-container table tr:last-of-type td {
         text-align:center;
     }
-    </style>
+ </style>
 
     <div id="updatePassword-container">
 		<form name="updatePwdFrm" action="<%=request.getContextPath()%>/updatePasswordEnd" method="post" >
@@ -41,7 +41,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-					<input type="hidden" name="userId" value="<%=request.getParameter("userId")%>" />
+						<input type="hidden" name="userId" 
+						value="<%=request.getParameter("userId") %>"/>
 						<input type="submit" value="변경" />&nbsp;
 						<input type="button" value="닫기" />						
 					</td>
@@ -50,5 +51,6 @@
 			
 		</form>
 	</div>
+
 </body>
 </html>
