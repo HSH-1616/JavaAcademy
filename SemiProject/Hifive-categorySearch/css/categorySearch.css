@@ -14,7 +14,7 @@
 }
 .pdcCategory {
   /* margin-top: 5px; */
-  margin-bottom: 15px;
+  margin-bottom: 17px;
 }
 .pdcCategory i {
   /* border: 1px solid #eeeeee; */
@@ -27,7 +27,7 @@
 }
 
 #pdcContainer li {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 #pdcContainer a {
   color: #afafaf;
@@ -538,4 +538,9 @@
   appearance: none;
   border: 1px solid #999;
   border-radius: 0px;
+  font-size: 15px !important;
+}
+
+.fa {
+  font-family: FontAwesome !important;
 }

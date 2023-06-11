@@ -9,7 +9,7 @@
   margin: 0px;
   padding: 0px;
   list-style: none;
-  font-family: "NEXON Lv2 Gothic";
+  font-family: "NEXON Lv2 Gothic" !important;
 }
 header {
   width: 100%;
@@ -18,6 +18,58 @@ header {
   position: fixed;
   z-index: 100;
   background-color: white;
+}
+
+body {
+  line-height: normal;
+  font-size: initial;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+dl,
+ol,
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+hr {
+  margin: 0px;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+pre {
+  font-size: inherit;
+}
+p {
+  margin: 0 0 10px;
+}
+
+img,
+svg {
+  vertical-align: unset;
+}
+label {
+  margin: 0px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-size: initial;
 }
 
 #headerContainer {
@@ -36,7 +88,6 @@ header {
 section {
   padding-top: 230px;
   width: 1280px;
-  height: 1500px;
   margin: 0 auto;
 }
 
@@ -166,6 +217,7 @@ section {
   color: #313030;
   position: absolute;
   right: 1188px;
+  margin: 0px;
   bottom: 8px;
   font-weight: bold;
 }
@@ -223,27 +275,26 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
 }
 
 #menuList {
-  font-size: 0;
   z-index: 99;
   background-color: white;
-}
-#menuIcon:checked + label + #menuList {
   position: absolute;
   width: 150px;
-  height: 605px;
-  top: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  height: 515px;
+  top: 49px;
   box-sizing: border-box;
   box-shadow: 0px 0px 3px 0px #eeeeee;
+  display: none;
+}
+#menuIcon:checked + label + #menuList {
+  display: block;
 }
 #menuIcon:checked + label + #menuList > ul > li > a {
   color: #afafaf;
   text-decoration: none;
   font-size: 15px;
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 20px;
 }
 #menuIcon:checked + label + #menuList > ul > li > a:hover {
@@ -251,18 +302,24 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
   color: white;
 }
 .sideMenu {
-  font-size: 0px;
-  position: relative;
   background-color: white;
-  bottom: 600px;
   z-index: 99;
+  position: absolute;
+  width: 150px;
+  height: 515px;
+  top: 50px;
+  left: 150px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 3px 0px #eeeeee;
+  font-size: 15px;
+  display: none;
 }
 .sideMenu > ul > li > a {
   color: #afafaf;
   text-decoration: none;
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 20px;
 }
 .sideMenu > ul > li > a:hover {
@@ -310,9 +367,9 @@ input[id="menuIcon"]:checked + label > span:nth-child(3) {
 
 /* footer */
 footer {
-  /* width: 1280px; */
   height: 300px;
   background-color: ghostwhite;
+  margin-top: 100px;
 }
 #footer {
   width: 1280px;
@@ -332,7 +389,7 @@ footer {
   justify-content: space-evenly;
 }
 .member * {
-  text-decoration: none;
+  text-decoration: none !important;
   color: black;
   text-align: center;
   margin-bottom: 15px;
