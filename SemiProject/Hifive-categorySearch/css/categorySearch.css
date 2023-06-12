@@ -547,8 +547,8 @@
   outline: 2px solid #20c997;
 }
 
-#LocalCategory option {
-  margin-top: 5px;
+option {
+  padding: 21px;
 }
 .fa {
   font-family: FontAwesome !important;
