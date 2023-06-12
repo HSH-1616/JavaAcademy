@@ -60,16 +60,9 @@ img,
 svg {
   vertical-align: unset;
 }
+
 label {
   margin: 0px;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-size: initial;
 }
 
 #headerContainer {
@@ -146,6 +139,7 @@ section {
   border: none;
   background-color: #eeeeee;
   outline: none;
+  font-size: 15px;
 }
 .searchDetail > input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
