@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 public class Actor {
 	private String name;
 	private String phone;
@@ -19,4 +18,10 @@ public class Actor {
 	public String toString() {
 		return name+","+phone+","+profile;
 	}
+	
 }
+
+
+
+
+

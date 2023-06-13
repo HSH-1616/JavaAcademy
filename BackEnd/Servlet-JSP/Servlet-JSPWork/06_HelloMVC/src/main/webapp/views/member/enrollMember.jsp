@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/views/common/header.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ include file="/views/common/header.jsp"%>
 <section id="enroll-container">
 	<h2>회원 가입 정보 입력</h2>
-	<form action="<%=request.getContextPath() %>/member/enrollMemberEnd.do" method="post" 
-	>
+	<form action="<%=request.getContextPath()%>/member/enrollMemberEnd.do"
+		method="post">
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td>
-					<input type="text" placeholder="4글자이상" name="userId"
-					id="userId_">
-					<input type="button" onclick="fn_duplicateId();" value="중복확인">					
-				</td>
+				<td><input type="text" placeholder="4글자이상" name="userId"
+					id="userId_"> <input type="button"
+					onclick="fn_duplicateId();" value="중복확인"></td>
 			</tr>
 			<tr>
 				<th>패스워드</th>
@@ -54,33 +52,24 @@
 			</tr>
 			<tr>
 				<th>성별</th>
-				<td>
-					<input type="radio" name="gender" id="gender0" value="M"> <label
-					for="gender0">남</label> 
-					<input type="radio" name="gender" value="F"
-					id="gender1"> <label for="gender1">여</label>
-				</td>
+				<td><input type="radio" name="gender" id="gender0" value="M">
+					<label for="gender0">남</label> <input type="radio" name="gender"
+					value="F" id="gender1"> <label for="gender1">여</label></td>
 			</tr>
 			<tr>
 				<th>취미</th>
 				<td><input type="checkbox" name="hobby" id="hobby0" value="운동"><label
-					for="hobby0">운동</label> 
-					<input type="checkbox" name="hobby" value="등산"
-					id="hobby1"><label for="hobby1">등산</label> 
-					<input
+					for="hobby0">운동</label> <input type="checkbox" name="hobby"
+					value="등산" id="hobby1"><label for="hobby1">등산</label> <input
 					type="checkbox" name="hobby" id="hobby2" value="독서"><label
-					for="hobby2">독서</label><br /> 
-					<input type="checkbox" name="hobby" value="게임"
-					id="hobby3"><label for="hobby3">게임</label> 
-					<input
+					for="hobby2">독서</label><br /> <input type="checkbox" name="hobby"
+					value="게임" id="hobby3"><label for="hobby3">게임</label> <input
 					type="checkbox" name="hobby" id="hobby4" value="여행"><label
 					for="hobby4">여행</label><br /></td>
 			</tr>
 		</table>
-		<input type="submit" value="가입" 
-		onclick="return fn_validate2();"> 
-		<input type="reset"
-			value="취소">
+		<input type="submit" value="가입" onclick="return fn_validate2();">
+		<input type="reset" value="취소">
 	</form>
 </section>
 <script>
@@ -114,5 +103,36 @@
 			alert('아이디는 4글자이상 입력하세요!');	
 		}
 	}
+	
+	$("#userId_").keyup(e=>{
+		
+	}if(e.target.value.length>=4){
+		$.ajax({
+			url :"<%=request.getContextPath()%>/ajaxDuplicate.do",
+			data:{"userId":$(e.target).val()},
+			success:function(data){
+				console.log(data,typeof data);
+				let msg="";
+				if(data==='ture'){
+					msg=:"사용 가능한 아이디입니다.";
+					css={color:"green"};
+				}else{
+					msg=:"사용 불가능한 아이디입니다.";
+					css={color:"red"};
+				}
+				const tr=$("<tr>");
+				const td=$("<td colspan="2">").text(msg).css(css);
+				tr.append(td)
+				if($(e.target).parents("tr").next().find("input").length==0;){
+					$(e.target).parents("tr").next().remove();	
+				}
+				$(e.target).parents("tr").after(tr);
+				
+			}error:function(r,m){
+				console.log(r);
+				console.log(m);
+		})
+		}
+	})
 </script>
-<%@ include file="/views/common/footer.jsp" %>
+<%@ include file="/views/common/footer.jsp"%>
