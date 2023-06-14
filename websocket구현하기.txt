@@ -1,0 +1,38 @@
+websocket구현하기
+
+프론트 : js로설정
+WebSocket 클래스를 생성, WebSocket클래스에 정의된 속성을 설정
+new WebSocket("ws||wss://서버주소//맵핑주소");
+onopen : websocket이 서버와 연결된 후 자동으로 실행하는 함수 지정
+onmessage : 서버에서 메세지를 전송했을때 실행되는 함수 지정
+*서버에서 sendtext()메소드를 호출하면 실행됨.
+
+onclose : 서버와 연결이 끊어졌을때 실행되는 함수를 지정
+
+send()함수 : 원하는 데이터를 서버에 전송할때 사용하는 함수
+* js send를 호출하면 서버에 설정된 onMessage메소드가 실행됨.
+
+
+서버 : java class설정 -> @(어노테이션)을 이용해서 설정
+서버역할을 할 클래스 선언부에 @ServerEndpoint("주소")선언
+@ServerEndpoint("/test("매핑주소")
+public class 클래스명{}
+클래스내부의 멤버메소드 설정
+
+@OnOpen
+public void 메소드명(WebsocketSession session, EndpointConfig config){}
+: 클라이언트가 서버에 접속했을때 자동으로 실행되는 메소드, js에서 Websocket객체를 생성했을떄 실행이됨.
+
+@OnMessage
+public void 메소드명(WebsocketSession session,String data||Object data){}
+: 접속된 클라이언트가 메세지를 보냈을때 자동으로 실행되는 메소드, 
+js에서 websocket객체의 send()함수를 실행했을때...
+
+@OnClose
+public void 메소드명(WebsocketSession session,CloseReason reason){}
+: 클라이언트 접속이 끊어졌을때 자동으로 실행되는 메소드,
+
+WebSocketSession : websocket서버에 접속한 클라이언트를 관리하는 별도의 session값
+*HttpSession과 다름
+접속한 클라이언트의 정보를 가지고 있음, 접속한 클라이언트를 구분할수 있는 정보를 저장할수 있음
+접속한 클라이언트 마다 부여가됨.

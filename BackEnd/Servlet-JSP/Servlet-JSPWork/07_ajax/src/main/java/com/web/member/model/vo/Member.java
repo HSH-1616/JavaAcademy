@@ -1,6 +1,6 @@
 package com.web.member.model.vo;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
@@ -30,7 +30,7 @@ public class Member {
 	public String toString() {
 		return userId+"$"+userName+"$"+age+"$"+gender+"$"
 				+email+"$"+phone+"$"+address+"$"+Arrays.toString(hobby)
-				+"$"+new SimpleDateFormat("yyyy-mm-dd").format(enrollDate);
+				+"$"+new SimpleDateFormat("yyyy-MM-dd").format(enrollDate);
 	}
 }
 

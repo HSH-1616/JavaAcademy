@@ -20,7 +20,7 @@
 	<button id="gsonBtn">gsonTest</button>
 	<button id="jsonparse">test</button>
 	<script>
-	$("#jsonparse").click(e=>{
+	<%-- $("#jsonparse").click(e=>{
 		fetch("<%=request.getContextPath()%>/gsontest.do",
 				{method:"post",
 				 body:("data":JSON.stringify({"userId":"bsyoo","password":"1234","age":19,
@@ -30,13 +30,28 @@
 				.then(data=>{
 					console.log(data);		
 				});
-	})
+	}) --%>
 	
 	$("#gsonBtn").click(e=>{
-		$.get("<%=request.getContextPath()%>/gsontest.do",
+		<%-- $.get("<%=request.getContextPath()%>/gsontest.do",
 				data=>{
 					console.log(data);
-				})	
+				})	 --%>
+		$.post("<%=request.getContextPath()%>/gsontest.do",
+				{data:JSON.stringify({
+						userId:"bsyoo",
+						password:"1234",
+						userName:"유병승",
+						gender:'M',
+						age:19,
+						email:"afe@adf.com",
+						phone:"123",
+						address:"경기도시흥시",
+						enrollDate:"20230614"
+				})},
+				data=>{
+					
+				})
 	});	
 	
 		$("#jsonBtn").click(e=>{

@@ -1,0 +1,27 @@
+html,css=웹페이지 화면상
+js=웹페이지 이벤트 구현
+java=서버,데이터 연결 & 기능 구현
+oracle=데이터 베이스
+jsp=자바와 데이터 베이스 연결
+server=웹페이지 구동, 페이지간 연결(데이터)
+jsp=html내에 java구문 사용가능
+ajax=비동기 통신, 새로고침하지 않고 데이터 갱신
+json=데이터를 자바스크립트 보다 쉽게 처리 가능
+
+git=변경사항 추적,분산 버전 관리시스템
+
+1.자바 정리
+map,list,set,foreach,each
+
+2.oracle 정리
+
+3.jsp 정리
+
+4.js 정리
+jquery
+
+5.server 정리
+
+6.json 정리
+
+7.websocket 정리
