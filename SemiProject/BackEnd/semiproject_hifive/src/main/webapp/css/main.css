@@ -1,0 +1,66 @@
+section{
+    display: flex;
+    justify-content: center;
+    width: 1050px;
+}
+/* 이벤트 베너 부분 */
+.slideContainer {
+	width: 1000px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.slideTitle {
+    margin: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+.slide {
+    display: flex;
+    transition: all 1s;
+}
+/* 이미지 크기 */
+.slide li>img {
+    border-radius: 10px;
+    height: 500px;
+    width: 1000px;
+}
+div.btnContainer{
+    position : relative;;
+}
+/* 슬라이드 버튼 */
+.btn{
+    background-color: rgba(255, 255, 255, 0.329);
+    width: 50px;
+    height: 70px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 30px;
+}
+.prevBtn{
+    position: absolute;
+    top: 250px;
+    left : 40px; 
+}
+.nextBtn{
+    position: absolute;
+    top: 250px;
+    right: 40px;
+}
+
+/* 인기 카테고리 부분 */
+div.popularCategory{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+div.categoryIcon>*{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.categoryIcon>ion-icon{
+    height: 50px;
+    width: 50px;
+}
