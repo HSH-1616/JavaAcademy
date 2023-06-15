@@ -31,8 +31,9 @@ public class ProductPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Product테이블 데이터 가져오기
-		int id=2;
-		Product p=new ProductPageService().selectProduct(id);		
+		int id=4;
+		Product p=new ProductPageService().selectProduct(id);
+				
 		//데이터 저장
 		request.setAttribute("product",p);
 		//출력할 화면 선택

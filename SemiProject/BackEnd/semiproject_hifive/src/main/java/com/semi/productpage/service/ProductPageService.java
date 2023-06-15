@@ -18,4 +18,5 @@ public class ProductPageService {
 		close(conn);
 		return result;		
 	}
+	
 }

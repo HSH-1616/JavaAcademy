@@ -44,6 +44,7 @@ public class ProductDao {
 		}return p;
 		
 	}
+
 	
 	public static Product getProduct(ResultSet rs) throws SQLException{
 		return Product.builder()
@@ -56,8 +57,9 @@ public class ProductDao {
 				.registTime(rs.getDate("regist_time"))
 				.viewCount(rs.getInt("view_count"))
 				.explanation(rs.getString("explanation"))
-				.keyword(rs.getString("keyword"))
-				.categoryId(rs.getString("subcategory_id"))
+				.keyword(rs.getString("keyword")!=null?rs.getString("keyword").split(","):null)
+				.category(rs.getString("category_name"))
+				.subCategory(rs.getString("subcategory_name"))
 				.areaId(rs.getInt("goonguarea_id"))
 				.build();
 	}

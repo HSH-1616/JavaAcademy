@@ -27,5 +27,11 @@ $(document).ready(function () {
     $(this).height(this.scrollHeight);
   });
   $("#textContainer").find("textarea").keyup();
+
+  const price = $("#productPrice")
+    .html()
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  $("#productPrice").html(price);
 });
 //*댓글창*//

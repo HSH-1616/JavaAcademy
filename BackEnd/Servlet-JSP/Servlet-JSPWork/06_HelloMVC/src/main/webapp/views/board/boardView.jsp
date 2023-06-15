@@ -100,8 +100,7 @@ java.util.List,com.web.board.model.vo.BoardComment" %>
 					<%=bc.getBoardCommentContent() %>
 				</td>
 				<td>
-					<button class="btn-reply">답글</button>
-					
+					<button class="btn-reply">답글</button>					
 					<button class="btn-reply">수정</button>
 					<button class="btn-reply">삭제</button>
 				</td>
