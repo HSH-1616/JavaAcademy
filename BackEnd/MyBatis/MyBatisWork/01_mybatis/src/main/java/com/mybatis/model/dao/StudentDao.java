@@ -1,6 +1,7 @@
 package com.mybatis.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -49,6 +50,19 @@ public class StudentDao {
 		//selectOne()메소드를 이용해서 데이터를 조회할 수 있다.
 		List<Student> sa=session.selectList("student.selectStudentAll");
 		return sa;
+	}
+	
+	public List<Student> selectStudentByName(SqlSession session, String name){
+		List<Student> sn=session.selectList("student.selectStudentByName",name);
+		return sn;		
+	}
+	
+	public Map selectStudentMap(SqlSession session, int no) {
+		return session.selectOne("student.selectStudentMap",no);
+	}
+	
+	public List<Map> selectStudentMapAll(SqlSession session) {
+		return session.selectList("student.selectStudentMapAll");
 	}
 	
 }

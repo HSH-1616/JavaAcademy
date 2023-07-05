@@ -63,5 +63,18 @@
 	<h4> 
 		<a href="${path}/student/selectStudentAll.do">전체 학생 조회</a>
 	</h4>
+	
+	<h3>이름으로 조회하기</h3>
+	<form action="${path }/selectStudentByName.do" method="post">
+		<input type="text" name="name" placeholder="학생이름"><br>		
+		<input type="submit" value="저장"><br>		
+	</form>
+	
+	<h3>vo를 생성하지 않고 데이터 가져오기</h3>
+	<p>Map을 이용해서 데이터를 가져올 수 있다.</p>
+	<h4><a href="${path }/student/selectStudentMap?no=1">1번학생조회</a></h4>
+	<p>map으로 다수데이터 출력하기</p>
+	<h4><a href="${path }/student/selectStudentMapAll">전체 학생조회</a></h4>
+	
 </body>
 </html>

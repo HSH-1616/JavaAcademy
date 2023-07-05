@@ -89,5 +89,17 @@
 	<select id="selectStudentAll" resultMap="studentMap">
 		SELECT * FROM STUDENT
 	</select>
+	
+	<select id="selectStudentByName" resultMap="studentMap" parameterType="string">
+		SELECT * FROM STUDENT WHERE STUDENT_NAME LIKE '%'||#{name}||'%'
+	</select>
+
+	<select id="selectStudentMap" resultType="map" parameterType="_int">
+		SELECT * FROM STUDENT WHERE STUDENT_NO=#{no}
+	</select>
+	
+	<select id="selectStudentMapAll" resultType="map">
+		SELECT * FROM STUDENT
+	</select>
 
 </mapper>
