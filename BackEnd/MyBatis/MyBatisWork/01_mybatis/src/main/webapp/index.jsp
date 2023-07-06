@@ -76,5 +76,8 @@
 	<p>map으로 다수데이터 출력하기</p>
 	<h4><a href="${path }/student/selectStudentMapAll">전체 학생조회</a></h4>
 	
+	<p>마이바티스 페이징 처리</p>
+	<h4><a href="${path }/student/selectStudentPage">페이징 처리하기</a></h4>
+	
 </body>
 </html>

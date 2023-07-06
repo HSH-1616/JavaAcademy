@@ -1,16 +1,56 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-1891e898e62-7bf850968cd4e7fd": {
+		"oracle_thin-1891e8e7a77-2e87b43d8f65afdf": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "ORCL",
+			"name": "DBA",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "ORCL",
-				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\app\\User\\product\\18.0.0\\dbhomeXE",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-1891e8ee8a0-40a15c234baf1a42": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "mybatis",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "1521",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\app\\User\\product\\18.0.0\\dbhomeXE",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-18928c658d6-5e945812ec8b10ae": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "localhost",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "1521",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
 				"configurationType": "MANUAL",
 				"home": "C:\\app\\User\\product\\18.0.0\\dbhomeXE",
 				"type": "dev",

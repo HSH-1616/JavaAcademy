@@ -102,4 +102,9 @@
 		SELECT * FROM STUDENT
 	</select>
 
+	<select id="selectStudentPage" resultMap="studentMap">
+		<!-- SELECT * FROM (SELECT ROWNUM AS RNUM, S.* FROM()) -->
+		SELECT * FROM STUDENT
+	</select>
+
 </mapper>

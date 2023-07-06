@@ -10,5 +10,8 @@ create table student(
 create sequence seq_student;
 insert into student values (seq_student.nextval, '홍길동', '01012345678', 'honggd@google.com','서울시 강남구', default);
 
-SELECT * FROM student;
 SELECT * FROM user_sequences;
+
+SELECT * FROM employee;
+SELECT * FROM job;
+SELECT * FROM (SELECT E.*,decode(substr(emp_no,8,1),'1','M','2','F','3','M','4','F') AS gender FROM EMPLOYEE E) WHERE GENDER='F'; 
