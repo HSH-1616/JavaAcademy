@@ -1,0 +1,9 @@
+package com.bs.model.vo;
+
+public class BoardComment {
+	private int boardCommentNO;
+	private String boardCommentWriter;
+	private String boardCommentContent;
+	private Date boardCommentDate;
+	
+}

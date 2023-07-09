@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+
+
+
+	<resultMap id="boardMap" type="board">
+		<id property="boardNo" column="board_no" />
+		<result property="boardTitle" column="board_title" />		
+		<result property="boardContent" column="board_content" />
+		<result property="boardReadCount" column="board_readcount" />
+		<result property="boardDate" column="board_date" />	
+		<association property="boardWriter" resultMap="memberMap"/>
+		<collection property="comments" ofType="boardComment">
+			<id property="boardCommentNo" column="board_comment_no" />
+			<result property="boardCommentWriter" column="board_comment_writer" />
+			<result property="level" column="board_comment_level" />
+			<result property="boardRef" column="board_no" />
+			<result property="boardCommentDate" column="board_comment_date" />
+			<association property="boardCommentWriter" resultMap="memberMap"/>
+		</collection>	
+	</resultMap>
+	
+	<resultMap id="memberMap" type="member">
+		<id property="userId" column="userid" />
+		<result property="userName" column="username" />
+		<result property="email" column="email" />
+		<result property="hobby" column="hobby" typeHandler="strArrType"/>
+	</resultMap>
+	
+	<select id="memberList" resultType="map">
+		SELECT * FROM MEMBER
+	</select>
+	
+	<select id="selectBoard" resultMap="boardMap" parameterType="int">
+		SELECT * FROM BOARD 
+			LEFT JOIN BOARD_COMMENT ON BOARD_NO=BOARD_REF
+			JOIN MEMBER ON BOARD_WRITER=USERID 
+		WHERE BOARD_NO=#{no}
+	</select>
+</mapper>

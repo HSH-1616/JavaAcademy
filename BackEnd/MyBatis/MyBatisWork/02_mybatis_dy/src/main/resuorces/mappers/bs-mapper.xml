@@ -2,20 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="bs">
 	<resultMap id="bsMap" type="bs">
+		<!-- 
+			1:1관계 -> associaton 태그를 이용해서 연결
+			result태그의 마지막 사용
+			id태그가 설정되어 있어야한다.
+		-->
 		<id property="empId" column="emp_id" />
 		<result property="empName" column="emp_name" />
 		<result property="empNo" column="emp_no" />
-		<result property="deptCode" column="dept_code" />
+		<!-- <result property="deptCode" column="dept_code" /> -->
 		<result property="jobCode" column="job_code" />
 		<result property="salLevel" column="sal_level" />
 		<result property="managerId" column="manager_id" />
 		<result property="hireDate" column="hire_date" />
 		<result property="entDate" column="ent_date" />
 		<result property="entYn" column="ent_yn" />
+		<result property="salary" column="salary" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="bonus" column="bonus" />
+		<association property="dept" resultMap="departmentMap"/>				
 	</resultMap>
-
+	
+	<resultMap id="departmentMap" type="department">
+		<id property="deptId" column="dept_id"/>
+		<result property="deptTitle" column="dept_title"/>
+		<result property="locationId" column="location_id" />
+		<!-- 1대다 관계일때 -->
+		<collection property="employees" resultMap="bsMap" />
+	</resultMap>
+	
+	<select id="selectAllDept" resultMap="departmentMap">
+		SELECT * FROM DEPARTMENT LEFT JOIN EMPLOYEE ON DEPT_CODE=DEPT_ID
+	</select>
+	
 	<select id="selectBsAll" resultMap="bsMap">
-		SELECT * FROM EMPLOYEE
+		SELECT * FROM EMPLOYEE JOIN DEPARTMENT ON DEPT_CODE=DEPT_ID
 	</select>
 
 	<select id="selectBsCount" resultType="_int">

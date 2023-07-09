@@ -1,15 +1,17 @@
 package com.bs.model.service;
 
 import static com.bs.common.SessionTemplate.getSession;
+import static com.bs.common.SessionTemplate.getWebSession;
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.bs.model.dao.BsDao;
 import com.bs.model.dao.BsDaoImpl;
+import com.bs.model.vo.Board;
 import com.bs.model.vo.Bs;
+import com.bs.model.vo.Department;
 
 public class BsServiceImpl implements BsServiceInter {
 	private BsDaoImpl dao=new BsDaoImpl();
@@ -35,5 +37,22 @@ public class BsServiceImpl implements BsServiceInter {
 		session.close();
 		return list;
 	}
+	
+	@Override
+	public List<Department> selectAllDept() {
+		SqlSession session=getSession();		
+		List<Department> list=dao.selectAllDept(session);
+		session.close();
+		return list;
+	}
+	
+	@Override
+	public Board selectBoard(int no) {
+		SqlSession session=getWebSession();		
+		Board b=dao.selectBoard(session,no);
+		session.close();
+		return b;
+	}
+
 
 }

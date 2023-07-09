@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="Suggestion/NodeList/OracleTableColumn">
+		<column name="컬럼명" visible="true" order="0" width="8649"/>
+		<column name="#" visible="true" order="1" width="8557"/>
+		<column name="Type" visible="true" order="2" width="8662"/>
+		<column name="Type Mod" visible="false" order="3" width="100"/>
+		<column name="Not Null" visible="true" order="3" width="8597"/>
+		<column name="디폴트" visible="true" order="4" width="8605"/>
+		<column name="Comment" visible="true" order="5" width="8610"/>
+	</item>
+	<item id="scriptSelectorViewer">
+		<column name="Script" visible="true" order="0" width="521"/>
+		<column name="Time" visible="true" order="1" width="609"/>
+		<column name="Info" visible="true" order="2" width="445"/>
+		<column name="Folder" visible="true" order="3" width="464"/>
+	</item>
+</items>

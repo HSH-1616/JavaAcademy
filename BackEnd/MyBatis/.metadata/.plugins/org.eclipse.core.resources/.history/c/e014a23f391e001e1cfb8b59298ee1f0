@@ -1,0 +1,22 @@
+package com.bs.model.service;
+
+import static com.bs.common.SessionTemplate.getWebSession;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.bs.model.dao.MemberDaoImpl;
+import com.bs.model.vo.Member;
+
+public class MemberServiceImpl implements MemberService {
+	private MemberDaoImpl dao=new MemberDaoImpl();
+	@Override
+	public List<Member> memberBoardComment(int no) {
+		SqlSession session=getWebSession();
+		List<Member> list=dao.memberBoardComment(session,no);
+		session.close();
+		return list;
+	}
+
+}

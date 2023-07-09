@@ -22,4 +22,16 @@ public class SessionTemplate {
 		}
 		return session;
 	}
+
+	public static SqlSession getWebSession() {
+
+		SqlSession session = null;
+		String file = "bs-config.xml";
+		try (InputStream is = Resources.getResourceAsStream(file);) {
+			session = new SqlSessionFactoryBuilder().build(is, "web").openSession(false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return session;
+	}
 }

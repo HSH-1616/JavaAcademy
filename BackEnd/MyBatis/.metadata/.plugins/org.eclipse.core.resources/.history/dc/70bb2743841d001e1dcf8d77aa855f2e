@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="bs">
+	<resultMap id="bsMap" type="bs">
+		<id property="empId" column="emp_id" />
+		<result property="empName" column="emp_name" />
+		<result property="empNo" column="emp_no" />
+		<result property="deptCode" column="dept_code" />
+		<result property="jobCode" column="job_code" />
+		<result property="salLevel" column="sal_level" />
+		<result property="managerId" column="manager_id" />
+		<result property="hireDate" column="hire_date" />
+		<result property="entDate" column="ent_date" />
+		<result property="entYn" column="ent_yn" />
+	</resultMap>
+
+	<select id="selectBsAll" resultMap="bsMap">
+		SELECT * FROM EMPLOYEE
+	</select>
+
+	<select id="selectBsCount" resultType="_int">
+		SELECT COUNT(*) FROM
+		EMPLOYEE
+	</select>
+
+	<!-- 파라미터값을 가져올때 #{} : setType()값을 대입 -> 자료형에 맞는 리터럴을 대입 ->'emp_id' ${} 
+		: 문자열 처리하는 표현 -> emp_id -->
+	<select id="searchBs" resultMap="bsMap" parameterType="map">
+		SELECT *
+		FROM
+		(SELECT E.*,
+		DECODE(SUBSTR(EMP_NO,8,1),'1','M','2','F','3','M','4','F') AS
+		GENDER
+		FROM EMPLOYEE E)
+		WHERE 1=1
+		<!-- WHERE -->
+	<!-- <where> -->
+		<!-- <trim prefix="WHERE" prefixOverrides="AND|OR"> -->
+			<if test="keyword!=null and keyword!=''">
+				AND ${type} LIKE '%'||#{keyword}||'%'
+			</if>
+			<if test="gender!=null and gender!=''">
+				AND GENDER=#{gender}
+			</if>
+			
+			<if test="salary!=null and salary!='' and salFlag!=null and salFlag!='' ">
+			<choose>			
+			<when test="salFlag eq 'ge'" >
+			AND SALARY>=#{salary}
+			</when>
+			<otherwise>
+			AND SALARY <![CDATA[ <= ]]> #{salary}
+			</otherwise>
+			</choose>	
+			</if>
+			
+			<if test="deptCode!=null and deptCode !=''">
+				AND DEPT_CODE IN 
+				<!-- 
+					foreach문을 사용할수 있다.
+					속성
+					collection : 배열방식의 데이터
+					item : 배열의 데이터를 저장하는 변수명
+					open : 반복을 시작할때 출력할 값을 설정
+					close : 반복을 끝냈을때 출력할 값을 설정
+					separator : 반복할때마다 출력할 값을 설정
+					index : 배열의 인덱스번호를 저장하는 변수
+				 -->
+				<foreach collection="deptCode" open="(" close=")" separator="," item="d">
+					#{d}
+				</foreach>
+			</if>
+			
+			<if test="jobCode!=null and jobCode !=''">
+				AND JOB_CODE IN 				
+				<foreach collection="jobCode" open="(" close=")" separator="," item="j">
+					#{j}
+				</foreach>
+			</if>
+			<if test="enrollDate!=null and enrollDate !='' and dateFlag!=null and dateFlag!=''">
+				<choose>
+					<when test="dateFlag=='ge'">
+						AND HIRE_DATE >= #{enrollDate}
+					</when>
+					<otherwise>
+						AND HIRE_DATE &lt;= #{enrollDate}
+					</otherwise>
+				</choose>
+			</if>
+								
+			<!-- </trim> -->
+		<!-- </where> -->
+	</select>
+</mapper>

@@ -3,7 +3,9 @@ package com.bs.model.service;
 import java.util.List;
 import java.util.Map;
 
+import com.bs.model.vo.Board;
 import com.bs.model.vo.Bs;
+import com.bs.model.vo.Department;
 
 public interface BsServiceInter {
 	List<Bs> selectBsAll(int cPage, int numPerpage);
@@ -12,4 +14,7 @@ public interface BsServiceInter {
 	
 	List<Bs> searchBs(Map<String,Object> param);
 	
+	List<Department> selectAllDept();
+	
+	Board selectBoard(int no);
 }
