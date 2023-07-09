@@ -19,12 +19,23 @@ body {
 
 /* 헤더 네비게이션바 */
 .navbar {
-  background-color: black;
+  padding: 25px 0;
+  height: 100px;
+  transition: all 0.5s;
+}
+
+.navbar.drop {
+  background-color: #862b0d;
+  opacity: 80%;
+  padding: 12px 0;
+  height: 80px;
+  transition: all 0.5s;
 }
 .navbar > .container-fluid {
   justify-content: right;
 }
 
+/* 메인 배너 */
 #banner {
   width: 100%;
   height: 100vh;
@@ -56,4 +67,88 @@ body {
   font-size: 4rem;
   color: white;
   margin-top: 50px;
+}
+
+/* 두번째 배너 */
+
+#bannerTitle {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+#bannerTitle h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#bannerTitle h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 150px;
+  height: 3px;
+  background: #862b0d;
+  left: calc(50% - 75px);
+}
+
+#secondBanner {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+.bannerCard {
+  margin-top: 2rem;
+  box-sizing: border-box;
+  width: 40vw;
+  height: 20vw;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+}
+
+.blurImg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: all 0.7s;
+}
+
+.bannerCard {
+  background-image: url(https://rimage.gnst.jp/livejapan.com/public/article/detail/a/20/00/a2000479/img/basic/a2000479_main.jpg?20201224161228),
+    url(https://mblogthumb-phinf.pstatic.net/MjAxODA3MTNfMjMx/MDAxNTMxNDUzODE3Mzkw.eK-0AKGtStSpmXllW_DvlhUZXQXZxwoAr51C6wPQd2Qg.tS2UdOoFL1yiHgQSpJHmJLFu8e-YvwGxdagyTSDi18og.JPEG.jrkimceo/10-great-korean-dishes.jpg?type=w800);
+  background-size: 51% 100%, 51% 100%;
+  background-position: left, right;
+  background-repeat: no-repeat;
+}
+
+.bannerCard:last-child {
+  background-image: url(https://a.cdn-hotels.com/gdcs/production154/d970/090ffdbd-5b9c-4913-8bae-fe473cc7d4c9.jpg);
+  background-size: cover;
+}
+
+.bannerCard:hover {
+  transform: scale(1.05);
+  .blurImg:hover {
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.7s;
+  }
+}
+
+.bannerCard:active {
+  transform: scale(0.95) rotateZ(1.7deg);
 }
