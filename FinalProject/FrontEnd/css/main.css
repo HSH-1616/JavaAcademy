@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-family: "GmarketSansMedium" !important;
+}
+
+body {
+  height: 3000px;
+  background: url(/FinalProject/FrontEnd/image/background4.png) no-repeat center
+    fixed;
+  background-size: 100% 100vh;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.btn:hover {
+  background-color: transparent;
+}
+.btn:click {
+  background-color: transparent;
+}
+
+/* 헤더 네비게이션바 */
+.navbar {
+  padding: 25px 0;
+  height: 100px;
+  transition: all 0.5s;
+}
+
+.navbar.drop {
+  background-color: greenyellow;
+  opacity: 80%;
+  padding: 12px 0;
+  height: 80px;
+  transition: all 0.5s;
+}
+.navbar > .container-fluid {
+  justify-content: right;
+}
+
+/* 메인 배너 */
+#banner {
+  width: 100%;
+  height: 100vh;
+}
+
+#blurBanner {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#bannerImage {
+  width: 100vw;
+  height: 100vh;
+  background: url(https://images.unsplash.com/photo-1625495904740-08900faf23c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)
+    no-repeat center;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+#bannerText {
+  position: absolute;
+  left: 100px;
+  top: 260px;
+  z-index: 2;
+}
+
+#bannerText h1 {
+  font-size: 4rem;
+  color: white;
+  margin-top: 50px;
+}
+
+/* 두번째 배너 */
+
+#bannerTitle {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+#bannerTitle h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#bannerTitle h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 150px;
+  height: 3px;
+  background: #862b0d;
+  left: calc(50% - 75px);
+}
+
+#travelBanner {
+  display: flex;
+  margin-top: 5rem;
+  height: 600px;
+  background-image: url(/FinalProject/FrontEnd/image/travel5.jpg);
+  background-size: 100% 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#travelBanner h2 {
+  font-weight: bolder;
+  color: white;
+  font-size: 3rem;
+  position: relative;
+  /* left: 10rem;
+  top: 10rem; */
+}
+
+#travelImg img {
+  width: 20rem;
+  height: 20rem;
+}
+
+#hotelBanner {
+  display: flex;
+  height: 600px;
+  background-image: url(/FinalProject/FrontEnd/image/hotel2.jpg);
+  background-size: 100% 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#hotelBanner h2 {
+  font-weight: bolder;
+  color: gold;
+  font-size: 3rem;
+  position: relative;
+  /* left: 10rem;
+  top: 10rem; */
+}
+
+#travelMemory {
+  font-weight: bolder;
+}

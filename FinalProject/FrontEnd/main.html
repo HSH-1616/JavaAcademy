@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinalProject</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <header>
+    <div class="offcanvas offcanvas-start" id="demo">
+      <div class="offcanvas-header">
+        <h1 class="offcanvas-title">Heading</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Some text lorem ipsum.</p>
+        <p>Some text lorem ipsum.</p>
+        <p>Some text lorem ipsum.</p>
+        <button class="btn btn-secondary" type="button">A Button</button>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+      <ion-icon
+        name="menu"
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#demo"
+      ></ion-icon>
+
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#asd">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#service">Service</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <div id="banner">
+      <div id="bannerText">
+        <h1>Developers FinalProject</h1>
+        <h1>여행은 살아보는거야</h1>
+      </div>
+      <div id="bannerImage">
+        <div id="blurBanner"></div>
+      </div>
+    </div>
+    <div id="service"></div>
+    <div id="bannerTitle">
+      <h2>SERVICE</h2>
+    </div>
+    <div id="travelBanner">
+      <h2
+        data-aos="fade-right"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"
+      >
+        여행이 떠나고 싶을때<br />관광지,맛집 찾아보기
+      </h2>
+      <div
+        id="travelImg"
+        data-aos="zoom-in"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"
+      >
+        <img src="/FinalProject/FrontEnd/image/travel7.png" alt="" />
+      </div>
+    </div>
+    <div id="hotelBanner">
+      <div
+        id="travelImg"
+        data-aos="zoom-in"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"
+      >
+        <img src="/FinalProject/FrontEnd/image/travel7.png" alt="" />
+      </div>
+      <h2
+        data-aos="fade-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"
+      >
+        여행이 떠나고 싶을때<br />관광지,맛집 찾아보기
+      </h2>
+    </div>
+    <div id="travelMemory">
+      <h1>TO <span>TRAVEL</span> <br />IS <br />TO <span>LIVE</span></h1>
+    </div>
+    <script>
+      AOS.init();
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
