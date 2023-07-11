@@ -5,6 +5,21 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HANAMDAUM";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/HANAMDAUM.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
 
 * {
   margin: 0px;
@@ -13,13 +28,17 @@
   font-family: "GmarketSansMedium" !important;
 }
 
-body {
-  height: 3000px;
-  background: url(/FinalProject/FrontEnd/image/background4.png) no-repeat center
-    fixed;
-  background-size: 100% 100vh;
+section {
+  height: auto;
 }
 
+#headerLogo {
+  position: absolute;
+  width: 180px;
+  height: 90px;
+  /* bottom: -30px; */
+  left: 150px;
+}
 .btn {
   background-color: transparent;
   border: none;
@@ -35,62 +54,105 @@ body {
 }
 
 /* 헤더 네비게이션바 */
+
+.container-fluid {
+}
+
 .navbar {
+  display: block;
   padding: 25px 0;
   height: 100px;
   transition: all 0.5s;
 }
 
 .navbar.drop {
-  background-color: greenyellow;
-  opacity: 80%;
+  background-color: #7880b5;
+  /* opacity: 80%; */
   padding: 12px 0;
-  height: 80px;
+  height: 114px;
   transition: all 0.5s;
 }
 .navbar > .container-fluid {
-  justify-content: right;
+  justify-content: space-between;
+}
+#mainHeader {
+  display: flex;
+  justify-content: center;
 }
 
 /* 메인 배너 */
 #banner {
   width: 100%;
   height: 100vh;
+  background: url(/FinalProject/FrontEnd/image/background3.png) no-repeat center
+    fixed;
+  background-size: 100% 100%;
 }
 
 #blurBanner {
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 #bannerImage {
   width: 100vw;
   height: 100vh;
-  background: url(https://images.unsplash.com/photo-1625495904740-08900faf23c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)
-    no-repeat center;
+  background: url(/FinalProject/FrontEnd/image/banner2.jpg) no-repeat center;
   background-size: 100% 100%;
   position: relative;
 }
 
 #bannerText {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   position: absolute;
-  left: 100px;
+  /* left: 100px; */
   top: 260px;
   z-index: 2;
 }
 
 #bannerText h1 {
-  font-size: 4rem;
-  color: white;
+  font-family: "HANAMDAUM" !important;
+  font-size: 5rem;
+  color: #364b44;
+  color: #335;
   margin-top: 50px;
+  writing-mode: vertical-lr;
+  margin-left: 150px;
 }
 
+#bannerText h1 span {
+  font-family: "HANAMDAUM" !important;
+  position: relative;
+  left: 25px;
+}
+#bannerText div:last-child {
+  display: flex;
+  align-items: center;
+}
+#bannerText h2 {
+  font-family: "LINESeedKR-Bd" !important;
+  font-size: 5rem;
+  color: #364b44;
+  color: #335;
+  margin-right: 150px;
+}
+#bannerText h2 span {
+  font-family: "LINESeedKR-Bd" !important;
+  font-size: 6rem;
+}
 /* 두번째 배너 */
 
 #bannerTitle {
   text-align: center;
-  margin-top: 6rem;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+  color: #7880b5;
 }
 
 #bannerTitle h2 {
@@ -104,13 +166,14 @@ body {
   display: block;
   width: 150px;
   height: 3px;
-  background: #862b0d;
+  background: #7880b5;
   left: calc(50% - 75px);
+  margin-top: 15px;
 }
 
 #travelBanner {
   display: flex;
-  margin-top: 5rem;
+
   height: 600px;
   background-image: url(/FinalProject/FrontEnd/image/travel5.jpg);
   background-size: 100% 100%;
@@ -143,13 +206,273 @@ body {
 
 #hotelBanner h2 {
   font-weight: bolder;
-  color: gold;
+  color: white;
   font-size: 3rem;
   position: relative;
   /* left: 10rem;
   top: 10rem; */
 }
 
+.blurImage {
+  width: 100%;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+}
 #travelMemory {
+  background: url(/FinalProject/FrontEnd/image/memory.png);
+  background-size: 100% 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+#memoryText {
+  position: relative;
+  left: 300px;
+  top: 150px;
+  color: white;
+}
+
+#memoryText pre {
+  font-size: 1.5rem;
+  font-family: "LINESeedKR-Bd" !important;
+  color: #d4d3d3;
+  position: relative;
+  top: 20px;
+  right: 30px;
+}
+
+#memoryText h1 {
   font-weight: bolder;
+  font-family: "LINESeedKR-Bd" !important;
+  font-size: 4rem;
+}
+
+#memoryText h2 {
+  margin-top: 50px;
+  font-weight: bolder;
+  font-family: "LINESeedKR-Bd" !important;
+}
+#memoryText h2 > span {
+  margin-left: 100px;
+  font-weight: bolder;
+  font-family: "LINESeedKR-Bd" !important;
+}
+
+#memoryImg {
+  display: flex;
+  position: relative;
+  top: 100px;
+  right: 150px;
+}
+#memoryImg div img {
+  width: 240px;
+  height: 340px;
+  border: 6px solid white;
+}
+#memoryImg :first-child img {
+  position: relative;
+  top: 40px;
+  left: 15px;
+  transform: rotate(-15deg);
+  width: 200px;
+  height: 300px;
+  border: 6px solid white;
+}
+
+#memoryImg :last-child img {
+  position: relative;
+  top: 40px;
+  right: 20px;
+  transform: rotate(17deg);
+  width: 280px;
+  height: 380px;
+  border: 6px solid white;
+}
+
+#memoryImg div {
+  position: static;
+  z-index: 2;
+}
+
+.main-menu {
+  display: flex;
+}
+header .main-menu .item {
+}
+
+header .main-menu .item .item__name {
+  padding: 10px 20px 12px 20px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+header .main-menu .item:hover .item__name {
+  background-color: #eeeeee;
+  color: #7880b5;
+  border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents {
+  width: 100%;
+
+  position: fixed;
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #eeeeee;
+  height: 200px;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li {
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 1.5rem;
+  color: #7880b5;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+  padding: 5px 0;
+  font-size: 1rem;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
+  color: #7880b5;
+}
+.offcanvas-header {
+  justify-content: right;
+}
+#userProfile {
+  text-align: center;
+  background-color: #eeeeee;
+}
+#userProfile img {
+  width: 130px;
+  height: 130px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-top: 35px;
+}
+#userProfile p {
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
+#userProfile button {
+  position: relative;
+  bottom: 10px;
+  border: none;
+}
+#userProfile b {
+  position: relative;
+  bottom: 10px;
+}
+
+#userProfile b:nth-child(4) {
+  margin: 10px;
+}
+
+.cssbuttons-io-button {
+  background: #7880b5;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #7880b5;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7880b5;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7880b5;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+footer {
+  height: 370px;
+  background-color: #eeeeee;
+}
+
+#teamIntro {
+  background-color: #7880b5;
+  padding-top: 25px;
+  text-align: center;
+}
+#teamIntro img {
+  width: 200px;
+  margin-bottom: 10px;
+}
+#memberIntro {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.member * {
+  text-decoration: none !important;
+  color: black;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.member a > p:hover {
+  color: #7880b5;
+}
+.member > p {
+  font-weight: bold;
 }
