@@ -9,13 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Animal {
-	private String name;
-	private int age;
-	private double height;
-
-	public Animal(String name, int age) {
-		this.name = name;
-		this.age = age;
-	}
+public class Department {
+	private Long deptCode;
+	private String deptTitle;
+	private String deptLocation;
 }
